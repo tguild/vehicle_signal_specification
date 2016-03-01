@@ -20,7 +20,6 @@ The collection of signal specifications, or simply signals, are vendor
 independent. Vendor-specific extensions can be specified in a dediceated and
 uncontrolled branch of the signal specification tree. 
 
-
 The format of the directories and signal specification files is aimed
 at allowing easy, git-based management with branching, merging, and
 release.
@@ -29,8 +28,21 @@ A released signal specification can be used, together with tools in
 this repository, to automatically generate a number of different
 target specification formats, such as JSON, FrancaIDL, etc.
 
+The release management process will be driven in the context of GENIVI
+and its Remote Vehicle Interaction expert group.
 
 # SIGNAL DEFINITION
+
+A signal is a named entity, such as rpm, that at any time can have a
+value, such as 3400.
+
+Signals are organized into a tree such as outlined below.
+
+![Signal tree](https://github.com/PDXostc/vehicle_signal_interface/raw/master/pics/tree.png)
+
+
+Signal naming convention
+
 Node vs. tree
 What constitutes a signal
 Setter vs. Current signals
@@ -43,6 +55,8 @@ Interval
 ## ENTRY
 
 ## FILE
+
+## INCLUDE DIRECTIVES
 
 # TOOLS
 
