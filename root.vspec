@@ -1,0 +1,300 @@
+#include "vsi.txt"
+
+	
+{
+  "name": "extensions.vendor.jlr"
+  "type": "node"
+  "description": "Some description"
+}
+
+
+{
+  "name": "extensions.vendor.jlr.weirdo_struct"
+  "type": "node"
+  "description": "Some description"
+}
+
+{
+	"name": "extensions.vendor.jlr.weirdo_struct.member1"
+
+	"type": "Uint16",
+
+  	"type": {
+		"type": "Uint16",
+		"unit_type": "km/h",
+		"min": "1",
+		"max": "300"
+	}
+  }
+  "description": "Some description"
+}
+
+
+{
+	"name": "extensions.vendor.jlr.weirdo_struct.member2"
+	"type": "Uint16",
+	"description": "Some description"
+}
+
+{
+	"name": "extensions.vendor.jlr.seats"
+	"type": "node",
+	"description": "Test for arrays"
+}
+
+{
+	"name": "extensions.vendor.jlr.seats.0"
+	"type": "node",
+	"description": "Seat #0"
+}
+
+top.vsi
+
+#incude "something.vsi", "extensions.vendor.jlr"
+
+
+
+----
+something.vsi
+
+{
+	"name": "seats.0.position"
+  	"type": {
+		"type": "Uint16",
+		"unit_type": "percent",
+		"min": "0",
+		"max": "100"
+	}
+	"description": "0=max forward. 100=max backward"
+}
+
+{
+	"name": "seats.driver_seat.position"
+  	"type": {
+		"type": "alias",
+		"target": "extensions.vendor.jlr.seats.0.position"
+	}
+	"description": "0=max forward. 100=max backward"
+}
+
+vsb.h
+
+alias("ext.x.y.z", "ext.x.z.alias");
+
+
+
+
+extensions
+  vendor
+    jlr
+      weirdo_thing_1
+
+engine
+  ect
+  rpm
+  maf
+  eot...
+  
+
+transmission
+  gear
+  diff
+    1
+      temp
+      lock_level
+      ...
+  2wd
+  4wd
+  
+
+chassis
+  dampers
+  steering
+  brakes
+  tire_pressure
+  more??
+  
+body
+  wipers
+    level (off, auto, interval)
+    interval_level
+    washer_fluid
+    rain_sensor
+  
+  mirrors
+    left
+      dimming
+      heated
+    right
+      dimming
+         heated
+
+  lights
+    high_beam
+    low_beam 
+
+    running 
+      front
+      rear
+      side
+
+    parking_light
+    
+    daylight_running
+
+    parking
+    backup
+    brakes
+    fog
+      rear
+      front
+    turn_indicator
+    hazard
+    
+  doors
+    trunk
+    hood
+    row
+      1
+        left
+            open
+          lock
+
+        right
+          ..
+
+hmi
+  bt
+    phones...
+
+  media
+    audio
+    video
+    tuner      
+      am
+      fm
+      sirius
+    tv
+    cd
+    dvd
+    blueray
+    usb
+    bt_streaming
+   
+  nav
+    ...
+
+  wifi
+
+  internet
+    ip_address
+    link_type
+    ..      
+
+  telematics
+    ecall
+    bcall
+  
+  amplifier
+    balance
+    dolby...
+    
+    channel
+            
+
+  input
+    screen
+    key
+      hard
+      soft
+    voice
+    scratchpad
+    gesture
+
+  feature_select
+    ?????
+
+  sim_card?
+
+      
+    
+camera
+  internal
+  external
+  
+cabin
+  hvac
+    Well known
+
+  windows
+    global_up
+    global_down
+    front
+      locked
+      heated
+    rear
+      heated
+
+    row
+      1
+        position
+          1
+            window_position
+            one_shot_down
+            one_shot_down
+
+  blinds
+  sunroof
+  rearview_mirror
+    dimming
+      
+  seatbelts
+
+  home_link
+    button
+      1
+        pressed
+      2
+        pressed
+      3
+        pressed
+    
+  lights
+     interior
+      glove_box
+      trunk
+      dome
+      ambient_daylight_sensor
+      ambient
+        color
+        level
+      sunshade          
+
+    instrumentation 
+      level
+      color
+
+  seats
+    row
+      1 
+        position
+          1
+            belted
+             position
+            21 pos (including folding)
+            heat
+            headrest_position
+            massage
+            cooling
+            
+          2
+            ...
+      # Row 2
+      2
+        ...
+
+  
+ALIAS FILE
+     driver: alias cabin.seats.row.1.left
+     passenger: alias cabin.seats.row.1.right
+       
