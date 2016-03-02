@@ -72,8 +72,8 @@ values are of the same type as the signal itself.
 ## SIGNAL UNIT TYPE [OPTIONAL]
 A signal can optionally specify a unit type from the following set:
 
-Unit type  | Domain | Description       
------------|---------------------
+Unit type  | Domain | Description
+-----------|--------|-------------
 kph        | Speed       | Kilometers per hour
 celsius    | Temperature | Degrees celsius
 mbar       | Pressure    | millibar
@@ -84,7 +84,8 @@ lon        | position    | Decimal longitude
 millimeter | distance    | Millimeter
 meter      | distance    | Meter
 kilometer  | distance    | Kilometer
-[more to come] ||
+[more to come] | ... | ...
+
 
 ## SIGNAL NAMING CONVENTION
 Signals are named, left-to-right, from the root of the signal tree
