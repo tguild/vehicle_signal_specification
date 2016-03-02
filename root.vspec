@@ -69,6 +69,16 @@ something.vsi
 }
 
 {
+	"name": "seats.0.massage_level"
+  	"type": {
+		"type": "Uint16",
+		"unit_type": "percent",
+		"enum": [ 1,2,5,6,12]
+	}
+	"description": "0=max forward. 100=max backward"
+}
+
+{
 	"name": "seats.driver_seat.position"
   	"type": {
 		"type": "alias",
