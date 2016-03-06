@@ -154,9 +154,9 @@ A branch entry example is given below
 
 ```JSON
 {
-  "name": "body.door"
-  "type": "branch"
-  "aggregate": true
+  "name": "body.door",
+  "type": "branch",
+  "aggregate": true,
   "description": "Some description"
 }
 ```
@@ -185,33 +185,33 @@ Below is an example a complete specification describing a geospatial position.
 
 ```JSON
 {
-  "name": "nav"
-  "type": "branch"
+  "name": "nav",
+  "type": "branch",
   "description": "Navigitaional top-level branch."
 }
 
 {
-  "name": "nav.location"
-  "type": "branch"
-  "aggregate": true
+  "name": "nav.location",
+  "type": "branch",
+  "aggregate": true,
   "description": "The current location of the vehicle."
 }
 
 {
-  "name": "nav.location.lat"
-  "type": "Float"
+  "name": "nav.location.lat",
+  "type": "Float",
   "description": "Latitude."
 }
 
 {
-  "name": "nav.location.lon"
-  "type": "Float"
+  "name": "nav.location.lon",
+  "type": "Float",
   "description": "Latitude."
 }
 
 {
-  "name": "nav.location.alt"
-  "type": "Float"
+  "name": "nav.location.alt",
+  "type": "Float",
   "description": "Altitude."
 }
 ```
@@ -227,11 +227,11 @@ entry example is given below.
 
 ```JSON
 {
-	"name": "chassis.transmission.speed"
+	"name": "chassis.transmission.speed",
 	"type": "Uint16",
 	"unit": "km/h",
 	"min": "1",
-	"max": "300"
+	"max": "300",
 	"description": "The vehicle speed, as measured by the drivetrain."
 }
 ```
@@ -280,9 +280,9 @@ specified set of values. An example of an enumerated signal is given below.
 
 ```JSON
 {
-	"name": "chassis.transmission.gear"
+	"name": "chassis.transmission.gear",
 	"type": "Uint16",
-	"enum": [ -1, 1, 2, 3, 4, 5, 6, 7, 8 ]
+	"enum": [ -1, 1, 2, 3, 4, 5, 6, 7, 8 ],
 	"description": "The selected gear. -1 is reverse."
 }
 ```
