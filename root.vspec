@@ -3,14 +3,14 @@
 	
 {
   "name": "extensions.vendor.jlr"
-  "type": "node"
+  "type": "branch"
   "description": "Some description"
 }
 
 
 {
   "name": "extensions.vendor.jlr.weirdo_struct"
-  "type": "node"
+  "type": "branch"
   "description": "Some description"
 }
 
@@ -38,24 +38,23 @@
 
 {
 	"name": "extensions.vendor.jlr.seats"
-	"type": "node",
+	"type": "branch",
 	"description": "Test for arrays"
 }
 
 {
 	"name": "extensions.vendor.jlr.seats.0"
-	"type": "node",
+	"type": "branch",
 	"description": "Seat #0"
 }
 
-top.vsi
+---top.vsi---
 
 #incude "something.vsi", "extensions.vendor.jlr"
 
 
 
 ----
-something.vsi
 
 {
 	"name": "seats.0.position"
@@ -73,7 +72,7 @@ something.vsi
   	"type": {
 		"type": "Uint16",
 		"unit_type": "percent",
-		"enum": [ 1,2,5,6,12]
+		"enum": [ 1, 2, 5, 6, 12]
 	}
 	"description": "0=max forward. 100=max backward"
 }
@@ -134,7 +133,7 @@ body
   mirrors
     left
       dimming
-mmirrlef      heated
+      heated
     right
       dimming
          heated
