@@ -172,7 +172,6 @@ A branch entry example is given below
 }
 ```
 
-
 The following elements are defined:
 
 * **```name```**<br>
@@ -191,55 +190,6 @@ Defaults to ```false``` if not defined.
 * **```description```**<br>
 A description string to be included (when applicable) in the various
 specification files generated from this branch entry.
-
-
-## <a name="aggregate-branch"/>AGGREGATE BRAMCH
-A branch entry's ```aggregate``` set to ```true``` indicates that any
-updated signal hosted under the given branch should be distributed
-together with all other signals hosted under the same branch, even if
-the latter have not changed their values.
-
-This allows for records containing multiple signals to be distributed
-as an atomic unit by the Vehicle Signal Interface and other systems.
-
-Below is an example a complete specification describing a geospatial position.
-
-```
-{
-  "name": "nav",
-  "type": "branch",
-  "description": "Navigitaional top-level branch."
-}
-
-{
-  "name": "nav.location",
-  "type": "branch",
-  "aggregate": true,
-  "description": "The current location of the vehicle."
-}
-
-{
-  "name": "nav.location.lat",
-  "type": "Float",
-  "description": "Latitude."
-}
-
-{
-  "name": "nav.location.lon",
-  "type": "Float",
-  "description": "Latitude."
-}
-
-{
-  "name": "nav.location.alt",
-  "type": "Float",
-  "description": "Altitude."
-}
-```
-
-The ```nav.location``` branch's ```aggregate``` member indicates that
-if any of ```lat```, ```lon```, or ```alt``` are are assiged a new
-value, all three signals should be distrubuted as a single entity.
 
 
 ## SIGNAL ENTRY
@@ -295,7 +245,7 @@ A description string to be included (when applicable) in the various
 specification files generated from this signal entry.
 
 
-## ENUMERATED SIGNAL ENTIRES
+## ENUMERATED SIGNAL ENTRY
 A signal can optionally be enumerated, allowing it to be assigned a value from a
 specified set of values. An example of an enumerated signal is given below.
 
@@ -315,12 +265,62 @@ The ```enum``` element is an array of values, all of the type specified
 by ```type``` element, that the signal can be assigned.
 
 
+
+## <a name="aggregate-branch"/>AGGREGATE BRAMCH
+A branch entry's ```aggregate``` set to ```true``` indicates that any
+updated signal hosted under the given branch should be distributed
+together with all other signals hosted under the same branch, even if
+the latter have not changed their values.
+
+This allows for records containing multiple signals to be distributed
+as an atomic unit by the Vehicle Signal Interface and other systems.
+
+Below is an example a complete specification describing a geospatial position.
+
+```
+{
+  "name": "nav",
+  "type": "branch",
+  "description": "Navigitaional top-level branch."
+}
+
+{
+  "name": "nav.location",
+  "type": "branch",
+  "aggregate": true,
+  "description": "The current location of the vehicle."
+}
+
+{
+  "name": "nav.location.lat",
+  "type": "Float",
+  "description": "Latitude."
+}
+
+{
+  "name": "nav.location.lon",
+  "type": "Float",
+  "description": "Latitude."
+}
+
+{
+  "name": "nav.location.alt",
+  "type": "Float",
+  "description": "Altitude."
+}
+```
+
+The ```nav.location``` branch's ```aggregate``` member indicates that
+if any of ```lat```, ```lon```, or ```alt``` are are assiged a new
+value, all three signals should be distrubuted as a single entity.
+
+
 # VSPEC FILE FORMAT
 Apart from JSON objects, a vspec file can have two additional
 elements, comments and include directives, described below
 
 
-## COMMENTS.
+## COMMENT
 A comment starts with a ```#``` and extends to the end of the line.
 If a ```#``` is encountered as a part of a line, all characters
 after ```#``` are ignored.
@@ -341,7 +341,7 @@ Below is an example of a signal entry with comments.
 ```
 
 
-## INCLUDE DIRECTIVES
+## INCLUDE DIRECTIVE
 
 An include directive in a vspec file will read the file it refers to
 and insert it into the location of the directive. The included file
