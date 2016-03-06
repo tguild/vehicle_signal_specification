@@ -128,6 +128,11 @@ be included as well, as shown below:
 [Branch] body
 ```
 
+The branches do not have to be defined in any specific order as long
+as each branch component is defined somewhere in the vspec file (or an
+included vspec file).
+
+
 # SIGNAL SPECIFICATION FORMAT
 The signal specification is written in JSON format, where each signal
 is a self-contained JSON object.
@@ -304,7 +309,256 @@ A comment starts with a ```#``` and extends to the end of the line.
 If a ```#``` is encountered as a part of a line, all characters
 after ```#``` are ignored.
 
+
+Below is an example of a signal entry with comments.
+
+```JSON
+# This will be ignored
+{
+	"name": "chassis.transmission.speed",
+	"type": "Uint16", # This will also be ignored
+	"unit": "km/h",
+	"min": "1",
+	"max": "300",
+	"description": "The vehicle speed, as measured by the drivetrain."
+}
+```
+
+
 ## INCLUDE DIRECTIVES
+
+An include directive in a vspec file will read the file it refers to
+and insert it into the location of the directive. The included file
+will, in its turn, be scanned for include directives to be replaced,
+effectively forming a tree of included files.
+
+See below for an example of such a tree.
+
+**INSERT SCHEMATICS HERE**
+
+The include directive has the following format.
+
+    #include <filename>,[prefix]
+
+The ```<filename>``` part specifies the path, relative to the file with the ```#include``` directive, to the vspec file to replace the directive with. The filename is enclused in double quotes (```"```).
+
+The optional ```[prefix]``` specifies a branch name to be
+prepended to all signal entries in the included file. This allows a vspec file
+to be reused multiple times by different files, each file specifying their
+own branch to attach the inlcuded file to.
+
+An example of an include directive is given below.
+
+    #include "doors.vpsec","chassis.doors"
+
+The ```"doors.vspec"``` section specifies the file to include.
+
+The ```"chassis.doors"``` section specifies that all signal entries in
+```doors.vspec``` should have their names prefixed with ```chassis.doors```.
+
+
+If an included vspec file has branch or signal specifications that
+have already been defined prior to the included file, the new
+specifications in the included file will replace the previoius
+specifications.
+
+Below is an example of two files, ```root.vspec```, and ```doors.vspec```.
+
+
+```JSON
+#
+# root.vspec
+#
+{
+  "name": "chassis",
+  "type": "branch",
+  "description": "All things chassis."
+}
+
+{
+  "name": "chassis.doors",
+  "type": "branch",
+  "description": "All doors."
+}
+
+{
+  "name": "chassis.doors.left_front",
+  "type": "branch",
+  "description": "Left front door."
+}
+
+{
+  "name": "chassis.doors.right_front",
+  "type": "branch",
+  "description": "Right front door."
+}
+
+{
+  "name": "chassis.doors.left_rear",
+  "type": "branch",
+  "description": "Left rear door."
+}
+
+{
+  "name": "chassis.doors.right_rear",
+  "type": "branch",
+  "description": "Right rear door."
+}
+
+#
+# Include doors.vspec four times, once
+# for each door branch specified above.
+#
+
+#include "doors.vspec","chassis.doors.left_front"
+#include "doors.vspec","chassis.doors.right_front"
+#include "doors.vspec","chassis.doors.left_rear"
+#include "doors.vspec","chassis.doors.right_rear"
+```
+
+
+```JSON
+#
+# doors.vspec
+#
+{
+	"name": "lock",
+	"type": "Boolean",
+	"description": "Indicates if the door is locaked (true), or not (false)."
+}
+
+{
+	"name": "window_pos",
+	"type": "Uint8",
+	"unit": "percent",
+	"min": 0,
+	"max": 100,
+	"description": "Indicates the window position. 0 = closed. 100 = open"
+}
+```
+
+
+The two files above, once the ```#include``` directives have been
+processed, will have the following specification.
+
+```JSON
+{
+  "name": "chassis",
+  "type": "branch",
+  "description": "All things chassis."
+}
+
+{
+  "name": "chassis.doors",
+  "type": "branch",
+  "description": "All doors."
+}
+
+{
+  "name": "chassis.doors.left_front",
+  "type": "branch",
+  "description": "Left front door."
+}
+
+{
+  "name": "chassis.doors.right_front",
+  "type": "branch",
+  "description": "Right front door."
+}
+
+{
+  "name": "chassis.doors.left_rear",
+  "type": "branch",
+  "description": "Left rear door."
+}
+
+{
+  "name": "chassis.doors.right_rear",
+  "type": "branch",
+  "description": "Right rear door."
+}
+
+#
+# Include directive is replaced with file content and updated
+# signal names.
+#
+
+
+#
+# Left front door
+#
+{
+	"name": "chassis.doors.left_front.lock",
+	"type": "Boolean",
+	"description": "Indicates if the door is locaked (true), or not (false)."
+}
+
+{
+	"name": "chassis.doors.left_front.window_pos",
+	"type": "Uint8",
+	"unit": "percent",
+	"min": 0,
+	"max": 100,
+	"description": "Indicates the window position. 0 = closed. 100 = open"
+}
+
+#
+# Right front door
+#
+{
+	"name": "chassis.doors.right_front.lock",
+	"type": "Boolean",
+	"description": "Indicates if the door is locaked (true), or not (false)."
+}
+
+{
+	"name": "chassis.doors.right_front.window_pos",
+	"type": "Uint8",
+	"unit": "percent",
+	"min": 0,
+	"max": 100,
+	"description": "Indicates the window position. 0 = closed. 100 = open"
+}
+
+
+#
+# Left rear door
+#
+{
+	"name": "chassis.doors.left_rear.lock",
+	"type": "Boolean",
+	"description": "Indicates if the door is locaked (true), or not (false)."
+}
+
+{
+	"name": "chassis.doors.left_rear.window_pos",
+	"type": "Uint8",
+	"unit": "percent",
+	"min": 0,
+	"max": 100,
+	"description": "Indicates the window position. 0 = closed. 100 = open"
+}
+
+
+#
+# Right rear door
+#
+
+{
+	"name": "chassis.doors.right_rear.lock",
+	"type": "Boolean",
+	"description": "Indicates if the door is locaked (true), or not (false)."
+}
+
+{
+	"name": "chassis.doors.right_rear.window_pos",
+	"type": "Uint8",
+	"unit": "percent",
+	"min": 0,
+	"max": 100,
+	"description": "Indicates the window position. 0 = closed. 100 = open"
+}
+```
 
 # TOOLS
 
