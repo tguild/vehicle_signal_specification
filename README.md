@@ -185,12 +185,22 @@ opposed to a signal entry).
 
 * **```aggregate``` [optional]**<br>
 Defines if this branch is an aggreaget or not. See
-[aggregate](#aggregate) chapter for more information.<br>
+[aggregate branch](#aggregate-branch) chapter for more information.<br>
 Defaults to ```false``` if not defined.
 
 * **```description```**<br>
 A description string to be included (when applicable) in the various
 specification files generated from this branch entry.
+
+
+## <a name="aggregate-branch"/>AGGREGATE BRAMCH
+A branch entry's ```aggregate``` set to ```true``` indicates that any
+updated signal hosted under the given branch should be distributed
+together with all other signals hosted under the same branch, even if
+the latter have not changed their values.
+
+This allows for records containing multiple signals to be distributed
+as an atomic unit by the Vehicle Signal Interface and other systems.
 
 Below is an example a complete specification describing a geospatial position.
 
