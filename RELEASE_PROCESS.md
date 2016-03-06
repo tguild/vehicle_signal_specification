@@ -9,7 +9,7 @@ v2 (MPLv2). Click [here](https://www.mozilla.org/en-US/MPL/2.0/) for
 details.
 
 # RELEASE PROCESS
-This document describes the process creating a new version of the
+This document describes the process for creating a new version of the
 signal specification.
 
 The process, driven by the GENIVI Remote Vehicle Interaction Expert
@@ -25,7 +25,7 @@ list ```genivi-projects@lists.genivi.org```. Once the review process
 has concluded, the RVI EG decides if the pull request is to be
 accepted or not.
 
-A new signal specification release is created om a quarterly basis at
+A new signal specification release is created on a quarterly basis at
 the following dates: Jan 1, Apr 1, Jul 1, Oct 1.
 
 If no changes have been agreed upon since the last release of the
