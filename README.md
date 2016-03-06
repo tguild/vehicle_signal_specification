@@ -1,15 +1,11 @@
-(C) 2016 Jaguar Land Rover - All rights reserved.
+**(C) 2016 Jaguar Land Rover - All rights reserved.**<br>
 
 All documents in this repository are available under the Creative
-Commons Attribution 4.0 International (CC BY 4.0).
-
-Click [here](https://creativecommons.org/licenses/by/4.0/) for
-details.
-
+Commons Attribution 4.0 International (CC BY 4.0). Click
+[here](https://creativecommons.org/licenses/by/4.0/) for details.
 All code in this repository is available under Mozilla Public License
-v2 (MPLv2).
-
-Click [here](https://www.mozilla.org/en-US/MPL/2.0/) for details.
+v2 (MPLv2). Click [here](https://www.mozilla.org/en-US/MPL/2.0/) for
+details.
 
 # VEHICLE SIGNAL SPECIFICATION
 This repository specifies a set of vehicle signals that can be used in
@@ -22,11 +18,21 @@ uncontrolled branch of the signal specification tree.
 
 The format of the directories and signal specification files is aimed
 at allowing easy, git-based management with branching, merging, and
-release.
+release. With this in mind, the signal specification can be broken up
+into smaller files that can be edited and re-used while minimizing
+merge conflicts.
 
 A released signal specification can be used, together with tools in
 this repository, to automatically generate a number of different
-target specification formats, such as JSON, FrancaIDL, etc.
+target specification formats, such as JSON, FrancaIDL, markdown, etc.
+
+Below is a schematic showing the top-level provess.
+
+![Signal tree](pics/tools.png)<br>
+*Fig 1. Generating documents from specification*
+
+
+The tools are available in a separate [repository].(https://github.com/PDXostc/vehicle_signal_tools)
 
 The release management process will be driven in the context of GENIVI
 and its Remote Vehicle Interaction expert group.
@@ -40,7 +46,7 @@ value, such as 3400.
 Signals are organized into a tree such as outlined below.
 
 ![Signal tree](pics/tree.png)<br>
-*Fig 1. A signal tree example*
+*Fig 2. A signal tree example*
 
 ## <a name="signal-type"/>SIGNAL TYPE
 Each signal specifies a type from the following set (from FrancaIDL):
@@ -157,7 +163,7 @@ A branch entry describes a tree branch (or node) containing other branches and s
 
 A branch entry example is given below
 
-```JSON
+```
 {
   "name": "body.door",
   "type": "branch",
@@ -188,7 +194,7 @@ specification files generated from this branch entry.
 
 Below is an example a complete specification describing a geospatial position.
 
-```JSON
+```
 {
   "name": "nav",
   "type": "branch",
@@ -221,7 +227,7 @@ Below is an example a complete specification describing a geospatial position.
 }
 ```
 
-The ```nav.location``` branch's ```aggregate``` member indicaates that
+The ```nav.location``` branch's ```aggregate``` member indicates that
 if any of ```lat```, ```lon```, or ```alt``` are are assiged a new
 value, all three signals should be distrubuted as a single entity.
 
@@ -230,7 +236,7 @@ value, all three signals should be distrubuted as a single entity.
 A signal entry defines a single signal and its attributes. A signal
 entry example is given below.
 
-```JSON
+```
 {
 	"name": "chassis.transmission.speed",
 	"type": "Uint16",
@@ -253,7 +259,7 @@ value. See [signal type](#signal-type) chapter for a list of available types.
 The minimum value, within the interval of the given ```type```, that
 the signal can be assigned.<br>
 If set to ```false```, the minimum value will be the "Min" value for
-the given, as specified by the [signal type](#signal-type)
+the given type.
 chapter.<br>
 Default, if not specified, is ```false```.<br>
 Cannot be specified if ```enum``` is specified for the same signal entry.
@@ -262,7 +268,7 @@ Cannot be specified if ```enum``` is specified for the same signal entry.
 The max value, within the interval of the given ```type```, that the
 signal can be assigned.<br>
 If set to ```false```, the maximum value will be the "Max" value for
-the given, as specified by the [signal type](#signal-type)
+the given type.
 chapter.<br>
 Default, if not specified, is ```false```.<br>
 Cannot be specified if ```enum``` is specified for the same signal entry.
@@ -283,7 +289,7 @@ specification files generated from this signal entry.
 A signal can optionally be enumerated, allowing it to be assigned a value from a
 specified set of values. An example of an enumerated signal is given below.
 
-```JSON
+```
 {
 	"name": "chassis.transmission.gear",
 	"type": "Uint16",
@@ -312,7 +318,7 @@ after ```#``` are ignored.
 
 Below is an example of a signal entry with comments.
 
-```JSON
+```
 # This will be ignored
 {
 	"name": "chassis.transmission.speed",
@@ -351,10 +357,10 @@ An example of an include directive is given below.
 
     #include "doors.vpsec","chassis.doors"
 
-The ```"doors.vspec"``` section specifies the file to include.
+The ```"door.vspec"``` section specifies the file to include.
 
 The ```"chassis.doors"``` section specifies that all signal entries in
-```doors.vspec``` should have their names prefixed with ```chassis.doors```.
+```door.vspec``` should have their names prefixed with ```chassis.doors```.
 
 
 If an included vspec file has branch or signal specifications that
@@ -362,10 +368,10 @@ have already been defined prior to the included file, the new
 specifications in the included file will replace the previoius
 specifications.
 
-Below is an example of two files, ```root.vspec```, and ```doors.vspec```.
+Below is an example of two files, ```root.vspec```, and ```door.vspec```.
 
 
-```JSON
+```
 #
 # root.vspec
 #
@@ -406,20 +412,20 @@ Below is an example of two files, ```root.vspec```, and ```doors.vspec```.
 }
 
 #
-# Include doors.vspec four times, once
+# Include door.vspec four times, once
 # for each door branch specified above.
 #
 
-#include "doors.vspec","chassis.doors.left_front"
-#include "doors.vspec","chassis.doors.right_front"
-#include "doors.vspec","chassis.doors.left_rear"
-#include "doors.vspec","chassis.doors.right_rear"
+#include "door.vspec","chassis.doors.left_front"
+#include "door.vspec","chassis.doors.right_front"
+#include "door.vspec","chassis.doors.left_rear"
+#include "door.vspec","chassis.doors.right_rear"
 ```
 
 
-```JSON
+```
 #
-# doors.vspec
+# door.vspec
 #
 {
 	"name": "lock",
@@ -441,7 +447,7 @@ Below is an example of two files, ```root.vspec```, and ```doors.vspec```.
 The two files above, once the ```#include``` directives have been
 processed, will have the following specification.
 
-```JSON
+```
 {
   "name": "chassis",
   "type": "branch",
@@ -559,10 +565,3 @@ processed, will have the following specification.
 	"description": "Indicates the window position. 0 = closed. 100 = open"
 }
 ```
-
-# TOOLS
-
-# SPECIFICATION VERSIONING
-
-## BRANCHING
-## RELEASES
