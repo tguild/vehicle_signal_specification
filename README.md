@@ -1,9 +1,9 @@
 **(C) 2016 Jaguar Land Rover - All rights reserved.**<br>
 
-All documents in this repository are available under the Creative
+All documents in this repository are licensed under the Creative
 Commons Attribution 4.0 International (CC BY 4.0). Click
 [here](https://creativecommons.org/licenses/by/4.0/) for details.
-All code in this repository is available under Mozilla Public License
+All code in this repository is licensed under Mozilla Public License
 v2 (MPLv2). Click [here](https://www.mozilla.org/en-US/MPL/2.0/) for
 details.
 
@@ -52,8 +52,8 @@ Signals are organized into a tree such as outlined below.
 Each signal specifies a type from the following set (from FrancaIDL):
 
 Name       | Type                       | Min  | Max 
------------|----------------------------|------|---
-UInt8      | unsigned 8-bit integer     |0     | 255
+:----------|:---------------------------|:-----|:---
+UInt8      | unsigned 8-bit integer     | 0    | 255
 Int8       | signed 8-bit integer       | -128 | 127
 UInt16     | unsigned 16-bit integer    |  0   | 65535 
 Int16      | signed 16-bit integer      | -32768 | 32767
@@ -83,8 +83,8 @@ values are of the same type as the signal itself.
 ## <a name="signal-unit-of-measurment"/>SIGNAL UNIT OF MEASUREMENT [OPTIONAL]
 A signal can optionally specify a unit type from the following set:
 
-Unit type  | Domain | Description
------------|--------|-------------
+Unit type  | Domain      | Description
+:----------|:------------|:-------------
 kph        | Speed       | Kilometers per hour
 celsius    | Temperature | Degrees celsius
 mbar       | Pressure    | millibar
@@ -95,6 +95,10 @@ lon        | position    | Decimal longitude
 millimeter | distance    | Millimeter
 meter      | distance    | Meter
 kilometer  | distance    | Kilometer
+rpm        | frequeucy   | Rotations per minute.
+kw         | power       | Kilowatt
+kwh        | power       | Kilowatt hours
+gr/sec     | flow        | Grams per second
 [more to come] | ... | ...
 
 

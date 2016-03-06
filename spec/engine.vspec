@@ -1,0 +1,122 @@
+#
+# (C) 2016 Jaguar Land Rover - All rights reserved.
+#
+# All documents in this repository are licensed under the Creative
+# Commons Attribution 4.0 International (CC BY 4.0). 
+# See https://creativecommons.org/licenses/by/4.0/ for details.
+#
+
+#
+# ENGINE SPECIFICATION FILE
+#
+# This vehicle specification file, included by the top level
+# root.vspec file, contains all engine-based signals.
+#
+
+#
+# Engine rotations per minute
+#
+{
+	"name": "rpm",
+	"type": "Uint16",
+	"unit": "rpm",
+	"min": "0",
+	"max": "20000",
+	"description": "Engine speed, measured as rotations per minute."
+}
+
+#
+# Engine coolant temperature
+#
+{
+	"name": "ect",
+	"type": "Int16",
+	"unit": "celsius",
+	"min": "-50",
+	"max": "200",
+	"description": "Engine coolant temperature."
+}
+
+#
+# Engine Oil Temperature
+#
+{
+	"name": "eot",
+	"type": "Int16",
+	"unit": "celsius",
+	"min": "-50",
+	"max": "300",
+	"description": "Engine oil temperature."
+}
+
+#
+# Manifold Air Pressure
+#
+{
+	"name": "map",
+	"type": "Int16",
+	"unit": "mbar",
+	"min": "0",
+	"max": "10000",
+	"description": "Manifold air pressure, possibly boosted using forced induction."
+}
+
+#
+# Mass Air Flow
+#
+{
+	"name": "maf",
+	"type": "Int16",
+	"unit": "gr/sec",
+	"min": "0",
+	"max": "3000",
+	"description": "Grams of air drawn into engine per second."
+}
+
+#
+# Throttle Position
+#
+{
+	"name": "tps",
+	"type": "Int8",
+	"unit": "kw",
+	"min": "0",
+	"max": "100",
+	"description": "Current throttle position."
+}
+
+#
+# Engine Oil Pressure
+#
+{
+	"name": "eop",
+	"type": "Int16",
+	"unit": "mbar",
+	"min": "0",
+	"max": "10000",
+	"description": "Engine oil pressure."
+}
+
+#
+# Current Power
+#
+{
+	"name": "power",
+	"type": "Int16",
+	"unit": "kw",
+	"min": "0",
+	"max": "2000",
+	"description": "Current engine power output."
+}
+
+#
+# Current Torque 
+#
+{
+	"name": "torque",
+	"type": "Int16",
+	"unit": "nmx",
+	"min": "0",
+	"max": "3000",
+	"description": "Current engine torque."
+}
