@@ -32,7 +32,7 @@ Below is a schematic showing the top-level provess.
 *Fig 1. Generating documents from specification*
 
 
-The tools are available in a separate [repository].(https://github.com/PDXostc/vehicle_signal_tools)
+The tools are available in a separate [repository](https://github.com/PDXostc/vehicle_signal_tools)
 
 The release management process will be driven in the context of GENIVI
 and its Remote Vehicle Interaction expert group.
@@ -270,7 +270,7 @@ by ```type``` element, that the signal can be assigned.
 
 
 
-## <a name="aggregate-branch"/>AGGREGATE BRAMCH
+## <a name="aggregate-branch"/>AGGREGATE BRANCH
 A branch entry's ```aggregate``` set to ```true``` indicates that any
 updated signal hosted under the given branch should be distributed
 together with all other signals hosted under the same branch, even if
