@@ -12,8 +12,8 @@ This repository specifies a set of vehicle signals that can be used in
 automotive applications to communicate the state of various vehicle
 systems.
 
-The collection of signal specifications, or simply signals, are vendor
-independent. Vendor-specific extensions can be specified in a dediceated and
+The collection of signal specifications, or simply signals, is vendor
+independent. Vendor-specific extensions can be specified in a dedicated and
 uncontrolled branch of the signal specification tree. 
 
 The format of the directories and signal specification files is aimed
@@ -86,7 +86,7 @@ A signal can optionally specify a unit type from the following set:
 Unit type  | Domain      | Description
 :----------|:------------|:-------------
 kph        | Speed       | Kilometers per hour
-celsius    | Temperature | Degrees celsius
+celsius    | Temperature | Degrees Celsius
 mbar       | Pressure    | millibar
 percent    | Percent     | Percent
 hz         | frequency   | Frequency
@@ -104,7 +104,7 @@ gr/sec     | flow        | Grams per second
 
 ## SIGNAL NAMING CONVENTION
 Signals are named, left-to-right, from the root of the signal tree
-toward the signal itself. Each element in the name is deliniated with
+toward the signal itself. Each element in the name is delimited with
 a period (".") .
 
 In Fig 1 above the left mirror heated signal would be:
@@ -240,7 +240,7 @@ Cannot be specified if ```enum``` is specified for the same signal entry.
 
 * **```unit``` [optional]**<br>
 The unit of measurement that the signal has.e. See
-[signal unit of measurements](#signal-unit-of-measurment) chapter for
+[signal unit of measurements](#signal-unit-of-measurement) chapter for
 a list of available unit types.<br>
 Cannot be specified if ```enum``` is specified for the same signal entry.
 
@@ -285,7 +285,7 @@ Below is an example a complete specification describing a geospatial position.
 {
   "name": "nav",
   "type": "branch",
-  "description": "Navigitaional top-level branch."
+  "description": "Navigational top-level branch."
 }
 
 {
