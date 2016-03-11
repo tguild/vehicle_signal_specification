@@ -67,7 +67,7 @@
 {
 	"name": "maf",
 	"type": "Int16",
-	"unit": "gr/sec",
+	"unit": "g/s",
 	"min": "0",
 	"max": "3000",
 	"description": "Grams of air drawn into engine per second."
@@ -79,7 +79,7 @@
 {
 	"name": "tps",
 	"type": "Int8",
-	"unit": "kw",
+	"unit": "percent",
 	"min": "0",
 	"max": "100",
 	"description": "Current throttle position."
@@ -103,7 +103,7 @@
 {
 	"name": "power",
 	"type": "Int16",
-	"unit": "kw",
+	"unit": "kW",
 	"min": "0",
 	"max": "2000",
 	"description": "Current engine power output."
@@ -115,7 +115,7 @@
 {
 	"name": "torque",
 	"type": "Int16",
-	"unit": "nmx",
+	"unit": "Nm",
 	"min": "0",
 	"max": "3000",
 	"description": "Current engine torque."

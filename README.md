@@ -85,20 +85,30 @@ A signal can optionally specify a unit type from the following set:
 
 Unit type  | Domain      | Description
 :----------|:------------|:-------------
-kph        | Speed       | Kilometers per hour
+km/h       | Speed       | Kilometers per hour
 celsius    | Temperature | Degrees Celsius
 mbar       | Pressure    | millibar
-percent    | Percent     | Percent
-hz         | frequency   | Frequency
-lat        | position    | Decimal latitude 
-lon        | position    | Decimal longitude
-millimeter | distance    | Millimeter
-meter      | distance    | Meter
-kilometer  | distance    | Kilometer
-rpm        | frequeucy   | Rotations per minute.
-kw         | power       | Kilowatt
-kwh        | power       | Kilowatt hours
-gr/sec     | flow        | Grams per second
+percent    | Relation    | Percent
+lat        | Position    | Decimal latitude 
+lon        | Position    | Decimal longitude
+mm         | Distance    | Millimeter
+m          | Distance    | Meter
+km         | Distance    | Kilometer
+rpm        | Frequency   | Rotations per minute
+hz         | Frequency   | Frequency
+W          | Power       | Watt
+kW         | Power       | Kilowatt
+kwh        | Power       | Kilowatt hours
+ms         | Time        | Milliseconds
+s          | Time        | Seconds
+min        | Time        | Minutes
+h          | Time        | Hours
+g          | Weight      | Grams
+kg         | Weight      | Kilograms
+g/s        | Flow        | Grams per second
+m/s        | Acceleration| Acceleration in meters per second
+N          | Force       | Newton
+Nm         | Force       | Torque
 [more to come] | ... | ...
 
 
@@ -205,7 +215,7 @@ entry example is given below.
 	"name": "chassis.transmission.speed",
 	"type": "Uint16",
 	"unit": "km/h",
-	"min": "1",
+	"min": "-50",
 	"max": "300",
 	"description": "The vehicle speed, as measured by the drivetrain."
 }
