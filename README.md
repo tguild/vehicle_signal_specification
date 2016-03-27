@@ -254,10 +254,11 @@ specification files generated from this signal entry.
 A signal can optionally be enumerated, allowing it to be assigned a value from a
 specified set of values. An example of an enumerated signal is given below.
 
+
 ```YAML
 - chassis.transmission.gear:
 	type: Uint16,
-	enum: [ -1, 1, 2, 3, 4, 5, 6, 7, 8 ],
+	enum: [ -1, 1, 2, 3, 4, 5, 6, 7, 8 ]
 	description: The selected gear. -1 is reverse.
 ```
 
@@ -286,23 +287,23 @@ Below is an example a complete specification describing a geospatial position.
   description: Navigational top-level branch.
 
 
-- nav.location
+- nav.location:
   type: branch
   aggregate: true
   description: The current location of the vehicle.
 
 
-- nav.location.lat
+- nav.location.lat:
   type: Float
   description: Latitude.
 
 
-- nav.location.lon
+- nav.location.lon:
   type: Float
   description: Latitude.
 
 
-- nav.location.alt
+- nav.location.alt:
   type: Float
   description: Altitude.
 
@@ -370,22 +371,22 @@ Below is an example of two files, ```root.vspec```, and ```door.vspec```.
   description: All doors.
 
 
-- chassis.doors.left_front:
+- chassis.doors.front.left:
   type: branch
   description: Left front door.
 
 
-- chassis.doors.right_front:
+- chassis.doors.front.right:
   type: branch
   description: Right front door.
 
 
-- chassis.doors.left_rear:
+- chassis.doors.rear.left:
   type: branch
   description: Left rear door.
 
 
-- chassis.doors.right_rear:
+- chassis.doors.rear.right:
   type: branch
   description: Right rear door.
 
@@ -395,10 +396,10 @@ Below is an example of two files, ```root.vspec```, and ```door.vspec```.
 # for each door branch specified above.
 #
 
-#include door.vspec chassis.doors.left_front
-#include door.vspec chassis.doors.right_front
-#include door.vspec chassis.doors.left_rear
-#include door.vspec chassis.doors.right_rear
+#include door.vspec chassis.doors.front.left
+#include door.vspec chassis.doors.front.right
+#include door.vspec chassis.doors.rear.left
+#include door.vspec chassis.doors.rear.right
 ```
 
 
@@ -434,22 +435,22 @@ processed, will have the following specification.
   description: All doors.
 
 
-- chassis.doors.left_front:
+- chassis.doors.front.left:
   type: branch
   description: Left front door.
 
 
-- chassis.doors.right_front:
+- chassis.doors.front.right:
   type: branch
   description: Right front door.
 
 
-- chassis.doors.left_rear:
+- chassis.doors.rear.left:
   type: branch
   description: Left rear door.
 
 
-- chassis.doors.right_rear:
+- chassis.doors.rear.right:
   type: branch
   description: Right rear door.
 
@@ -463,12 +464,12 @@ processed, will have the following specification.
 #
 # Left front door
 #
-- chassis.doors.left_front.lock:
+- chassis.doors.front.left.lock:
   type: Boolean
   description: Indicates if the door is locaked (true), or not (false).
 
 
-- chassis.doors.left_front.window_pos:
+- chassis.doors.front.left.window_pos:
   type: Uint8
   unit: percent
   min: 0
@@ -479,12 +480,12 @@ processed, will have the following specification.
 #
 # Right front door
 #
-- chassis.doors.right_front.lock:
+- chassis.doors.front.right.lock:
   type: Boolean
   description: Indicates if the door is locaked (true), or not (false).
 
 
-- chassis.doors.right_front.window_pos:
+- chassis.doors.front.right.window_pos:
   type: Uint8
   unit: percent
   min: 0
@@ -496,12 +497,12 @@ processed, will have the following specification.
 #
 # Left rear door
 #
-- chassis.doors.left_rear.lock:
+- chassis.doors.rear.left.lock:
   type: Boolean
   description: Indicates if the door is locaked (true), or not (false).
 
 
-- chassis.doors.left_rear.window_pos:
+- chassis.doors.rear.left.window_pos:
   type: Uint8
   unit: percent
   min: 0
@@ -514,12 +515,12 @@ processed, will have the following specification.
 # Right rear door
 #
 
-- chassis.doors.right_rear.lock:
+- chassis.doors.rear.right.lock:
   type: Boolean
   description: Indicates if the door is locaked (true), or not (false).
 
 
-- chassis.doors.right_rear.window_pos:
+- chassis.doors.rear.right.window_pos:
   type: Uint8
   unit: percent
   min: 0
