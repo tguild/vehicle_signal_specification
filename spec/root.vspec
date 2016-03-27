@@ -20,36 +20,36 @@
 #
 # An uncontrolled private branch.
 #
-{
-	"name": "private",
-	"type": "branch",
-    "description": "Uncontrolled branch where non-public signals can be defined."
-}
+- private:
+  type: branch
+  description: Uncontrolled branch where non-public signals can be defined.
+
 
 #
 # The engine branch used to host the the signals in engine.vspec.
 #
-{
-	"name": "engine",
-	"type": "branch",
-    "description": "Engine-specific data, stopping at the bell housing."
-}
+- engine:
+  type: branch
+  description: Engine-specific data, stopping at the bell housing.
+
 
 # Include the engine.vspec file and attach all its signals under the engine
 # branch created above.
-#include "engine.vspec", "engine"
+
+#include engine.vspec engine
 
 #
 # The transmission branch used to host the the signals in transmission.vspec.
 #
-{
-	"name": "transmission",
-	"type": "branch",
-    "description": "Transmission-specific data, stopping at the drive shafts."
-}
+- transmission:
+  type: branch
+  description: Transmission-specific data, stopping at the drive shafts.
+
 
 # Include the transmission.vspec file and attach all its signals under the
 # transmission branch created above.
-#include "transmission.vspec", "transmission"
+#include transmission.vspec transmission
+
+
 
 

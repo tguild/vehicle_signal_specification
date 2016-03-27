@@ -16,44 +16,40 @@
 #
 # Current gear
 #
-{
-	"name": "gear",
-	"type": "UInt8",
-	"min": -1
-	"max": 16
-	"description": "Current gear. 0=Neutral. -1=Reverse"
-}
+- gear:
+  type: UInt8
+  min: -1
+  max: 16
+  description: Current gear. 0=Neutral. -1=Reverse
+
 
 #
 # Current mode
 #
-{
-	"name": "performance_mode",
-	"type": "string",
-	"enum": [ "normal", "sport", "economy", "snow", "rain" ],
-	"description": "Current gearbox performance mode. "
-}
+- performance_mode:
+  type: string
+  enum: [ normal, sport, economy, snow, rain ]
+  description: Current gearbox performance mode. 
+
 
 #
 # Current gearchange mode
 #
-{
-	"name": "gearchange_mode",
-	"type": "string",
-	"enum": [ "manual", "automatic" ],
-	"description": "Is the gearbox in automatic or manual (paddle) mode. "
-}
+- gearchange_mode:
+  type: string
+  enum: [ manual, automatic ]
+  description: Is the gearbox in automatic or manual (paddle) mode. 
+
 
 #
 # Gearbox temperature
 #
-{
-	"name": "temperature",
-	"type": Int16,
-	"min": -50,
-	"max": 200,
-	"unit": "celsius",
-	"description": "The current gearbox temperature
-}
+- temperature:
+  type: Int16
+  min: -50
+  max: 200
+  unit: celsius
+  description: The current gearbox temperature
+
 
 
