@@ -37,6 +37,22 @@ The tools are available in a separate [repository](https://github.com/PDXostc/ve
 The release management process will be driven in the context of GENIVI
 and its Remote Vehicle Interaction expert group.
 
+# QUICK START - CREATE JSON VEHICLE SIGNAL SPECIFICATION
+The directory that this repository (Vehicle Signal Specification) is checked out to
+will be refered to as $VSS_DIR
+
+In a separate directory, check out the Vehicle Signal Tools repo:
+
+    git clone https://github.com/PDXostc/vehicle_signal_tools.git 
+
+The directory that the repo above is checked out into will be refered to as $VST_DIR
+
+Convert the VSS source code to a JSON spec:
+
+    cd $VSS_DIR
+    $VST_DIR/vspec2json.py -I ./spec ./spec/root.vspec
+
+A JSON representaion of the Vehicle Signal Specification will be printed.
 
 # SIGNAL DEFINITION
 
