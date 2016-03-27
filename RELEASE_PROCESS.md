@@ -25,14 +25,20 @@ list ```genivi-projects@lists.genivi.org```. Once the review process
 has concluded, the RVI EG decides if the pull request is to be
 accepted or not.
 
-A new signal specification release is created on a quarterly basis at
-the following dates: Jan 1, Apr 1, Jul 1, Oct 1.
+A new signal specification release is created by an RVI weekly meeting decision
+where at least 50% of the present vote for a new release.
 
-If no changes have been agreed upon since the last release of the
-specification, the release is skipped and no new version is created.
+Each release is incrementally numbered, starting with 1.
 
-A new release is made by merging the develop branch into master, and
-then create a master branch tag named after the release
-date such as ```rel_2016-04-01```.
+A release is tagged in git with the tag
+
+    ver_[n]
+
+where [n] is the release number.
+
+
+
+
+
 
 
