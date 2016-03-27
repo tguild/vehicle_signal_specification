@@ -144,47 +144,40 @@ included vspec file).
 
 
 # SIGNAL SPECIFICATION FORMAT
-The signal specification is written in JSON format, where each signal
-is a self-contained JSON object.
+The signal specification is written as a flat YAML list, where each signal and branch
+is a self-contained YAML list element
 
-One or more JSON objects are aggregated into a single file, called a
-*vspec* file.
+The YAML list is a single file, called a *vspec* file.
 
-A vspec can, in addition to JSON objects, also contain comments and
-include directives.
+A vspec can, in addition to a YAML list, also contain include directives.
 
 An include directive refers to another vspec file that is to replace
-the directive, much like ```#include``` in C/C++.
-
-The schematics below shows an example of a top-level
-file ```root.vspec``` that includes two other
-files, ```body.vspec``` and ```chassis.vspec```. In
-its turn ```chassis.vspec``` includes ```brakes.vspec```
-
+the directive, much like ```#include``` in C/C++. Please note that,
+from a YAML perspective, the include directive is just another
+comment.
 
 ## <a name="branch-entry"/>BRANCH ENTRY
 A branch entry describes a tree branch (or node) containing other branches and signals.
 
 A branch entry example is given below
 
-```
-{
-  "name": "body.door",
-  "type": "branch",
-  "aggregate": true,
-  "description": "Some description"
-}
+```YAML
+- body.door:
+  type: branch
+  aggregate: true
+  description: Some description
 ```
 
 The following elements are defined:
 
-* **```name```**<br>
-Defines the dot-notaded signal name to the signal. Please note that
+* **```body.door```**<br>
+The list element name defines dot-notaded signal name to the signal. Please note that
 all parental branches included in the name must be defined as well.
 
 * **```type```**<br>
 The value ```branch``` specifies that this is a branch entry (as
-opposed to a signal entry).
+opposed to a signal entry). This is the default, in case ```type``` is omitted.
+
 
 * **```aggregate``` [optional]**<br>
 Defines if this branch is an aggreaget or not. See
@@ -200,19 +193,17 @@ specification files generated from this branch entry.
 A signal entry defines a single signal and its attributes. A signal
 entry example is given below.
 
-```
-{
-	"name": "chassis.transmission.speed",
-	"type": "Uint16",
-	"unit": "km/h",
-	"min": "1",
-	"max": "300",
-	"description": "The vehicle speed, as measured by the drivetrain."
-}
+```YAML
+- chassis.transmission.speed:
+	type: Uint16
+	unit: km/h
+	min: 1
+	max: 300
+	description: The vehicle speed, as measured by the drivetrain.
 ```
 
-* **```name```**<br>
-Defines the dot-notaded signal name to the signal. Please note that
+* **```chassis.transmissionspeed```**<br>
+Defines the dot-notaded signal name of the signal. Please note that
 all parental branches included in the name must be defined as well.
 
 * **```type```**<br>
@@ -225,13 +216,13 @@ the signal can be assigned.<br>
 If set to ```false```, the minimum value will be the "Min" value for
 the given type.
 chapter.<br>
-Default, if not specified, is ```false```.<br>
+Default, if not specified, is ```null```.<br>
 Cannot be specified if ```enum``` is specified for the same signal entry.
 
 * **```max``` [optional]**<br>
 The max value, within the interval of the given ```type```, that the
 signal can be assigned.<br>
-If set to ```false```, the maximum value will be the "Max" value for
+If set to ```null```, the maximum value will be the "Max" value for
 the given type.
 chapter.<br>
 Default, if not specified, is ```false```.<br>
@@ -239,7 +230,7 @@ Cannot be specified if ```enum``` is specified for the same signal entry.
 
 
 * **```unit``` [optional]**<br>
-The unit of measurement that the signal has.e. See
+The unit of measurement that the signal has. See
 [signal unit of measurements](#signal-unit-of-measurement) chapter for
 a list of available unit types.<br>
 Cannot be specified if ```enum``` is specified for the same signal entry.
@@ -253,13 +244,11 @@ specification files generated from this signal entry.
 A signal can optionally be enumerated, allowing it to be assigned a value from a
 specified set of values. An example of an enumerated signal is given below.
 
-```
-{
-	"name": "chassis.transmission.gear",
-	"type": "Uint16",
-	"enum": [ -1, 1, 2, 3, 4, 5, 6, 7, 8 ],
-	"description": "The selected gear. -1 is reverse."
-}
+```YAML
+- chassis.transmission.gear:
+	type: Uint16,
+	enum: [ -1, 1, 2, 3, 4, 5, 6, 7, 8 ],
+	description: The selected gear. -1 is reverse.
 ```
 
 An enumerated signal entry has no ```min```, ```max```, or ```unit```
@@ -281,37 +270,32 @@ as an atomic unit by the Vehicle Signal Interface and other systems.
 
 Below is an example a complete specification describing a geospatial position.
 
-```
-{
-  "name": "nav",
-  "type": "branch",
-  "description": "Navigational top-level branch."
-}
+```YAML
+- nav:
+  type: branch
+  description: Navigational top-level branch.
 
-{
-  "name": "nav.location",
-  "type": "branch",
-  "aggregate": true,
-  "description": "The current location of the vehicle."
-}
 
-{
-  "name": "nav.location.lat",
-  "type": "Float",
-  "description": "Latitude."
-}
+- nav.location
+  type: branch
+  aggregate: true
+  description: The current location of the vehicle.
 
-{
-  "name": "nav.location.lon",
-  "type": "Float",
-  "description": "Latitude."
-}
 
-{
-  "name": "nav.location.alt",
-  "type": "Float",
-  "description": "Altitude."
-}
+- nav.location.lat
+  type: Float
+  description: Latitude.
+
+
+- nav.location.lon
+  type: Float
+  description: Latitude.
+
+
+- nav.location.alt
+  type: Float
+  description: Altitude.
+
 ```
 
 The ```nav.location``` branch's ```aggregate``` member indicates that
@@ -320,30 +304,7 @@ value, all three signals should be distrubuted as a single entity.
 
 
 # VSPEC FILE FORMAT
-Apart from JSON objects, a vspec file can have two additional
-elements, comments and include directives, described below
-
-
-## COMMENT
-A comment starts with a ```#``` and extends to the end of the line.
-If a ```#``` is encountered as a part of a line, all characters
-after ```#``` are ignored.
-
-
-Below is an example of a signal entry with comments.
-
-```
-# This will be ignored
-{
-	"name": "chassis.transmission.speed",
-	"type": "Uint16", # This will also be ignored
-	"unit": "km/h",
-	"min": "1",
-	"max": "300",
-	"description": "The vehicle speed, as measured by the drivetrain."
-}
-```
-
+Apart from YANL objects, a vspec file can have include diretives, described below
 
 ## INCLUDE DIRECTIVE
 
@@ -358,9 +319,9 @@ See below for an example of such a tree.
 
 The include directive has the following format.
 
-    #include <filename>,[prefix]
+    #include <filename> [prefix]
 
-The ```<filename>``` part specifies the path, relative to the file with the ```#include``` directive, to the vspec file to replace the directive with. The filename is enclused in double quotes (```"```).
+The ```<filename>``` part specifies the path, relative to the file with the ```#include``` directive, to the vspec file to replace the directive with. 
 
 The optional ```[prefix]``` specifies a branch name to be
 prepended to all signal entries in the included file. This allows a vspec file
@@ -369,7 +330,7 @@ own branch to attach the inlcuded file to.
 
 An example of an include directive is given below.
 
-    #include "doors.vpsec","chassis.doors"
+    #include doors.vpsec chassis.doors
 
 The ```"door.vspec"``` section specifies the file to include.
 
@@ -385,118 +346,103 @@ specifications.
 Below is an example of two files, ```root.vspec```, and ```door.vspec```.
 
 
-```
+```YAML
 #
 # root.vspec
 #
-{
-  "name": "chassis",
-  "type": "branch",
-  "description": "All things chassis."
-}
+- chassis:
+  type: branch
+  description: All things chassis.
 
-{
-  "name": "chassis.doors",
-  "type": "branch",
-  "description": "All doors."
-}
 
-{
-  "name": "chassis.doors.left_front",
-  "type": "branch",
-  "description": "Left front door."
-}
+- chassis.doors:
+  type: branch
+  description: All doors.
 
-{
-  "name": "chassis.doors.right_front",
-  "type": "branch",
-  "description": "Right front door."
-}
 
-{
-  "name": "chassis.doors.left_rear",
-  "type": "branch",
-  "description": "Left rear door."
-}
+- chassis.doors.left_front:
+  type: branch
+  description: Left front door.
 
-{
-  "name": "chassis.doors.right_rear",
-  "type": "branch",
-  "description": "Right rear door."
-}
+
+- chassis.doors.right_front:
+  type: branch
+  description: Right front door.
+
+
+- chassis.doors.left_rear:
+  type: branch
+  description: Left rear door.
+
+
+- chassis.doors.right_rear:
+  type: branch
+  description: Right rear door.
+
 
 #
 # Include door.vspec four times, once
 # for each door branch specified above.
 #
 
-#include "door.vspec","chassis.doors.left_front"
-#include "door.vspec","chassis.doors.right_front"
-#include "door.vspec","chassis.doors.left_rear"
-#include "door.vspec","chassis.doors.right_rear"
+#include door.vspec chassis.doors.left_front
+#include door.vspec chassis.doors.right_front
+#include door.vspec chassis.doors.left_rear
+#include door.vspec chassis.doors.right_rear
 ```
 
 
-```
+```YAML
 #
 # door.vspec
 #
-{
-	"name": "lock",
-	"type": "Boolean",
-	"description": "Indicates if the door is locaked (true), or not (false)."
-}
+- lock:
+  type: Boolean
+  description: Indicates if the door is locaked (true), or not (false).
 
-{
-	"name": "window_pos",
-	"type": "Uint8",
-	"unit": "percent",
-	"min": 0,
-	"max": 100,
-	"description": "Indicates the window position. 0 = closed. 100 = open"
-}
+
+- window_pos:
+  type: Uint8
+  unit: percent
+  min: 0
+  max: 100
+  description: Indicates the window position. 0 = closed. 100 = open
 ```
 
 
 The two files above, once the ```#include``` directives have been
 processed, will have the following specification.
 
-```
-{
-  "name": "chassis",
-  "type": "branch",
-  "description": "All things chassis."
-}
+```YAML
+- chassis:
+  type: branch
+  description: All things chassis.
 
-{
-  "name": "chassis.doors",
-  "type": "branch",
-  "description": "All doors."
-}
 
-{
-  "name": "chassis.doors.left_front",
-  "type": "branch",
-  "description": "Left front door."
-}
+- chassis.doors:
+  type: branch
+  description: All doors.
 
-{
-  "name": "chassis.doors.right_front",
-  "type": "branch",
-  "description": "Right front door."
-}
 
-{
-  "name": "chassis.doors.left_rear",
-  "type": "branch",
-  "description": "Left rear door."
-}
+- chassis.doors.left_front:
+  type: branch
+  description: Left front door.
 
-{
-  "name": "chassis.doors.right_rear",
-  "type": "branch",
-  "description": "Right rear door."
-}
+
+- chassis.doors.right_front:
+  type: branch
+  description: Right front door.
+
+
+- chassis.doors.left_rear:
+  type: branch
+  description: Left rear door.
+
+
+- chassis.doors.right_rear:
+  type: branch
+  description: Right rear door.
+
 
 #
 # Include directive is replaced with file content and updated
@@ -507,75 +453,66 @@ processed, will have the following specification.
 #
 # Left front door
 #
-{
-	"name": "chassis.doors.left_front.lock",
-	"type": "Boolean",
-	"description": "Indicates if the door is locaked (true), or not (false)."
-}
+- chassis.doors.left_front.lock:
+  type: Boolean
+  description: Indicates if the door is locaked (true), or not (false).
 
-{
-	"name": "chassis.doors.left_front.window_pos",
-	"type": "Uint8",
-	"unit": "percent",
-	"min": 0,
-	"max": 100,
-	"description": "Indicates the window position. 0 = closed. 100 = open"
-}
+
+- chassis.doors.left_front.window_pos:
+  type: Uint8
+  unit: percent
+  min: 0
+  max: 100
+  description: Indicates the window position. 0 = closed. 100 = open
+
 
 #
 # Right front door
 #
-{
-	"name": "chassis.doors.right_front.lock",
-	"type": "Boolean",
-	"description": "Indicates if the door is locaked (true), or not (false)."
-}
+- chassis.doors.right_front.lock:
+  type: Boolean
+  description: Indicates if the door is locaked (true), or not (false).
 
-{
-	"name": "chassis.doors.right_front.window_pos",
-	"type": "Uint8",
-	"unit": "percent",
-	"min": 0,
-	"max": 100,
-	"description": "Indicates the window position. 0 = closed. 100 = open"
-}
+
+- chassis.doors.right_front.window_pos:
+  type: Uint8
+  unit: percent
+  min: 0
+  max: 100
+  description: Indicates the window position. 0 = closed. 100 = open
+
 
 
 #
 # Left rear door
 #
-{
-	"name": "chassis.doors.left_rear.lock",
-	"type": "Boolean",
-	"description": "Indicates if the door is locaked (true), or not (false)."
-}
+- chassis.doors.left_rear.lock:
+  type: Boolean
+  description: Indicates if the door is locaked (true), or not (false).
 
-{
-	"name": "chassis.doors.left_rear.window_pos",
-	"type": "Uint8",
-	"unit": "percent",
-	"min": 0,
-	"max": 100,
-	"description": "Indicates the window position. 0 = closed. 100 = open"
-}
+
+- chassis.doors.left_rear.window_pos:
+  type: Uint8
+  unit: percent
+  min: 0
+  max: 100
+  description: Indicates the window position. 0 = closed. 100 = open
+
 
 
 #
 # Right rear door
 #
 
-{
-	"name": "chassis.doors.right_rear.lock",
-	"type": "Boolean",
-	"description": "Indicates if the door is locaked (true), or not (false)."
-}
+- chassis.doors.right_rear.lock:
+  type: Boolean
+  description: Indicates if the door is locaked (true), or not (false).
 
-{
-	"name": "chassis.doors.right_rear.window_pos",
-	"type": "Uint8",
-	"unit": "percent",
-	"min": 0,
-	"max": 100,
-	"description": "Indicates the window position. 0 = closed. 100 = open"
-}
+
+- chassis.doors.right_rear.window_pos:
+  type: Uint8
+  unit: percent
+  min: 0
+  max: 100
+  description: Indicates the window position. 0 = closed. 100 = open
 ```
