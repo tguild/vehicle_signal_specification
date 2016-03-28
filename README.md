@@ -12,6 +12,11 @@ This repository specifies a set of vehicle signals that can be used in
 automotive applications to communicate the state of various vehicle
 systems.
 
+A standardized vehicle signal specification allows for indiustry actor
+to use a common naming space for communicating vehicle state and,
+ultimately, allows the decoupling of the IVI stack from the underlying
+vehicle electrical architecture.
+
 The collection of signal specifications, or simply signals, is vendor
 independent. Vendor-specific extensions can be specified in a dedicated and
 uncontrolled branch of the signal specification tree. 
@@ -38,21 +43,26 @@ The release management process will be driven in the context of GENIVI
 and its Remote Vehicle Interaction expert group.
 
 # QUICK START - CREATE JSON VEHICLE SIGNAL SPECIFICATION
-The directory that this repository (Vehicle Signal Specification) is checked out to
-will be refered to as $VSS_DIR
 
-In a separate directory, check out the Vehicle Signal Tools repo:
+Make sure that you have the python YAML parser, PyYAML, installed.
 
-    git clone https://github.com/PDXostc/vehicle_signal_tools.git 
+## INSTALL PYTHON YAML PARSER
+On ubuntu:
 
-The directory that the repo above is checked out into will be refered to as $VST_DIR
+    sudo apt-get install python-yaml
 
-Convert the VSS source code to a JSON spec:
+On non-ubuntu systems, install from:
 
-    cd $VSS_DIR
-    $VST_DIR/vspec2json.py -I ./spec ./spec/root.vspec
+    http://pyyaml.org/wiki/PyYAML
 
-A JSON representaion of the Vehicle Signal Specification will be printed.
+
+## RUN MAKE
+
+    make
+
+The result will be stored in ```vss_$VERSION.json```, 
+where ```$VERSION``` is the content of the ```VERSION``` file.
+
 
 # SIGNAL DEFINITION
 
