@@ -42,17 +42,17 @@ The tools are available in a separate [repository](https://github.com/PDXostc/ve
 The release management process will be driven in the context of GENIVI
 and its Remote Vehicle Interaction expert group.
 
-# QUICK START - SEE CURRENT JSON VEHICLE SIGNAL SPECIFICATION The JSON
+# BROWSE JSON VEHICLE SIGNAL SPECIFICATION
 variant of the vehicle signal specification is checked in 
 as ```vss_$VERSION.json```, where ```$VERSION``` is the content of
 the ```VERSION``` file.
 
 A web-based JSON viewer can be used to view the current version.
 
-Click [here](http://www.jsoneditoronline.org/?url=https://raw.githubusercontent.com/PDXostc/vehicle_signal_specification/develop/vss_rel_1.json)
+Click **[here](http://www.jsoneditoronline.org/?url=https://raw.githubusercontent.com/PDXostc/vehicle_signal_specification/develop/vss_rel_1.json)**
 
 
-# QUICK START - CREATE JSON VEHICLE SIGNAL SPECIFICATION
+# CREATE JSON VEHICLE SIGNAL SPECIFICATION
 
 Make sure that you have the python YAML parser, PyYAML, installed.
 
