@@ -50,6 +50,19 @@
 # transmission branch created above.
 #include transmission.vspec transmission
 
+#
+# The transmission branch used to host the the signals in transmission.vspec.
+#
+
+- body:
+  type: branch
+  description: All body components
+
+
+# Include the transmission.vspec file and attach all its signals under the
+# transmission branch created above.
+#include body/body.vspec body
+
 
 
 

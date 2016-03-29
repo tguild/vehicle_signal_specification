@@ -1,0 +1,33 @@
+# (C) 2016 Jaguar Land Rover - All rights reserved.
+#
+# All documents in this repository are licensed under the Creative
+# Commons Attribution 4.0 International (CC BY 4.0). 
+# See https://creativecommons.org/licenses/by/4.0/ for details.
+#
+
+#
+# Definition of a single door
+#
+- open:
+  type: Boolean
+  description: Is door open or closed
+
+- locked:
+  type: Boolean
+  description: Is door locked or unlocked. True = Locked. False = Unlocked.
+
+- window_position:
+  type: Uint8
+  min: 0
+  max: 100
+  description: Window position. 0 = Fully closed 100 = Fully opened.
+
+- child_lock:
+  type: Boolean
+  description: Is door child lock engaged. True = Engaged. False = Disengaged.
+
+- curtain_position:
+  type: UInt8
+  min: 0
+  max: 100
+  description: Position of curtain. 0 = Fully retracted. 100 = Fully deployed.

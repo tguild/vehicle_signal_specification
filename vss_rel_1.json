@@ -106,6 +106,306 @@
       }
     }
   }, 
+  "body": {
+    "description": "All body components", 
+    "type": "branch", 
+    "children": {
+      "door": {
+        "description": "All doors, hoods, and trunks. Doors are numbered by row [0..3] and left/right.", 
+        "type": "branch", 
+        "children": {
+          "1": {
+            "description": "Second row doors.", 
+            "children": {
+              "right": {
+                "description": "Right second row door.", 
+                "type": "branch", 
+                "children": {
+                  "locked": {
+                    "description": "Is door locked or unlocked. True = Locked. False = Unlocked.", 
+                    "type": "Boolean"
+                  }, 
+                  "curtain_position": {
+                    "type": "UInt8", 
+                    "description": "Position of curtain. 0 = Fully retracted. 100 = Fully deployed.", 
+                    "min": 0, 
+                    "max": 100
+                  }, 
+                  "open": {
+                    "description": "Is door open or closed", 
+                    "type": "Boolean"
+                  }, 
+                  "window_position": {
+                    "type": "Uint8", 
+                    "description": "Window position. 0 = Fully closed 100 = Fully opened.", 
+                    "min": 0, 
+                    "max": 100
+                  }, 
+                  "child_lock": {
+                    "description": "Is door child lock engaged. True = Engaged. False = Disengaged.", 
+                    "type": "Boolean"
+                  }
+                }
+              }, 
+              "left": {
+                "description": "Left second row door.", 
+                "type": "branch", 
+                "children": {
+                  "locked": {
+                    "description": "Is door locked or unlocked. True = Locked. False = Unlocked.", 
+                    "type": "Boolean"
+                  }, 
+                  "curtain_position": {
+                    "type": "UInt8", 
+                    "description": "Position of curtain. 0 = Fully retracted. 100 = Fully deployed.", 
+                    "min": 0, 
+                    "max": 100
+                  }, 
+                  "open": {
+                    "description": "Is door open or closed", 
+                    "type": "Boolean"
+                  }, 
+                  "window_position": {
+                    "type": "Uint8", 
+                    "description": "Window position. 0 = Fully closed 100 = Fully opened.", 
+                    "min": 0, 
+                    "max": 100
+                  }, 
+                  "child_lock": {
+                    "description": "Is door child lock engaged. True = Engaged. False = Disengaged.", 
+                    "type": "Boolean"
+                  }
+                }
+              }
+            }, 
+            "type": "branch"
+          }, 
+          "0": {
+            "description": "The front row doors.", 
+            "type": "branch", 
+            "children": {
+              "right": {
+                "description": "Right front door.", 
+                "type": "branch", 
+                "children": {
+                  "locked": {
+                    "description": "Is door locked or unlocked. True = Locked. False = Unlocked.", 
+                    "type": "Boolean"
+                  }, 
+                  "curtain_position": {
+                    "type": "UInt8", 
+                    "description": "Position of curtain. 0 = Fully retracted. 100 = Fully deployed.", 
+                    "min": 0, 
+                    "max": 100
+                  }, 
+                  "open": {
+                    "description": "Is door open or closed", 
+                    "type": "Boolean"
+                  }, 
+                  "window_position": {
+                    "type": "Uint8", 
+                    "description": "Window position. 0 = Fully closed 100 = Fully opened.", 
+                    "min": 0, 
+                    "max": 100
+                  }, 
+                  "child_lock": {
+                    "description": "Is door child lock engaged. True = Engaged. False = Disengaged.", 
+                    "type": "Boolean"
+                  }
+                }
+              }, 
+              "left": {
+                "description": "Left front door.", 
+                "type": "branch", 
+                "children": {
+                  "locked": {
+                    "description": "Is door locked or unlocked. True = Locked. False = Unlocked.", 
+                    "type": "Boolean"
+                  }, 
+                  "curtain_position": {
+                    "type": "UInt8", 
+                    "description": "Position of curtain. 0 = Fully retracted. 100 = Fully deployed.", 
+                    "min": 0, 
+                    "max": 100
+                  }, 
+                  "open": {
+                    "description": "Is door open or closed", 
+                    "type": "Boolean"
+                  }, 
+                  "window_position": {
+                    "type": "Uint8", 
+                    "description": "Window position. 0 = Fully closed 100 = Fully opened.", 
+                    "min": 0, 
+                    "max": 100
+                  }, 
+                  "child_lock": {
+                    "description": "Is door child lock engaged. True = Engaged. False = Disengaged.", 
+                    "type": "Boolean"
+                  }
+                }
+              }
+            }
+          }, 
+          "3": {
+            "description": "Fourth row doors.", 
+            "type": "branch", 
+            "children": {
+              "right": {
+                "type": "branch", 
+                "children": {
+                  "locked": {
+                    "description": "Is door locked or unlocked. True = Locked. False = Unlocked.", 
+                    "type": "Boolean"
+                  }, 
+                  "curtain_position": {
+                    "type": "UInt8", 
+                    "description": "Position of curtain. 0 = Fully retracted. 100 = Fully deployed.", 
+                    "min": 0, 
+                    "max": 100
+                  }, 
+                  "open": {
+                    "description": "Is door open or closed", 
+                    "type": "Boolean"
+                  }, 
+                  "window_position": {
+                    "type": "Uint8", 
+                    "description": "Window position. 0 = Fully closed 100 = Fully opened.", 
+                    "min": 0, 
+                    "max": 100
+                  }, 
+                  "child_lock": {
+                    "description": "Is door child lock engaged. True = Engaged. False = Disengaged.", 
+                    "type": "Boolean"
+                  }
+                }, 
+                "description": "Right fourth row door."
+              }, 
+              "left": {
+                "description": "Left fourth row door.", 
+                "type": "branch", 
+                "children": {
+                  "locked": {
+                    "description": "Is door locked or unlocked. True = Locked. False = Unlocked.", 
+                    "type": "Boolean"
+                  }, 
+                  "curtain_position": {
+                    "type": "UInt8", 
+                    "description": "Position of curtain. 0 = Fully retracted. 100 = Fully deployed.", 
+                    "min": 0, 
+                    "max": 100
+                  }, 
+                  "open": {
+                    "description": "Is door open or closed", 
+                    "type": "Boolean"
+                  }, 
+                  "window_position": {
+                    "type": "Uint8", 
+                    "description": "Window position. 0 = Fully closed 100 = Fully opened.", 
+                    "min": 0, 
+                    "max": 100
+                  }, 
+                  "child_lock": {
+                    "description": "Is door child lock engaged. True = Engaged. False = Disengaged.", 
+                    "type": "Boolean"
+                  }
+                }
+              }
+            }
+          }, 
+          "2": {
+            "description": "Third row doors.", 
+            "type": "branch", 
+            "children": {
+              "right": {
+                "description": "Right third row door.", 
+                "type": "branch", 
+                "children": {
+                  "locked": {
+                    "description": "Is door locked or unlocked. True = Locked. False = Unlocked.", 
+                    "type": "Boolean"
+                  }, 
+                  "curtain_position": {
+                    "type": "UInt8", 
+                    "description": "Position of curtain. 0 = Fully retracted. 100 = Fully deployed.", 
+                    "min": 0, 
+                    "max": 100
+                  }, 
+                  "open": {
+                    "description": "Is door open or closed", 
+                    "type": "Boolean"
+                  }, 
+                  "window_position": {
+                    "type": "Uint8", 
+                    "description": "Window position. 0 = Fully closed 100 = Fully opened.", 
+                    "min": 0, 
+                    "max": 100
+                  }, 
+                  "child_lock": {
+                    "description": "Is door child lock engaged. True = Engaged. False = Disengaged.", 
+                    "type": "Boolean"
+                  }
+                }
+              }, 
+              "left": {
+                "description": "Left third row door.", 
+                "type": "branch", 
+                "children": {
+                  "locked": {
+                    "description": "Is door locked or unlocked. True = Locked. False = Unlocked.", 
+                    "type": "Boolean"
+                  }, 
+                  "curtain_position": {
+                    "type": "UInt8", 
+                    "description": "Position of curtain. 0 = Fully retracted. 100 = Fully deployed.", 
+                    "min": 0, 
+                    "max": 100
+                  }, 
+                  "open": {
+                    "description": "Is door open or closed", 
+                    "type": "Boolean"
+                  }, 
+                  "window_position": {
+                    "type": "Uint8", 
+                    "description": "Window position. 0 = Fully closed 100 = Fully opened.", 
+                    "min": 0, 
+                    "max": 100
+                  }, 
+                  "child_lock": {
+                    "description": "Is door child lock engaged. True = Engaged. False = Disengaged.", 
+                    "type": "Boolean"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }, 
+      "hood": {
+        "description": "Hood status", 
+        "type": "branch", 
+        "children": {
+          "open": {
+            "description": "hood open or closed. True = Open. False = Closed", 
+            "type": "Boolean"
+          }
+        }
+      }, 
+      "trunk": {
+        "description": "Trunk status", 
+        "type": "branch", 
+        "children": {
+          "locked": {
+            "description": "Is trunk locked or unlocked. True = Locked. False = Unlocked.", 
+            "type": "Boolean"
+          }, 
+          "open": {
+            "description": "Trunk open or closed. True = Open. False = Closed", 
+            "type": "Boolean"
+          }
+        }
+      }
+    }
+  }, 
   "private": {
     "description": "Uncontrolled branch where non-public signals can be defined.", 
     "type": "branch", 
