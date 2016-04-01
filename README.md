@@ -37,7 +37,7 @@ Below is a schematic showing the top-level provess.
 *Fig 1. Generating documents from specification*
 
 
-The tools are available in a separate [repository](https://github.com/PDXostc/vehicle_signal_tools)
+The tools are available under the ```tools``` directory.
 
 The release management process will be driven in the context of GENIVI
 and its Remote Vehicle Interaction expert group.
@@ -379,9 +379,9 @@ An example of an include directive is given below.
 
     #include doors.vpsec chassis.doors
 
-The ```"door.vspec"``` section specifies the file to include.
+The ```door.vspec``` section specifies the file to include.
 
-The ```"chassis.doors"``` section specifies that all signal entries in
+The ```chassis.doors``` section specifies that all signal entries in
 ```door.vspec``` should have their names prefixed with ```chassis.doors```.
 
 
