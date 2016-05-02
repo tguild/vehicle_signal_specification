@@ -1,0 +1,59 @@
+# (C) 2016 Jaguar Land Rover - All rights reserved.
+#
+# All documents in this repository are licensed under the Creative
+# Commons Attribution 4.0 International (CC BY 4.0). 
+# See https://creativecommons.org/licenses/by/4.0/ for details.
+#
+
+#
+# Definition of a single door
+#
+- IsOpen:
+  type: Boolean
+  description: Is door open or closed
+
+- IsLocked:
+  type: Boolean
+  description: Is door locked or unlocked. True = Locked. False = Unlocked.
+
+
+#
+# Window description
+#
+- Window:
+  type: Branch
+  description: Door window status
+
+- Window.Position:
+  type: Uint8
+  min: 0
+  max: 100
+  description: Window position. 0 = Fully closed 100 = Fully opened.
+
+
+# Include the window controlling button and attach it to the
+# window branch
+
+#include SingleSliderButton.vspec Window
+
+
+#
+# Child lock active for door
+#
+
+- IsChildLockActive:
+  type: Boolean
+  description: Is door child lock engaged. Trnue = Engaged. False = Disengaged.
+
+#
+# Window shade / curtain status
+#
+- Shade:
+  type: branch
+  description: Side window shade
+
+# Include the standard shade definition used by sunroof
+# and rear shade.
+
+#include SingleShade.vspec Shade
+

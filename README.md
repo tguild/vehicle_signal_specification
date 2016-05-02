@@ -74,17 +74,24 @@ The result will be stored in ```vss_$VERSION.json```,
 where ```$VERSION``` is the content of the ```VERSION``` file.
 
 
-# SIGNAL DEFINITION
-
-A signal is a named entity, such as rpm, that at any time can have a
-value, such as 3400.
-
-Signals are organized into a tree such as outlined below.
+# SIGNAL, BRANCH, AND ATTRIBUTE DEFINITION
+Signals, branches, and attributes are are organized into a tree such
+as outlined below.
 
 ![Signal tree](pics/tree.png)<br>
 *Fig 2. A signal tree example*
 
-## <a name="signal-type"/>SIGNAL TYPE
+
+## <a name="branch-entry"/>BRANCH ENTRY
+A branch is an entity that can host other branches, signals, and attributes.
+A branch is identified as an entry with its signal type set to ```branch```.
+The only required field for a branch is ```description```
+
+## <a name="signal-entry"/>SIGNAL ENTRY
+A signal is a named entity, such as rpm, that at any time can have a
+value, such as 3400.
+
+### <a name="signal-type"/>SIGNAL TYPE
 Each signal specifies a type from the following set (from FrancaIDL):
 
 Name       | Type                       | Min  | Max 
@@ -107,17 +114,18 @@ Please note that the special type ```branch``` denotes a branch, not a
 signal. See [branch entry](#branch-entry) chapter for details.
 
 
-## SIGNAL RANGE [OPTIONAL]
+### <a name="signal-range"/>SIGNAL RANGE [OPTIONAL]
 A signal can optionally be specified with a min and max limit,
 defining a range that the signal can assume a value within.
 
-## SIGNAL ENUMERATION [OPTIONAL]
+### <a name="signal-enumeration"/>SIGNAL ENUMERATION [OPTIONAL]
 A signal can optionally be specified with a set of allowed values that
 the signal can be assigned, effectively turning it into an enumerator.  The
 values are of the same type as the signal itself.
 
-## <a name="signal-unit-of-measurment"/>SIGNAL UNIT OF MEASUREMENT [OPTIONAL]
-A signal can optionally specify a unit type from the following set:
+### <a name="signal-unit-type"/>SIGNAL UNIT TYPE [OPTIONAL]
+A signal can optionally specify a unit of measurement from the following set:
+TO BE REPLACED BY SI REFERENCE.
 
 Unit type  | Domain      | Description
 :----------|:------------|:-------------
@@ -145,8 +153,28 @@ g/s        | Flow        | Grams per second
 m/s        | Acceleration| Acceleration in meters per second
 N          | Force       | Newton
 Nm         | Force       | Torque
-[more to come] | ... | ...
+... | ... | ...
 
+
+## <a name="attribute-entry"/>ATTRIBUTE ENTRY
+An attribute is an entry, such as vehicle weight or fuel type,
+woth a static value. The difference between a signal and an attribute
+is that the signal has a publisher (or producer) that continuously updates the
+signal value while an attribute has a set value, defined in the specifiation,
+that never changes.
+
+Please see chapter
+[Mixing signals and attributes](#mixing-signals-and-attributes) for an
+example of how attributes can be used.
+
+### <a name="attribute-type"/>ATTRIBUTE TYPE
+Each attribute specifies a type in the same way that a signal does.
+
+### <a name="attribute-type"/>ATTRIBUTE VALUE
+Each attribute specifies a static value of the correct type.
+
+### <a name="attribute-unit-type"/>ATTRIBUTE UNIT TYPE [OPTIONAL]
+An attribute can optionally specify a unit of measurement in the same way that a signal does.
 
 ## SIGNAL NAMING CONVENTION
 Signals are named, left-to-right, from the root of the signal tree
@@ -173,7 +201,7 @@ body.doors.3.windows_pos
 ```
 
 
-### PARENT NODES
+## PARENT NODES
 If a signal is defined, all parent branches included in its name must
 be included as well, as shown below:
 
@@ -188,9 +216,16 @@ The branches do not have to be defined in any specific order as long
 as each branch component is defined somewhere in the vspec file (or an
 included vspec file).
 
+## <a name="mixing-signals-and-attributes"/>MIXING SIGNALS AND ATTRIBUTES
+Items, such as which side the side the driver sits on, the vehicle weight,
+engine displacement, and other configuration data can optionally be used
+with VSS.
+
+
+
 
 # SIGNAL SPECIFICATION FORMAT
-The signal specification is written as a flat YAML list, where each signal and branch
+A signal specification is written as a flat YAML list, where each signal and branch
 is a self-contained YAML list element
 
 The YAML list is a single file, called a *vspec* file.
@@ -277,7 +312,7 @@ Cannot be specified if ```enum``` is specified for the same signal entry.
 
 * **```unit``` [optional]**<br>
 The unit of measurement that the signal has. See
-[signal unit of measurements](#signal-unit-of-measurement) chapter for
+[Unit Type](#signal-unit-type) chapter for
 a list of available unit types.<br>
 Cannot be specified if ```enum``` is specified for the same signal entry.
 

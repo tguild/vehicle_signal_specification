@@ -5,9 +5,9 @@
 # Commons Attribution 4.0 International (CC BY 4.0). 
 # See https://creativecommons.org/licenses/by/4.0/ for details.
 #
-
+ 
 #
-# ROOT SPECIFICATION FILE
+# Root Vehicle Signal Specification file
 #
 # This top level vehicle specification file includes all other vspec
 # files into a complete specification that can be processed
@@ -16,11 +16,18 @@
 # https://github.com/PDXostc/vehicle_signal_tools
 #
 
+# All signals originating from within the cabin
+- Cabin:
+  type: branch
+
+
+
+  
 
 #
 # An uncontrolled private branch.
 #
-- private:
+- Private:
   type: branch
   description: Uncontrolled branch where non-public signals can be defined.
 
@@ -28,7 +35,7 @@
 #
 # The engine branch used to host the the signals in engine.vspec.
 #
-- engine:
+- Engine:
   type: branch
   description: Engine-specific data, stopping at the bell housing.
 
@@ -41,7 +48,7 @@
 #
 # The transmission branch used to host the the signals in transmission.vspec.
 #
-- transmission:
+- Transmission:
   type: branch
   description: Transmission-specific data, stopping at the drive shafts.
 
@@ -51,17 +58,51 @@
 #include transmission.vspec transmission
 
 #
-# The transmission branch used to host the the signals in transmission.vspec.
+# The Body branch used to host the the signals Body/Body.vspec.
 #
-
-- body:
+- Body:
   type: branch
   description: All body components
 
+#include Body/Body.vspec Body
 
-# Include the transmission.vspec file and attach all its signals under the
-# transmission branch created above.
-#include body/body.vspec body
+
+#
+# The Cabin branch and its included signals from Cabin/Cabin.vspec
+#
+- Cabin:
+  type: branch
+  description: All in-cabin components, including doors.
+
+
+# Include the Cabin/Cabin.vspec file and attach all its signals under the
+# Cabin branch created above.
+
+#include Cabin/Cabin.vspec Cabin
+
+
+#
+# The Body branch used to host the the signals Body/Body.vspec.
+#
+- Body:
+  type: branch
+  description: All body components
+
+#include Body/Body.vspec Body
+
+
+#
+# Advanced Driver Assist Systems siggnals
+#
+- ADAS:
+  type: branch
+  description: All Advanced Driver Assist Systems signals
+
+#include ADAS/ADAS.vspec ADAS
+
+
+
+
 
 
 

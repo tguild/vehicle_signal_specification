@@ -64,18 +64,6 @@ body
     turn_indicator
     hazard
     
-  doors
-    trunk
-    hood
-    row
-      1
-        left
-            open
-          lock
-
-        right
-          ..
-
 hmi
   bt
     phones...
@@ -113,9 +101,12 @@ hmi
     dolby...
     
     channel
-            
 
   input
+    command: aggergate
+	  source: [ voice, screen, keyboard, hard_button, internal ]
+      path: "x/y/z"
+ 	  
     screen
     key
       hard

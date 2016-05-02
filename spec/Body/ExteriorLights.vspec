@@ -1,0 +1,56 @@
+# (C) 2016 Jaguar Land Rover - All rights reserved.
+#
+# All documents in this repository are licensed under the Creative
+# Commons Attribution 4.0 International (CC BY 4.0). 
+# See https://creativecommons.org/licenses/by/4.0/ for details.
+#
+
+#
+# All exterior lights
+#
+
+- IsHighBeamOn:
+  type: Branch
+  description: Is high beam on
+	
+- IsLowBeamOn:
+  type: Branch
+  description: Is  beam on
+
+
+- IsRunningOn:
+  type: Branch
+  description: Are running lights on
+
+- IsBackupOn:
+  type: Branch
+  description: Is backuo (reverse) light on
+
+- IsParingOn:
+  type: Branch
+  description: Is parking light on
+
+- IsBrakeOn:
+  type: Branch
+  description: Is brake light on
+
+- IsRearFogOn:
+  type: Branch
+  description: Is rear fog light on
+
+- IsFrontFogOn:
+  type: Branch
+  description: Is front fog light on
+
+- IsLeftIndicatorOn:
+  type: Branch
+  description: Is left indicator flashing
+
+- IsRightIndocatorOn:
+  type: Branch
+  description: Is right indicator flashing
+
+- IsHazardOn:
+  type: Branch
+  description: Are hazards on
+

@@ -1,0 +1,144 @@
+#
+# (C) 2016 Jaguar Land Rover - All rights reserved.
+#
+# All documents in this repository are licensed under the Creative
+# Commons Attribution 4.0 International (CC BY 4.0). 
+# See https://creativecommons.org/licenses/by/4.0/ for details.
+#
+
+#
+# All interior lights and sensors
+#
+
+- IsGloveBoxOn:
+  type: Boolean
+  description: Is glove box light on
+
+- IsTrunkOn:
+  type: Boolean
+  description: Is trunk light light on
+
+- IsDomeOn
+  type: Boolean
+  description: Is central dome light light on
+
+- AmbientLightSensor:
+  type: UInt8
+  min: 0
+  max: 100
+  description: How much ambient light is detected in cabin. 0 = No ambient light. 100 = Full brightness
+
+#
+# First / front row lights
+#
+- Row1:
+  type: Branch
+  description: Front lights
+
+- Row1.Left:
+  type: Branch
+  description: Left front lights
+
+- Row1.IsSharedOn:
+  type: Boolean
+  description: Is light shared across first row on
+
+- Row1.Left.IsPassengerLightOn:
+  type: Boolean
+  description: Is passenger light on
+
+- Row1.Right:
+  type: Branch
+  description: Right front lights
+
+- Row1.Right.IsPassengerOn:
+  type: Boolean
+  description: Is passenger light on
+
+
+
+- Row2:
+  type: Branch
+  description: Front lights
+
+- Row2.Left:
+  type: Branch
+  description: Left second row lights
+
+- Row2.IsSharedOn:
+  type: Boolean
+  description: Is light shared across second row on
+
+- Row2.Left.IsPassengerLightOn:
+  type: Boolean
+  description: Is passenger light on
+
+- Row2.Right:
+  type: Branch
+  description: Right second row lights
+
+- Row2.Right.IsPassengerOn:
+  type: Boolean
+  description: Is passenger light on
+
+
+
+
+- Row3:
+  type: Branch
+  description: Front lights
+
+- Row3.Left:
+  type: Branch
+  description: Left third row lights
+
+- Row3.IsSharedOn:
+  type: Boolean
+  description: Is light shared third across row on
+
+- Row3.Left.IsPassengerLightOn:
+  type: Boolean
+  description: Is passenger light on
+
+- Row3.Right:
+  type: Branch
+  description: Right third row lights
+
+- Row3.Right.IsPassengerOn:
+  type: Boolean
+  description: Is passenger light on
+
+
+
+
+- Row4:
+  type: Branch
+  description: Front lights
+
+- Row4.Left:
+  type: Branch
+  description: Left fourth row lights
+
+- Row4.IsSharedOn:
+  type: Boolean
+  description: Is light shared across fourth row on
+
+- Row4.Left.IsPassengerLightOn:
+  type: Boolean
+  description: Is passenger light on
+
+- Row4.Right:
+  type: Branch
+  description: Right fourth row lights
+
+- Row4.Right.IsPassengerOn:
+  type: Boolean
+  description: Is passenger light on
+
+
+
+      ambient_daylight_sensor
+      ambient
+        color
+        level
+      sunshade          

@@ -1,0 +1,248 @@
+#
+# (C) 2016 Jaguar Land Rover - All rights reserved.
+#
+# All documents in this repository are licensed under the Creative
+# Commons Attribution 4.0 International (CC BY 4.0). 
+# See https://creativecommons.org/licenses/by/4.0/ for details.
+#
+ 
+#
+# All in-cabin originated signals
+#
+
+##
+# HVAC signals
+##
+- HVAC:
+  type: branch
+
+#include HVAC.vspec HVAC
+
+##
+# Rear window shade signals
+##
+- RearShade: 
+  type: branch
+
+# Include the same shade spec used for sunroof and side windows.
+#include SingleShade.vspec RearShade
+
+##
+# Sunroof status
+##
+- SunRoof:
+  type: branch
+  description: Sun roof status.
+
+- Sunroof.Position:
+  type: Int8
+  min: -100
+  max: 100
+  description: SunRoof position. 0 = Fully closed 100 = Fully opened. -100 = Fully tilted
+               
+#
+# Sunroof controlling button. 
+# We cannot use SingleSliderButton.vspce since we have TiltUp and TiltDown also
+- Sunroof.Button:
+  type: String
+  enum: [ "Inactive", "Close", "Open", "OneShotClose", "OneShotOpen", "TiltUp", "TiltDown" ]
+  description: Button controlling sliding action such as window, sunroof, or shade.
+
+- SunRoof.Shade:
+  type: branch
+  description: Sun roof shade status
+
+# Include shade specification also used by side and rear window.
+#include SingleShade.vspec SunRoof.Shade
+
+
+#
+# Rearview mirror signals
+#
+- RearviewMirror:
+  type: Branch
+  description: Rearview mirror 
+
+- RearviewMirror.Dimmed:
+  type: UInt8
+  description: Dimming level of rearview mirror. 0 = undimmed. 100 = fully dimmed
+
+
+##
+# Interior lights signals and sensors
+##
+- Lights:
+  type: Branch
+  description: Interior lights signals and sensors 
+
+# Include the lights specification and attach it under the Lights branch.x
+#include Lights.vspec Lights
+
+##
+# Door signals
+##
+- Door:
+  type: branch
+  description: All doors, including windows and buttons
+
+#
+# Front row of doors
+#
+- Door.Row1:
+  type: branch
+  description: Front doors
+
+- Door.Row1.Left:
+  type: branch
+  description: Left front door
+
+#include SingleDoor.vspec Door.Row1.Left
+
+- Door.Row1.Right:
+  type: branch
+  description: Right front door
+
+#include SingleDoor.vspec Door.Row1.Right
+
+#
+# Second row of doors.
+#
+- Door.Row2:
+  type: branch
+  description: Second row doors
+
+- Door.Row2.Left:
+  type: branch
+  description: Left second row door
+
+#include SingleDoor.vspec Door.Row2.Left
+
+- Door.Row2.Right:
+  type: branch
+  description: Right second row door
+
+#include SingleDoor.vspec Door.Row2.Right
+
+#
+# Third row of doors.
+#
+- Door.Row3:
+  type: branch
+  description: Third row doors
+
+- Door.Row3.Left:
+  type: branch
+  description: Left third row door
+
+#include SingleDoor.vspec Door.Row3.Left
+
+- Door.Row3.Right:
+  type: branch
+  description: Right third row door
+
+#include SingleDoor.vspec Door.Row3.Right
+
+
+#
+# Fourth row of doors.
+#
+- Door.Row4:
+  type: branch
+  description: Fourth row doors
+
+- Door.Row4.Left:
+  type: branch
+  description: Left fourth row door
+
+#include SingleDoor.vspec Door.Row4.Left
+
+- Door.Row4.Right:
+  type: branch
+  description: Right fourth row door
+
+#include SingleDoor.vspec Door.Row4.Right
+
+
+##
+# Seat signals
+##
+
+#
+# Front row seats.
+# 
+- Seat:
+  type: branch
+  description: All seats.
+
+- Seat.Row1:
+  type: branch
+  description: Front seats
+
+- Seat.Row1.Left:
+  type: branch
+  description: Left front seat
+
+#include SingleSeat.vspec Seat.Row1.Left
+
+- Seat.Row1.Right:
+  type: branch
+  description: Right front seat
+
+#include SingleSeat.vspec Seat.Row1.Right
+
+#
+# Second row of seats.
+#
+- Seat.Row2:
+  type: branch
+  description: Second row seats
+
+- Seat.Row2.Left:
+  type: branch
+  description: Left second row seat
+
+#include SingleSeat.vspec Seat.Row2.Left
+
+- Seat.Row2.Right:
+  type: branch
+  description: Right second row seat
+
+#include SingleSeat.vspec Seat.Row2.Right
+
+#
+# Third row of seats.
+#
+- Seat.Row3:
+  type: branch
+  description: Third row seats
+
+- Seat.Row3.Left:
+  type: branch
+  description: Left third row seat
+
+#include SingleSeat.vspec Seat.Row3.Left
+
+- Seat.Row3.Right:
+  type: branch
+  description: Right third row seat
+
+#include SingleSeat.vspec Seat.Row3.Right
+
+#
+# Fourth row of seats.
+#
+- Seat.Row4:
+  type: branch
+  description: Fourth row seats
+
+- Seat.Row4.Left:
+  type: branch
+  description: Left fourth row seat
+
+#include SingleSeat.vspec Seat.Row4.Left
+
+- Seat.Row4.Right:
+  type: branch
+  description: Right fourth row seat
+
+#include SingleSeat.vspec Seat.Row4.Right

@@ -8,26 +8,36 @@
 #
 # Definition of a single door
 #
-- open:
+- Open:
   type: Boolean
   description: Is door open or closed
 
-- locked:
+- Locked:
   type: Boolean
   description: Is door locked or unlocked. True = Locked. False = Unlocked.
 
-- window_position:
+- WindowPosition:
   type: Uint8
   min: 0
   max: 100
   description: Window position. 0 = Fully closed 100 = Fully opened.
 
-- child_lock:
+- ChildLock:
   type: Boolean
   description: Is door child lock engaged. True = Engaged. False = Disengaged.
 
-- curtain_position:
+- CurtainPosition:
   type: UInt8
   min: 0
   max: 100
   description: Position of curtain. 0 = Fully retracted. 100 = Fully deployed.
+
+- WindowButton:
+  type: String
+  enum: [ "Inactive", "Down", "Up", "OneShotDown", "OneShotUp" ]
+  description: Window button status.
+
+- CurtainButton:
+  type: String
+  enum: [ "Inactive", "Down", "Up", "OneShotDown", "OneShotUp" ]
+  description: Curtain button status.
