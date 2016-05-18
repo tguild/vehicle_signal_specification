@@ -49,7 +49,7 @@ the ```VERSION``` file.
 
 A web-based JSON viewer can be used to view the current version.
 
-Click **[here](http://www.jsoneditoronline.org/?url=https://raw.githubusercontent.com/PDXostc/vehicle_signal_specification/develop/vss_rel_1.json)**
+Click **[here](http://www.jsoneditoronline.org/?url=https://raw.githubusercontent.com/GENIVI/vehicle_signal_specification/develop/vss_rel_1.json)**
 
 
 # CREATE JSON VEHICLE SIGNAL SPECIFICATION
