@@ -21,7 +21,7 @@
 # Window description
 #
 - Window:
-  type: Branch
+  type: branch
   description: Door window status
 
 - Window.Position:

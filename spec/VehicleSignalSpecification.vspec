@@ -21,9 +21,6 @@
   type: branch
 
 
-
-  
-
 #
 # An uncontrolled private branch.
 #
@@ -43,7 +40,7 @@
 # Include the engine.vspec file and attach all its signals under the engine
 # branch created above.
 
-#include engine.vspec engine
+#include Engine.vspec Engine
 
 #
 # The transmission branch used to host the the signals in transmission.vspec.
@@ -55,7 +52,7 @@
 
 # Include the transmission.vspec file and attach all its signals under the
 # transmission branch created above.
-#include transmission.vspec transmission
+#include Transmission.vspec Transmission
 
 #
 # The Body branch used to host the the signals Body/Body.vspec.
@@ -81,14 +78,6 @@
 #include Cabin/Cabin.vspec Cabin
 
 
-#
-# The Body branch used to host the the signals Body/Body.vspec.
-#
-- Body:
-  type: branch
-  description: All body components
-
-#include Body/Body.vspec Body
 
 
 #
@@ -99,6 +88,22 @@
   description: All Advanced Driver Assist Systems signals
 
 #include ADAS/ADAS.vspec ADAS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

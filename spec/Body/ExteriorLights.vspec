@@ -12,7 +12,7 @@
 - IsHighBeamOn:
   type: Branch
   description: Is high beam on
-	
+
 - IsLowBeamOn:
   type: Branch
   description: Is  beam on
@@ -42,6 +42,10 @@
   type: Branch
   description: Is front fog light on
 
+- IsHazardOn:
+  type: Branch
+  description: Are hazards on
+
 - IsLeftIndicatorOn:
   type: Branch
   description: Is left indicator flashing
@@ -49,8 +53,3 @@
 - IsRightIndocatorOn:
   type: Branch
   description: Is right indicator flashing
-
-- IsHazardOn:
-  type: Branch
-  description: Are hazards on
-

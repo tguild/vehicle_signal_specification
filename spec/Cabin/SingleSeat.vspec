@@ -44,19 +44,19 @@
   type: UInt8
   min: 0
   max: 255
-  description: Seat horizontal position: 0 = Frontmost. 255 = Rearmost
+  description: Seat horizontal position. 0 = Frontmost. 255 = Rearmost
 
 - Position.FrontHeight:
   type: UInt8
   min: 0
   max: 255
-  description: Height of the seat front . 0 = Lowermost. 255 = Uppermost.
+  description: Height of the seat front. 0 = Lowermost. 255 = Uppermost.
 
 - Position.RearHeight:
   type: UInt8
   min: 0
   max: 255
-  description: Height of the seat rear . 0 = Lowermost. 255 = Uppermost.
+  description: Height of the seat rear. 0 = Lowermost. 255 = Uppermost.
 
 - Position.Lumbar:
   type: branch

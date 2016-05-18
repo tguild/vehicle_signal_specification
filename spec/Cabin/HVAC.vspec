@@ -9,3 +9,9 @@
 #
 # All HVAC-originated signals
 #
+
+- FrontFanSpeed:
+  type: UInt8
+  min: 0
+  max: 10
+  description: Fan Speed

@@ -1,1 +1,1646 @@
-Error: ExteriorLights.vspec: 0: File not found
+{
+  "Engine": {
+    "description": "Engine-specific data, stopping at the bell housing.", 
+    "type": "branch", 
+    "children": {
+      "map": {
+        "description": "Manifold air pressure possibly boosted using forced induction.", 
+        "min": 0, 
+        "max": 10000, 
+        "type": "Int16", 
+        "unit": "mbar"
+      }, 
+      "power": {
+        "description": "Current engine power output.", 
+        "min": 0, 
+        "max": 2000, 
+        "type": "Int16", 
+        "unit": "kW"
+      }, 
+      "eot": {
+        "description": "Engine oil temperature.", 
+        "min": -50, 
+        "max": 300, 
+        "type": "Int16", 
+        "unit": "celsius"
+      }, 
+      "torque": {
+        "description": "Current engine torque.", 
+        "min": 0, 
+        "max": 3000, 
+        "type": "Int16", 
+        "unit": "Nm"
+      }, 
+      "ect": {
+        "description": "Engine coolant temperature.", 
+        "min": -50, 
+        "max": 200, 
+        "type": "Int16", 
+        "unit": "celsius"
+      }, 
+      "tps": {
+        "description": "Current throttle position.", 
+        "min": 0, 
+        "max": 100, 
+        "type": "Int8", 
+        "unit": "percent"
+      }, 
+      "maf": {
+        "description": "Grams of air drawn into engine per second.", 
+        "min": 0, 
+        "max": 3000, 
+        "type": "Int16", 
+        "unit": "g/s"
+      }, 
+      "rpm": {
+        "description": "Engine speed measured as rotations per minute.", 
+        "min": 0, 
+        "max": 20000, 
+        "type": "Uint16", 
+        "unit": "rpm"
+      }, 
+      "eop": {
+        "description": "Engine oil pressure.", 
+        "min": 0, 
+        "max": 10000, 
+        "type": "Int16", 
+        "unit": "mbar"
+      }
+    }
+  }, 
+  "Body": {
+    "description": "All body components", 
+    "type": "branch", 
+    "children": {
+      "Lights": {
+        "description": "All lgihts", 
+        "type": "branch", 
+        "children": {
+          "IsLeftIndicatorOn": {
+            "description": "Is left indicator flashing", 
+            "type": "Branch"
+          }, 
+          "IsRightIndocatorOn": {
+            "description": "Is right indicator flashing", 
+            "type": "Branch"
+          }, 
+          "IsLowBeamOn": {
+            "description": "Is  beam on", 
+            "type": "Branch"
+          }, 
+          "IsHighBeamOn": {
+            "description": "Is high beam on", 
+            "type": "Branch"
+          }, 
+          "IsFrontFogOn": {
+            "description": "Is front fog light on", 
+            "type": "Branch"
+          }, 
+          "IsBrakeOn": {
+            "description": "Is brake light on", 
+            "type": "Branch"
+          }, 
+          "IsBackupOn": {
+            "description": "Is backuo (reverse) light on", 
+            "type": "Branch"
+          }, 
+          "IsParingOn": {
+            "description": "Is parking light on", 
+            "type": "Branch"
+          }, 
+          "IsRearFogOn": {
+            "description": "Is rear fog light on", 
+            "type": "Branch"
+          }, 
+          "IsHazardOn": {
+            "description": "Are hazards on", 
+            "type": "Branch"
+          }, 
+          "IsRunningOn": {
+            "description": "Are running lights on", 
+            "type": "Branch"
+          }
+        }
+      }, 
+      "Hood": {
+        "description": "Hood status", 
+        "type": "branch", 
+        "children": {
+          "IsOpen": {
+            "description": "hood open or closed. True = Open. False = Closed", 
+            "type": "Boolean"
+          }
+        }
+      }, 
+      "Trunk": {
+        "description": "Trunk status", 
+        "type": "branch", 
+        "children": {
+          "IsLocked": {
+            "description": "Is trunk locked or unlocked. True = Locked. False = Unlocked.", 
+            "type": "Boolean"
+          }, 
+          "IsOpen": {
+            "description": "Trunk open or closed. True = Open. False = Closed", 
+            "type": "Boolean"
+          }
+        }
+      }
+    }
+  }, 
+  "Transmission": {
+    "description": "Transmission-specific data, stopping at the drive shafts.", 
+    "type": "branch", 
+    "children": {
+      "performance_mode": {
+        "description": "Current gearbox performance mode.", 
+        "type": "string", 
+        "enum": [
+          "normal", 
+          "sport", 
+          "economy", 
+          "snow", 
+          "rain"
+        ]
+      }, 
+      "gear": {
+        "type": "UInt8", 
+        "description": "Current gear. 0=Neutral. -1=Reverse", 
+        "min": -1, 
+        "max": 16
+      }, 
+      "gearchange_mode": {
+        "description": "Is the gearbox in automatic or manual (paddle) mode.", 
+        "type": "string", 
+        "enum": [
+          "manual", 
+          "automatic"
+        ]
+      }, 
+      "temperature": {
+        "description": "The current gearbox temperature", 
+        "min": -50, 
+        "max": 200, 
+        "type": "Int16", 
+        "unit": "celsius"
+      }
+    }
+  }, 
+  "ADAS": {
+    "description": "All Advanced Driver Assist Systems signals", 
+    "type": "branch", 
+    "children": {}
+  }, 
+  "Private": {
+    "description": "Uncontrolled branch where non-public signals can be defined.", 
+    "type": "branch", 
+    "children": {}
+  }, 
+  "Cabin": {
+    "description": "All in-cabin components, including doors.", 
+    "type": "branch", 
+    "children": {
+      "Door": {
+        "description": "All doors, including windows and buttons", 
+        "type": "branch", 
+        "children": {
+          "Row1": {
+            "description": "Front doors", 
+            "type": "branch", 
+            "children": {
+              "Right": {
+                "description": "Right front door", 
+                "type": "branch", 
+                "children": {
+                  "IsChildLockActive": {
+                    "description": "Is door child lock engaged. Trnue = Engaged. False = Disengaged.", 
+                    "type": "Boolean"
+                  }, 
+                  "IsLocked": {
+                    "description": "Is door locked or unlocked. True = Locked. False = Unlocked.", 
+                    "type": "Boolean"
+                  }, 
+                  "Shade": {
+                    "description": "Side window shade", 
+                    "type": "branch", 
+                    "children": {
+                      "Position": {
+                        "type": "UInt8", 
+                        "description": "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed.", 
+                        "min": 0, 
+                        "max": 100
+                      }, 
+                      "Button": {
+                        "description": "Button controlling sliding action such as window, sunroof, or blind.", 
+                        "type": "String", 
+                        "enum": [
+                          "Inactive", 
+                          "Close", 
+                          "Open", 
+                          "OneShotClose", 
+                          "OneShotOpen"
+                        ]
+                      }
+                    }
+                  }, 
+                  "Window": {
+                    "description": "Door window status", 
+                    "type": "branch", 
+                    "children": {
+                      "Position": {
+                        "type": "Uint8", 
+                        "description": "Window position. 0 = Fully closed 100 = Fully opened.", 
+                        "min": 0, 
+                        "max": 100
+                      }, 
+                      "Button": {
+                        "description": "Button controlling sliding action such as window, sunroof, or blind.", 
+                        "type": "String", 
+                        "enum": [
+                          "Inactive", 
+                          "Close", 
+                          "Open", 
+                          "OneShotClose", 
+                          "OneShotOpen"
+                        ]
+                      }
+                    }
+                  }, 
+                  "IsOpen": {
+                    "description": "Is door open or closed", 
+                    "type": "Boolean"
+                  }
+                }
+              }, 
+              "Left": {
+                "description": "Left front door", 
+                "type": "branch", 
+                "children": {
+                  "IsChildLockActive": {
+                    "description": "Is door child lock engaged. Trnue = Engaged. False = Disengaged.", 
+                    "type": "Boolean"
+                  }, 
+                  "IsLocked": {
+                    "description": "Is door locked or unlocked. True = Locked. False = Unlocked.", 
+                    "type": "Boolean"
+                  }, 
+                  "Shade": {
+                    "description": "Side window shade", 
+                    "type": "branch", 
+                    "children": {
+                      "Position": {
+                        "type": "UInt8", 
+                        "description": "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed.", 
+                        "min": 0, 
+                        "max": 100
+                      }, 
+                      "Button": {
+                        "description": "Button controlling sliding action such as window, sunroof, or blind.", 
+                        "type": "String", 
+                        "enum": [
+                          "Inactive", 
+                          "Close", 
+                          "Open", 
+                          "OneShotClose", 
+                          "OneShotOpen"
+                        ]
+                      }
+                    }
+                  }, 
+                  "Window": {
+                    "description": "Door window status", 
+                    "type": "branch", 
+                    "children": {
+                      "Position": {
+                        "type": "Uint8", 
+                        "description": "Window position. 0 = Fully closed 100 = Fully opened.", 
+                        "min": 0, 
+                        "max": 100
+                      }, 
+                      "Button": {
+                        "description": "Button controlling sliding action such as window, sunroof, or blind.", 
+                        "type": "String", 
+                        "enum": [
+                          "Inactive", 
+                          "Close", 
+                          "Open", 
+                          "OneShotClose", 
+                          "OneShotOpen"
+                        ]
+                      }
+                    }
+                  }, 
+                  "IsOpen": {
+                    "description": "Is door open or closed", 
+                    "type": "Boolean"
+                  }
+                }
+              }
+            }
+          }, 
+          "Row2": {
+            "description": "Second row doors", 
+            "children": {
+              "Right": {
+                "description": "Right second row door", 
+                "type": "branch", 
+                "children": {
+                  "IsChildLockActive": {
+                    "description": "Is door child lock engaged. Trnue = Engaged. False = Disengaged.", 
+                    "type": "Boolean"
+                  }, 
+                  "IsLocked": {
+                    "description": "Is door locked or unlocked. True = Locked. False = Unlocked.", 
+                    "type": "Boolean"
+                  }, 
+                  "Shade": {
+                    "description": "Side window shade", 
+                    "type": "branch", 
+                    "children": {
+                      "Position": {
+                        "type": "UInt8", 
+                        "description": "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed.", 
+                        "min": 0, 
+                        "max": 100
+                      }, 
+                      "Button": {
+                        "description": "Button controlling sliding action such as window, sunroof, or blind.", 
+                        "type": "String", 
+                        "enum": [
+                          "Inactive", 
+                          "Close", 
+                          "Open", 
+                          "OneShotClose", 
+                          "OneShotOpen"
+                        ]
+                      }
+                    }
+                  }, 
+                  "Window": {
+                    "description": "Door window status", 
+                    "type": "branch", 
+                    "children": {
+                      "Position": {
+                        "type": "Uint8", 
+                        "description": "Window position. 0 = Fully closed 100 = Fully opened.", 
+                        "min": 0, 
+                        "max": 100
+                      }, 
+                      "Button": {
+                        "description": "Button controlling sliding action such as window, sunroof, or blind.", 
+                        "type": "String", 
+                        "enum": [
+                          "Inactive", 
+                          "Close", 
+                          "Open", 
+                          "OneShotClose", 
+                          "OneShotOpen"
+                        ]
+                      }
+                    }
+                  }, 
+                  "IsOpen": {
+                    "description": "Is door open or closed", 
+                    "type": "Boolean"
+                  }
+                }
+              }, 
+              "Left": {
+                "description": "Left second row door", 
+                "type": "branch", 
+                "children": {
+                  "IsChildLockActive": {
+                    "description": "Is door child lock engaged. Trnue = Engaged. False = Disengaged.", 
+                    "type": "Boolean"
+                  }, 
+                  "IsLocked": {
+                    "description": "Is door locked or unlocked. True = Locked. False = Unlocked.", 
+                    "type": "Boolean"
+                  }, 
+                  "Shade": {
+                    "description": "Side window shade", 
+                    "type": "branch", 
+                    "children": {
+                      "Position": {
+                        "type": "UInt8", 
+                        "description": "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed.", 
+                        "min": 0, 
+                        "max": 100
+                      }, 
+                      "Button": {
+                        "description": "Button controlling sliding action such as window, sunroof, or blind.", 
+                        "type": "String", 
+                        "enum": [
+                          "Inactive", 
+                          "Close", 
+                          "Open", 
+                          "OneShotClose", 
+                          "OneShotOpen"
+                        ]
+                      }
+                    }
+                  }, 
+                  "Window": {
+                    "description": "Door window status", 
+                    "type": "branch", 
+                    "children": {
+                      "Position": {
+                        "type": "Uint8", 
+                        "description": "Window position. 0 = Fully closed 100 = Fully opened.", 
+                        "min": 0, 
+                        "max": 100
+                      }, 
+                      "Button": {
+                        "description": "Button controlling sliding action such as window, sunroof, or blind.", 
+                        "type": "String", 
+                        "enum": [
+                          "Inactive", 
+                          "Close", 
+                          "Open", 
+                          "OneShotClose", 
+                          "OneShotOpen"
+                        ]
+                      }
+                    }
+                  }, 
+                  "IsOpen": {
+                    "description": "Is door open or closed", 
+                    "type": "Boolean"
+                  }
+                }
+              }
+            }, 
+            "type": "branch"
+          }, 
+          "Row3": {
+            "description": "Third row doors", 
+            "type": "branch", 
+            "children": {
+              "Right": {
+                "description": "Right third row door", 
+                "type": "branch", 
+                "children": {
+                  "IsChildLockActive": {
+                    "description": "Is door child lock engaged. Trnue = Engaged. False = Disengaged.", 
+                    "type": "Boolean"
+                  }, 
+                  "IsLocked": {
+                    "description": "Is door locked or unlocked. True = Locked. False = Unlocked.", 
+                    "type": "Boolean"
+                  }, 
+                  "Shade": {
+                    "description": "Side window shade", 
+                    "type": "branch", 
+                    "children": {
+                      "Position": {
+                        "type": "UInt8", 
+                        "description": "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed.", 
+                        "min": 0, 
+                        "max": 100
+                      }, 
+                      "Button": {
+                        "description": "Button controlling sliding action such as window, sunroof, or blind.", 
+                        "type": "String", 
+                        "enum": [
+                          "Inactive", 
+                          "Close", 
+                          "Open", 
+                          "OneShotClose", 
+                          "OneShotOpen"
+                        ]
+                      }
+                    }
+                  }, 
+                  "Window": {
+                    "description": "Door window status", 
+                    "type": "branch", 
+                    "children": {
+                      "Position": {
+                        "type": "Uint8", 
+                        "description": "Window position. 0 = Fully closed 100 = Fully opened.", 
+                        "min": 0, 
+                        "max": 100
+                      }, 
+                      "Button": {
+                        "description": "Button controlling sliding action such as window, sunroof, or blind.", 
+                        "type": "String", 
+                        "enum": [
+                          "Inactive", 
+                          "Close", 
+                          "Open", 
+                          "OneShotClose", 
+                          "OneShotOpen"
+                        ]
+                      }
+                    }
+                  }, 
+                  "IsOpen": {
+                    "description": "Is door open or closed", 
+                    "type": "Boolean"
+                  }
+                }
+              }, 
+              "Left": {
+                "description": "Left third row door", 
+                "type": "branch", 
+                "children": {
+                  "IsChildLockActive": {
+                    "description": "Is door child lock engaged. Trnue = Engaged. False = Disengaged.", 
+                    "type": "Boolean"
+                  }, 
+                  "IsLocked": {
+                    "description": "Is door locked or unlocked. True = Locked. False = Unlocked.", 
+                    "type": "Boolean"
+                  }, 
+                  "Shade": {
+                    "description": "Side window shade", 
+                    "type": "branch", 
+                    "children": {
+                      "Position": {
+                        "type": "UInt8", 
+                        "description": "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed.", 
+                        "min": 0, 
+                        "max": 100
+                      }, 
+                      "Button": {
+                        "description": "Button controlling sliding action such as window, sunroof, or blind.", 
+                        "type": "String", 
+                        "enum": [
+                          "Inactive", 
+                          "Close", 
+                          "Open", 
+                          "OneShotClose", 
+                          "OneShotOpen"
+                        ]
+                      }
+                    }
+                  }, 
+                  "Window": {
+                    "description": "Door window status", 
+                    "type": "branch", 
+                    "children": {
+                      "Position": {
+                        "type": "Uint8", 
+                        "description": "Window position. 0 = Fully closed 100 = Fully opened.", 
+                        "min": 0, 
+                        "max": 100
+                      }, 
+                      "Button": {
+                        "description": "Button controlling sliding action such as window, sunroof, or blind.", 
+                        "type": "String", 
+                        "enum": [
+                          "Inactive", 
+                          "Close", 
+                          "Open", 
+                          "OneShotClose", 
+                          "OneShotOpen"
+                        ]
+                      }
+                    }
+                  }, 
+                  "IsOpen": {
+                    "description": "Is door open or closed", 
+                    "type": "Boolean"
+                  }
+                }
+              }
+            }
+          }, 
+          "Row4": {
+            "description": "Fourth row doors", 
+            "type": "branch", 
+            "children": {
+              "Right": {
+                "description": "Right fourth row door", 
+                "type": "branch", 
+                "children": {
+                  "IsChildLockActive": {
+                    "description": "Is door child lock engaged. Trnue = Engaged. False = Disengaged.", 
+                    "type": "Boolean"
+                  }, 
+                  "IsLocked": {
+                    "description": "Is door locked or unlocked. True = Locked. False = Unlocked.", 
+                    "type": "Boolean"
+                  }, 
+                  "Shade": {
+                    "description": "Side window shade", 
+                    "type": "branch", 
+                    "children": {
+                      "Position": {
+                        "type": "UInt8", 
+                        "description": "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed.", 
+                        "min": 0, 
+                        "max": 100
+                      }, 
+                      "Button": {
+                        "description": "Button controlling sliding action such as window, sunroof, or blind.", 
+                        "type": "String", 
+                        "enum": [
+                          "Inactive", 
+                          "Close", 
+                          "Open", 
+                          "OneShotClose", 
+                          "OneShotOpen"
+                        ]
+                      }
+                    }
+                  }, 
+                  "Window": {
+                    "description": "Door window status", 
+                    "type": "branch", 
+                    "children": {
+                      "Position": {
+                        "type": "Uint8", 
+                        "description": "Window position. 0 = Fully closed 100 = Fully opened.", 
+                        "min": 0, 
+                        "max": 100
+                      }, 
+                      "Button": {
+                        "description": "Button controlling sliding action such as window, sunroof, or blind.", 
+                        "type": "String", 
+                        "enum": [
+                          "Inactive", 
+                          "Close", 
+                          "Open", 
+                          "OneShotClose", 
+                          "OneShotOpen"
+                        ]
+                      }
+                    }
+                  }, 
+                  "IsOpen": {
+                    "description": "Is door open or closed", 
+                    "type": "Boolean"
+                  }
+                }
+              }, 
+              "Left": {
+                "description": "Left fourth row door", 
+                "type": "branch", 
+                "children": {
+                  "IsChildLockActive": {
+                    "description": "Is door child lock engaged. Trnue = Engaged. False = Disengaged.", 
+                    "type": "Boolean"
+                  }, 
+                  "IsLocked": {
+                    "description": "Is door locked or unlocked. True = Locked. False = Unlocked.", 
+                    "type": "Boolean"
+                  }, 
+                  "Shade": {
+                    "description": "Side window shade", 
+                    "type": "branch", 
+                    "children": {
+                      "Position": {
+                        "type": "UInt8", 
+                        "description": "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed.", 
+                        "min": 0, 
+                        "max": 100
+                      }, 
+                      "Button": {
+                        "description": "Button controlling sliding action such as window, sunroof, or blind.", 
+                        "type": "String", 
+                        "enum": [
+                          "Inactive", 
+                          "Close", 
+                          "Open", 
+                          "OneShotClose", 
+                          "OneShotOpen"
+                        ]
+                      }
+                    }
+                  }, 
+                  "Window": {
+                    "description": "Door window status", 
+                    "type": "branch", 
+                    "children": {
+                      "Position": {
+                        "type": "Uint8", 
+                        "description": "Window position. 0 = Fully closed 100 = Fully opened.", 
+                        "min": 0, 
+                        "max": 100
+                      }, 
+                      "Button": {
+                        "description": "Button controlling sliding action such as window, sunroof, or blind.", 
+                        "type": "String", 
+                        "enum": [
+                          "Inactive", 
+                          "Close", 
+                          "Open", 
+                          "OneShotClose", 
+                          "OneShotOpen"
+                        ]
+                      }
+                    }
+                  }, 
+                  "IsOpen": {
+                    "description": "Is door open or closed", 
+                    "type": "Boolean"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }, 
+      "HVAC": {
+        "description": "Climate control", 
+        "type": "branch", 
+        "children": {
+          "FrontFanSpeed": {
+            "type": "UInt8", 
+            "description": "Fan Speed", 
+            "min": 0, 
+            "max": 10
+          }
+        }
+      }, 
+      "Sunroof": {
+        "description": "Sun roof status.", 
+        "type": "branch", 
+        "children": {
+          "Position": {
+            "type": "Int8", 
+            "description": "Sunroof position. 0 = Fully closed 100 = Fully opened. -100 = Fully tilted", 
+            "min": -100, 
+            "max": 100
+          }, 
+          "Button": {
+            "description": "Button controlling sliding action such as window, sunroof, or shade.", 
+            "type": "String", 
+            "enum": [
+              "Inactive", 
+              "Close", 
+              "Open", 
+              "OneShotClose", 
+              "OneShotOpen", 
+              "TiltUp", 
+              "TiltDown"
+            ]
+          }, 
+          "Shade": {
+            "description": "Sun roof shade status", 
+            "type": "branch", 
+            "children": {
+              "Position": {
+                "type": "UInt8", 
+                "description": "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed.", 
+                "min": 0, 
+                "max": 100
+              }, 
+              "Button": {
+                "description": "Button controlling sliding action such as window, sunroof, or blind.", 
+                "type": "String", 
+                "enum": [
+                  "Inactive", 
+                  "Close", 
+                  "Open", 
+                  "OneShotClose", 
+                  "OneShotOpen"
+                ]
+              }
+            }
+          }
+        }
+      }, 
+      "Seat": {
+        "description": "All seats.", 
+        "type": "branch", 
+        "children": {
+          "Row1": {
+            "description": "Front seats", 
+            "type": "branch", 
+            "children": {
+              "Right": {
+                "description": "Right front seat", 
+                "type": "branch", 
+                "children": {
+                  "Button": {
+                    "description": "Seat button signals", 
+                    "type": "branch", 
+                    "children": {}
+                  }, 
+                  "HasPassenger": {
+                    "description": "Does the seat have a passenger in it.", 
+                    "type": "Boolean"
+                  }, 
+                  "Heating": {
+                    "type": "Int8", 
+                    "description": "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat", 
+                    "min": -10, 
+                    "max": 10
+                  }, 
+                  "IsBelted": {
+                    "description": "Is the belt engaged.", 
+                    "type": "Boolean"
+                  }, 
+                  "Position": {
+                    "description": "All seat positions. 21 + head rest", 
+                    "type": "branch", 
+                    "children": {
+                      "Horizontal": {
+                        "type": "UInt8", 
+                        "description": "Seat horizontal position. 0 = Frontmost. 255 = Rearmost", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "Recline": {
+                        "type": "UInt8", 
+                        "description": "Recline level. 0 = Fully upright. 255 = Maximum reclined", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "FrontHeight": {
+                        "type": "UInt8", 
+                        "description": "Height of the seat front. 0 = Lowermost. 255 = Uppermost.", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "RearHeight": {
+                        "type": "UInt8", 
+                        "description": "Height of the seat rear. 0 = Lowermost. 255 = Uppermost.", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "Lumbar": {
+                        "description": "Lumbar settings", 
+                        "type": "branch", 
+                        "children": {
+                          "Inflation": {
+                            "type": "UInt8", 
+                            "description": "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated.", 
+                            "min": 0, 
+                            "max": 255
+                          }, 
+                          "Height": {
+                            "max": 255, 
+                            "type": "UInt8", 
+                            "description": "Lumbar support position. 0 = Lowermost. 255 = Uppermost.", 
+                            "min": 0
+                          }
+                        }
+                      }
+                    }
+                  }, 
+                  "Massage": {
+                    "type": "UInt8", 
+                    "description": "Seat massage level. 0 = off. 10 = max massage.", 
+                    "min": 0, 
+                    "max": 10
+                  }
+                }
+              }, 
+              "Left": {
+                "description": "Left front seat", 
+                "type": "branch", 
+                "children": {
+                  "Button": {
+                    "description": "Seat button signals", 
+                    "type": "branch", 
+                    "children": {}
+                  }, 
+                  "HasPassenger": {
+                    "description": "Does the seat have a passenger in it.", 
+                    "type": "Boolean"
+                  }, 
+                  "Heating": {
+                    "type": "Int8", 
+                    "description": "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat", 
+                    "min": -10, 
+                    "max": 10
+                  }, 
+                  "IsBelted": {
+                    "description": "Is the belt engaged.", 
+                    "type": "Boolean"
+                  }, 
+                  "Position": {
+                    "description": "All seat positions. 21 + head rest", 
+                    "type": "branch", 
+                    "children": {
+                      "Horizontal": {
+                        "type": "UInt8", 
+                        "description": "Seat horizontal position. 0 = Frontmost. 255 = Rearmost", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "Recline": {
+                        "type": "UInt8", 
+                        "description": "Recline level. 0 = Fully upright. 255 = Maximum reclined", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "FrontHeight": {
+                        "type": "UInt8", 
+                        "description": "Height of the seat front. 0 = Lowermost. 255 = Uppermost.", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "RearHeight": {
+                        "type": "UInt8", 
+                        "description": "Height of the seat rear. 0 = Lowermost. 255 = Uppermost.", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "Lumbar": {
+                        "description": "Lumbar settings", 
+                        "type": "branch", 
+                        "children": {
+                          "Inflation": {
+                            "type": "UInt8", 
+                            "description": "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated.", 
+                            "min": 0, 
+                            "max": 255
+                          }, 
+                          "Height": {
+                            "max": 255, 
+                            "type": "UInt8", 
+                            "description": "Lumbar support position. 0 = Lowermost. 255 = Uppermost.", 
+                            "min": 0
+                          }
+                        }
+                      }
+                    }
+                  }, 
+                  "Massage": {
+                    "type": "UInt8", 
+                    "description": "Seat massage level. 0 = off. 10 = max massage.", 
+                    "min": 0, 
+                    "max": 10
+                  }
+                }
+              }
+            }
+          }, 
+          "Row2": {
+            "description": "Second row seats", 
+            "type": "branch", 
+            "children": {
+              "Right": {
+                "description": "Right second row seat", 
+                "type": "branch", 
+                "children": {
+                  "Button": {
+                    "description": "Seat button signals", 
+                    "type": "branch", 
+                    "children": {}
+                  }, 
+                  "HasPassenger": {
+                    "description": "Does the seat have a passenger in it.", 
+                    "type": "Boolean"
+                  }, 
+                  "Heating": {
+                    "type": "Int8", 
+                    "description": "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat", 
+                    "min": -10, 
+                    "max": 10
+                  }, 
+                  "IsBelted": {
+                    "description": "Is the belt engaged.", 
+                    "type": "Boolean"
+                  }, 
+                  "Position": {
+                    "description": "All seat positions. 21 + head rest", 
+                    "type": "branch", 
+                    "children": {
+                      "Horizontal": {
+                        "type": "UInt8", 
+                        "description": "Seat horizontal position. 0 = Frontmost. 255 = Rearmost", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "Recline": {
+                        "type": "UInt8", 
+                        "description": "Recline level. 0 = Fully upright. 255 = Maximum reclined", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "FrontHeight": {
+                        "type": "UInt8", 
+                        "description": "Height of the seat front. 0 = Lowermost. 255 = Uppermost.", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "RearHeight": {
+                        "type": "UInt8", 
+                        "description": "Height of the seat rear. 0 = Lowermost. 255 = Uppermost.", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "Lumbar": {
+                        "description": "Lumbar settings", 
+                        "type": "branch", 
+                        "children": {
+                          "Inflation": {
+                            "type": "UInt8", 
+                            "description": "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated.", 
+                            "min": 0, 
+                            "max": 255
+                          }, 
+                          "Height": {
+                            "max": 255, 
+                            "type": "UInt8", 
+                            "description": "Lumbar support position. 0 = Lowermost. 255 = Uppermost.", 
+                            "min": 0
+                          }
+                        }
+                      }
+                    }
+                  }, 
+                  "Massage": {
+                    "type": "UInt8", 
+                    "description": "Seat massage level. 0 = off. 10 = max massage.", 
+                    "min": 0, 
+                    "max": 10
+                  }
+                }
+              }, 
+              "Left": {
+                "description": "Left second row seat", 
+                "type": "branch", 
+                "children": {
+                  "Button": {
+                    "description": "Seat button signals", 
+                    "type": "branch", 
+                    "children": {}
+                  }, 
+                  "HasPassenger": {
+                    "description": "Does the seat have a passenger in it.", 
+                    "type": "Boolean"
+                  }, 
+                  "Heating": {
+                    "type": "Int8", 
+                    "description": "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat", 
+                    "min": -10, 
+                    "max": 10
+                  }, 
+                  "IsBelted": {
+                    "description": "Is the belt engaged.", 
+                    "type": "Boolean"
+                  }, 
+                  "Position": {
+                    "description": "All seat positions. 21 + head rest", 
+                    "type": "branch", 
+                    "children": {
+                      "Horizontal": {
+                        "type": "UInt8", 
+                        "description": "Seat horizontal position. 0 = Frontmost. 255 = Rearmost", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "Recline": {
+                        "type": "UInt8", 
+                        "description": "Recline level. 0 = Fully upright. 255 = Maximum reclined", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "FrontHeight": {
+                        "type": "UInt8", 
+                        "description": "Height of the seat front. 0 = Lowermost. 255 = Uppermost.", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "RearHeight": {
+                        "type": "UInt8", 
+                        "description": "Height of the seat rear. 0 = Lowermost. 255 = Uppermost.", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "Lumbar": {
+                        "description": "Lumbar settings", 
+                        "type": "branch", 
+                        "children": {
+                          "Inflation": {
+                            "type": "UInt8", 
+                            "description": "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated.", 
+                            "min": 0, 
+                            "max": 255
+                          }, 
+                          "Height": {
+                            "max": 255, 
+                            "type": "UInt8", 
+                            "description": "Lumbar support position. 0 = Lowermost. 255 = Uppermost.", 
+                            "min": 0
+                          }
+                        }
+                      }
+                    }
+                  }, 
+                  "Massage": {
+                    "type": "UInt8", 
+                    "description": "Seat massage level. 0 = off. 10 = max massage.", 
+                    "min": 0, 
+                    "max": 10
+                  }
+                }
+              }
+            }
+          }, 
+          "Row3": {
+            "description": "Third row seats", 
+            "type": "branch", 
+            "children": {
+              "Right": {
+                "description": "Right third row seat", 
+                "type": "branch", 
+                "children": {
+                  "Button": {
+                    "description": "Seat button signals", 
+                    "type": "branch", 
+                    "children": {}
+                  }, 
+                  "HasPassenger": {
+                    "description": "Does the seat have a passenger in it.", 
+                    "type": "Boolean"
+                  }, 
+                  "Heating": {
+                    "type": "Int8", 
+                    "description": "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat", 
+                    "min": -10, 
+                    "max": 10
+                  }, 
+                  "IsBelted": {
+                    "description": "Is the belt engaged.", 
+                    "type": "Boolean"
+                  }, 
+                  "Position": {
+                    "description": "All seat positions. 21 + head rest", 
+                    "type": "branch", 
+                    "children": {
+                      "Horizontal": {
+                        "type": "UInt8", 
+                        "description": "Seat horizontal position. 0 = Frontmost. 255 = Rearmost", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "Recline": {
+                        "type": "UInt8", 
+                        "description": "Recline level. 0 = Fully upright. 255 = Maximum reclined", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "FrontHeight": {
+                        "type": "UInt8", 
+                        "description": "Height of the seat front. 0 = Lowermost. 255 = Uppermost.", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "RearHeight": {
+                        "type": "UInt8", 
+                        "description": "Height of the seat rear. 0 = Lowermost. 255 = Uppermost.", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "Lumbar": {
+                        "description": "Lumbar settings", 
+                        "type": "branch", 
+                        "children": {
+                          "Inflation": {
+                            "type": "UInt8", 
+                            "description": "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated.", 
+                            "min": 0, 
+                            "max": 255
+                          }, 
+                          "Height": {
+                            "max": 255, 
+                            "type": "UInt8", 
+                            "description": "Lumbar support position. 0 = Lowermost. 255 = Uppermost.", 
+                            "min": 0
+                          }
+                        }
+                      }
+                    }
+                  }, 
+                  "Massage": {
+                    "type": "UInt8", 
+                    "description": "Seat massage level. 0 = off. 10 = max massage.", 
+                    "min": 0, 
+                    "max": 10
+                  }
+                }
+              }, 
+              "Left": {
+                "description": "Left third row seat", 
+                "type": "branch", 
+                "children": {
+                  "Button": {
+                    "description": "Seat button signals", 
+                    "type": "branch", 
+                    "children": {}
+                  }, 
+                  "HasPassenger": {
+                    "description": "Does the seat have a passenger in it.", 
+                    "type": "Boolean"
+                  }, 
+                  "Heating": {
+                    "type": "Int8", 
+                    "description": "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat", 
+                    "min": -10, 
+                    "max": 10
+                  }, 
+                  "IsBelted": {
+                    "description": "Is the belt engaged.", 
+                    "type": "Boolean"
+                  }, 
+                  "Position": {
+                    "description": "All seat positions. 21 + head rest", 
+                    "type": "branch", 
+                    "children": {
+                      "Horizontal": {
+                        "type": "UInt8", 
+                        "description": "Seat horizontal position. 0 = Frontmost. 255 = Rearmost", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "Recline": {
+                        "type": "UInt8", 
+                        "description": "Recline level. 0 = Fully upright. 255 = Maximum reclined", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "FrontHeight": {
+                        "type": "UInt8", 
+                        "description": "Height of the seat front. 0 = Lowermost. 255 = Uppermost.", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "RearHeight": {
+                        "type": "UInt8", 
+                        "description": "Height of the seat rear. 0 = Lowermost. 255 = Uppermost.", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "Lumbar": {
+                        "description": "Lumbar settings", 
+                        "type": "branch", 
+                        "children": {
+                          "Inflation": {
+                            "type": "UInt8", 
+                            "description": "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated.", 
+                            "min": 0, 
+                            "max": 255
+                          }, 
+                          "Height": {
+                            "max": 255, 
+                            "type": "UInt8", 
+                            "description": "Lumbar support position. 0 = Lowermost. 255 = Uppermost.", 
+                            "min": 0
+                          }
+                        }
+                      }
+                    }
+                  }, 
+                  "Massage": {
+                    "type": "UInt8", 
+                    "description": "Seat massage level. 0 = off. 10 = max massage.", 
+                    "min": 0, 
+                    "max": 10
+                  }
+                }
+              }
+            }
+          }, 
+          "Row4": {
+            "description": "Fourth row seats", 
+            "type": "branch", 
+            "children": {
+              "Right": {
+                "description": "Right fourth row seat", 
+                "type": "branch", 
+                "children": {
+                  "Button": {
+                    "description": "Seat button signals", 
+                    "type": "branch", 
+                    "children": {}
+                  }, 
+                  "HasPassenger": {
+                    "description": "Does the seat have a passenger in it.", 
+                    "type": "Boolean"
+                  }, 
+                  "Heating": {
+                    "type": "Int8", 
+                    "description": "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat", 
+                    "min": -10, 
+                    "max": 10
+                  }, 
+                  "IsBelted": {
+                    "description": "Is the belt engaged.", 
+                    "type": "Boolean"
+                  }, 
+                  "Position": {
+                    "description": "All seat positions. 21 + head rest", 
+                    "type": "branch", 
+                    "children": {
+                      "Horizontal": {
+                        "type": "UInt8", 
+                        "description": "Seat horizontal position. 0 = Frontmost. 255 = Rearmost", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "Recline": {
+                        "type": "UInt8", 
+                        "description": "Recline level. 0 = Fully upright. 255 = Maximum reclined", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "FrontHeight": {
+                        "type": "UInt8", 
+                        "description": "Height of the seat front. 0 = Lowermost. 255 = Uppermost.", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "RearHeight": {
+                        "type": "UInt8", 
+                        "description": "Height of the seat rear. 0 = Lowermost. 255 = Uppermost.", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "Lumbar": {
+                        "description": "Lumbar settings", 
+                        "type": "branch", 
+                        "children": {
+                          "Inflation": {
+                            "type": "UInt8", 
+                            "description": "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated.", 
+                            "min": 0, 
+                            "max": 255
+                          }, 
+                          "Height": {
+                            "max": 255, 
+                            "type": "UInt8", 
+                            "description": "Lumbar support position. 0 = Lowermost. 255 = Uppermost.", 
+                            "min": 0
+                          }
+                        }
+                      }
+                    }
+                  }, 
+                  "Massage": {
+                    "type": "UInt8", 
+                    "description": "Seat massage level. 0 = off. 10 = max massage.", 
+                    "min": 0, 
+                    "max": 10
+                  }
+                }
+              }, 
+              "Left": {
+                "description": "Left fourth row seat", 
+                "type": "branch", 
+                "children": {
+                  "Button": {
+                    "description": "Seat button signals", 
+                    "type": "branch", 
+                    "children": {}
+                  }, 
+                  "HasPassenger": {
+                    "description": "Does the seat have a passenger in it.", 
+                    "type": "Boolean"
+                  }, 
+                  "Heating": {
+                    "type": "Int8", 
+                    "description": "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat", 
+                    "min": -10, 
+                    "max": 10
+                  }, 
+                  "IsBelted": {
+                    "description": "Is the belt engaged.", 
+                    "type": "Boolean"
+                  }, 
+                  "Position": {
+                    "description": "All seat positions. 21 + head rest", 
+                    "type": "branch", 
+                    "children": {
+                      "Horizontal": {
+                        "type": "UInt8", 
+                        "description": "Seat horizontal position. 0 = Frontmost. 255 = Rearmost", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "Recline": {
+                        "type": "UInt8", 
+                        "description": "Recline level. 0 = Fully upright. 255 = Maximum reclined", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "FrontHeight": {
+                        "type": "UInt8", 
+                        "description": "Height of the seat front. 0 = Lowermost. 255 = Uppermost.", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "RearHeight": {
+                        "type": "UInt8", 
+                        "description": "Height of the seat rear. 0 = Lowermost. 255 = Uppermost.", 
+                        "min": 0, 
+                        "max": 255
+                      }, 
+                      "Lumbar": {
+                        "description": "Lumbar settings", 
+                        "type": "branch", 
+                        "children": {
+                          "Inflation": {
+                            "type": "UInt8", 
+                            "description": "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated.", 
+                            "min": 0, 
+                            "max": 255
+                          }, 
+                          "Height": {
+                            "max": 255, 
+                            "type": "UInt8", 
+                            "description": "Lumbar support position. 0 = Lowermost. 255 = Uppermost.", 
+                            "min": 0
+                          }
+                        }
+                      }
+                    }
+                  }, 
+                  "Massage": {
+                    "type": "UInt8", 
+                    "description": "Seat massage level. 0 = off. 10 = max massage.", 
+                    "min": 0, 
+                    "max": 10
+                  }
+                }
+              }
+            }
+          }
+        }
+      }, 
+      "Lights": {
+        "description": "Interior lights signals and sensors", 
+        "type": "branch", 
+        "children": {
+          "Row1": {
+            "description": "Front lights", 
+            "type": "branch", 
+            "children": {
+              "IsSharedOn": {
+                "description": "Is light shared across first row on", 
+                "type": "Boolean"
+              }, 
+              "Right": {
+                "description": "Right front lights", 
+                "type": "branch", 
+                "children": {
+                  "IsPassengerOn": {
+                    "description": "Is passenger light on", 
+                    "type": "Boolean"
+                  }
+                }
+              }, 
+              "Left": {
+                "description": "Left front lights", 
+                "type": "branch", 
+                "children": {
+                  "IsPassengerLightOn": {
+                    "description": "Is passenger light on", 
+                    "type": "Boolean"
+                  }
+                }
+              }
+            }
+          }, 
+          "Row2": {
+            "description": "Front lights", 
+            "type": "branch", 
+            "children": {
+              "IsSharedOn": {
+                "description": "Is light shared across second row on", 
+                "type": "Boolean"
+              }, 
+              "Right": {
+                "description": "Right second row lights", 
+                "type": "branch", 
+                "children": {
+                  "IsPassengerOn": {
+                    "description": "Is passenger light on", 
+                    "type": "Boolean"
+                  }
+                }
+              }, 
+              "Left": {
+                "description": "Left second row lights", 
+                "type": "branch", 
+                "children": {
+                  "IsPassengerLightOn": {
+                    "description": "Is passenger light on", 
+                    "type": "Boolean"
+                  }
+                }
+              }
+            }
+          }, 
+          "Row3": {
+            "description": "Front lights", 
+            "type": "branch", 
+            "children": {
+              "IsSharedOn": {
+                "description": "Is light shared third across row on", 
+                "type": "Boolean"
+              }, 
+              "Right": {
+                "description": "Right third row lights", 
+                "type": "branch", 
+                "children": {
+                  "IsPassengerOn": {
+                    "description": "Is passenger light on", 
+                    "type": "Boolean"
+                  }
+                }
+              }, 
+              "Left": {
+                "description": "Left third row lights", 
+                "type": "branch", 
+                "children": {
+                  "IsPassengerLightOn": {
+                    "description": "Is passenger light on", 
+                    "type": "Boolean"
+                  }
+                }
+              }
+            }
+          }, 
+          "Row4": {
+            "description": "Front lights", 
+            "type": "branch", 
+            "children": {
+              "IsSharedOn": {
+                "type": "Boolean", 
+                "description": "Is light shared across fourth row on"
+              }, 
+              "Right": {
+                "description": "Right fourth row lights", 
+                "type": "branch", 
+                "children": {
+                  "IsPassengerOn": {
+                    "type": "Boolean", 
+                    "description": "Is passenger light on"
+                  }
+                }
+              }, 
+              "Left": {
+                "description": "Left fourth row lights", 
+                "type": "branch", 
+                "children": {
+                  "IsPassengerLightOn": {
+                    "description": "Is passenger light on", 
+                    "type": "Boolean"
+                  }
+                }
+              }
+            }
+          }, 
+          "IsGloveBoxOn": {
+            "description": "Is glove box light on", 
+            "type": "Boolean"
+          }, 
+          "IsDomeOn": {
+            "description": "Is central dome light light on", 
+            "type": "Boolean"
+          }, 
+          "IsTrunkOn": {
+            "description": "Is trunk light light on", 
+            "type": "Boolean"
+          }, 
+          "AmbientLightSensor": {
+            "type": "UInt8", 
+            "description": "How much ambient light is detected in cabin. 0 = No ambient light. 100 = Full brightness", 
+            "min": 0, 
+            "max": 100
+          }
+        }
+      }, 
+      "RearviewMirror": {
+        "description": "Rearview mirror", 
+        "type": "branch", 
+        "children": {
+          "Dimmed": {
+            "description": "Dimming level of rearview mirror. 0 = undimmed. 100 = fully dimmed", 
+            "type": "UInt8"
+          }
+        }
+      }, 
+      "RearShade": {
+        "desription": "Rear window shader.", 
+        "type": "branch", 
+        "children": {
+          "Position": {
+            "type": "UInt8", 
+            "description": "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed.", 
+            "min": 0, 
+            "max": 100
+          }, 
+          "Button": {
+            "description": "Button controlling sliding action such as window, sunroof, or blind.", 
+            "type": "String", 
+            "enum": [
+              "Inactive", 
+              "Close", 
+              "Open", 
+              "OneShotClose", 
+              "OneShotOpen"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

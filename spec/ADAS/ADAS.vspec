@@ -9,9 +9,6 @@
 #
 # All Advanced Driver Assist System signals
 #
-- CruiseControl:
-  type: Branch
-  description: All cruise control signals
 
 #  ABS
 #  CruiseControl

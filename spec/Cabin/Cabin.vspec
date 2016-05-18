@@ -11,26 +11,28 @@
 #
 
 ##
-# HVAC signals
-##
-- HVAC:
-  type: branch
-
-#include HVAC.vspec HVAC
-
-##
 # Rear window shade signals
 ##
 - RearShade: 
   type: branch
+  desription: Rear window shader.
 
 # Include the same shade spec used for sunroof and side windows.
 #include SingleShade.vspec RearShade
 
 ##
+# HVAC signals
+##
+- HVAC:
+  type: branch
+  description: Climate control
+
+#include HVAC.vspec HVAC
+
+##
 # Sunroof status
 ##
-- SunRoof:
+- Sunroof:
   type: branch
   description: Sun roof status.
 
@@ -38,7 +40,7 @@
   type: Int8
   min: -100
   max: 100
-  description: SunRoof position. 0 = Fully closed 100 = Fully opened. -100 = Fully tilted
+  description: Sunroof position. 0 = Fully closed 100 = Fully opened. -100 = Fully tilted
                
 #
 # Sunroof controlling button. 
@@ -48,19 +50,18 @@
   enum: [ "Inactive", "Close", "Open", "OneShotClose", "OneShotOpen", "TiltUp", "TiltDown" ]
   description: Button controlling sliding action such as window, sunroof, or shade.
 
-- SunRoof.Shade:
+- Sunroof.Shade:
   type: branch
   description: Sun roof shade status
 
 # Include shade specification also used by side and rear window.
-#include SingleShade.vspec SunRoof.Shade
-
+#include SingleShade.vspec Sunroof.Shade
 
 #
 # Rearview mirror signals
 #
 - RearviewMirror:
-  type: Branch
+  type: branch
   description: Rearview mirror 
 
 - RearviewMirror.Dimmed:
@@ -72,11 +73,11 @@
 # Interior lights signals and sensors
 ##
 - Lights:
-  type: Branch
+  type: branch
   description: Interior lights signals and sensors 
 
 # Include the lights specification and attach it under the Lights branch.x
-#include Lights.vspec Lights
+#include InteriorLights.vspec Lights
 
 ##
 # Door signals

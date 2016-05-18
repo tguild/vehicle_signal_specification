@@ -44,5 +44,4 @@
   description: All lgihts
 
 # Include lights specification and attach it to the Lights branch
-#include ExteriorLights.vspec
-
+#include ExteriorLights.vspec Lights

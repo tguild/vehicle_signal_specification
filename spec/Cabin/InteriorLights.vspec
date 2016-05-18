@@ -18,7 +18,7 @@
   type: Boolean
   description: Is trunk light light on
 
-- IsDomeOn
+- IsDomeOn:
   type: Boolean
   description: Is central dome light light on
 
@@ -32,11 +32,11 @@
 # First / front row lights
 #
 - Row1:
-  type: Branch
+  type: branch
   description: Front lights
 
 - Row1.Left:
-  type: Branch
+  type: branch
   description: Left front lights
 
 - Row1.IsSharedOn:
@@ -48,7 +48,7 @@
   description: Is passenger light on
 
 - Row1.Right:
-  type: Branch
+  type: branch
   description: Right front lights
 
 - Row1.Right.IsPassengerOn:
@@ -58,11 +58,11 @@
 
 
 - Row2:
-  type: Branch
+  type: branch
   description: Front lights
 
 - Row2.Left:
-  type: Branch
+  type: branch
   description: Left second row lights
 
 - Row2.IsSharedOn:
@@ -74,7 +74,7 @@
   description: Is passenger light on
 
 - Row2.Right:
-  type: Branch
+  type: branch
   description: Right second row lights
 
 - Row2.Right.IsPassengerOn:
@@ -85,11 +85,11 @@
 
 
 - Row3:
-  type: Branch
+  type: branch
   description: Front lights
 
 - Row3.Left:
-  type: Branch
+  type: branch
   description: Left third row lights
 
 - Row3.IsSharedOn:
@@ -101,7 +101,7 @@
   description: Is passenger light on
 
 - Row3.Right:
-  type: Branch
+  type: branch
   description: Right third row lights
 
 - Row3.Right.IsPassengerOn:
@@ -112,11 +112,11 @@
 
 
 - Row4:
-  type: Branch
+  type: branch
   description: Front lights
 
 - Row4.Left:
-  type: Branch
+  type: branch
   description: Left fourth row lights
 
 - Row4.IsSharedOn:
@@ -128,17 +128,9 @@
   description: Is passenger light on
 
 - Row4.Right:
-  type: Branch
+  type: branch
   description: Right fourth row lights
 
 - Row4.Right.IsPassengerOn:
   type: Boolean
   description: Is passenger light on
-
-
-
-      ambient_daylight_sensor
-      ambient
-        color
-        level
-      sunshade          
