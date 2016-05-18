@@ -10,46 +10,46 @@
 #
 
 - IsHighBeamOn:
-  type: Branch
+  type: Boolean
   description: Is high beam on
 
 - IsLowBeamOn:
-  type: Branch
+  type: Boolean
   description: Is  beam on
 
 
 - IsRunningOn:
-  type: Branch
+  type: Boolean
   description: Are running lights on
 
 - IsBackupOn:
-  type: Branch
+  type: Boolean
   description: Is backuo (reverse) light on
 
 - IsParingOn:
-  type: Branch
+  type: Boolean
   description: Is parking light on
 
 - IsBrakeOn:
-  type: Branch
+  type: Boolean
   description: Is brake light on
 
 - IsRearFogOn:
-  type: Branch
+  type: Boolean
   description: Is rear fog light on
 
 - IsFrontFogOn:
-  type: Branch
+  type: Boolean
   description: Is front fog light on
 
 - IsHazardOn:
-  type: Branch
+  type: Boolean
   description: Are hazards on
 
 - IsLeftIndicatorOn:
-  type: Branch
+  type: Boolean
   description: Is left indicator flashing
 
 - IsRightIndocatorOn:
-  type: Branch
+  type: Boolean
   description: Is right indicator flashing

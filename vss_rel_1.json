@@ -78,47 +78,47 @@
         "children": {
           "IsLeftIndicatorOn": {
             "description": "Is left indicator flashing", 
-            "type": "Branch"
+            "type": "Boolean"
           }, 
           "IsRightIndocatorOn": {
             "description": "Is right indicator flashing", 
-            "type": "Branch"
+            "type": "Boolean"
           }, 
           "IsLowBeamOn": {
             "description": "Is  beam on", 
-            "type": "Branch"
+            "type": "Boolean"
           }, 
           "IsHighBeamOn": {
             "description": "Is high beam on", 
-            "type": "Branch"
+            "type": "Boolean"
           }, 
           "IsFrontFogOn": {
             "description": "Is front fog light on", 
-            "type": "Branch"
+            "type": "Boolean"
           }, 
           "IsBrakeOn": {
             "description": "Is brake light on", 
-            "type": "Branch"
+            "type": "Boolean"
           }, 
           "IsBackupOn": {
             "description": "Is backuo (reverse) light on", 
-            "type": "Branch"
+            "type": "Boolean"
           }, 
           "IsParingOn": {
             "description": "Is parking light on", 
-            "type": "Branch"
+            "type": "Boolean"
           }, 
           "IsRearFogOn": {
             "description": "Is rear fog light on", 
-            "type": "Branch"
+            "type": "Boolean"
           }, 
           "IsHazardOn": {
             "description": "Are hazards on", 
-            "type": "Branch"
+            "type": "Boolean"
           }, 
           "IsRunningOn": {
             "description": "Are running lights on", 
-            "type": "Branch"
+            "type": "Boolean"
           }
         }
       }, 
