@@ -13,18 +13,17 @@
 # files into a complete specification that can be processed
 # by the document generation tools available in
 #
-# https://github.com/PDXostc/vehicle_signal_tools
+# https://github.com/GENIVI/vehicle_signal_specification/tree/develop/tools
 #
 
 # All signals originating from within the cabin
 - Cabin:
   type: branch
 
-
 #
 # An uncontrolled private branch.
 #
-- Private:
+- Private: 
   type: branch
   description: Uncontrolled branch where non-public signals can be defined.
 
@@ -44,7 +43,7 @@
 
 #
 # The transmission branch used to host the the signals in transmission.vspec.
-#
+
 - Transmission:
   type: branch
   description: Transmission-specific data, stopping at the drive shafts.
@@ -52,6 +51,7 @@
 
 # Include the transmission.vspec file and attach all its signals under the
 # transmission branch created above.
+
 #include Transmission.vspec Transmission
 
 #
@@ -78,8 +78,6 @@
 #include Cabin/Cabin.vspec Cabin
 
 
-
-
 #
 # Advanced Driver Assist Systems siggnals
 #
@@ -88,27 +86,3 @@
   description: All Advanced Driver Assist Systems signals
 
 #include ADAS/ADAS.vspec ADAS
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
