@@ -16,9 +16,6 @@
 # https://github.com/GENIVI/vehicle_signal_specification/tree/develop/tools
 #
 
-# All signals originating from within the cabin
-- Cabin:
-  type: branch
 
 #
 # An uncontrolled private branch.
