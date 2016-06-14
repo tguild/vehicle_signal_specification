@@ -16,7 +16,7 @@
 #
 # Engine rotations per minute
 #
-- rpm:
+- RPM:
   type: Uint16
   unit: rpm
   min: 0
@@ -27,7 +27,7 @@
 #
 # Engine coolant temperature
 #
-- ect:
+- ECT:
   type: Int16
   unit: celsius
   min: -50
@@ -38,7 +38,7 @@
 #
 # Engine Oil Temperature
 #
-- eot:
+- EOT:
   type: Int16
   unit: celsius
   min: -50
@@ -49,7 +49,7 @@
 #
 # Manifold Air Pressure
 #
-- map:
+- MAP:
   type: Int16
   unit: mbar
   min: 0
@@ -60,7 +60,7 @@
 #
 # Mass Air Flow
 #
-- maf:
+- MAF:
   type: Int16
   unit: g/s
   min: 0
@@ -70,7 +70,7 @@
 #
 # Throttle Position
 #
-- tps:
+- TPS:
   type: Int8
   unit: percent
   min: 0
@@ -81,7 +81,7 @@
 #
 # Engine Oil Pressure
 #
-- eop:
+- EOP:
   type: Int16
   unit: mbar
   min: 0
@@ -92,7 +92,7 @@
 #
 # Current Power
 #
-- power:
+- Power:
   type: Int16
   unit: kW
   min: 0
@@ -102,7 +102,7 @@
 #
 # Current Torque 
 #
-- torque:
+- Torque:
   type: Int16
   unit: Nm
   min: 0
