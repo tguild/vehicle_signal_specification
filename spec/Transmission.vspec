@@ -16,7 +16,7 @@
 #
 # Current gear
 #
-- gear:
+- Gear:
   type: UInt8
   min: -1
   max: 16
@@ -26,7 +26,7 @@
 #
 # Current mode
 #
-- performance_mode:
+- PerformanceMode:
   type: string
   enum: [ normal, sport, economy, snow, rain ]
   description: Current gearbox performance mode. 
@@ -35,7 +35,7 @@
 #
 # Current gearchange mode
 #
-- gearchange_mode:
+- GearChangeMode:
   type: string
   enum: [ manual, automatic ]
   description: Is the gearbox in automatic or manual (paddle) mode. 
@@ -44,7 +44,7 @@
 #
 # Gearbox temperature
 #
-- temperature:
+- Temperature:
   type: Int16
   min: -50
   max: 200
