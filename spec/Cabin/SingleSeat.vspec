@@ -30,53 +30,192 @@
   max: 10
   description: Seat massage level. 0 = off. 10 = max massage.
 
+- Recline:
+  type: Int8
+  min: -90
+  max: 90
+  unit: degree
+  description: Recline level. -90 = Max forward recline. 90 max backward recline
+
 - Position:
+  type: UInt16
+  min: 0
+  max: 1000
+  unit: mm
+  description: Seat horizontal position. 0 = Frontmost. 1000 = Rearmost
+
+- Cushion:
   type: branch
-  description: All seat positions. 21 + head rest
-
-- Position.Recline:
-  type: UInt8
-  min: 0
-  max: 255
-  description: Recline level. 0 = Fully upright. 255 = Maximum reclined
-
-- Position.Horizontal:
-  type: UInt8
-  min: 0
-  max: 255
-  description: Seat horizontal position. 0 = Frontmost. 255 = Rearmost
-
-- Position.FrontHeight:
-  type: UInt8
-  min: 0
-  max: 255
-  description: Height of the seat front. 0 = Lowermost. 255 = Uppermost.
-
-- Position.RearHeight:
-  type: UInt8
-  min: 0
-  max: 255
-  description: Height of the seat rear. 0 = Lowermost. 255 = Uppermost.
-
-- Position.Lumbar:
-  type: branch
-  description: Lumbar settings
+  description: Cushion signals.
   
-- Position.Lumbar.Inflation:
+- Cushion.Height:
+  type: UInt16
+  min: 0
+  max: 500
+  unit: mm
+  description: Height of the seat front. 0 = Lowermost. 500 = Uppermost.
+
+- Cushion.Length:
+  type: UInt16
+  min: 0
+  max: 500
+  unit: mm
+  description: Forward length of cushion (leg support). 0 = Rearmost. 500 = Forwardmost.
+
+
+- Lumbar:
   type: branch
+  description: Lumbar signals
+  
+- Lumbar.Inflation:
   type: UInt8
   min: 0
   max: 255
   description: Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated.
+
   
-- Position.Lumbar.Height:
-  type: branch
+- Lumbar.Height:
   type: UInt8
   min: 0
   max: 255
   description: Lumbar support position. 0 = Lowermost. 255 = Uppermost.
 
-- Button:
+- SideBolster:
   type: branch
-  description: Seat button signals
+  description: Side bolster settings
+  
+- SideBolster.Inflation:
+  type: UInt8
+  min: 0
+  max: 255
+  description: Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated.
+  
+- HeadRestraint:
+  type: branch
+  description: Head restratint settings
+
+- HeadRestraint.Height:
+  type: UInt8
+  min: 0
+  max: 255
+  unit: mm
+  description: Height of heead restraing. 0 = Bottommost. 255 = Topmost.
+
+#--------------------------------------
+
+- Switch:
+  type: branch
+  description: Seat switch signals
+
+- Switch.Warmer:
+  type: bool
+  description: Warmer switch for Seat heater
+
+- Switch.Cooler:
+  type: bool
+  description: Cooler switch for Seat heater
+
+- Switch.Forward:
+  type: bool
+  description: Seat forward switch engaged
+
+- Switch.Backward:
+  type: bool
+  description: Seat forward switch engaged
+
+- Switch.Up:
+  type: bool
+  description: Seat up switch engaged
+
+- Switch.Down:
+  type: bool
+  description: Seat down switch engaged
+
+- Switch.HeadRestraint:
+  type: branch
+  description: Head restratint switches
+  
+- Switch.HeadRestraint.Up:
+  type: bool
+  description: Head restraint up switch engaged
+
+- Switch.HeadRestraint.Down:
+  type: bool
+  description: Head restraint down switch engaged
+
+- Switch.Massage:
+  type: branch
+  description: Massage switches
+
+- Switch.Massage.Increase:
+  type: bool
+  description: Increase massage level switch engaged
+
+- Switch.Massage.Decrease:
+  type: bool
+  description: Decrease massage level switch engaged
+
+- Switch.Recline:
+  type: branch
+  description: Recline switches
+
+- Switch.Recline.Backward:
+  type: bool
+  description: Seatback recline backward switch engaged
+
+- Switch.Recline.Forward:
+  type: bool
+  description: Seatback recline forward switch engaged
+
+- Switch.Cushion:
+  type: branch
+  description: Cushion switches
+
+- Switch.Cushion.Up:
+  type: bool
+  description: Seat cushion up switch engaged
+
+- Switch.Cushion.Down:
+  type: bool
+  description: Seat cushion down switch engaged
+
+- Switch.Cushion.Forward:
+  type: bool
+  description: Seat cushion forward/lengthen switch engaged
+
+- Switch.Cushion.Backward:
+  type: bool
+  description: Seat cushion backward/shorten switch engaged
+
+- Switch.Lumbar:
+  type: branch
+  description: Lumbar switches
+  
+- Switch.Lumbar.Up:
+  type: bool
+  description: Lumbar up switch engaged
+    
+- Switch.Lumbar.Down:
+  type: bool
+  description: Lumbar down switch engaged
+    
+- Switch.Lumbar.Inflate:
+  type: bool
+  description: Lumbar inflation switch engaged
+    
+- Switch.Lumbar.Deflate:
+  type: bool
+  description: Lumbar deflation switch engaged
+
+- Switch.SideBolster:
+  type: branch
+  description: Side bolster switches
+
+- Switch.SideBolster.Inflate:
+  type: bool
+  description: Lumbar inflation switch engaged
+    
+- Switch.SideBolster.Deflate:
+  type: bool
+  description: Lumbar deflation switch engaged
 
