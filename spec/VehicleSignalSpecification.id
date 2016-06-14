@@ -412,6 +412,15 @@ Cabin.Sunroof.Button: 32
 Cabin.Sunroof.Position: 31
 Cabin.Sunroof.Shade.Button: 33
 Cabin.Sunroof.Shade.Position: 34
+Engine.ECT: 429
+Engine.EOP: 434
+Engine.EOT: 430
+Engine.MAF: 432
+Engine.MAP: 431
+Engine.Power: 435
+Engine.RPM: 428
+Engine.TPS: 433
+Engine.Torque: 436
 Engine.ect: 2
 Engine.eop: 7
 Engine.eot: 3
@@ -421,6 +430,10 @@ Engine.power: 8
 Engine.rpm: 1
 Engine.torque: 9
 Engine.tps: 6
+Transmission.Gear: 437
+Transmission.GearChangeMode: 439
+Transmission.PerformanceMode: 438
+Transmission.Temperature: 440
 Transmission.gear: 10
 Transmission.gearchange_mode: 12
 Transmission.performance_mode: 11
