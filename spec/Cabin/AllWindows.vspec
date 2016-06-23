@@ -32,12 +32,12 @@
   max: 100
   description: Position of curtain. 0 = Fully retracted. 100 = Fully deployed.
 
-- WindowButton:
+- WindowSwitch:
   type: String
   enum: [ "Inactive", "Down", "Up", "OneShotDown", "OneShotUp" ]
-  description: Window button status.
+  description: Window switch status.
 
-- CurtainButton:
+- CurtainSwitch:
   type: String
   enum: [ "Inactive", "Down", "Up", "OneShotDown", "OneShotUp" ]
   description: Curtain button status.
