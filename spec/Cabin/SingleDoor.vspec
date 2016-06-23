@@ -31,10 +31,10 @@
   description: Window position. 0 = Fully closed 100 = Fully opened.
 
 
-# Include the window controlling button and attach it to the
+# Include the window controlling switch and attach it to the
 # window branch
 
-#include SingleSliderButton.vspec Window
+#include SingleSliderSwitch.vspec Window
 
 
 #

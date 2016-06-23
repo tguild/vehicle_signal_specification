@@ -1,0 +1,15 @@
+# (C) 2016 Jaguar Land Rover - All rights reserved.
+#
+# All documents in this repository are licensed under the Creative
+# Commons Attribution 4.0 International (CC BY 4.0). 
+# See https://creativecommons.org/licenses/by/4.0/ for details.
+#
+
+#
+# Generic switch to control sliding actions such as sunroof, window,
+# blind, etc.
+#
+- Switch:
+  type: String
+  enum: [ "Inactive", "Close", "Open", "OneShotClose", "OneShotOpen" ]
+  description: Switch controlling sliding action such as window, sunroof, or blind.
