@@ -43,12 +43,12 @@
   description: Sunroof position. 0 = Fully closed 100 = Fully opened. -100 = Fully tilted
                
 #
-# Sunroof controlling button. 
-# We cannot use SingleSliderButton.vspce since we have TiltUp and TiltDown also
-- Sunroof.Button:
+# Sunroof controlling switch. 
+# We cannot use SingleSliderSwitch.vspce since we have TiltUp and TiltDown also
+- Sunroof.Switch:
   type: String
   enum: [ "Inactive", "Close", "Open", "OneShotClose", "OneShotOpen", "TiltUp", "TiltDown" ]
-  description: Button controlling sliding action such as window, sunroof, or shade.
+  description: Switch controlling sliding action such as window, sunroof, or shade.
 
 - Sunroof.Shade:
   type: branch
@@ -84,7 +84,7 @@
 ##
 - Door:
   type: branch
-  description: All doors, including windows and buttons
+  description: All doors, including windows and switches
 
 #
 # Front row of doors
@@ -166,6 +166,12 @@
 
 ##
 # Seat signals
+# Row1 is the frontmost row.
+# Row2-Row4 are subsequent rows of seats.
+#
+# Within each row there are five seat positions
+# Pos1 is leftmost.
+# Pos5 is rightmost.
 ##
 
 #
@@ -179,71 +185,150 @@
   type: branch
   description: Front seats
 
-- Seat.Row1.Left:
+- Seat.Row1.Pos1:
   type: branch
-  description: Left front seat
+  description: First seat from left, front row
 
-#include SingleSeat.vspec Seat.Row1.Left
+#include SingleSeat.vspec Seat.Row1.Pos1
 
-- Seat.Row1.Right:
+- Seat.Row1.Pos2:
   type: branch
-  description: Right front seat
+  description: Second seat from left, front row
 
-#include SingleSeat.vspec Seat.Row1.Right
+#include SingleSeat.vspec Seat.Row1.Pos2
+
+- Seat.Row1.Pos3:
+  type: branch
+  description: Third seat from left, front row
+
+#include SingleSeat.vspec Seat.Row1.Pos3
+
+- Seat.Row1.Pos4:
+  type: branch
+  description: Fourth seat from left, front row
+
+#include SingleSeat.vspec Seat.Row1.Pos4
+
+- Seat.Row1.Pos5:
+  type: branch
+  description: Fifth seat from left, front row
+
+#include SingleSeat.vspec Seat.Row1.Pos5
+
+
 
 #
-# Second row of seats.
+# Second row seats
 #
 - Seat.Row2:
   type: branch
-  description: Second row seats
+  description: Front seats
 
-- Seat.Row2.Left:
+- Seat.Row2.Pos1:
   type: branch
-  description: Left second row seat
+  description: First seat from left, second row
 
-#include SingleSeat.vspec Seat.Row2.Left
+#include SingleSeat.vspec Seat.Row2.Pos1
 
-- Seat.Row2.Right:
+- Seat.Row2.Pos2:
   type: branch
-  description: Right second row seat
+  description: Second seat from left, second row
 
-#include SingleSeat.vspec Seat.Row2.Right
+#include SingleSeat.vspec Seat.Row2.Pos2
+
+- Seat.Row2.Pos3:
+  type: branch
+  description: Third seat from left, second row
+
+#include SingleSeat.vspec Seat.Row2.Pos3
+
+- Seat.Row2.Pos4:
+  type: branch
+  description: Fourth seat from left, second row
+
+#include SingleSeat.vspec Seat.Row2.Pos4
+
+- Seat.Row2.Pos5:
+  type: branch
+  description: Fifth seat from left, second row
+
+#include SingleSeat.vspec Seat.Row2.Pos5
+
+
 
 #
-# Third row of seats.
+# Third row seats
 #
 - Seat.Row3:
   type: branch
-  description: Third row seats
+  description: Front seats
 
-- Seat.Row3.Left:
+- Seat.Row3.Pos1:
   type: branch
-  description: Left third row seat
+  description: First seat from left, third row
 
-#include SingleSeat.vspec Seat.Row3.Left
+#include SingleSeat.vspec Seat.Row3.Pos1
 
-- Seat.Row3.Right:
+- Seat.Row3.Pos2:
   type: branch
-  description: Right third row seat
+  description: Third seat from left, third row
 
-#include SingleSeat.vspec Seat.Row3.Right
+#include SingleSeat.vspec Seat.Row3.Pos2
+
+- Seat.Row3.Pos3:
+  type: branch
+  description: Third seat from left, third row
+
+#include SingleSeat.vspec Seat.Row3.Pos3
+
+- Seat.Row3.Pos4:
+  type: branch
+  description: Fourth seat from left, third row
+
+#include SingleSeat.vspec Seat.Row3.Pos4
+
+- Seat.Row3.Pos5:
+  type: branch
+  description: Fifth seat from left, third row
+
+#include SingleSeat.vspec Seat.Row3.Pos5
+
+
 
 #
-# Fourth row of seats.
+# Fourth row seats
 #
 - Seat.Row4:
   type: branch
-  description: Fourth row seats
+  description: Front seats
 
-- Seat.Row4.Left:
+- Seat.Row4.Pos1:
   type: branch
-  description: Left fourth row seat
+  description: First seat from left, fourth row
 
-#include SingleSeat.vspec Seat.Row4.Left
+#include SingleSeat.vspec Seat.Row4.Pos1
 
-- Seat.Row4.Right:
+- Seat.Row4.Pos2:
   type: branch
-  description: Right fourth row seat
+  description: Fourth seat from left, fourth row
 
-#include SingleSeat.vspec Seat.Row4.Right
+#include SingleSeat.vspec Seat.Row4.Pos2
+
+- Seat.Row4.Pos3:
+  type: branch
+  description: Fourth seat from left, fourth row
+
+#include SingleSeat.vspec Seat.Row4.Pos3
+
+- Seat.Row4.Pos4:
+  type: branch
+  description: Fourth seat from left, fourth row
+
+#include SingleSeat.vspec Seat.Row4.Pos4
+
+- Seat.Row4.Pos5:
+  type: branch
+  description: Fifth seat from left, fourth row
+
+#include SingleSeat.vspec Seat.Row4.Pos5
+
