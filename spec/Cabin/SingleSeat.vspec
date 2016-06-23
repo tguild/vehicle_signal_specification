@@ -108,27 +108,27 @@
   description: Seat switch signals
 
 - Switch.Warmer:
-  type: bool
+  type: Boolean
   description: Warmer switch for Seat heater
 
 - Switch.Cooler:
-  type: bool
+  type: Boolean
   description: Cooler switch for Seat heater
 
 - Switch.Forward:
-  type: bool
+  type: Boolean
   description: Seat forward switch engaged
 
 - Switch.Backward:
-  type: bool
+  type: Boolean
   description: Seat forward switch engaged
 
 - Switch.Up:
-  type: bool
+  type: Boolean
   description: Seat up switch engaged
 
 - Switch.Down:
-  type: bool
+  type: Boolean
   description: Seat down switch engaged
 
 - Switch.HeadRestraint:
@@ -136,11 +136,11 @@
   description: Head restratint switches
   
 - Switch.HeadRestraint.Up:
-  type: bool
+  type: Boolean
   description: Head restraint up switch engaged
 
 - Switch.HeadRestraint.Down:
-  type: bool
+  type: Boolean
   description: Head restraint down switch engaged
 
 - Switch.Massage:
@@ -148,11 +148,11 @@
   description: Massage switches
 
 - Switch.Massage.Increase:
-  type: bool
+  type: Boolean
   description: Increase massage level switch engaged
 
 - Switch.Massage.Decrease:
-  type: bool
+  type: Boolean
   description: Decrease massage level switch engaged
 
 - Switch.Recline:
@@ -160,11 +160,11 @@
   description: Recline switches
 
 - Switch.Recline.Backward:
-  type: bool
+  type: Boolean
   description: Seatback recline backward switch engaged
 
 - Switch.Recline.Forward:
-  type: bool
+  type: Boolean
   description: Seatback recline forward switch engaged
 
 - Switch.Cushion:
@@ -172,19 +172,19 @@
   description: Cushion switches
 
 - Switch.Cushion.Up:
-  type: bool
+  type: Boolean
   description: Seat cushion up switch engaged
 
 - Switch.Cushion.Down:
-  type: bool
+  type: Boolean
   description: Seat cushion down switch engaged
 
 - Switch.Cushion.Forward:
-  type: bool
+  type: Boolean
   description: Seat cushion forward/lengthen switch engaged
 
 - Switch.Cushion.Backward:
-  type: bool
+  type: Boolean
   description: Seat cushion backward/shorten switch engaged
 
 - Switch.Lumbar:
@@ -192,19 +192,19 @@
   description: Lumbar switches
   
 - Switch.Lumbar.Up:
-  type: bool
+  type: Boolean
   description: Lumbar up switch engaged
     
 - Switch.Lumbar.Down:
-  type: bool
+  type: Boolean
   description: Lumbar down switch engaged
     
 - Switch.Lumbar.Inflate:
-  type: bool
+  type: Boolean
   description: Lumbar inflation switch engaged
     
 - Switch.Lumbar.Deflate:
-  type: bool
+  type: Boolean
   description: Lumbar deflation switch engaged
 
 - Switch.SideBolster:
@@ -212,10 +212,9 @@
   description: Side bolster switches
 
 - Switch.SideBolster.Inflate:
-  type: bool
+  type: Boolean
   description: Lumbar inflation switch engaged
     
 - Switch.SideBolster.Deflate:
-  type: bool
+  type: Boolean
   description: Lumbar deflation switch engaged
-
