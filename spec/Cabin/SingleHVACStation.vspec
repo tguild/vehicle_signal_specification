@@ -1,0 +1,40 @@
+#
+# (C) 2016 Jaguar Land Rover - All rights reserved.
+#
+# All documents in this repository are licensed under the Creative
+# Commons Attribution 4.0 International (CC BY 4.0). 
+# See https://creativecommons.org/licenses/by/4.0/ for details.
+#
+ 
+#
+# A single HVAC station in the vehicle.
+#
+
+- Recirculation:
+  type: Boolean
+  description: Recirculation active.
+
+- FanSpeed:
+  type: UInt8
+  min: 0
+  max: 20
+  description: Fan Speed, 0 = off. 20 = max
+
+- LeftTemperature:
+  type: Int8
+  min: -50
+  max: 50
+  unit: celsius 
+  description: Left side Temperature
+
+- RightTemperature:
+  type: Int8
+  min: -50
+  max: 50
+  unit: celsius 
+  description: Right side Temperature
+
+- AirDistribution:
+  type: string
+  enum: [ "up", "middle", "down" ]
+  description: Direction of airstream

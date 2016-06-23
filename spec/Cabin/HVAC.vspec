@@ -10,8 +10,43 @@
 # All HVAC-originated signals
 #
 
-- FrontFanSpeed:
-  type: UInt8
-  min: 0
-  max: 10
-  description: Fan Speed
+- Row1:
+  type: branch
+  description: Frontmost row HVAC.
+
+# Attach a single HVAC station for front row.
+#include SingleHVACStation.vspec Row1
+
+- Row2:
+  type: branch
+  description: Second row HVAC.
+
+#include SingleHVACStation.vspec Row2
+
+- Row3:
+  type: branch
+  description: Third row HVAC.
+
+#include SingleHVACStation.vspec Row3
+
+- Row4:
+  type: branch
+  description: Fourth row HVAC.
+
+#include SingleHVACStation.vspec Row4
+
+- IsRecirculationActive:
+  type: Boolean
+  description: Is recirculation active.
+
+- IsFrontDefrosterActive:
+  type: Boolean
+  description: Is front defroster active.
+
+- IsRearDefrosterActice:
+  type: Boolean
+  description: Is rear defroster active.
+
+- isAirConditioningActive:
+  type: Boolean
+  description: Is Air conditioning active.
