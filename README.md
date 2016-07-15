@@ -12,7 +12,7 @@ This repository specifies a set of vehicle signals that can be used in
 automotive applications to communicate the state of various vehicle
 systems.
 
-A standardized vehicle signal specification allows for an indiustry actor
+A standardized vehicle signal specification allows for an industry actor
 to use a common naming space for communicating vehicle state and,
 ultimately, allows the decoupling of the IVI stack from the underlying
 vehicle electrical architecture.
