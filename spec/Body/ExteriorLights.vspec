@@ -1,7 +1,7 @@
 # (C) 2016 Jaguar Land Rover - All rights reserved.
 #
 # All documents in this repository are licensed under the Creative
-# Commons Attribution 4.0 International (CC BY 4.0). 
+# Commons Attribution 4.0 International (CC BY 4.0).
 # See https://creativecommons.org/licenses/by/4.0/ for details.
 #
 
@@ -15,7 +15,7 @@
 
 - IsLowBeamOn:
   type: Boolean
-  description: Is  beam on
+  description: Is low beam on
 
 
 - IsRunningOn:
@@ -24,9 +24,9 @@
 
 - IsBackupOn:
   type: Boolean
-  description: Is backuo (reverse) light on
+  description: Is backup (reverse) light on
 
-- IsParingOn:
+- IsParkingOn:
   type: Boolean
   description: Is parking light on
 
@@ -50,6 +50,6 @@
   type: Boolean
   description: Is left indicator flashing
 
-- IsRightIndocatorOn:
+- IsRightIndicatorOn:
   type: Boolean
   description: Is right indicator flashing
