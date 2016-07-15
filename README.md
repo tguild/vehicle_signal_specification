@@ -12,14 +12,14 @@ This repository specifies a set of vehicle signals that can be used in
 automotive applications to communicate the state of various vehicle
 systems.
 
-A standardized vehicle signal specification allows for indiustry actor
+A standardized vehicle signal specification allows for an industry actor
 to use a common naming space for communicating vehicle state and,
 ultimately, allows the decoupling of the IVI stack from the underlying
 vehicle electrical architecture.
 
 The collection of signal specifications, or simply signals, is vendor
 independent. Vendor-specific extensions can be specified in a dedicated and
-uncontrolled branch of the signal specification tree. 
+uncontrolled branch of the signal specification tree.
 
 The format of the directories and signal specification files is aimed
 at allowing easy, git-based management with branching, merging, and
@@ -29,9 +29,9 @@ merge conflicts.
 
 A released signal specification can be used, together with tools in
 this repository, to automatically generate a number of different
-target specification formats, such as JSON, FrancaIDL, markdown, etc.
+target specification formats, such as JSON, FrancaIDL, etc.
 
-Below is a schematic showing the top-level provess.
+Below is a schematic showing the top-level process.
 
 ![Signal tree](pics/tools.png)<br>
 *Fig 1. Generating documents from specification*
@@ -43,7 +43,7 @@ The release management process will be driven in the context of GENIVI
 and its Remote Vehicle Interaction expert group.
 
 # BROWSE JSON VEHICLE SIGNAL SPECIFICATION
-variant of the vehicle signal specification is checked in 
+A variant of the vehicle signal specification is checked in
 as ```vss_$VERSION.json```, where ```$VERSION``` is the content of
 the ```VERSION``` file.
 
@@ -70,13 +70,20 @@ On non-ubuntu systems, install from:
 
     make
 
-The result will be stored in ```vss_$VERSION.json```, 
-where ```$VERSION``` is the content of the ```VERSION``` file.
+The results will be stored in ```vss_$VERSION.[xxx]```,
+where ```$VERSION``` is the contents of the ```VERSION``` file and ```xxx``` is
+the appropriate file extension for the type of output being produced.  For
+example, the JSON version of the output will have a ```.json``` extension.
 
+By default, the ```make``` processor will produce all of the currently
+installed output formats.  If only a single format is desired, specify it as
+an arguement.  For example, to generate only the json format, type:
+
+    make json
 
 # SIGNAL, BRANCH, AND ATTRIBUTE DEFINITION
-Signals, branches, and attributes are are organized into a tree such
-as outlined below.
+Signals, branches, and attributes are organized into a tree such as outlined
+below.
 
 ![Signal tree](pics/tree.png)<br>
 *Fig 2. A signal tree example*
@@ -85,20 +92,20 @@ as outlined below.
 ## <a name="branch-entry"/>BRANCH ENTRY
 A branch is an entity that can host other branches, signals, and attributes.
 A branch is identified as an entry with its signal type set to ```branch```.
-The only required field for a branch is ```description```
+The only required field for a branch is ```description```.
 
 ## <a name="signal-entry"/>SIGNAL ENTRY
-A signal is a named entity, such as rpm, that at any time can have a
-value, such as 3400.
+A signal is a named entity, such as rpm, that can have a value, such as 3400,
+at any given time.
 
 ### <a name="signal-type"/>SIGNAL TYPE
 Each signal specifies a type from the following set (from FrancaIDL):
 
-Name       | Type                       | Min  | Max 
+Name       | Type                       | Min  | Max
 :----------|:---------------------------|:-----|:---
 UInt8      | unsigned 8-bit integer     | 0    | 255
 Int8       | signed 8-bit integer       | -128 | 127
-UInt16     | unsigned 16-bit integer    |  0   | 65535 
+UInt16     | unsigned 16-bit integer    |  0   | 65535
 Int16      | signed 16-bit integer      | -32768 | 32767
 UInt32     | unsigned 32-bit integer    | 0 | 4294967295
 Int32      | signed 32-bit integer      | -2147483648 | 2147483647
@@ -111,12 +118,12 @@ String     | character string           | n/a  | n/a
 ByteBuffer | buffer of bytes (aka BLOB) | n/a | n/a
 
 Please note that the special type ```branch``` denotes a branch, not a
-signal. See [branch entry](#branch-entry) chapter for details.
+signal. See the [branch entry](#branch-entry) chapter for details.
 
 
 ### <a name="signal-range"/>SIGNAL RANGE [OPTIONAL]
-A signal can optionally be specified with a min and max limit,
-defining a range that the signal can assume a value within.
+A signal can optionally be specified with a minimum and maximum limit,
+defining the valid range that the signal can assume.
 
 ### <a name="signal-enumeration"/>SIGNAL ENUMERATION [OPTIONAL]
 A signal can optionally be specified with a set of allowed values that
@@ -133,7 +140,7 @@ km/h       | Speed       | Kilometers per hour
 celsius    | Temperature | Degrees Celsius
 mbar       | Pressure    | millibar
 percent    | Relation    | Percent
-lat        | Position    | Decimal latitude 
+lat        | Position    | Decimal latitude
 lon        | Position    | Decimal longitude
 mm         | Distance    | Millimeter
 m          | Distance    | Meter
@@ -157,11 +164,10 @@ Nm         | Force       | Torque
 
 
 ## <a name="attribute-entry"/>ATTRIBUTE ENTRY
-An attribute is an entry, such as vehicle weight or fuel type,
-woth a static value. The difference between a signal and an attribute
-is that the signal has a publisher (or producer) that continuously updates the
-signal value while an attribute has a set value, defined in the specifiation,
-that never changes.
+An attribute is an entry, such as vehicle weight or fuel type, with a static
+value. The difference between a signal and an attribute is that the signal has
+a publisher (or producer) that continuously updates the signal value while an
+attribute has a set value, defined in the specifiation, that never changes.
 
 Please see chapter
 [Mixing signals and attributes](#mixing-signals-and-attributes) for an
@@ -174,7 +180,8 @@ Each attribute specifies a type in the same way that a signal does.
 Each attribute specifies a static value of the correct type.
 
 ### <a name="attribute-unit-type"/>ATTRIBUTE UNIT TYPE [OPTIONAL]
-An attribute can optionally specify a unit of measurement in the same way that a signal does.
+An attribute can optionally specify a unit of measurement in the same way that
+a signal does.
 
 ## SIGNAL NAMING CONVENTION
 Signals are named, left-to-right, from the root of the signal tree
@@ -217,30 +224,29 @@ as each branch component is defined somewhere in the vspec file (or an
 included vspec file).
 
 ## <a name="mixing-signals-and-attributes"/>MIXING SIGNALS AND ATTRIBUTES
-Items, such as which side the side the driver sits on, the vehicle weight,
-engine displacement, and other configuration data can optionally be used
-with VSS.
+Items, such as which side the driver sits on, the vehicle weight, engine
+displacement, and other configuration data can optionally be used with VSS.
 
 
 
 
 # SIGNAL SPECIFICATION FORMAT
-A signal specification is written as a flat YAML list, where each signal and branch
-is a self-contained YAML list element
+A signal specification is written as a flat YAML list, where each signal and
+branch is a self-contained YAML list element.
 
 The YAML list is a single file, called a *vspec* file.
 
 A vspec can, in addition to a YAML list, also contain include directives.
 
-An include directive refers to another vspec file that is to replace
-the directive, much like ```#include``` in C/C++. Please note that,
-from a YAML perspective, the include directive is just another
-comment.
+An include directive refers to another vspec file that is to replace the
+directive, much like ```#include``` in C/C++. Please note that, from a YAML
+perspective, the include directive is just another comment.
 
 ## <a name="branch-entry"/>BRANCH ENTRY
-A branch entry describes a tree branch (or node) containing other branches and signals.
+A branch entry describes a tree branch (or node) containing other branches and
+signals.
 
-A branch entry example is given below
+A branch entry example is given below:
 
 ```YAML
 - body.door:
@@ -252,18 +258,18 @@ A branch entry example is given below
 The following elements are defined:
 
 * **```body.door```**<br>
-The list element name defines dot-notaded signal name to the signal. Please note that
-all parental branches included in the name must be defined as well.
+The list element name defines the dot-notated signal name to the signal.
+Please note that all parental branches included in the name must be defined as
+well.
 
 * **```type```**<br>
 The value ```branch``` specifies that this is a branch entry (as
 opposed to a signal entry). This is the default, in case ```type``` is omitted.
 
-
 * **```aggregate``` [optional]**<br>
-Defines if this branch is an aggreaget or not. See
+Defines whether or not this branch is an aggregate. See
 [aggregate branch](#aggregate-branch) chapter for more information.<br>
-Defaults to ```false``` if not defined.
+If not defined, this defaults to ```false```.
 
 * **```description```**<br>
 A description string to be included (when applicable) in the various
@@ -272,7 +278,7 @@ specification files generated from this branch entry.
 
 ## SIGNAL ENTRY
 A signal entry defines a single signal and its attributes. A signal
-entry example is given below.
+entry example is given below:
 
 ```YAML
 - chassis.transmission.speed:
@@ -283,8 +289,8 @@ entry example is given below.
 	description: The vehicle speed, as measured by the drivetrain.
 ```
 
-* **```chassis.transmissionspeed```**<br>
-Defines the dot-notaded signal name of the signal. Please note that
+* **```chassis.transmission.speed```**<br>
+Defines the dot-notated signal name of the signal. Please note that
 all parental branches included in the name must be defined as well.
 
 * **```type```**<br>
@@ -292,29 +298,21 @@ The string value of the type specifies the scalar type of the signal
 value. See [signal type](#signal-type) chapter for a list of available types.
 
 * **```min``` [optional]**<br>
-The minimum value, within the interval of the given ```type```, that
-the signal can be assigned.<br>
-If set to ```false```, the minimum value will be the "Min" value for
-the given type.
-chapter.<br>
-Default, if not specified, is ```null```.<br>
+The minimum value, within the interval of the given ```type```, that the
+signal can be assigned.<br>
+If omitted, the minimum value will be the "Min" value for the given type.<br>
 Cannot be specified if ```enum``` is specified for the same signal entry.
 
 * **```max``` [optional]**<br>
-The max value, within the interval of the given ```type```, that the
+The maximum value, within the interval of the given ```type```, that the
 signal can be assigned.<br>
-If set to ```null```, the maximum value will be the "Max" value for
-the given type.
-chapter.<br>
-Default, if not specified, is ```false```.<br>
+If omitted, the maximum value will be the "Max" value for the given type.<br>
 Cannot be specified if ```enum``` is specified for the same signal entry.
-
 
 * **```unit``` [optional]**<br>
-The unit of measurement that the signal has. See
-[Unit Type](#signal-unit-type) chapter for
-a list of available unit types.<br>
-Cannot be specified if ```enum``` is specified for the same signal entry.
+The unit of measurement that the signal has. See [Unit
+Type](#signal-unit-type) chapter for a list of available unit types.<br> This
+cannot be specified if ```enum``` is specified as the signal type.
 
 * **```description```**<br>
 A description string to be included (when applicable) in the various
@@ -323,7 +321,7 @@ specification files generated from this signal entry.
 
 ## ENUMERATED SIGNAL ENTRY
 A signal can optionally be enumerated, allowing it to be assigned a value from a
-specified set of values. An example of an enumerated signal is given below.
+specified set of values. An example of an enumerated signal is given below:
 
 
 ```YAML
@@ -336,9 +334,11 @@ specified set of values. An example of an enumerated signal is given below.
 An enumerated signal entry has no ```min```, ```max```, or ```unit```
 element.
 
-The ```enum``` element is an array of values, all of the type specified
-by ```type``` element, that the signal can be assigned.
-
+The ```enum``` element is an array of values, all of which must be specified
+in the emum list.  This signal can only be assigned one of the values
+specified in the enum list.
+The ```type``` specifier is the type of the individual elements of the enum
+list.
 
 
 ## <a name="aggregate-branch"/>AGGREGATE BRANCH
@@ -350,29 +350,25 @@ the latter have not changed their values.
 This allows for records containing multiple signals to be distributed
 as an atomic unit by the Vehicle Signal Interface and other systems.
 
-Below is an example a complete specification describing a geospatial position.
+Below is an example of a complete specification describing a geospatial position:
 
 ```YAML
 - nav:
   type: branch
   description: Navigational top-level branch.
 
-
 - nav.location:
   type: branch
   aggregate: true
   description: The current location of the vehicle.
 
-
 - nav.location.lat:
   type: Float
   description: Latitude.
 
-
 - nav.location.lon:
   type: Float
-  description: Latitude.
-
+  description: Longitude.
 
 - nav.location.alt:
   type: Float
@@ -380,37 +376,40 @@ Below is an example a complete specification describing a geospatial position.
 
 ```
 
-The ```nav.location``` branch's ```aggregate``` member indicates that
-if any of ```lat```, ```lon```, or ```alt``` are are assiged a new
-value, all three signals should be distrubuted as a single entity.
+The ```nav.location``` branch's ```aggregate``` member indicates that if any
+of ```lat```, ```lon```, or ```alt``` are assiged a new value, all three
+signals should be distrubuted as a single entity.
 
 
 # VSPEC FILE FORMAT
-Apart from YANL objects, a vspec file can have include diretives, described below
+Apart from YAML objects, a vspec file can have include directives, described
+below.
 
 ## INCLUDE DIRECTIVE
 
-An include directive in a vspec file will read the file it refers to
-and insert it into the location of the directive. The included file
-will, in its turn, be scanned for include directives to be replaced,
-effectively forming a tree of included files.
+An include directive in a vspec file will read the file it refers to and the
+contents of that file will be inserted into the current buffer in place of the
+include directive.  The included file will, in its turn, be scanned for
+include directives to be replaced, effectively forming a tree of included
+files.
 
 See below for an example of such a tree.
 
 **INSERT SCHEMATICS HERE**
 
-The include directive has the following format.
+The include directive has the following format:
 
     #include <filename> [prefix]
 
-The ```<filename>``` part specifies the path, relative to the file with the ```#include``` directive, to the vspec file to replace the directive with. 
+The ```<filename>``` part specifies the path, relative to the file with the
+```#include``` directive, to the vspec file to replace the directive with.
 
 The optional ```[prefix]``` specifies a branch name to be
 prepended to all signal entries in the included file. This allows a vspec file
 to be reused multiple times by different files, each file specifying their
-own branch to attach the inlcuded file to.
+own branch to attach the included file to.
 
-An example of an include directive is given below.
+An example of an include directive is:
 
     #include doors.vpsec chassis.doors
 
@@ -419,13 +418,11 @@ The ```door.vspec``` section specifies the file to include.
 The ```chassis.doors``` section specifies that all signal entries in
 ```door.vspec``` should have their names prefixed with ```chassis.doors```.
 
+If an included vspec file has branch or signal specifications that have
+already been defined prior to the included file, the new specifications in the
+included file will override the previous specifications.
 
-If an included vspec file has branch or signal specifications that
-have already been defined prior to the included file, the new
-specifications in the included file will replace the previoius
-specifications.
-
-Below is an example of two files, ```root.vspec```, and ```door.vspec```.
+Below is an example of two files, ```root.vspec```, and ```door.vspec```:
 
 
 ```YAML
@@ -436,31 +433,25 @@ Below is an example of two files, ```root.vspec```, and ```door.vspec```.
   type: branch
   description: All things chassis.
 
-
 - chassis.doors:
   type: branch
   description: All doors.
-
 
 - chassis.doors.front.left:
   type: branch
   description: Left front door.
 
-
 - chassis.doors.front.right:
   type: branch
   description: Right front door.
-
 
 - chassis.doors.rear.left:
   type: branch
   description: Left rear door.
 
-
 - chassis.doors.rear.right:
   type: branch
   description: Right rear door.
-
 
 #
 # Include door.vspec four times, once
@@ -480,8 +471,7 @@ Below is an example of two files, ```root.vspec```, and ```door.vspec```.
 #
 - lock:
   type: Boolean
-  description: Indicates if the door is locaked (true), or not (false).
-
+  description: Indicates if the door is locked (true), or not (false).
 
 - window_pos:
   type: Uint8
@@ -491,7 +481,6 @@ Below is an example of two files, ```root.vspec```, and ```door.vspec```.
   description: Indicates the window position. 0 = closed. 100 = open
 ```
 
-
 The two files above, once the ```#include``` directives have been
 processed, will have the following specification.
 
@@ -500,45 +489,37 @@ processed, will have the following specification.
   type: branch
   description: All things chassis.
 
-
 - chassis.doors:
   type: branch
   description: All doors.
-
 
 - chassis.doors.front.left:
   type: branch
   description: Left front door.
 
-
 - chassis.doors.front.right:
   type: branch
   description: Right front door.
-
 
 - chassis.doors.rear.left:
   type: branch
   description: Left rear door.
 
-
 - chassis.doors.rear.right:
   type: branch
   description: Right rear door.
-
 
 #
 # Include directive is replaced with file content and updated
 # signal names.
 #
 
-
 #
 # Left front door
 #
 - chassis.doors.front.left.lock:
   type: Boolean
-  description: Indicates if the door is locaked (true), or not (false).
-
+  description: Indicates if the door is locked (true), or not (false).
 
 - chassis.doors.front.left.window_pos:
   type: Uint8
@@ -547,14 +528,12 @@ processed, will have the following specification.
   max: 100
   description: Indicates the window position. 0 = closed. 100 = open
 
-
 #
 # Right front door
 #
 - chassis.doors.front.right.lock:
   type: Boolean
-  description: Indicates if the door is locaked (true), or not (false).
-
+  description: Indicates if the door is locked (true), or not (false).
 
 - chassis.doors.front.right.window_pos:
   type: Uint8
@@ -563,15 +542,12 @@ processed, will have the following specification.
   max: 100
   description: Indicates the window position. 0 = closed. 100 = open
 
-
-
 #
 # Left rear door
 #
 - chassis.doors.rear.left.lock:
   type: Boolean
-  description: Indicates if the door is locaked (true), or not (false).
-
+  description: Indicates if the door is locked (true), or not (false).
 
 - chassis.doors.rear.left.window_pos:
   type: Uint8
@@ -580,16 +556,12 @@ processed, will have the following specification.
   max: 100
   description: Indicates the window position. 0 = closed. 100 = open
 
-
-
 #
 # Right rear door
 #
-
 - chassis.doors.rear.right.lock:
   type: Boolean
-  description: Indicates if the door is locaked (true), or not (false).
-
+  description: Indicates if the door is locked (true), or not (false).
 
 - chassis.doors.rear.right.window_pos:
   type: Uint8

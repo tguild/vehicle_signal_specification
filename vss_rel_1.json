@@ -90,13 +90,8 @@
             "type": "Boolean", 
             "id": 26
           }, 
-          "IsRightIndocatorOn": {
-            "description": "Is right indicator flashing", 
-            "type": "Boolean", 
-            "id": 27
-          }, 
           "IsLowBeamOn": {
-            "description": "Is  beam on", 
+            "description": "Is low beam on", 
             "type": "Boolean", 
             "id": 18
           }, 
@@ -115,15 +110,20 @@
             "type": "Boolean", 
             "id": 22
           }, 
+          "IsRightIndicatorOn": {
+            "description": "Is right indicator flashing", 
+            "type": "Boolean", 
+            "id": 812
+          }, 
           "IsBackupOn": {
             "type": "Boolean", 
             "id": 20, 
-            "description": "Is backuo (reverse) light on"
+            "description": "Is backup (reverse) light on"
           }, 
-          "IsParingOn": {
+          "IsParkingOn": {
             "description": "Is parking light on", 
             "type": "Boolean", 
-            "id": 21
+            "id": 811
           }, 
           "IsRearFogOn": {
             "description": "Is rear fog light on", 

@@ -14,13 +14,13 @@ Engine.TPS 6
 Engine.MAF 5
 Engine.RPM 1
 Body.Lights.IsLeftIndicatorOn 26
-Body.Lights.IsRightIndocatorOn 27
 Body.Lights.IsLowBeamOn 18
 Body.Lights.IsHighBeamOn 17
 Body.Lights.IsFrontFogOn 24
 Body.Lights.IsBrakeOn 22
+Body.Lights.IsRightIndicatorOn 812
 Body.Lights.IsBackupOn 20
-Body.Lights.IsParingOn 21
+Body.Lights.IsParkingOn 811
 Body.Lights.IsRearFogOn 23
 Body.Lights.IsHazardOn 25
 Body.Lights.IsRunningOn 19

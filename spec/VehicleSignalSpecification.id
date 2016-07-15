@@ -7,7 +7,9 @@ Body.Lights.IsHighBeamOn: 17
 Body.Lights.IsLeftIndicatorOn: 26
 Body.Lights.IsLowBeamOn: 18
 Body.Lights.IsParingOn: 21
+Body.Lights.IsParkingOn: 811
 Body.Lights.IsRearFogOn: 23
+Body.Lights.IsRightIndicatorOn: 812
 Body.Lights.IsRightIndocatorOn: 27
 Body.Lights.IsRunningOn: 19
 Body.Trunk.IsLocked: 16

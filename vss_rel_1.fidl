@@ -111,16 +111,9 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Body.Lights.IsRightIndocatorOn"
-    type: "Boolean"
-    description: "Is right indicator flashing"
-    id: 27
-}
-,
-{
     name: "Body.Lights.IsLowBeamOn"
     type: "Boolean"
-    description: "Is  beam on"
+    description: "Is low beam on"
     id: 18
 }
 ,
@@ -146,17 +139,24 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
+    name: "Body.Lights.IsRightIndicatorOn"
+    type: "Boolean"
+    description: "Is right indicator flashing"
+    id: 812
+}
+,
+{
     name: "Body.Lights.IsBackupOn"
     type: "Boolean"
-    description: "Is backuo (reverse) light on"
+    description: "Is backup (reverse) light on"
     id: 20
 }
 ,
 {
-    name: "Body.Lights.IsParingOn"
+    name: "Body.Lights.IsParkingOn"
     type: "Boolean"
     description: "Is parking light on"
-    id: 21
+    id: 811
 }
 ,
 {
