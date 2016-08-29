@@ -1,0 +1,130 @@
+#
+# (C) 2016 Jaguar Land Rover - All rights reserved.
+#
+# All documents in this repository are licensed under the Creative
+# Commons Attribution 4.0 International (CC BY 4.0). 
+# See https://creativecommons.org/licenses/by/4.0/ for details.
+#
+
+#
+# Attribute tree.p
+#
+# An attribute is a signal with a default value to be reported if no
+# other value has been published for it.
+#
+# Attributes are used to communicate static values such as vehicle
+# weight, driver seat location, number of doors, etc.
+#
+# The attributes are organized in a similar manner as the signal tree.
+#
+#
+# (C) 2016 Jaguar Land Rover - All rights reserved.
+#
+# All documents in this repository are licensed under the Creative
+# Commons Attribution 4.0 International (CC BY 4.0). 
+# See https://creativecommons.org/licenses/by/4.0/ for details.
+#
+
+#
+# The engine branch used to host the the attributes in engine.vspec.
+#
+- Drivetrain:
+  type: branch
+  description: Drivetrain attributes internal combustion engines, transmissions, electric motors, etc.
+
+#
+# Internal combustion engine attributes
+#
+- Drivetrain.InternalCombustionEngine:
+  type: branch
+  description: Engine-specific attributes, stopping at the bell housing.
+
+# Include the engine.vspec file and attach all its attributes under the engine
+# branch created above.
+
+#include Engine.vspec Drivetrain.InternalCombustionEngine
+
+#
+# The transmission branch used to host the the attributes in transmission.vspec.
+#
+- Drivetrain.Transmission:
+  type: branch
+  description: Transmission-specific attributes, stopping at the drive shafts.
+
+# Include the transmission.vspec file and attach all its attributes under the
+# transmission branch created above.
+#
+
+#include Transmission.vspec Drivetrain.Transmission
+
+
+
+#
+# The battery management attributes used to host the the attributes in BatteryManagement.vspec.
+#
+- Drivetrain.BatteryManagement:
+  type: branch
+  description: Battery Management attributes
+
+# Include the battery management vspec file and attach all its attributes under the
+# battery management branch created above.
+
+#include BatteryManagement.vspec Drivetrain.BatteryManagement
+
+
+#
+# The fuel cell attributes used to host the the attributes in FuelCell.vspec.
+#
+- Drivetrain.FuelCell:
+  type: branch
+  description: Fuel Cell attributes
+
+# Include the battery management vspec file and attach all its attributes under the
+# battery management branch created above.
+
+#include FuelCell.vspec Drivetrain.FuelCell
+
+
+#
+# Chassis attributes.
+# Includes steering, suspension, wheels, brakes, etc
+#
+- Chassis:
+  type: branch
+  description: All attributes concerning steering, suspension, wheels, and brakes.
+
+#include Chassis.vspec Chassis
+
+
+#
+# The Body branch used to host the the attributes Body/Body.vspec.
+#
+- Body:
+  type: branch
+  description: All body components
+
+#include Body.vspec Body
+
+#
+# The Cabin branch and its included attributes from Cabin/Cabin.vspec
+#
+- Cabin:
+  type: branch
+  description: All in-cabin components, including doors.
+
+
+# Include the Cabin/Cabin.vspec file and attach all its attributes under the
+# Cabin branch created above.
+
+#include Cabin.vspec Cabin
+
+
+#
+# Advanced Driver Assist Systems siggnals
+#
+- ADAS:
+  type: branch
+  description: All Advanced Driver Assist Systems attributes
+
+#include ADAS.vspec ADAS
+

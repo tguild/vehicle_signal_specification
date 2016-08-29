@@ -30,6 +30,16 @@
 #include HVAC.vspec HVAC
 
 ##
+# Infotainment
+##
+- Infotainment:
+  type: branch
+  description: Infotainment system
+  
+
+#include Infotainment.vspec Infotainment
+
+##
 # Sunroof status
 ##
 - Sunroof:

@@ -1,0 +1,134 @@
+#
+# (C) 2016 Jaguar Land Rover - All rights reserved.
+#
+# All documents in this repository are licensed under the Creative
+# Commons Attribution 4.0 International (CC BY 4.0). 
+# See https://creativecommons.org/licenses/by/4.0/ for details.
+#
+ 
+
+#
+# The engine branch used to host the the signals in engine.vspec.
+#
+- Drivetrain:
+  type: branch
+  description: Drivetrain data for internal combustion engines, transmissions, electric motors, etc.
+
+#
+# Internal combustion engine signals
+#
+- Drivetrain.InternalCombustionEngine:
+  type: branch
+  description: Engine-specific data, stopping at the bell housing.
+
+# Include the engine.vspec file and attach all its signals under the engine
+# branch created above.
+
+
+#include Drivetrain/Engine.vspec Drivetrain.InternalCombustionEngine
+
+#
+# The transmission branch used to host the the signals in transmission.vspec.
+#
+- Drivetrain.Transmission:
+  type: branch
+  description: Transmission-specific data, stopping at the drive shafts.
+
+# Include the transmission.vspec file and attach all its signals under the
+# transmission branch created above.
+#
+#include Drivetrain/Transmission.vspec Drivetrain.Transmission
+
+
+#
+# The electric motor branch used to host the the signals in ElectricMotor.vspec.
+#
+- Drivetrain.ElectricMotor:
+  type: branch
+  description: Electric Motor specific signals.
+
+# Include the electric motor vspec file and attach all its signals under the
+# electric motor branch created above.
+
+#include Drivetrain/ElectricMotor.vspec Drivetrain.ElectricMotor
+
+#
+# The battery management signals used to host the the signals in BatteryManagement.vspec.
+#
+- Drivetrain.BatteryManagement:
+  type: branch
+  description: Battery Management signals
+
+# Include the battery management vspec file and attach all its signals under the
+# battery management branch created above.
+
+#include Drivetrain/BatteryManagement.vspec Drivetrain.BatteryManagement
+
+
+#
+# The battery management signals used to host the the signals in BatteryManagement.vspec.
+#
+- Drivetrain.BatteryManagement:
+  type: branch
+  description: Battery Management signals
+
+# Include the battery management vspec file and attach all its signals under the
+# battery management branch created above.
+
+#include Drivetrain/BatteryManagement.vspec Drivetrain.BatteryManagement
+
+#
+# The fuel cell signals used to host the the signals in FuelCell.vspec.
+#
+- Drivetrain.FuelCell:
+  type: branch
+  description: Fuel Cell signals
+
+# Include the battery management vspec file and attach all its signals under the
+# battery management branch created above.
+
+#include Drivetrain/FuelCell.vspec Drivetrain.FuelCell
+
+#
+# The Body branch used to host the the signals Body/Body.vspec.
+#
+- Body:
+  type: branch
+  description: All body components
+
+#include Body/Body.vspec Body
+
+
+#
+# The Cabin branch and its included signals from Cabin/Cabin.vspec
+#
+- Cabin:
+  type: branch
+  description: All in-cabin components, including doors.
+
+
+# Include the Cabin/Cabin.vspec file and attach all its signals under the
+# Cabin branch created above.
+
+#include Cabin/Cabin.vspec Cabin
+
+
+#
+# Advanced Driver Assist Systems siggnals
+#
+- ADAS:
+  type: branch
+  description: All Advanced Driver Assist Systems signals
+
+#include ADAS/ADAS.vspec ADAS
+
+
+#
+# Chassis signals.
+# Includes steering, suspension, wheels, brakes, etc
+#
+- Chassis:
+  type: branch
+  description: All signals concerning steering, suspension, wheels, and brakes.
+
+#include Chassis/Chassis.vspec Chassis

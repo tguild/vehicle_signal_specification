@@ -1,0 +1,37 @@
+#
+# (C) 2016 Jaguar Land Rover - All rights reserved.
+#
+# All documents in this repository are licensed under the Creative
+# Commons Attribution 4.0 International (CC BY 4.0). 
+# See https://creativecommons.org/licenses/by/4.0/ for details.
+#
+
+- Displacement:
+  type: Uint16
+  description: Displacement in cubic centimetres.
+
+- Configuration:
+  enum: [ "unknown", "straight", "V", "boxer", "W",
+        "rotary", "radial", "square", "H", "U", "opposed", "X" ]
+  description: Engine configuration.
+  default: "unknown"
+
+- MaxPower:
+  type:  Uint16
+  default: 0
+  description: Peak power, in kilowatts, that engine can generate.
+  
+- MaxTorque:
+  type:  Uint16
+  default: 0
+  description: Peak power, in newton meter, that the engine can generate.
+  
+- FuelType:
+  enum: [ "unknown", "gasoline", "diesel", "E85", "CNG" ]
+  default: "unknown"
+  description: Type of fuel that the engine runs on.
+  
+#
+# More attributes here
+# MaxRPM. Supercharged / Turbocharged, etc, octane, etc
+#

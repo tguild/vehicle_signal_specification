@@ -1,0 +1,28 @@
+#
+# (C) 2016 Jaguar Land Rover - All rights reserved.
+#
+# All documents in this repository are licensed under the Creative
+# Commons Attribution 4.0 International (CC BY 4.0). 
+# See https://creativecommons.org/licenses/by/4.0/ for details.
+#
+
+- Type:
+  enum: [ "unknown", "sequential", "H", "automatic", "DSG", "CVT" ]
+  default: "unknown"
+  description: Transmission type.
+
+
+- GearCount:
+  type: Uint8
+  default: 0
+  description: Number of forward gears in the transmission. -1 = CVT. 
+  
+- DriveType:
+  enum: [ "unknown", "fwd", "rwd", "awd" ]
+  default: "unknown"
+  description: Drive type.
+
+#
+# More transmissions (gear ratios etc)
+#
+

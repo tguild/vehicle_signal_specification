@@ -16,70 +16,38 @@
 # https://github.com/GENIVI/vehicle_signal_specification/tree/develop/tools
 #
 
+# Attribute declaration vs. Definition
+# Expandable / subclassable attributes.
+#
 
 #
 # An uncontrolled private branch.
 #
+# Top level speed, location, and other vehicle state?
+# odo. trip. 
+# Alias Speed -> Drivetrain.Transmission.Speed
+#
+# Global.Speed
+# Global.Location
+# Global.Odometer
+#
+# Keep to minimum
+#
+# Put in accuracy as attribute for signal
+#
+
 - Private: 
   type: branch
   description: Uncontrolled branch where non-public signals can be defined.
 
-
-#
-# The engine branch used to host the the signals in engine.vspec.
-#
-- Engine:
+- Attribute: 
   type: branch
-  description: Engine-specific data, stopping at the bell housing.
+  description: Attribute signals that do not change during the power cycle of a vehicle.
 
+#include Attribute/Attribute.vspec Attribute
 
-# Include the engine.vspec file and attach all its signals under the engine
-# branch created above.
-
-#include Engine.vspec Engine
-
-#
-# The transmission branch used to host the the signals in transmission.vspec.
-
-- Transmission:
+- Signal: 
   type: branch
-  description: Transmission-specific data, stopping at the drive shafts.
+  description: All signals that can dynamically be updated by the vehicle
 
-
-# Include the transmission.vspec file and attach all its signals under the
-# transmission branch created above.
-
-#include Transmission.vspec Transmission
-
-#
-# The Body branch used to host the the signals Body/Body.vspec.
-#
-- Body:
-  type: branch
-  description: All body components
-
-#include Body/Body.vspec Body
-
-
-#
-# The Cabin branch and its included signals from Cabin/Cabin.vspec
-#
-- Cabin:
-  type: branch
-  description: All in-cabin components, including doors.
-
-
-# Include the Cabin/Cabin.vspec file and attach all its signals under the
-# Cabin branch created above.
-
-#include Cabin/Cabin.vspec Cabin
-
-
-#
-# Advanced Driver Assist Systems siggnals
-#
-- ADAS:
-  type: branch
-  description: All Advanced Driver Assist Systems signals
-
-#include ADAS/ADAS.vspec ADAS
+#include Signal/Signal.vspec Signal

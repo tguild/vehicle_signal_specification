@@ -1,0 +1,100 @@
+# (C) 2016 Jaguar Land Rover - All rights reserved.
+#
+# All documents in this repository are licensed under the Creative
+# Commons Attribution 4.0 International (CC BY 4.0). 
+# See https://creativecommons.org/licenses/by/4.0/ for details.
+#
+
+#
+# In-Vehicle Infotainment Signals
+#
+- Media:
+  type: branch
+  description: All Media actions
+
+- Media.Action:
+  enum: [ "unknown", "Stop", "Play", "FastForward", "FastBackward", "SkipForward",  "SkipBackward" ]
+  description: Tells if the media was 
+
+- Media.Played:
+  type: branch
+  aggregate: true
+  description: Collection of signals updated in concert when a new media is played
+
+- Media.Played.Source:
+  enum: [ "unknown", "SiriusXM", "AM", "FM", "DAB", "TV",  "CD", "DVD", "AUX", "USB", "Disk", "Bluetooth", "Internet", "Voice", "Beep" ]
+  description: Media selected for playback
+
+- Media.Played.Artist:
+  type: string
+  description: Name of artist being played
+
+- Media.Played.Album:
+  type: string
+  description: Name of album being played
+
+- Media.Played.Track:
+  type: string
+  description: Name of track being played
+
+- Media.Played.URI:
+  type: string
+  description: User Resource associated with the media
+
+- Media.DeclinedURI:
+  type: string
+  description: URI of suggested media that was declined
+
+- Media.SelectedURI:
+  type: string
+  description: URI of suggested media that was selected
+
+- Media.Volume:
+  type: UInt8
+  min: 0
+  max: 100
+  description: Current Media Volume
+
+- Navigation:
+  type: branch
+  description: All navigation actions
+
+- Navigation.DestinatonSet:
+  type: branch
+  aggregate: true
+  description: A navigation has been selected.
+
+- Navigation.DestinatonSet.Latitude:
+  type: Float
+  min: -90
+  max: 90
+  description: Latitude of destination
+
+- Navigation.DestinatonSet.Longitude:
+  type: Float
+  min: -180
+  max: 180
+  description: Longitude of destination
+
+- Navigation.CurrentLocation:
+  type: branch
+  aggregate: true
+  description: The current latitude and longitude of the vehicle.
+
+- Navigation.CurrentLocation.Latitude:
+  type: Float
+  min: -90
+  max: 90
+  description: Current latitude of vehicle, as reported by GPS.
+
+- Navigation.CurrentLocation.Longitude:
+  type: Float
+  min: -180
+  max: 180
+  description: Current longitude of vehicle, as reported by GPS.
+
+- Navigation.CurrentLocation.Heading:
+  type: UInt16
+  min: 0
+  max: 359
+  description: Current magnetic compass heading, in degrees.
