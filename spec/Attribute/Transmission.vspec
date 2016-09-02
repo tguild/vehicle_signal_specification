@@ -8,18 +8,18 @@
 
 - Type:
   enum: [ "unknown", "sequential", "H", "automatic", "DSG", "CVT" ]
-  default: "unknown"
+  value: "unknown"
   description: Transmission type.
 
 
 - GearCount:
   type: Uint8
-  default: 0
+  value: 0
   description: Number of forward gears in the transmission. -1 = CVT. 
   
 - DriveType:
   enum: [ "unknown", "fwd", "rwd", "awd" ]
-  default: "unknown"
+  value: "unknown"
   description: Drive type.
 
 #

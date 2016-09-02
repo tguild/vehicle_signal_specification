@@ -13,38 +13,38 @@
   
 - Seat.DriverPostion:
   type: Uint8
-  default: 0
+  value: 0
   description: The position of the driver seat in row 1. (1-5_
 
 - Seat.RowCount:
   type: Uint8
-  default: 0
+  value: 0
   description: Number of seat rows in vehicle
 
 - Seat.Row1PosCount:
   type: Uint8
-  default: 0
+  value: 0
   description: Number of seats across row 1 (frontmost)
 
 - Seat.Row2PosCount:
   type: Uint8
-  default: 0
+  value: 0
   description: Number of seats across row 3
 
 - Seat.Row3PosCount:
   type: Uint8
-  default: 0
+  value: 0
   description: Number of seats across row 3
 
 
 - Seat.Row4PosCount:
   type: Uint8
-  default: 0
+  value: 0
   description: Number of seats across row 4
 
 - Seat.Row5PosCount:
   type: Uint8
-  default: 0
+  value: 0
   description: Number of seats across row 5
 
 #
