@@ -31,9 +31,9 @@ A released signal specification can be used, together with tools in
 this repository, to automatically generate a number of different
 target specification formats, such as JSON, FrancaIDL, etc.
 
-Below is a schematic showing the top-level process.
+Fig 1 shows the schematics of the top-level process.
 
-![Signal tree](pics/tools.png)<br>
+![Signal tree](pics/multi_target.png)<br>
 *Fig 1. Generating documents from specification*
 
 
@@ -83,7 +83,7 @@ an arguement.  For example, to generate only the json format, type:
 
 # SIGNAL, BRANCH, AND ATTRIBUTE DEFINITION
 Signals, branches, and attributes are organized into a tree such as outlined
-below.
+in Fig 2.
 
 ![Signal tree](pics/tree.png)<br>
 *Fig 2. A signal tree example*
@@ -188,35 +188,51 @@ Signals are named, left-to-right, from the root of the signal tree
 toward the signal itself. Each element in the name is delimited with
 a period (".") .
 
-In Fig 1 above the left mirror heated signal would be:
+For example, the dimming status of the reaview mirror in the cabin is named:
 
-    body.mirrors.left.heated
+	
+    Cabin.RearviewMirror.Dimmed
 
 
-If there are an array of elements, such as door 0 - 3, they will be
+If there are an array of elements, such as door rows 1-3, they will be
 named with an index branch:
 
 ```
-body.doors.0.lock
-body.doors.0.windows_pos
-body.doors.1.lock
-body.doors.1.windows_pos
-body.doors.2.lock
-body.doors.2.windows_pos
-body.doors.3.lock
-body.doors.3.windows_pos
+Cabin.Door.Row1.Left.IsLocked
+Cabin.Door.Row1.Left.Window.Position
+
+Cabin.Door.Row2.Left.IsLocked
+Cabin.Door.Row2.Left.Window.Position
+
+Cabin.Door.Row3.Left.IsLocked
+Cabin.Door.Row3.Left.Window.Position
 ```
 
+In a similar fashion, seats are located by row and their left-to-right position.
+
+```
+Cabin.Seat.Row1.Pos1.IsBelted  # Left front seat
+Cabin.Seat.Row1.Pos2.IsBelted  # Right front seat
+
+Cabin.Seat.Row2.Pos1.IsBelted  # Left rear seat
+Cabin.Seat.Row2.Pos2.IsBelted  # Middle rear seat
+Cabin.Seat.Row2.Pos3.IsBelted  # Right rear seat
+```
+
+The exact use of ```PosX``` elements and how they correlate to actual
+positions in the car, is dependent on the actual vehicle using the
+spec.
 
 ## PARENT NODES
 If a signal is defined, all parent branches included in its name must
 be included as well, as shown below:
 
 ```
-[Signal] body.mirrors.left.heated
-[Branch] body.mirrors.left
-[Branch] body.mirrors
-[Branch] body
+[Signal] Cabin.Door.Row1.Left.IsLocked
+[Branch] Cabin.Door.Row1.Left
+[Branch] Cabin.Door.Row1
+[Branch] Cabin.Door
+[Branch] Cabin
 ```
 
 The branches do not have to be defined in any specific order as long
@@ -226,8 +242,6 @@ included vspec file).
 ## <a name="mixing-signals-and-attributes"/>MIXING SIGNALS AND ATTRIBUTES
 Items, such as which side the driver sits on, the vehicle weight, engine
 displacement, and other configuration data can optionally be used with VSS.
-
-
 
 
 # SIGNAL SPECIFICATION FORMAT
@@ -249,15 +263,15 @@ signals.
 A branch entry example is given below:
 
 ```YAML
-- body.door:
+- Body.Trunk:
   type: branch
   aggregate: true
-  description: Some description
+  description: All signals related to the rear trunk
 ```
 
 The following elements are defined:
 
-* **```body.door```**<br>
+* **```Body.Trunk```**<br>
 The list element name defines the dot-notated signal name to the signal.
 Please note that all parental branches included in the name must be defined as
 well.
@@ -277,11 +291,11 @@ specification files generated from this branch entry.
 
 
 ## SIGNAL ENTRY
-A signal entry defines a single signal and its attributes. A signal
+A signal entry defines a single signal and its members. A signal
 entry example is given below:
 
 ```YAML
-- chassis.transmission.speed:
+- Drivetrain.Transmission.Speed:
 	type: Uint16
 	unit: km/h
 	min: 0
@@ -289,7 +303,7 @@ entry example is given below:
 	description: The vehicle speed, as measured by the drivetrain.
 ```
 
-* **```chassis.transmission.speed```**<br>
+* **```Drivetrain.Transmission.Speed```**<br>
 Defines the dot-notated signal name of the signal. Please note that
 all parental branches included in the name must be defined as well.
 
@@ -325,7 +339,7 @@ specified set of values. An example of an enumerated signal is given below:
 
 
 ```YAML
-- chassis.transmission.gear:
+- Chassis.Transmission.Gear:
 	type: Uint16,
 	enum: [ -1, 1, 2, 3, 4, 5, 6, 7, 8 ]
 	description: The selected gear. -1 is reverse.
@@ -341,51 +355,114 @@ The ```type``` specifier is the type of the individual elements of the enum
 list.
 
 
-## <a name="aggregate-branch"/>AGGREGATE BRANCH
-A branch entry's ```aggregate``` set to ```true``` indicates that any
-updated signal hosted under the given branch should be distributed
-together with all other signals hosted under the same branch, even if
-the latter have not changed their values.
-
-This allows for records containing multiple signals to be distributed
-as an atomic unit by the Vehicle Signal Interface and other systems.
-
-Below is an example of a complete specification describing a geospatial position:
+## SIGNAL ENTRY
+A signal entry defines a single signal and its members. A signal
+entry example is given below:
 
 ```YAML
-- nav:
-  type: branch
-  description: Navigational top-level branch.
-
-- nav.location:
-  type: branch
-  aggregate: true
-  description: The current location of the vehicle.
-
-- nav.location.lat:
-  type: Float
-  description: Latitude.
-
-- nav.location.lon:
-  type: Float
-  description: Longitude.
-
-- nav.location.alt:
-  type: Float
-  description: Altitude.
-
+- Drivetrain.Transmission.Speed:
+	type: Uint16
+	unit: km/h
+	min: 0
+	max: 300
+	description: The vehicle speed, as measured by the drivetrain.
 ```
 
-The ```nav.location``` branch's ```aggregate``` member indicates that if any
-of ```lat```, ```lon```, or ```alt``` are assiged a new value, all three
-signals should be distrubuted as a single entity.
+* **```Drivetrain.Transmission.Speed```**<br>
+Defines the dot-notated signal name of the signal. Please note that
+all parental branches included in the name must be defined as well.
+
+* **```type```**<br>
+The string value of the type specifies the scalar type of the signal
+value. See [signal type](#signal-type) chapter for a list of available types.
+
+* **```min``` [optional]**<br>
+The minimum value, within the interval of the given ```type```, that the
+signal can be assigned.<br>
+If omitted, the minimum value will be the "Min" value for the given type.<br>
+Cannot be specified if ```enum``` is specified for the same signal entry.
+
+* **```max``` [optional]**<br>
+The maximum value, within the interval of the given ```type```, that the
+signal can be assigned.<br>
+If omitted, the maximum value will be the "Max" value for the given type.<br>
+Cannot be specified if ```enum``` is specified for the same signal entry.
+
+* **```unit``` [optional]**<br>
+The unit of measurement that the signal has. See [Unit
+Type](#signal-unit-type) chapter for a list of available unit types.<br> This
+cannot be specified if ```enum``` is specified as the signal type.
+
+* **```description```**<br>
+A description string to be included (when applicable) in the various
+specification files generated from this signal entry.
 
 
-# VSPEC FILE FORMAT
-Apart from YAML objects, a vspec file can have include directives, described
-below.
+## <a name="attributes"/>ATTRIBUTES
+An attribute is a signal with a default value, specified by
+its ```value``` member.
 
-## INCLUDE DIRECTIVE
+The value set for an attribute by a vspec file can be read by a
+consumer without the need of having the value sent out by a
+publisher. The attribute, in effect, is configuration data that
+can be specified when the bspec file is installed.
+
+Below is an example of a complete attribute describing engine power
+
+```YAML
+- MaxPower:
+  type:  Uint16
+  default: 0
+  description: Peak power, in kilowatts, that engine can generate.
+```
+
+## <a name="extending"/>EXTENDING AND OVERRIDING SIGNALS
+The core signal specification can be extended with additional signals through the
+use of private branches, as is shown in Fig 3.
+
+
+![Signal Extension](pics/private_extensions.png)<br>
+*Fig 3. Extended signals*
+
+In this case the core signal specification, ```vss_23.vspec``` is
+included by a OEM-specific master vspec file that adds the two
+proprietary signals ```Private.OEM_X.AntiGravity.Power```
+and ```Private.OEM_X.Teleport.TargetLoc```.
+
+Signals can, in a similar manner, be overridden and replaced with a new definition,
+as is shown in Fig 4.
+
+
+![Signal Extension](pics/signal_override.png)<br>
+*Fig 4. Overidden signals*
+
+In this case, the ```GearChangeMode``` signal provided by the core
+specification lacks an additional semi-automatic mode featured by an
+OEM-specific vehicle.
+
+By having an OEM master spec file, ```oem_x_proprietary.vspec```
+include the core spec file, ```vss_23.vspec``` and then oveerriding
+the original ```GearChangeMode``` signal and add the ```semi-auto```
+element as an enumerated value
+
+## <a name="attributes"/>DECLARING VS. DEFINING ATTRIBUTES
+The signal extension mechanism described above is also used to declare
+an attribute in one vspec file and define it in another.  This is used
+to setup a attribute structure standard in the core specification that
+is to be defined on a per-deployment (vehicle) basis.
+
+An example is given in Fig 5.
+
+![Attributes](pics/attributes.png)<br>
+*Fig 5. Declaring and defining attributes*
+
+The ```Attributes.Engine.Displacement``` and ```Attributes.Chassis.Weight``` attributes
+are declare in the ```vss_23.vspec``` file with a default value of zero.
+
+A project/vehicle specific vspec file, ```oem_x_proprietary.vspec```
+then overrides the attributes with the correct values.
+
+## INCLUDE DIRECTIVES
 
 An include directive in a vspec file will read the file it refers to and the
 contents of that file will be inserted into the current buffer in place of the
@@ -393,9 +470,11 @@ include directive.  The included file will, in its turn, be scanned for
 include directives to be replaced, effectively forming a tree of included
 files.
 
-See below for an example of such a tree.
+See Fig 6 for an example of such a tree.
 
-**INSERT SCHEMATICS HERE**
+![Include directive](pics/include_directives.png)<br>
+*Fig 6. Include directives*
+
 
 The include directive has the following format:
 
@@ -422,151 +501,21 @@ If an included vspec file has branch or signal specifications that have
 already been defined prior to the included file, the new specifications in the
 included file will override the previous specifications.
 
-Below is an example of two files, ```root.vspec```, and ```door.vspec```:
 
+## REUSING SIGNAL TREES
+Complete subtrees of signals and attributes can be reused by including
+them multiple times, attaching them to different branches each time
+they are included.
 
-```YAML
-#
-# root.vspec
-#
-- chassis:
-  type: branch
-  description: All things chassis.
+An example is given in Fig 7 where a generic door signal specification is
+included four times to describe all doors in the vehicle.
 
-- chassis.doors:
-  type: branch
-  description: All doors.
+![Include directrive](pics/spec_file_reuse.png)<br>
+*Fig 7. Reusing signal trees*
 
-- chassis.doors.front.left:
-  type: branch
-  description: Left front door.
+The ```door.vspec``` file is included four times by the master ```root.vspec``` file.
+The signals of ```door.vspec```, ```Locked```, ```WinPos```, and ```Open``` are attached
+on the front left and right doors of row 1 (front) and row 2 (back).
 
-- chassis.doors.front.right:
-  type: branch
-  description: Right front door.
+If ```door.vspec``` is changed, the changes will be propagated to all four doors.
 
-- chassis.doors.rear.left:
-  type: branch
-  description: Left rear door.
-
-- chassis.doors.rear.right:
-  type: branch
-  description: Right rear door.
-
-#
-# Include door.vspec four times, once
-# for each door branch specified above.
-#
-
-#include door.vspec chassis.doors.front.left
-#include door.vspec chassis.doors.front.right
-#include door.vspec chassis.doors.rear.left
-#include door.vspec chassis.doors.rear.right
-```
-
-
-```YAML
-#
-# door.vspec
-#
-- lock:
-  type: Boolean
-  description: Indicates if the door is locked (true), or not (false).
-
-- window_pos:
-  type: Uint8
-  unit: percent
-  min: 0
-  max: 100
-  description: Indicates the window position. 0 = closed. 100 = open
-```
-
-The two files above, once the ```#include``` directives have been
-processed, will have the following specification.
-
-```YAML
-- chassis:
-  type: branch
-  description: All things chassis.
-
-- chassis.doors:
-  type: branch
-  description: All doors.
-
-- chassis.doors.front.left:
-  type: branch
-  description: Left front door.
-
-- chassis.doors.front.right:
-  type: branch
-  description: Right front door.
-
-- chassis.doors.rear.left:
-  type: branch
-  description: Left rear door.
-
-- chassis.doors.rear.right:
-  type: branch
-  description: Right rear door.
-
-#
-# Include directive is replaced with file content and updated
-# signal names.
-#
-
-#
-# Left front door
-#
-- chassis.doors.front.left.lock:
-  type: Boolean
-  description: Indicates if the door is locked (true), or not (false).
-
-- chassis.doors.front.left.window_pos:
-  type: Uint8
-  unit: percent
-  min: 0
-  max: 100
-  description: Indicates the window position. 0 = closed. 100 = open
-
-#
-# Right front door
-#
-- chassis.doors.front.right.lock:
-  type: Boolean
-  description: Indicates if the door is locked (true), or not (false).
-
-- chassis.doors.front.right.window_pos:
-  type: Uint8
-  unit: percent
-  min: 0
-  max: 100
-  description: Indicates the window position. 0 = closed. 100 = open
-
-#
-# Left rear door
-#
-- chassis.doors.rear.left.lock:
-  type: Boolean
-  description: Indicates if the door is locked (true), or not (false).
-
-- chassis.doors.rear.left.window_pos:
-  type: Uint8
-  unit: percent
-  min: 0
-  max: 100
-  description: Indicates the window position. 0 = closed. 100 = open
-
-#
-# Right rear door
-#
-- chassis.doors.rear.right.lock:
-  type: Boolean
-  description: Indicates if the door is locked (true), or not (false).
-
-- chassis.doors.rear.right.window_pos:
-  type: Uint8
-  unit: percent
-  min: 0
-  max: 100
-  description: Indicates the window position. 0 = closed. 100 = open
-```
