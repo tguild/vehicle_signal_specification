@@ -28,7 +28,7 @@
 #
 - PerformanceMode:
   type: string
-  enum: [ normal, sport, economy, snow, rain ]
+  enum: [ "normal", "sport", "economy", "snow", "rain" ]
   description: Current gearbox performance mode. 
 
 
@@ -37,7 +37,7 @@
 #
 - GearChangeMode:
   type: string
-  enum: [ manual, automatic ]
+  enum: [ "manual", "automatic" ]
   description: Is the gearbox in automatic or manual (paddle) mode. 
 
 
