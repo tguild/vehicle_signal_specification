@@ -14,9 +14,9 @@
         "children": {
           "Width": {
             "description": "Overall vehicle width, in mm.", 
-            "default": 0, 
             "type": "UInt16", 
-            "id": 14
+            "id": 14, 
+            "value": 0
           }, 
           "FrontWheelDiameter": {
             "type": "UInt8", 
@@ -30,14 +30,14 @@
           }, 
           "Track": {
             "description": "Overall wheel tracking, in mm.", 
-            "default": 0, 
             "type": "UInt16", 
-            "id": 16
+            "id": 16, 
+            "value": 0
           }, 
           "TowWeight": {
-            "default": 0, 
             "type": "UInt16", 
             "id": 11, 
+            "value": 0, 
             "description": "Maximum weight, in kilos, of trailer."
           }, 
           "FrontWheelWidth": {
@@ -47,9 +47,9 @@
           }, 
           "Length": {
             "description": "Overall vehicle length, in mm.", 
-            "default": 0, 
             "type": "UInt16", 
-            "id": 12
+            "id": 12, 
+            "value": 0
           }, 
           "RearWheelWidth": {
             "description": "Diameter of rear wheels (without tires), in inches.", 
@@ -58,26 +58,26 @@
           }, 
           "CurbWeight": {
             "description": "Vehicle curb weight, in kg, including all liquids and full tank of fuel, but no cargo or passengers.", 
-            "default": 0, 
             "type": "UInt16", 
-            "id": 9
+            "id": 9, 
+            "value": 0
           }, 
           "Height": {
-            "default": 0, 
             "type": "UInt16", 
             "id": 13, 
+            "value": 0, 
             "description": "Overall vehicle height, in mm."
           }, 
           "Wheelbase": {
-            "default": 0, 
             "type": "UInt16", 
             "id": 15, 
+            "value": 0, 
             "description": "Overall wheel base, in mm."
           }, 
           "GrossWeight": {
-            "default": 0, 
             "type": "UInt16", 
             "id": 10, 
+            "value": 0, 
             "description": "Curb weight of vehicle, including all liquids and full tank of fuel and full load of cargo and passengers."
           }
         }
@@ -91,7 +91,6 @@
             "children": {
               "DriveType": {
                 "description": "Drive type.", 
-                "default": "unknown", 
                 "type": "branch", 
                 "enum": [
                   "unknown", 
@@ -99,11 +98,11 @@
                   "rwd", 
                   "awd"
                 ], 
-                "children": {}
+                "children": {}, 
+                "value": "unknown"
               }, 
               "Type": {
                 "description": "Transmission type.", 
-                "default": "unknown", 
                 "type": "branch", 
                 "enum": [
                   "unknown", 
@@ -113,12 +112,13 @@
                   "DSG", 
                   "CVT"
                 ], 
-                "children": {}
+                "children": {}, 
+                "value": "unknown"
               }, 
               "GearCount": {
-                "default": 0, 
                 "type": "UInt8", 
                 "id": 4, 
+                "value": 0, 
                 "description": "Number of forward gears in the transmission. -1 = CVT."
               }
             }, 
@@ -206,45 +206,45 @@
             "children": {
               "Row4PosCount": {
                 "description": "Number of seats across row 4", 
-                "default": 0, 
                 "type": "UInt8", 
-                "id": 22
+                "id": 22, 
+                "value": 0
               }, 
               "Row1PosCount": {
                 "description": "Number of seats across row 1 (frontmost)", 
-                "default": 0, 
                 "type": "UInt8", 
-                "id": 19
+                "id": 19, 
+                "value": 0
               }, 
               "RowCount": {
                 "description": "Number of seat rows in vehicle", 
-                "default": 0, 
                 "type": "UInt8", 
-                "id": 18
+                "id": 18, 
+                "value": 0
               }, 
               "Row5PosCount": {
                 "description": "Number of seats across row 5", 
-                "default": 0, 
                 "type": "UInt8", 
-                "id": 23
+                "id": 23, 
+                "value": 0
               }, 
               "Row2PosCount": {
-                "default": 0, 
                 "type": "UInt8", 
                 "id": 20, 
+                "value": 0, 
                 "description": "Number of seats across row 3"
               }, 
               "Row3PosCount": {
                 "description": "Number of seats across row 3", 
-                "default": 0, 
                 "type": "UInt8", 
-                "id": 21
+                "id": 21, 
+                "value": 0
               }, 
               "DriverPostion": {
                 "description": "The position of the driver seat in row 1. (1-5_", 
-                "default": 0, 
                 "type": "UInt8", 
-                "id": 17
+                "id": 17, 
+                "value": 0
               }
             }, 
             "description": "Seat configuration attributes"
