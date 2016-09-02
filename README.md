@@ -169,9 +169,6 @@ value. The difference between a signal and an attribute is that the signal has
 a publisher (or producer) that continuously updates the signal value while an
 attribute has a set value, defined in the specifiation, that never changes.
 
-Please see chapter
-[Mixing signals and attributes](#mixing-signals-and-attributes) for an
-example of how attributes can be used.
 
 ### <a name="attribute-type"/>ATTRIBUTE TYPE
 Each attribute specifies a type in the same way that a signal does.
@@ -238,10 +235,6 @@ be included as well, as shown below:
 The branches do not have to be defined in any specific order as long
 as each branch component is defined somewhere in the vspec file (or an
 included vspec file).
-
-## <a name="mixing-signals-and-attributes"/>MIXING SIGNALS AND ATTRIBUTES
-Items, such as which side the driver sits on, the vehicle weight, engine
-displacement, and other configuration data can optionally be used with VSS.
 
 
 # SIGNAL SPECIFICATION FORMAT
