@@ -98,3 +98,10 @@
   min: 0
   max: 359
   description: Current magnetic compass heading, in degrees.
+
+- Navigation.CurrentLocation.Speed:
+  type: UInt16
+  min: 0
+  max: 400
+  unit: kph
+  description: Vehicle speed, as sensed by the GPS receiver.

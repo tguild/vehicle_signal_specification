@@ -136,7 +136,7 @@ TO BE REPLACED BY SI REFERENCE.
 
 Unit type  | Domain      | Description
 :----------|:------------|:-------------
-km/h       | Speed       | Kilometers per hour
+kph        | Speed       | Kilometers per hour
 celsius    | Temperature | Degrees Celsius
 mbar       | Pressure    | millibar
 percent    | Relation    | Percent

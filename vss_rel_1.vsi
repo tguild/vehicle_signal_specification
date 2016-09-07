@@ -42,6 +42,7 @@ Signal.Body.Hood.IsOpen 37
 Signal.Body.Trunk.IsLocked 39
 Signal.Body.Trunk.IsOpen 38
 Signal.Drivetrain.Transmission.PerformanceMode 34
+Signal.Drivetrain.Transmission.Speed 846
 Signal.Drivetrain.Transmission.Gear 33
 Signal.Drivetrain.Transmission.GearChangeMode 35
 Signal.Drivetrain.Transmission.Temperature 36
@@ -144,6 +145,7 @@ Signal.Cabin.Infotainment.Media.Played.Artist 77
 Signal.Cabin.Infotainment.Navigation.DestinatonSet.Latitude 84
 Signal.Cabin.Infotainment.Navigation.DestinatonSet.Longitude 85
 Signal.Cabin.Infotainment.Navigation.CurrentLocation.Latitude 86
+Signal.Cabin.Infotainment.Navigation.CurrentLocation.Speed 847
 Signal.Cabin.Infotainment.Navigation.CurrentLocation.Heading 88
 Signal.Cabin.Infotainment.Navigation.CurrentLocation.Longitude 87
 Signal.Cabin.Sunroof.Position 89

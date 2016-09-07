@@ -275,6 +275,16 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
+    name: "Signal.Drivetrain.Transmission.Speed"
+    type: "UInt16"
+    description: "Vehicle speed, as sensed by the gearbox."
+    id: 846
+    min: 0
+    max: 400
+    unit: kph
+}
+,
+{
     name: "Signal.Drivetrain.Transmission.Gear"
     type: "UInt8"
     description: "Current gear. 0=Neutral. -1=Reverse"
@@ -1094,6 +1104,16 @@ const SignalSpec[] signal_spec = [
     id: 86
     min: -90
     max: 90
+}
+,
+{
+    name: "Signal.Cabin.Infotainment.Navigation.CurrentLocation.Speed"
+    type: "UInt16"
+    description: "Vehicle speed, as sensed by the GPS receiver."
+    id: 847
+    min: 0
+    max: 400
+    unit: kph
 }
 ,
 {

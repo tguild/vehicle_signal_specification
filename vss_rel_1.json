@@ -375,6 +375,14 @@
                 ], 
                 "id": 34
               }, 
+              "Speed": {
+                "description": "Vehicle speed, as sensed by the gearbox.", 
+                "min": 0, 
+                "max": 400, 
+                "type": "UInt16", 
+                "id": 846, 
+                "unit": "kph"
+              }, 
               "Gear": {
                 "type": "UInt8", 
                 "description": "Current gear. 0=Neutral. -1=Reverse", 
@@ -1432,6 +1440,14 @@
                         "max": 90, 
                         "id": 86, 
                         "description": "Current latitude of vehicle, as reported by GPS."
+                      }, 
+                      "Speed": {
+                        "description": "Vehicle speed, as sensed by the GPS receiver.", 
+                        "min": 0, 
+                        "max": 400, 
+                        "type": "UInt16", 
+                        "id": 847, 
+                        "unit": "kph"
                       }, 
                       "Heading": {
                         "type": "UInt16", 
