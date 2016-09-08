@@ -512,3 +512,22 @@ on the front left and right doors of row 1 (front) and row 2 (back).
 
 If ```door.vspec``` is changed, the changes will be propagated to all four doors.
 
+
+# SIGNAL ID DATABASES
+The tools ```vspec2franca```, ```vspec2json``` and ```vspec2vsi``` can also automatically create signal ID databases, essentially text files, that assign an ID to a particular signal.
+
+To instruct any of the tools to create signal ID databases use the ```-i``` option:
+
+    vspec2json -i <prefix>:<database_file>:<start_id> vspec_file json_file
+    
+The ```-i``` option can be specified any number of times to created different signal ID databases based on ```<prefix```. Signal IDs are positive integer values.
+    
+* **```<prefix>```**<br>
+Prefix that is matched against signal names. The longest match will be used to determine the signal ID database the signal is stored into. For example, two signal ID databases are specified with ```-i Attribute:vspec_attr.id:0 -i Attribute.Cabin:vspec_attr_cab.id:0```. A signal named ```Attribute.Chassis.Curbweight``` will be stored in ```vspec_attr.id``` while
+a signal named ```Attribute.Cabin.Seat.DriverPosition``` will be stored in the ```vspec_attr_cab.id``` database.
+* **```<database_file```**<br>
+The name of the database file.
+* **```<start_id```**<br>
+The first ID value for a signal ID database. Note that the ID is only unique for the same database. If you use the ```-i``` option multiple times and would like to have unique IDs across all database files, you need to make sure to specify start IDs for each database so that there is no overlap.
+
+The signal ID databases with their mappings of signal names to ID can be used for easy indexing of signals without the need of providing the entire qualified signal name. However, if vspec files are updated and new signals are added, the existing signal mappings must not change. If database files with mappings already exist, the tools first search them for a signal name and only assign a new signal ID if no existing mapping was found. The signal ID number continues from the highest ID found.
