@@ -14,3 +14,6 @@ franca:
 
 vsi:
 	./tools/vspec2vsi.py -v $$(cat VERSION) -i:spec/VehicleSignalSpecification.id:0 -I ./spec ./spec/VehicleSignalSpecification.vspec vss_rel_$$(cat VERSION).vsi
+
+csv: 
+	./tools/vspec2csv.py -i:spec/VehicleSignalSpecification.id:0 -I ./spec ./spec/VehicleSignalSpecification.vspec vss_rel_$$(cat VERSION).csv
