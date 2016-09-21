@@ -4,7 +4,7 @@
 
 .PHONY: all json franca vsi
 
-all: json franca vsi
+all: json franca vsi csv
 
 json: 
 	./tools/vspec2json.py -i:spec/VehicleSignalSpecification.id:0 -I ./spec ./spec/VehicleSignalSpecification.vspec vss_rel_$$(cat VERSION).json

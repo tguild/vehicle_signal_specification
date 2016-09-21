@@ -6,24 +6,55 @@
 # See https://creativecommons.org/licenses/by/4.0/ for details.
 #
 
-- FrontWheelDiameter:
-  type: Uint8
-  description: Diameter of wheels (without tires), in inches.
+- Axle:
+  type: branch
+  description: Axle configuration attributes
 
-- RearWheelDiameter:
+- Axle.Count:
   type: Uint8
-  description: Diameter of rear wheels (without tires), in inches.
+  value: 2
+  description: Number of axles on the vehicle
+  
+- Axle.Row1:
+  type: branch
+  description: Axle configuration attributes for axle row
 
-- FrontWheelWidth:
+- Axle.Row1.WheelCount:
   type: Uint8
-  description: Diameter of rear wheels (without tires), in inches.
+  description: Number of wheels on the first axle
 
-- RearWheelWidth:
+- Axle.Row1.WheelDiameter:
   type: Uint8
-  description: Diameter of rear wheels (without tires), in inches.
+  unit: inch
+  description: Diameter of wheels (without tires), in inches, as per ETRO / TRA standard.
+
+- Axle.Row1.WheelWidth:
+  type: Uint8
+  unit: inch
+  description: Width of wheels (without tires), in inches, as per ETRO / TRA standard.
+
+
+- Axle.Row2:
+  type: branch
+  description: Axle configuration attributes for axle row
+
+- Axle.Row2.WheelDiameter:
+  type: Uint8
+  unit: inch
+  description: Diameter of wheels (without tires), in inches, as per ETRO / TRA standard.
+  
+- Axle.Row2.WheelWidth:
+  type: Uint8
+  unit: inch
+  description: Width of wheels (without tires), in inches, as per ETRO / TRA standard.
+
 
 # Tire size
 
+
+#
+# Vehcile Weight and Dimensions
+#
 - CurbWeight:
   type: Uint16
   value: 0

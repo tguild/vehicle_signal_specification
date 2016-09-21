@@ -36,6 +36,116 @@
   description: Is trunk locked or unlocked. True = Locked. False = Unlocked.
 
 
+#
+# Horn description
+#
+- Horn:
+  type: branch
+  description: Horn signals
+
+- Horn.IsActive:
+  type: Boolean
+  description: Horn active or inactive. True = Active. False = Inactive.
+
+
+#
+# Rainsensor description
+#
+- Rainsensor:
+  type: branch
+  description: Rainsensor signals
+
+- Rainsensor.Intensity:
+  type: Uint8
+  unit: percentage
+  description: Rain intensity. 0 = Dry, No Rain. 100 = Covered.
+
+
+#
+# Windshields description
+#
+- Windshield:
+  type: branch
+  description: Windshield signals
+
+#
+# Front windshield
+#
+- Windshield.Front:
+  type: branch
+  description: Front windshield signals
+
+- Windshield.Front.Wiper:
+  type: branch
+  description: Front windshield wiper signals
+
+- Windshield.Front.Wiper.Status:
+  type: String
+  enum: ["off", "slow", "medium", "fast", "interval", "rainsensor"]
+  description: Front wiper status
+
+- Windshield.Front.Heater:
+  type: branch
+  description: Front windshield heater signals
+
+- Windshield.Front.Heater.Status:
+  type: String
+  enum: ["off", "on"]
+  description: Front windshield heater status
+
+- Windshield.Front.WasherFluid:
+  type: branch
+  description: Front windshield washer fluid signals
+
+- Windshield.Front.WasherFluid.LevelLow:
+  type: Boolean
+  description: Low level indication for washer fluid. True = Level Low. False = Level OK.
+
+- Windshield.Front.WasherFluid.Level:
+  type: Uint8
+  unit: percent
+  description: Washer fluid level as a percentage. 0 = Empty. 100 = Full.
+
+#
+# Rear Windshield
+#
+- Windshield.Rear:
+  type: branch
+  description: Rear sindshield signals
+
+- Windshield.Rear.Wiper:
+  type: branch
+  description: Rear windshield wiper signals
+
+- Windshield.Rear.Wiper.Status:
+  type: String
+  enum: ["off", "slow", "medium", "fast", "interval", "rainsensor"]
+  description: Rear wiper status
+
+- Windshield.Rear.Heater:
+  type: branch
+  description: Rear windshield heater signals
+
+- Windshield.Rear.Heater.Status:
+  type: String
+  enum: ["off", "on"]
+  description: Rear windshield heater status
+
+- Windshield.Rear.WasherFluid:
+  type: branch
+  description: Rear windshield washer fluid signals
+
+- Windshield.Rear.WasherFluid.LevelLow:
+  type: Boolean
+  description: Low level indication for washer fluid. True = Level Low. False = Level OK.
+
+- Windshield.Rear.WasherFluid.Level:
+  type: Uint8
+  unit: percent
+  description: Washer fluid level as a percentage. 0 = Empty. 100 = Full.
+
+
+
 ##
 #  Lights definition
 ## 
@@ -45,3 +155,25 @@
 
 # Include lights specification and attach it to the Lights branch
 #include ExteriorLights.vspec Lights
+
+
+##
+#  Mirrors definition
+## 
+- Mirrors:
+  type: branch
+  description: All mirrors
+
+- Mirrors.Left:
+  type: branch
+  description: Left mirrors
+
+# Include mirrors specification and attach it to the Mirrors branch
+#include ExteriorMirrors.vspec Mirrors.Left
+
+- Mirrors.Right:
+  type: branch
+  description: Right mirrors
+
+# Include mirrors specification and attach it to the Mirrors branch
+#include ExteriorMirrors.vspec Mirrors.Right

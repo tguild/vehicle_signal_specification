@@ -6,7 +6,34 @@
 # See https://creativecommons.org/licenses/by/4.0/ for details.
 #
 
+#
+# Door Configuration
+#
+- Door:
+  type: branch
+  description: Door configuration attributes
 
+- Door.Count:
+  type: Uint8
+  value: 0
+  description: Number of doors in vehicle
+
+#
+# Steering Wheel Configuration
+#
+- SteeringWheel:
+  type: branch
+  description: Steering wheel configuration attributes
+
+- SteeringWheel.Position:
+  type: String
+  value: front_left
+  enum: ["front_left", "front_right"]
+  description: Position of the steering wheel inside the cabin
+
+#
+# Seat Configuration
+#
 - Seat:
   type: branch
   description: Seat configuration attributes
@@ -14,7 +41,7 @@
 - Seat.DriverPostion:
   type: Uint8
   value: 0
-  description: The position of the driver seat in row 1. (1-5_
+  description: The position of the driver seat in row 1. (1-5)
 
 - Seat.RowCount:
   type: Uint8

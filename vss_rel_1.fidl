@@ -15,289 +15,559 @@ struct SignalSpec {
 
 const SignalSpec[] signal_spec = [ 
 {
-    name: "Attribute.Chassis.Width"
-    type: "UInt16"
-    description: "Overall vehicle width, in mm."
-    id: 14
+    name: "Attribute.Body.RefuelPosition"
+    type: "String"
+    description: "Location of the fuel cap or charge port"
+    id: 20
+    enum: ['front_left', 'front_right', 'middle_left', 'middle_right', 'rear_left', 'rear_right']
 }
 ,
 {
-    name: "Attribute.Chassis.FrontWheelDiameter"
-    type: "UInt8"
-    description: "Diameter of wheels (without tires), in inches."
-    id: 5
-}
-,
-{
-    name: "Attribute.Chassis.RearWheelDiameter"
-    type: "UInt8"
-    description: "Diameter of rear wheels (without tires), in inches."
-    id: 6
-}
-,
-{
-    name: "Attribute.Chassis.Track"
-    type: "UInt16"
-    description: "Overall wheel tracking, in mm."
-    id: 16
-}
-,
-{
-    name: "Attribute.Chassis.TowWeight"
-    type: "UInt16"
-    description: "Maximum weight, in kilos, of trailer."
-    id: 11
-}
-,
-{
-    name: "Attribute.Chassis.FrontWheelWidth"
-    type: "UInt8"
-    description: "Diameter of rear wheels (without tires), in inches."
-    id: 7
-}
-,
-{
-    name: "Attribute.Chassis.Length"
-    type: "UInt16"
-    description: "Overall vehicle length, in mm."
-    id: 12
-}
-,
-{
-    name: "Attribute.Chassis.RearWheelWidth"
-    type: "UInt8"
-    description: "Diameter of rear wheels (without tires), in inches."
-    id: 8
-}
-,
-{
-    name: "Attribute.Chassis.CurbWeight"
-    type: "UInt16"
-    description: "Vehicle curb weight, in kg, including all liquids and full tank of fuel, but no cargo or passengers."
-    id: 9
-}
-,
-{
-    name: "Attribute.Chassis.Height"
-    type: "UInt16"
-    description: "Overall vehicle height, in mm."
-    id: 13
-}
-,
-{
-    name: "Attribute.Chassis.Wheelbase"
-    type: "UInt16"
-    description: "Overall wheel base, in mm."
-    id: 15
-}
-,
-{
-    name: "Attribute.Chassis.GrossWeight"
-    type: "UInt16"
-    description: "Curb weight of vehicle, including all liquids and full tank of fuel and full load of cargo and passengers."
-    id: 10
+    name: "Attribute.Body.BodyType"
+    type: "String"
+    description: "Body type code as defined by ISO 3779"
+    id: 19
 }
 {
     name: "Attribute.Drivetrain.Transmission.GearCount"
     type: "UInt8"
     description: "Number of forward gears in the transmission. -1 = CVT."
-    id: 4
+    id: 3
 }
 {
     name: "Attribute.Drivetrain.InternalCombustionEngine.MaxTorque"
     type: "UInt16"
     description: "Peak power, in newton meter, that the engine can generate."
-    id: 3
+    id: 2
 }
 ,
 {
     name: "Attribute.Drivetrain.InternalCombustionEngine.Displacement"
     type: "UInt16"
     description: "Displacement in cubic centimetres."
-    id: 1
+    id: 0
 }
 ,
 {
     name: "Attribute.Drivetrain.InternalCombustionEngine.MaxPower"
     type: "UInt16"
     description: "Peak power, in kilowatts, that engine can generate."
-    id: 2
+    id: 1
+}
+{
+    name: "Attribute.Drivetrain.FuelSystem.TankCapacity"
+    type: "UInt16"
+    description: "Capacity of the fuel tank in liters"
+    id: 4
+    unit: l
+}
+{
+    name: "Attribute.Chassis.Track"
+    type: "UInt16"
+    description: "Overall wheel tracking, in mm."
+    id: 18
+}
+,
+{
+    name: "Attribute.Chassis.TowWeight"
+    type: "UInt16"
+    description: "Maximum weight, in kilos, of trailer."
+    id: 13
+}
+,
+{
+    name: "Attribute.Chassis.Width"
+    type: "UInt16"
+    description: "Overall vehicle width, in mm."
+    id: 16
+}
+,
+{
+    name: "Attribute.Chassis.Length"
+    type: "UInt16"
+    description: "Overall vehicle length, in mm."
+    id: 14
+}
+,
+{
+    name: "Attribute.Chassis.Axle.Count"
+    type: "UInt8"
+    description: "Number of axles on the vehicle"
+    id: 5
+}
+,
+{
+    name: "Attribute.Chassis.Axle.Row1.WheelCount"
+    type: "UInt8"
+    description: "Number of wheels on the first axle"
+    id: 6
+}
+,
+{
+    name: "Attribute.Chassis.Axle.Row1.WheelWidth"
+    type: "UInt8"
+    description: "Width of wheels (without tires), in inches, as per ETRO / TRA standard."
+    id: 8
+    unit: inch
+}
+,
+{
+    name: "Attribute.Chassis.Axle.Row1.WheelDiameter"
+    type: "UInt8"
+    description: "Diameter of wheels (without tires), in inches, as per ETRO / TRA standard."
+    id: 7
+    unit: inch
+}
+,
+{
+    name: "Attribute.Chassis.Axle.Row2.WheelWidth"
+    type: "UInt8"
+    description: "Width of wheels (without tires), in inches, as per ETRO / TRA standard."
+    id: 10
+    unit: inch
+}
+,
+{
+    name: "Attribute.Chassis.Axle.Row2.WheelDiameter"
+    type: "UInt8"
+    description: "Diameter of wheels (without tires), in inches, as per ETRO / TRA standard."
+    id: 9
+    unit: inch
+}
+,
+{
+    name: "Attribute.Chassis.CurbWeight"
+    type: "UInt16"
+    description: "Vehicle curb weight, in kg, including all liquids and full tank of fuel, but no cargo or passengers."
+    id: 11
+}
+,
+{
+    name: "Attribute.Chassis.Height"
+    type: "UInt16"
+    description: "Overall vehicle height, in mm."
+    id: 15
+}
+,
+{
+    name: "Attribute.Chassis.Wheelbase"
+    type: "UInt16"
+    description: "Overall wheel base, in mm."
+    id: 17
+}
+,
+{
+    name: "Attribute.Chassis.GrossWeight"
+    type: "UInt16"
+    description: "Curb weight of vehicle, including all liquids and full tank of fuel and full load of cargo and passengers."
+    id: 12
+}
+{
+    name: "Attribute.Vehicle.VehicleIdentification.Model"
+    type: "String"
+    description: "Vehicle model"
+    id: 33
+}
+,
+{
+    name: "Attribute.Vehicle.VehicleIdentification.WMI"
+    type: "String"
+    description: "3-character World Manufacturer Identification (WMI) as defined by ISO 3780"
+    id: 31
+}
+,
+{
+    name: "Attribute.Vehicle.VehicleIdentification.VIN"
+    type: "String"
+    description: "17-character Vehicle Identification Number (VIN) as defined by ISO 3779"
+    id: 30
+}
+,
+{
+    name: "Attribute.Vehicle.VehicleIdentification.Brand"
+    type: "String"
+    description: "Vehicle brand or manufacturer"
+    id: 32
+}
+,
+{
+    name: "Attribute.Vehicle.VehicleIdentification.Year"
+    type: "UInt16"
+    description: "Model year of the vehicle"
+    id: 34
 }
 {
     name: "Attribute.Cabin.Seat.Row4PosCount"
     type: "UInt8"
     description: "Number of seats across row 4"
-    id: 22
+    id: 28
 }
 ,
 {
     name: "Attribute.Cabin.Seat.Row1PosCount"
     type: "UInt8"
     description: "Number of seats across row 1 (frontmost)"
-    id: 19
+    id: 25
 }
 ,
 {
     name: "Attribute.Cabin.Seat.RowCount"
     type: "UInt8"
     description: "Number of seat rows in vehicle"
-    id: 18
+    id: 24
 }
 ,
 {
     name: "Attribute.Cabin.Seat.Row5PosCount"
     type: "UInt8"
     description: "Number of seats across row 5"
-    id: 23
+    id: 29
 }
 ,
 {
     name: "Attribute.Cabin.Seat.Row2PosCount"
     type: "UInt8"
     description: "Number of seats across row 3"
-    id: 20
+    id: 26
 }
 ,
 {
     name: "Attribute.Cabin.Seat.Row3PosCount"
     type: "UInt8"
     description: "Number of seats across row 3"
-    id: 21
+    id: 27
 }
 ,
 {
     name: "Attribute.Cabin.Seat.DriverPostion"
     type: "UInt8"
-    description: "The position of the driver seat in row 1. (1-5_"
-    id: 17
+    description: "The position of the driver seat in row 1. (1-5)"
+    id: 23
+}
+{
+    name: "Attribute.Cabin.Door.Count"
+    type: "UInt8"
+    description: "Number of doors in vehicle"
+    id: 21
+}
+{
+    name: "Attribute.Cabin.SteeringWheel.Position"
+    type: "String"
+    description: "Position of the steering wheel inside the cabin"
+    id: 22
+    enum: ['front_left', 'front_right']
+}
+{
+    name: "Signal.Body.Mirrors.Right.Tilt"
+    type: "Int8"
+    description: "Mirror tilt as a percentage. 0 = Center Position. 100 = Fully Upward Position. -100 = Fully Downward Position."
+    id: 95
+    unit: percentage
+}
+,
+{
+    name: "Signal.Body.Mirrors.Right.Pan"
+    type: "Int8"
+    description: "Mirror pan as a percentage. 0 = Center Position. 100 = Fully Left Position. -100 = Fully Right Position."
+    id: 96
+    unit: percentage
+}
+,
+{
+    name: "Signal.Body.Mirrors.Right.Heater.Status"
+    type: "Boolean"
+    description: "Mirror Heater on or off. True = Heater On. False = Heater Off."
+    id: 97
+}
+{
+    name: "Signal.Body.Mirrors.Left.Tilt"
+    type: "Int8"
+    description: "Mirror tilt as a percentage. 0 = Center Position. 100 = Fully Upward Position. -100 = Fully Downward Position."
+    id: 92
+    unit: percentage
+}
+,
+{
+    name: "Signal.Body.Mirrors.Left.Pan"
+    type: "Int8"
+    description: "Mirror pan as a percentage. 0 = Center Position. 100 = Fully Left Position. -100 = Fully Right Position."
+    id: 93
+    unit: percentage
+}
+,
+{
+    name: "Signal.Body.Mirrors.Left.Heater.Status"
+    type: "Boolean"
+    description: "Mirror Heater on or off. True = Heater On. False = Heater Off."
+    id: 94
+}
+{
+    name: "Signal.Body.Horn.IsActive"
+    type: "Boolean"
+    description: "Horn active or inactive. True = Active. False = Inactive."
+    id: 71
 }
 {
     name: "Signal.Body.Lights.IsLeftIndicatorOn"
     type: "Boolean"
     description: "Is left indicator flashing"
-    id: 49
+    id: 90
 }
 ,
 {
     name: "Signal.Body.Lights.IsLowBeamOn"
     type: "Boolean"
     description: "Is low beam on"
-    id: 41
+    id: 82
 }
 ,
 {
     name: "Signal.Body.Lights.IsHighBeamOn"
     type: "Boolean"
     description: "Is high beam on"
-    id: 40
+    id: 81
 }
 ,
 {
     name: "Signal.Body.Lights.IsFrontFogOn"
     type: "Boolean"
     description: "Is front fog light on"
-    id: 47
+    id: 88
 }
 ,
 {
     name: "Signal.Body.Lights.IsBrakeOn"
     type: "Boolean"
     description: "Is brake light on"
-    id: 45
+    id: 86
 }
 ,
 {
     name: "Signal.Body.Lights.IsRightIndicatorOn"
     type: "Boolean"
     description: "Is right indicator flashing"
-    id: 50
+    id: 91
 }
 ,
 {
     name: "Signal.Body.Lights.IsBackupOn"
     type: "Boolean"
     description: "Is backup (reverse) light on"
-    id: 43
+    id: 84
 }
 ,
 {
     name: "Signal.Body.Lights.IsParkingOn"
     type: "Boolean"
     description: "Is parking light on"
-    id: 44
+    id: 85
 }
 ,
 {
     name: "Signal.Body.Lights.IsRearFogOn"
     type: "Boolean"
     description: "Is rear fog light on"
-    id: 46
+    id: 87
 }
 ,
 {
     name: "Signal.Body.Lights.IsHazardOn"
     type: "Boolean"
     description: "Are hazards on"
-    id: 48
+    id: 89
 }
 ,
 {
     name: "Signal.Body.Lights.IsRunningOn"
     type: "Boolean"
     description: "Are running lights on"
-    id: 42
+    id: 83
 }
 {
-    name: "Signal.Body.Hood.IsOpen"
-    type: "Boolean"
-    description: "hood open or closed. True = Open. False = Closed"
-    id: 37
+    name: "Signal.Body.Rainsensor.Intensity"
+    type: "UInt8"
+    description: "Rain intensity. 0 = Dry, No Rain. 100 = Covered."
+    id: 72
+    unit: percentage
 }
 {
     name: "Signal.Body.Trunk.IsLocked"
     type: "Boolean"
     description: "Is trunk locked or unlocked. True = Locked. False = Unlocked."
-    id: 39
+    id: 70
 }
 ,
 {
     name: "Signal.Body.Trunk.IsOpen"
     type: "Boolean"
     description: "Trunk open or closed. True = Open. False = Closed"
-    id: 38
+    id: 69
 }
 {
-    name: "Signal.Drivetrain.Transmission.PerformanceMode"
+    name: "Signal.Body.Windshield.Front.Heater.Status"
     type: "String"
-    description: "Current gearbox performance mode."
-    id: 34
-    enum: ['normal', 'sport', 'economy', 'snow', 'rain']
+    description: "Front windshield heater status"
+    id: 74
+    enum: ['off', 'on']
+}
+{
+    name: "Signal.Body.Windshield.Front.Wiper.Status"
+    type: "String"
+    description: "Front wiper status"
+    id: 73
+    enum: ['off', 'slow', 'medium', 'fast', 'interval', 'rainsensor']
+}
+{
+    name: "Signal.Body.Windshield.Front.WasherFluid.LevelLow"
+    type: "Boolean"
+    description: "Low level indication for washer fluid. True = Level Low. False = Level OK."
+    id: 75
 }
 ,
 {
-    name: "Signal.Drivetrain.Transmission.Speed"
-    type: "UInt16"
-    description: "Vehicle speed, as sensed by the gearbox."
-    id: 846
-    min: 0
-    max: 400
-    unit: kph
+    name: "Signal.Body.Windshield.Front.WasherFluid.Level"
+    type: "UInt8"
+    description: "Washer fluid level as a percentage. 0 = Empty. 100 = Full."
+    id: 76
+    unit: percent
+}
+{
+    name: "Signal.Body.Windshield.Rear.Heater.Status"
+    type: "String"
+    description: "Rear windshield heater status"
+    id: 78
+    enum: ['off', 'on']
+}
+{
+    name: "Signal.Body.Windshield.Rear.Wiper.Status"
+    type: "String"
+    description: "Rear wiper status"
+    id: 77
+    enum: ['off', 'slow', 'medium', 'fast', 'interval', 'rainsensor']
+}
+{
+    name: "Signal.Body.Windshield.Rear.WasherFluid.LevelLow"
+    type: "Boolean"
+    description: "Low level indication for washer fluid. True = Level Low. False = Level OK."
+    id: 79
 }
 ,
+{
+    name: "Signal.Body.Windshield.Rear.WasherFluid.Level"
+    type: "UInt8"
+    description: "Washer fluid level as a percentage. 0 = Empty. 100 = Full."
+    id: 80
+    unit: percent
+}
+{
+    name: "Signal.Body.Hood.IsOpen"
+    type: "Boolean"
+    description: "hood open or closed. True = Open. False = Closed"
+    id: 68
+}
+{
+    name: "Signal.Drivetrain.FuelSystem.ConsumptionSinceStart"
+    type: "UInt32"
+    description: "Fuel amount consumed since start in milliliters."
+    id: 66
+    unit: ml
+}
+,
+{
+    name: "Signal.Drivetrain.FuelSystem.TimeSinceStart"
+    type: "UInt32"
+    description: "Time elapsed since start in seconds."
+    id: 67
+    unit: s
+}
+,
+{
+    name: "Signal.Drivetrain.FuelSystem.InstantConsumption"
+    type: "UInt32"
+    description: "Current consumption in milliliters per 100 km."
+    id: 64
+    unit: ml/100km
+}
+,
+{
+    name: "Signal.Drivetrain.FuelSystem.Level"
+    type: "UInt8"
+    description: "Level in fuel tank as percentage of capacity. 0 = empty. 100 = full."
+    id: 62
+    unit: percentage
+}
+,
+{
+    name: "Signal.Drivetrain.FuelSystem.Range"
+    type: "UInt32"
+    description: "Range in meters."
+    id: 63
+    unit: m
+}
+,
+{
+    name: "Signal.Drivetrain.FuelSystem.AverageConsumption"
+    type: "UInt32"
+    description: "Average consumption in milliliters per 100 km."
+    id: 65
+    unit: ml/100km
+}
 {
     name: "Signal.Drivetrain.Transmission.Gear"
     type: "UInt8"
     description: "Current gear. 0=Neutral. -1=Reverse"
-    id: 33
+    id: 55
     min: -1
     max: 16
+}
+,
+{
+    name: "Signal.Drivetrain.Transmission.Odometer"
+    type: "UInt32"
+    description: "Odometer reading"
+    id: 59
+    unit: m
+}
+,
+{
+    name: "Signal.Drivetrain.Transmission.PerformanceMode"
+    type: "String"
+    description: "Current gearbox performance mode."
+    id: 56
+    enum: ['normal', 'sport', 'economy', 'snow', 'rain']
+}
+,
+{
+    name: "Signal.Drivetrain.Transmission.ClutchWear"
+    type: "UInt8"
+    description: "Clutch wear as a percentage. 0 = no wear. 100 = worn."
+    id: 61
+    unit: percentage
+}
+,
+{
+    name: "Signal.Drivetrain.Transmission.TripMeter"
+    type: "UInt32"
+    description: "Current trip meter reading"
+    id: 60
+    unit: m
+}
+,
+{
+    name: "Signal.Drivetrain.Transmission.Speed"
+    type: "Int32"
+    description: "Vehicle speed, as sensed by the gearbox."
+    id: 54
+    min: -250
+    max: 250
+    unit: m/s
 }
 ,
 {
     name: "Signal.Drivetrain.Transmission.GearChangeMode"
     type: "String"
     description: "Is the gearbox in automatic or manual (paddle) mode."
-    id: 35
+    id: 57
     enum: ['manual', 'automatic']
 }
 ,
@@ -305,7 +575,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Drivetrain.Transmission.Temperature"
     type: "Int16"
     description: "The current gearbox temperature"
-    id: 36
+    id: 58
     min: -50
     max: 200
     unit: celsius
@@ -314,7 +584,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Drivetrain.InternalCombustionEngine.EOP"
     type: "Int16"
     description: "Engine oil pressure."
-    id: 30
+    id: 51
     min: 0
     max: 10000
     unit: mbar
@@ -324,7 +594,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Drivetrain.InternalCombustionEngine.MAP"
     type: "Int16"
     description: "Manifold air pressure possibly boosted using forced induction."
-    id: 27
+    id: 48
     min: 0
     max: 10000
     unit: mbar
@@ -334,7 +604,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Drivetrain.InternalCombustionEngine.Power"
     type: "Int16"
     description: "Current engine power output."
-    id: 31
+    id: 52
     min: 0
     max: 2000
     unit: kW
@@ -344,7 +614,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Drivetrain.InternalCombustionEngine.EOT"
     type: "Int16"
     description: "Engine oil temperature."
-    id: 26
+    id: 47
     min: -50
     max: 300
     unit: celsius
@@ -354,7 +624,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Drivetrain.InternalCombustionEngine.Torque"
     type: "Int16"
     description: "Current engine torque."
-    id: 32
+    id: 53
     min: 0
     max: 3000
     unit: Nm
@@ -364,7 +634,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Drivetrain.InternalCombustionEngine.ECT"
     type: "Int16"
     description: "Engine coolant temperature."
-    id: 25
+    id: 46
     min: -50
     max: 200
     unit: celsius
@@ -374,7 +644,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Drivetrain.InternalCombustionEngine.TPS"
     type: "Int8"
     description: "Current throttle position."
-    id: 29
+    id: 50
     min: 0
     max: 100
     unit: percent
@@ -384,7 +654,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Drivetrain.InternalCombustionEngine.MAF"
     type: "Int16"
     description: "Grams of air drawn into engine per second."
-    id: 28
+    id: 49
     min: 0
     max: 3000
     unit: g/s
@@ -394,30 +664,496 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Drivetrain.InternalCombustionEngine.RPM"
     type: "UInt16"
     description: "Engine speed measured as rotations per minute."
-    id: 24
+    id: 45
     min: 0
     max: 20000
     unit: rpm
 }
 {
+    name: "Signal.ADAS.ObstacleSensor.DistanceToObject.RearLeft"
+    type: "UInt16"
+    description: "Rear left distance to object in millimeters"
+    id: 926
+    unit: mm
+}
+,
+{
+    name: "Signal.ADAS.ObstacleSensor.DistanceToObject.FrontLeft"
+    type: "UInt16"
+    description: "Front left distance to object in millimeters"
+    id: 924
+    unit: mm
+}
+,
+{
+    name: "Signal.ADAS.ObstacleSensor.DistanceToObject.FrontRight"
+    type: "UInt16"
+    description: "Front right distance to object in millimeters"
+    id: 925
+    unit: mm
+}
+,
+{
+    name: "Signal.ADAS.ObstacleSensor.DistanceToObject.RearRight"
+    type: "UInt16"
+    description: "Rear right distance to object in millimeters"
+    id: 927
+    unit: mm
+}
+{
+    name: "Signal.ADAS.ObstacleSensor.IsActive"
+    type: "Boolean"
+    description: "Indicates if obstacle sensor system is enabled. Tue = Enabled. False = Disabled."
+    id: 922
+}
+,
+{
+    name: "Signal.ADAS.ObstacleSensor.Error"
+    type: "Boolean"
+    description: "Indicates if obstacle sensor system incurred an error condition. True = Error. False = No Error."
+    id: 923
+}
+{
+    name: "Signal.ADAS.TCS.IsEngaged"
+    type: "Boolean"
+    description: "Indicates if TCS is currently regulating traction. True = Engaged. False = Not Engaged."
+    id: 933
+}
+,
+{
+    name: "Signal.ADAS.TCS.IsActive"
+    type: "Boolean"
+    description: "Indicates if TCS is enabled. Tue = Enabled. False = Disabled."
+    id: 931
+}
+,
+{
+    name: "Signal.ADAS.TCS.Error"
+    type: "Boolean"
+    description: "Indicates if TCS incurred an error condition. True = Error. False = No Error."
+    id: 932
+}
+{
+    name: "Signal.ADAS.CruiseControl.SpeedSet"
+    type: "Int32"
+    description: "Set cruise control speed in meters per hour"
+    id: 917
+    unit: mps
+}
+,
+{
+    name: "Signal.ADAS.CruiseControl.IsActive"
+    type: "Boolean"
+    description: "Indicates if cruise control system is enabled. True = Enabled. False = Disabled."
+    id: 916
+}
+,
+{
+    name: "Signal.ADAS.CruiseControl.Error"
+    type: "Boolean"
+    description: "Indicates if cruise control system incurred and error condition. True = Error. False = NoError."
+    id: 918
+}
+{
+    name: "Signal.ADAS.ABS.IsEngaged"
+    type: "Boolean"
+    description: "Indicates if ABS is currently regulating brake pressure. True = Engaged. False = Not Engaged."
+    id: 930
+}
+,
+{
+    name: "Signal.ADAS.ABS.IsActive"
+    type: "Boolean"
+    description: "Indicates if ABS is enabled. Tue = Enabled. False = Disabled."
+    id: 928
+}
+,
+{
+    name: "Signal.ADAS.ABS.Error"
+    type: "Boolean"
+    description: "Indicates if ABS incurred an error condition. True = Error. False = No Error."
+    id: 929
+}
+{
+    name: "Signal.ADAS.ESC.IsEngaged"
+    type: "Boolean"
+    description: "Indicates if ESC is currently regulating vehicle stability. True = Engaged. False = Not Engaged."
+    id: 936
+}
+,
+{
+    name: "Signal.ADAS.ESC.IsActive"
+    type: "Boolean"
+    description: "Indicates if ECS is enabled. Tue = Enabled. False = Disabled."
+    id: 934
+}
+,
+{
+    name: "Signal.ADAS.ESC.Error"
+    type: "Boolean"
+    description: "Indicates if ESC incurred an error condition. True = Error. False = No Error."
+    id: 935
+}
+{
+    name: "Signal.ADAS.LaneDepartureDetection.Warning"
+    type: "Boolean"
+    description: "Indicates if lane departure detection registered a lane departure"
+    id: 920
+}
+,
+{
+    name: "Signal.ADAS.LaneDepartureDetection.IsActive"
+    type: "Boolean"
+    description: "Indicates if lane departure detection system is enabled. True = Enabled. False = Disabled."
+    id: 919
+}
+,
+{
+    name: "Signal.ADAS.LaneDepartureDetection.Error"
+    type: "Boolean"
+    description: "Indicates if lane departure system incurred an error condition. True = Error. False = No Error."
+    id: 921
+}
+{
+    name: "Signal.Chassis.Accelerator.PedalPosition"
+    type: "UInt8"
+    description: "Accelerator pedal position as percentage. 0 = Not depressed. 100 = Fully depressed."
+    id: 969
+    unit: percentage
+}
+{
+    name: "Signal.Chassis.Brake.PedalPosition"
+    type: "UInt8"
+    description: "Brake pedal position as percentage. 0 = Not depressed. 100 = Fully depressed."
+    id: 970
+    unit: percentage
+}
+{
+    name: "Signal.Chassis.ParkingBrake.IsEngaged"
+    type: "Boolean"
+    description: "Parking brake status. True = Parking Brake is Engaged. False = Parking Brake is not Engaged."
+    id: 965
+}
+{
+    name: "Signal.Chassis.Axle.Row1.Wheel.Right.Brake.FluidLevel"
+    type: "UInt8"
+    description: "Brake fluid level as percentage. 0 = Empty. 100 = Full."
+    id: 944
+    unit: percentage
+}
+,
+{
+    name: "Signal.Chassis.Axle.Row1.Wheel.Right.Brake.FluidLevelLow"
+    type: "Boolean"
+    description: "Brake fluid level status. True = Brake fluid level low. False = Brake fluid level ok."
+    id: 945
+}
+,
+{
+    name: "Signal.Chassis.Axle.Row1.Wheel.Right.Brake.BrakesWorn"
+    type: "Boolean"
+    description: "Brake pad wear status. True = Worn. False = Not Worn."
+    id: 947
+}
+,
+{
+    name: "Signal.Chassis.Axle.Row1.Wheel.Right.Brake.PadWear"
+    type: "UInt8"
+    description: "Brake pad wear as percentage. 0 = No Wear. 100 = Worn."
+    id: 946
+}
+{
+    name: "Signal.Chassis.Axle.Row1.Wheel.Right.Tire.Pressure"
+    type: "UInt8"
+    description: "Tire pressure in kilo-Pascal"
+    id: 948
+    unit: kpa
+}
+,
+{
+    name: "Signal.Chassis.Axle.Row1.Wheel.Right.Tire.PressureLow"
+    type: "Boolean"
+    description: "Tire Pressure Status. True = Low tire pressure. False = Good tire pressure."
+    id: 949
+}
+,
+{
+    name: "Signal.Chassis.Axle.Row1.Wheel.Right.Tire.Temperature"
+    type: "Float"
+    description: "Tire temperature in Celsius."
+    id: 950
+    unit: celsius
+}
+{
+    name: "Signal.Chassis.Axle.Row1.Wheel.Left.Brake.FluidLevel"
+    type: "UInt8"
+    description: "Brake fluid level as percentage. 0 = Empty. 100 = Full."
+    id: 937
+    unit: percentage
+}
+,
+{
+    name: "Signal.Chassis.Axle.Row1.Wheel.Left.Brake.FluidLevelLow"
+    type: "Boolean"
+    description: "Brake fluid level status. True = Brake fluid level low. False = Brake fluid level ok."
+    id: 938
+}
+,
+{
+    name: "Signal.Chassis.Axle.Row1.Wheel.Left.Brake.BrakesWorn"
+    type: "Boolean"
+    description: "Brake pad wear status. True = Worn. False = Not Worn."
+    id: 940
+}
+,
+{
+    name: "Signal.Chassis.Axle.Row1.Wheel.Left.Brake.PadWear"
+    type: "UInt8"
+    description: "Brake pad wear as percentage. 0 = No Wear. 100 = Worn."
+    id: 939
+}
+{
+    name: "Signal.Chassis.Axle.Row1.Wheel.Left.Tire.Pressure"
+    type: "UInt8"
+    description: "Tire pressure in kilo-Pascal"
+    id: 941
+    unit: kpa
+}
+,
+{
+    name: "Signal.Chassis.Axle.Row1.Wheel.Left.Tire.PressureLow"
+    type: "Boolean"
+    description: "Tire Pressure Status. True = Low tire pressure. False = Good tire pressure."
+    id: 942
+}
+,
+{
+    name: "Signal.Chassis.Axle.Row1.Wheel.Left.Tire.Temperature"
+    type: "Float"
+    description: "Tire temperature in Celsius."
+    id: 943
+    unit: celsius
+}
+{
+    name: "Signal.Chassis.Axle.Row2.Wheel.Right.Brake.FluidLevel"
+    type: "UInt8"
+    description: "Brake fluid level as percentage. 0 = Empty. 100 = Full."
+    id: 958
+    unit: percentage
+}
+,
+{
+    name: "Signal.Chassis.Axle.Row2.Wheel.Right.Brake.FluidLevelLow"
+    type: "Boolean"
+    description: "Brake fluid level status. True = Brake fluid level low. False = Brake fluid level ok."
+    id: 959
+}
+,
+{
+    name: "Signal.Chassis.Axle.Row2.Wheel.Right.Brake.BrakesWorn"
+    type: "Boolean"
+    description: "Brake pad wear status. True = Worn. False = Not Worn."
+    id: 961
+}
+,
+{
+    name: "Signal.Chassis.Axle.Row2.Wheel.Right.Brake.PadWear"
+    type: "UInt8"
+    description: "Brake pad wear as percentage. 0 = No Wear. 100 = Worn."
+    id: 960
+}
+{
+    name: "Signal.Chassis.Axle.Row2.Wheel.Right.Tire.Pressure"
+    type: "UInt8"
+    description: "Tire pressure in kilo-Pascal"
+    id: 962
+    unit: kpa
+}
+,
+{
+    name: "Signal.Chassis.Axle.Row2.Wheel.Right.Tire.PressureLow"
+    type: "Boolean"
+    description: "Tire Pressure Status. True = Low tire pressure. False = Good tire pressure."
+    id: 963
+}
+,
+{
+    name: "Signal.Chassis.Axle.Row2.Wheel.Right.Tire.Temperature"
+    type: "Float"
+    description: "Tire temperature in Celsius."
+    id: 964
+    unit: celsius
+}
+{
+    name: "Signal.Chassis.Axle.Row2.Wheel.Left.Brake.FluidLevel"
+    type: "UInt8"
+    description: "Brake fluid level as percentage. 0 = Empty. 100 = Full."
+    id: 951
+    unit: percentage
+}
+,
+{
+    name: "Signal.Chassis.Axle.Row2.Wheel.Left.Brake.FluidLevelLow"
+    type: "Boolean"
+    description: "Brake fluid level status. True = Brake fluid level low. False = Brake fluid level ok."
+    id: 952
+}
+,
+{
+    name: "Signal.Chassis.Axle.Row2.Wheel.Left.Brake.BrakesWorn"
+    type: "Boolean"
+    description: "Brake pad wear status. True = Worn. False = Not Worn."
+    id: 954
+}
+,
+{
+    name: "Signal.Chassis.Axle.Row2.Wheel.Left.Brake.PadWear"
+    type: "UInt8"
+    description: "Brake pad wear as percentage. 0 = No Wear. 100 = Worn."
+    id: 953
+}
+{
+    name: "Signal.Chassis.Axle.Row2.Wheel.Left.Tire.Pressure"
+    type: "UInt8"
+    description: "Tire pressure in kilo-Pascal"
+    id: 955
+    unit: kpa
+}
+,
+{
+    name: "Signal.Chassis.Axle.Row2.Wheel.Left.Tire.PressureLow"
+    type: "Boolean"
+    description: "Tire Pressure Status. True = Low tire pressure. False = Good tire pressure."
+    id: 956
+}
+,
+{
+    name: "Signal.Chassis.Axle.Row2.Wheel.Left.Tire.Temperature"
+    type: "Float"
+    description: "Tire temperature in Celsius."
+    id: 957
+    unit: celsius
+}
+{
+    name: "Signal.Chassis.SteeringWheel.Tilt"
+    type: "UInt8"
+    description: "Steering wheel column tilt. 0 = Lowest position. 100 = Highest position."
+    id: 967
+    unit: percentage
+}
+,
+{
+    name: "Signal.Chassis.SteeringWheel.Angle"
+    type: "Int16"
+    description: "Steering wheel angle. Positive = degrees to the left. Negative = degrees to the right."
+    id: 966
+    unit: degree
+}
+,
+{
+    name: "Signal.Chassis.SteeringWheel.Extension"
+    type: "UInt8"
+    description: "Steering wheel column extension from dashboard. 0 = Closest to dashboard. 100 = Furthest from dashboard."
+    id: 968
+    unit: percentage
+}
+{
+    name: "Signal.Vehicle.Acceleration.Y"
+    type: "Int32"
+    description: "Vehicle acceleration in Y (lateral acceleration)."
+    id: 40
+    unit: cm/s2
+}
+,
+{
+    name: "Signal.Vehicle.Acceleration.X"
+    type: "Int32"
+    description: "Vehicle acceleration in X (longitudinal acceleration)."
+    id: 39
+    unit: cm/s2
+}
+,
+{
+    name: "Signal.Vehicle.Acceleration.Yaw"
+    type: "Int16"
+    description: "Vehicle rotatin rate along Z (vertical)."
+    id: 44
+    unit: degrees/s
+}
+,
+{
+    name: "Signal.Vehicle.Acceleration.Z"
+    type: "Int32"
+    description: "Vehicle acceleration in Z (vertical acceleration)."
+    id: 41
+    unit: cm/s2
+}
+,
+{
+    name: "Signal.Vehicle.Acceleration.Pitch"
+    type: "Int16"
+    description: "Vehicle rotation rate along Y (lateral)."
+    id: 43
+    unit: degrees/s
+}
+{
+    name: "Signal.Vehicle.IdleTime"
+    type: "UInt32"
+    description: "Accumulated idle time in seconds."
+    id: 38
+    unit: s
+}
+,
+{
+    name: "Signal.Vehicle.DriveTime"
+    type: "UInt32"
+    description: "Accumulated drive time in seconds."
+    id: 37
+    unit: s
+}
+,
+{
+    name: "Signal.Vehicle.Gyro.Roll"
+    type: "Int16"
+    description: "Vehicle rotation rate along X (longitudinal)."
+    id: 42
+    unit: degrees/s
+}
+,
+{
+    name: "Signal.Vehicle.IgnitionOffTime"
+    type: "UInt32"
+    description: "Accumulated ignition off time in seconds."
+    id: 36
+    unit: s
+}
+,
+{
+    name: "Signal.Vehicle.IgnitionOnTime"
+    type: "UInt32"
+    description: "Accumulated ignition on time in seconds."
+    id: 35
+    unit: s
+}
+{
     name: "Signal.Cabin.Door.Row1.Right.IsChildLockActive"
     type: "Boolean"
     description: "Is door child lock engaged. Trnue = Engaged. False = Disengaged."
-    id: 121
+    id: 171
 }
 ,
 {
     name: "Signal.Cabin.Door.Row1.Right.IsLocked"
     type: "Boolean"
     description: "Is door locked or unlocked. True = Locked. False = Unlocked."
-    id: 118
+    id: 168
 }
 ,
 {
     name: "Signal.Cabin.Door.Row1.Right.Shade.Position"
     type: "UInt8"
     description: "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed."
-    id: 123
+    id: 173
     min: 0
     max: 100
 }
@@ -426,7 +1162,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row1.Right.Shade.Switch"
     type: "String"
     description: "Switch controlling sliding action such as window, sunroof, or blind."
-    id: 122
+    id: 172
     enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
@@ -434,7 +1170,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row1.Right.Window.Position"
     type: "UInt8"
     description: "Window position. 0 = Fully closed 100 = Fully opened."
-    id: 119
+    id: 169
     min: 0
     max: 100
 }
@@ -443,7 +1179,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row1.Right.Window.Switch"
     type: "String"
     description: "Switch controlling sliding action such as window, sunroof, or blind."
-    id: 120
+    id: 170
     enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
@@ -451,27 +1187,27 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row1.Right.IsOpen"
     type: "Boolean"
     description: "Is door open or closed"
-    id: 117
+    id: 167
 }
 {
     name: "Signal.Cabin.Door.Row1.Left.IsChildLockActive"
     type: "Boolean"
     description: "Is door child lock engaged. Trnue = Engaged. False = Disengaged."
-    id: 114
+    id: 164
 }
 ,
 {
     name: "Signal.Cabin.Door.Row1.Left.IsLocked"
     type: "Boolean"
     description: "Is door locked or unlocked. True = Locked. False = Unlocked."
-    id: 111
+    id: 161
 }
 ,
 {
     name: "Signal.Cabin.Door.Row1.Left.Shade.Position"
     type: "UInt8"
     description: "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed."
-    id: 116
+    id: 166
     min: 0
     max: 100
 }
@@ -480,7 +1216,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row1.Left.Shade.Switch"
     type: "String"
     description: "Switch controlling sliding action such as window, sunroof, or blind."
-    id: 115
+    id: 165
     enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
@@ -488,7 +1224,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row1.Left.Window.Position"
     type: "UInt8"
     description: "Window position. 0 = Fully closed 100 = Fully opened."
-    id: 112
+    id: 162
     min: 0
     max: 100
 }
@@ -497,7 +1233,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row1.Left.Window.Switch"
     type: "String"
     description: "Switch controlling sliding action such as window, sunroof, or blind."
-    id: 113
+    id: 163
     enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
@@ -505,27 +1241,27 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row1.Left.IsOpen"
     type: "Boolean"
     description: "Is door open or closed"
-    id: 110
+    id: 160
 }
 {
     name: "Signal.Cabin.Door.Row2.Right.IsChildLockActive"
     type: "Boolean"
     description: "Is door child lock engaged. Trnue = Engaged. False = Disengaged."
-    id: 135
+    id: 185
 }
 ,
 {
     name: "Signal.Cabin.Door.Row2.Right.IsLocked"
     type: "Boolean"
     description: "Is door locked or unlocked. True = Locked. False = Unlocked."
-    id: 132
+    id: 182
 }
 ,
 {
     name: "Signal.Cabin.Door.Row2.Right.Shade.Position"
     type: "UInt8"
     description: "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed."
-    id: 137
+    id: 187
     min: 0
     max: 100
 }
@@ -534,7 +1270,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row2.Right.Shade.Switch"
     type: "String"
     description: "Switch controlling sliding action such as window, sunroof, or blind."
-    id: 136
+    id: 186
     enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
@@ -542,7 +1278,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row2.Right.Window.Position"
     type: "UInt8"
     description: "Window position. 0 = Fully closed 100 = Fully opened."
-    id: 133
+    id: 183
     min: 0
     max: 100
 }
@@ -551,7 +1287,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row2.Right.Window.Switch"
     type: "String"
     description: "Switch controlling sliding action such as window, sunroof, or blind."
-    id: 134
+    id: 184
     enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
@@ -559,27 +1295,27 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row2.Right.IsOpen"
     type: "Boolean"
     description: "Is door open or closed"
-    id: 131
+    id: 181
 }
 {
     name: "Signal.Cabin.Door.Row2.Left.IsChildLockActive"
     type: "Boolean"
     description: "Is door child lock engaged. Trnue = Engaged. False = Disengaged."
-    id: 128
+    id: 178
 }
 ,
 {
     name: "Signal.Cabin.Door.Row2.Left.IsLocked"
     type: "Boolean"
     description: "Is door locked or unlocked. True = Locked. False = Unlocked."
-    id: 125
+    id: 175
 }
 ,
 {
     name: "Signal.Cabin.Door.Row2.Left.Shade.Position"
     type: "UInt8"
     description: "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed."
-    id: 130
+    id: 180
     min: 0
     max: 100
 }
@@ -588,7 +1324,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row2.Left.Shade.Switch"
     type: "String"
     description: "Switch controlling sliding action such as window, sunroof, or blind."
-    id: 129
+    id: 179
     enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
@@ -596,7 +1332,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row2.Left.Window.Position"
     type: "UInt8"
     description: "Window position. 0 = Fully closed 100 = Fully opened."
-    id: 126
+    id: 176
     min: 0
     max: 100
 }
@@ -605,7 +1341,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row2.Left.Window.Switch"
     type: "String"
     description: "Switch controlling sliding action such as window, sunroof, or blind."
-    id: 127
+    id: 177
     enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
@@ -613,27 +1349,27 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row2.Left.IsOpen"
     type: "Boolean"
     description: "Is door open or closed"
-    id: 124
+    id: 174
 }
 {
     name: "Signal.Cabin.Door.Row3.Right.IsChildLockActive"
     type: "Boolean"
     description: "Is door child lock engaged. Trnue = Engaged. False = Disengaged."
-    id: 149
+    id: 199
 }
 ,
 {
     name: "Signal.Cabin.Door.Row3.Right.IsLocked"
     type: "Boolean"
     description: "Is door locked or unlocked. True = Locked. False = Unlocked."
-    id: 146
+    id: 196
 }
 ,
 {
     name: "Signal.Cabin.Door.Row3.Right.Shade.Position"
     type: "UInt8"
     description: "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed."
-    id: 151
+    id: 201
     min: 0
     max: 100
 }
@@ -642,7 +1378,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row3.Right.Shade.Switch"
     type: "String"
     description: "Switch controlling sliding action such as window, sunroof, or blind."
-    id: 150
+    id: 200
     enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
@@ -650,7 +1386,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row3.Right.Window.Position"
     type: "UInt8"
     description: "Window position. 0 = Fully closed 100 = Fully opened."
-    id: 147
+    id: 197
     min: 0
     max: 100
 }
@@ -659,7 +1395,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row3.Right.Window.Switch"
     type: "String"
     description: "Switch controlling sliding action such as window, sunroof, or blind."
-    id: 148
+    id: 198
     enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
@@ -667,27 +1403,27 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row3.Right.IsOpen"
     type: "Boolean"
     description: "Is door open or closed"
-    id: 145
+    id: 195
 }
 {
     name: "Signal.Cabin.Door.Row3.Left.IsChildLockActive"
     type: "Boolean"
     description: "Is door child lock engaged. Trnue = Engaged. False = Disengaged."
-    id: 142
+    id: 192
 }
 ,
 {
     name: "Signal.Cabin.Door.Row3.Left.IsLocked"
     type: "Boolean"
     description: "Is door locked or unlocked. True = Locked. False = Unlocked."
-    id: 139
+    id: 189
 }
 ,
 {
     name: "Signal.Cabin.Door.Row3.Left.Shade.Position"
     type: "UInt8"
     description: "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed."
-    id: 144
+    id: 194
     min: 0
     max: 100
 }
@@ -696,7 +1432,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row3.Left.Shade.Switch"
     type: "String"
     description: "Switch controlling sliding action such as window, sunroof, or blind."
-    id: 143
+    id: 193
     enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
@@ -704,7 +1440,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row3.Left.Window.Position"
     type: "UInt8"
     description: "Window position. 0 = Fully closed 100 = Fully opened."
-    id: 140
+    id: 190
     min: 0
     max: 100
 }
@@ -713,7 +1449,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row3.Left.Window.Switch"
     type: "String"
     description: "Switch controlling sliding action such as window, sunroof, or blind."
-    id: 141
+    id: 191
     enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
@@ -721,27 +1457,27 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row3.Left.IsOpen"
     type: "Boolean"
     description: "Is door open or closed"
-    id: 138
+    id: 188
 }
 {
     name: "Signal.Cabin.Door.Row4.Right.IsChildLockActive"
     type: "Boolean"
     description: "Is door child lock engaged. Trnue = Engaged. False = Disengaged."
-    id: 163
+    id: 213
 }
 ,
 {
     name: "Signal.Cabin.Door.Row4.Right.IsLocked"
     type: "Boolean"
     description: "Is door locked or unlocked. True = Locked. False = Unlocked."
-    id: 160
+    id: 210
 }
 ,
 {
     name: "Signal.Cabin.Door.Row4.Right.Shade.Position"
     type: "UInt8"
     description: "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed."
-    id: 165
+    id: 215
     min: 0
     max: 100
 }
@@ -750,7 +1486,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row4.Right.Shade.Switch"
     type: "String"
     description: "Switch controlling sliding action such as window, sunroof, or blind."
-    id: 164
+    id: 214
     enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
@@ -758,7 +1494,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row4.Right.Window.Position"
     type: "UInt8"
     description: "Window position. 0 = Fully closed 100 = Fully opened."
-    id: 161
+    id: 211
     min: 0
     max: 100
 }
@@ -767,7 +1503,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row4.Right.Window.Switch"
     type: "String"
     description: "Switch controlling sliding action such as window, sunroof, or blind."
-    id: 162
+    id: 212
     enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
@@ -775,27 +1511,27 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row4.Right.IsOpen"
     type: "Boolean"
     description: "Is door open or closed"
-    id: 159
+    id: 209
 }
 {
     name: "Signal.Cabin.Door.Row4.Left.IsChildLockActive"
     type: "Boolean"
     description: "Is door child lock engaged. Trnue = Engaged. False = Disengaged."
-    id: 156
+    id: 206
 }
 ,
 {
     name: "Signal.Cabin.Door.Row4.Left.IsLocked"
     type: "Boolean"
     description: "Is door locked or unlocked. True = Locked. False = Unlocked."
-    id: 153
+    id: 203
 }
 ,
 {
     name: "Signal.Cabin.Door.Row4.Left.Shade.Position"
     type: "UInt8"
     description: "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed."
-    id: 158
+    id: 208
     min: 0
     max: 100
 }
@@ -804,7 +1540,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row4.Left.Shade.Switch"
     type: "String"
     description: "Switch controlling sliding action such as window, sunroof, or blind."
-    id: 157
+    id: 207
     enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
@@ -812,7 +1548,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row4.Left.Window.Position"
     type: "UInt8"
     description: "Window position. 0 = Fully closed 100 = Fully opened."
-    id: 154
+    id: 204
     min: 0
     max: 100
 }
@@ -821,7 +1557,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row4.Left.Window.Switch"
     type: "String"
     description: "Switch controlling sliding action such as window, sunroof, or blind."
-    id: 155
+    id: 205
     enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
@@ -829,13 +1565,13 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Door.Row4.Left.IsOpen"
     type: "Boolean"
     description: "Is door open or closed"
-    id: 152
+    id: 202
 }
 {
     name: "Signal.Cabin.HVAC.Row1.FanSpeed"
     type: "UInt8"
     description: "Fan Speed, 0 = off. 20 = max"
-    id: 54
+    id: 101
     min: 0
     max: 20
 }
@@ -844,7 +1580,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.HVAC.Row1.RightTemperature"
     type: "Int8"
     description: "Right side Temperature"
-    id: 56
+    id: 103
     min: -50
     max: 50
     unit: celsius
@@ -854,7 +1590,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.HVAC.Row1.LeftTemperature"
     type: "Int8"
     description: "Left side Temperature"
-    id: 55
+    id: 102
     min: -50
     max: 50
     unit: celsius
@@ -864,21 +1600,21 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.HVAC.Row1.Recirculation"
     type: "Boolean"
     description: "Recirculation active."
-    id: 53
+    id: 100
 }
 ,
 {
     name: "Signal.Cabin.HVAC.Row1.AirDistribution"
     type: "String"
     description: "Direction of airstream"
-    id: 57
+    id: 104
     enum: ['up', 'middle', 'down']
 }
 {
     name: "Signal.Cabin.HVAC.Row2.FanSpeed"
     type: "UInt8"
     description: "Fan Speed, 0 = off. 20 = max"
-    id: 59
+    id: 106
     min: 0
     max: 20
 }
@@ -887,7 +1623,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.HVAC.Row2.RightTemperature"
     type: "Int8"
     description: "Right side Temperature"
-    id: 61
+    id: 108
     min: -50
     max: 50
     unit: celsius
@@ -897,7 +1633,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.HVAC.Row2.LeftTemperature"
     type: "Int8"
     description: "Left side Temperature"
-    id: 60
+    id: 107
     min: -50
     max: 50
     unit: celsius
@@ -907,21 +1643,21 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.HVAC.Row2.Recirculation"
     type: "Boolean"
     description: "Recirculation active."
-    id: 58
+    id: 105
 }
 ,
 {
     name: "Signal.Cabin.HVAC.Row2.AirDistribution"
     type: "String"
     description: "Direction of airstream"
-    id: 62
+    id: 109
     enum: ['up', 'middle', 'down']
 }
 {
     name: "Signal.Cabin.HVAC.Row3.FanSpeed"
     type: "UInt8"
     description: "Fan Speed, 0 = off. 20 = max"
-    id: 64
+    id: 111
     min: 0
     max: 20
 }
@@ -930,7 +1666,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.HVAC.Row3.RightTemperature"
     type: "Int8"
     description: "Right side Temperature"
-    id: 66
+    id: 113
     min: -50
     max: 50
     unit: celsius
@@ -940,7 +1676,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.HVAC.Row3.LeftTemperature"
     type: "Int8"
     description: "Left side Temperature"
-    id: 65
+    id: 112
     min: -50
     max: 50
     unit: celsius
@@ -950,21 +1686,21 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.HVAC.Row3.Recirculation"
     type: "Boolean"
     description: "Recirculation active."
-    id: 63
+    id: 110
 }
 ,
 {
     name: "Signal.Cabin.HVAC.Row3.AirDistribution"
     type: "String"
     description: "Direction of airstream"
-    id: 67
+    id: 114
     enum: ['up', 'middle', 'down']
 }
 {
     name: "Signal.Cabin.HVAC.Row4.FanSpeed"
     type: "UInt8"
     description: "Fan Speed, 0 = off. 20 = max"
-    id: 69
+    id: 116
     min: 0
     max: 20
 }
@@ -973,7 +1709,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.HVAC.Row4.RightTemperature"
     type: "Int8"
     description: "Right side Temperature"
-    id: 71
+    id: 118
     min: -50
     max: 50
     unit: celsius
@@ -983,7 +1719,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.HVAC.Row4.LeftTemperature"
     type: "Int8"
     description: "Left side Temperature"
-    id: 70
+    id: 117
     min: -50
     max: 50
     unit: celsius
@@ -993,55 +1729,55 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.HVAC.Row4.Recirculation"
     type: "Boolean"
     description: "Recirculation active."
-    id: 68
+    id: 115
 }
 ,
 {
     name: "Signal.Cabin.HVAC.Row4.AirDistribution"
     type: "String"
     description: "Direction of airstream"
-    id: 72
+    id: 119
     enum: ['up', 'middle', 'down']
 }
 {
     name: "Signal.Cabin.HVAC.IsRearDefrosterActice"
     type: "Boolean"
     description: "Is rear defroster active."
-    id: 75
+    id: 122
 }
 ,
 {
     name: "Signal.Cabin.HVAC.IsRecirculationActive"
     type: "Boolean"
     description: "Is recirculation active."
-    id: 73
+    id: 120
 }
 ,
 {
     name: "Signal.Cabin.HVAC.IsFrontDefrosterActive"
     type: "Boolean"
     description: "Is front defroster active."
-    id: 74
+    id: 121
 }
 ,
 {
     name: "Signal.Cabin.HVAC.isAirConditioningActive"
     type: "Boolean"
     description: "Is Air conditioning active."
-    id: 76
+    id: 123
 }
 {
     name: "Signal.Cabin.Infotainment.Media.SelectedURI"
     type: "String"
     description: "URI of suggested media that was selected"
-    id: 82
+    id: 129
 }
 ,
 {
     name: "Signal.Cabin.Infotainment.Media.Volume"
     type: "UInt8"
     description: "Current Media Volume"
-    id: 83
+    id: 130
     min: 0
     max: 100
 }
@@ -1050,58 +1786,75 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Infotainment.Media.DeclinedURI"
     type: "String"
     description: "URI of suggested media that was declined"
-    id: 81
+    id: 128
 }
 ,
 {
     name: "Signal.Cabin.Infotainment.Media.Played.Album"
     type: "String"
     description: "Name of album being played"
-    id: 78
+    id: 125
 }
 ,
 {
     name: "Signal.Cabin.Infotainment.Media.Played.Track"
     type: "String"
     description: "Name of track being played"
-    id: 79
+    id: 126
 }
 ,
 {
     name: "Signal.Cabin.Infotainment.Media.Played.URI"
     type: "String"
     description: "User Resource associated with the media"
-    id: 80
+    id: 127
 }
 ,
 {
     name: "Signal.Cabin.Infotainment.Media.Played.Artist"
     type: "String"
     description: "Name of artist being played"
-    id: 77
+    id: 124
 }
 {
     name: "Signal.Cabin.Infotainment.Navigation.DestinatonSet.Latitude"
-    type: "Float"
+    type: "Double"
     description: "Latitude of destination"
-    id: 84
+    id: 131
     min: -90
     max: 90
 }
 ,
 {
     name: "Signal.Cabin.Infotainment.Navigation.DestinatonSet.Longitude"
-    type: "Float"
+    type: "Double"
     description: "Longitude of destination"
-    id: 85
+    id: 132
     min: -180
     max: 180
 }
 {
+    name: "Signal.Cabin.Infotainment.Navigation.CurrentLocation.Altitude"
+    type: "Double"
+    description: "Current elevation of the position in meters."
+    id: 137
+    unit: m
+}
+,
+{
+    name: "Signal.Cabin.Infotainment.Navigation.CurrentLocation.Longitude"
+    type: "Double"
+    description: "Current longitude of vehicle, as reported by GPS."
+    id: 134
+    min: -180
+    max: 180
+}
+,
+{
     name: "Signal.Cabin.Infotainment.Navigation.CurrentLocation.Latitude"
-    type: "Float"
+    type: "Double"
     description: "Current latitude of vehicle, as reported by GPS."
-    id: 86
+    id: 133
     min: -90
     max: 90
 }
@@ -1110,34 +1863,33 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Infotainment.Navigation.CurrentLocation.Speed"
     type: "UInt16"
     description: "Vehicle speed, as sensed by the GPS receiver."
-    id: 847
+    id: 138
     min: 0
-    max: 400
-    unit: kph
+    max: 250
+    unit: m/s
 }
 ,
 {
     name: "Signal.Cabin.Infotainment.Navigation.CurrentLocation.Heading"
-    type: "UInt16"
+    type: "Double"
     description: "Current magnetic compass heading, in degrees."
-    id: 88
+    id: 135
     min: 0
-    max: 359
+    max: 360
 }
 ,
 {
-    name: "Signal.Cabin.Infotainment.Navigation.CurrentLocation.Longitude"
-    type: "Float"
-    description: "Current longitude of vehicle, as reported by GPS."
-    id: 87
-    min: -180
-    max: 180
+    name: "Signal.Cabin.Infotainment.Navigation.CurrentLocation.Accuracy"
+    type: "Double"
+    description: "Accuracy level of the latitude and longitude coordinates in meters."
+    id: 136
+    unit: m
 }
 {
     name: "Signal.Cabin.Sunroof.Position"
     type: "Int8"
     description: "Sunroof position. 0 = Fully closed 100 = Fully opened. -100 = Fully tilted"
-    id: 89
+    id: 139
     min: -100
     max: 100
 }
@@ -1146,7 +1898,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Sunroof.Switch"
     type: "String"
     description: "Switch controlling sliding action such as window, sunroof, or shade."
-    id: 90
+    id: 140
     enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen', 'TiltUp', 'TiltDown']
 }
 ,
@@ -1154,7 +1906,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Sunroof.Shade.Position"
     type: "UInt8"
     description: "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed."
-    id: 92
+    id: 142
     min: 0
     max: 100
 }
@@ -1163,14 +1915,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Sunroof.Shade.Switch"
     type: "String"
     description: "Switch controlling sliding action such as window, sunroof, or blind."
-    id: 91
+    id: 141
     enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 {
     name: "Signal.Cabin.Seat.Row1.Pos4.HeadRestraint.Height"
     type: "UInt8"
     description: "Height of heead restraing. 0 = Bottommost. 255 = Topmost."
-    id: 279
+    id: 332
     min: 0
     max: 255
     unit: mm
@@ -1179,7 +1931,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos4.Recline"
     type: "Int8"
     description: "Recline level. -90 = Max forward recline. 90 max backward recline"
-    id: 272
+    id: 325
     min: -90
     max: 90
     unit: degree
@@ -1189,14 +1941,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos4.HasPassenger"
     type: "Boolean"
     description: "Does the seat have a passenger in it."
-    id: 268
+    id: 321
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos4.Heating"
     type: "Int8"
     description: "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat"
-    id: 270
+    id: 323
     min: -10
     max: 10
 }
@@ -1205,7 +1957,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos4.Lumbar.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 276
+    id: 329
     min: 0
     max: 255
 }
@@ -1214,170 +1966,177 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos4.Lumbar.Height"
     type: "UInt8"
     description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    id: 277
+    id: 330
     min: 0
     max: 255
+}
+,
+{
+    name: "Signal.Cabin.Seat.Row1.Pos4.Airbag.IsDeployed"
+    type: "Boolean"
+    description: "Airbag deployement status. True = Airbag deployed. False = Airbag not deployed."
+    id: 333
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos4.Switch.HeadRestraint.Down"
     type: "Boolean"
     description: "Head restraint down switch engaged"
-    id: 287
+    id: 341
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos4.Switch.HeadRestraint.Up"
     type: "Boolean"
     description: "Head restraint up switch engaged"
-    id: 286
+    id: 340
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos4.Switch.Cooler"
     type: "Boolean"
     description: "Cooler switch for Seat heater"
-    id: 281
+    id: 335
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos4.Switch.Recline.Forward"
     type: "Boolean"
     description: "Seatback recline forward switch engaged"
-    id: 291
+    id: 345
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos4.Switch.Recline.Backward"
     type: "Boolean"
     description: "Seatback recline backward switch engaged"
-    id: 290
+    id: 344
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos4.Switch.Up"
     type: "Boolean"
     description: "Seat up switch engaged"
-    id: 284
+    id: 338
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos4.Switch.Lumbar.Down"
     type: "Boolean"
     description: "Lumbar down switch engaged"
-    id: 297
+    id: 351
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos4.Switch.Lumbar.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 298
+    id: 352
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos4.Switch.Lumbar.Up"
     type: "Boolean"
     description: "Lumbar up switch engaged"
-    id: 296
+    id: 350
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos4.Switch.Lumbar.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 299
+    id: 353
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos4.Switch.Down"
     type: "Boolean"
     description: "Seat down switch engaged"
-    id: 285
+    id: 339
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos4.Switch.Warmer"
     type: "Boolean"
     description: "Warmer switch for Seat heater"
-    id: 280
+    id: 334
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos4.Switch.Cushion.Down"
     type: "Boolean"
     description: "Seat cushion down switch engaged"
-    id: 293
+    id: 347
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos4.Switch.Cushion.Forward"
     type: "Boolean"
     description: "Seat cushion forward/lengthen switch engaged"
-    id: 294
+    id: 348
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos4.Switch.Cushion.Backward"
     type: "Boolean"
     description: "Seat cushion backward/shorten switch engaged"
-    id: 295
+    id: 349
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos4.Switch.Cushion.Up"
     type: "Boolean"
     description: "Seat cushion up switch engaged"
-    id: 292
+    id: 346
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos4.Switch.Forward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 282
+    id: 336
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos4.Switch.Backward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 283
+    id: 337
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos4.Switch.Massage.Increase"
     type: "Boolean"
     description: "Increase massage level switch engaged"
-    id: 288
+    id: 342
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos4.Switch.Massage.Decrease"
     type: "Boolean"
     description: "Decrease massage level switch engaged"
-    id: 289
+    id: 343
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos4.Switch.SideBolster.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 300
+    id: 354
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos4.Switch.SideBolster.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 301
+    id: 355
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos4.Cushion.Length"
     type: "UInt16"
     description: "Forward length of cushion (leg support). 0 = Rearmost. 500 = Forwardmost."
-    id: 275
+    id: 328
     min: 0
     max: 500
     unit: mm
@@ -1387,7 +2146,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos4.Cushion.Height"
     type: "UInt16"
     description: "Height of the seat front. 0 = Lowermost. 500 = Uppermost."
-    id: 274
+    id: 327
     min: 0
     max: 500
     unit: mm
@@ -1397,14 +2156,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos4.IsBelted"
     type: "Boolean"
     description: "Is the belt engaged."
-    id: 269
+    id: 322
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos4.Position"
     type: "UInt16"
     description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost"
-    id: 273
+    id: 326
     min: 0
     max: 1000
     unit: mm
@@ -1414,7 +2173,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos4.SideBolster.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 278
+    id: 331
     min: 0
     max: 255
 }
@@ -1423,7 +2182,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos4.Massage"
     type: "UInt8"
     description: "Seat massage level. 0 = off. 10 = max massage."
-    id: 271
+    id: 324
     min: 0
     max: 10
 }
@@ -1431,7 +2190,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos5.HeadRestraint.Height"
     type: "UInt8"
     description: "Height of heead restraing. 0 = Bottommost. 255 = Topmost."
-    id: 313
+    id: 367
     min: 0
     max: 255
     unit: mm
@@ -1440,7 +2199,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos5.Recline"
     type: "Int8"
     description: "Recline level. -90 = Max forward recline. 90 max backward recline"
-    id: 306
+    id: 360
     min: -90
     max: 90
     unit: degree
@@ -1450,14 +2209,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos5.HasPassenger"
     type: "Boolean"
     description: "Does the seat have a passenger in it."
-    id: 302
+    id: 356
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos5.Heating"
     type: "Int8"
     description: "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat"
-    id: 304
+    id: 358
     min: -10
     max: 10
 }
@@ -1466,7 +2225,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos5.Lumbar.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 310
+    id: 364
     min: 0
     max: 255
 }
@@ -1475,170 +2234,177 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos5.Lumbar.Height"
     type: "UInt8"
     description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    id: 311
+    id: 365
     min: 0
     max: 255
+}
+,
+{
+    name: "Signal.Cabin.Seat.Row1.Pos5.Airbag.IsDeployed"
+    type: "Boolean"
+    description: "Airbag deployement status. True = Airbag deployed. False = Airbag not deployed."
+    id: 368
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos5.Switch.HeadRestraint.Down"
     type: "Boolean"
     description: "Head restraint down switch engaged"
-    id: 321
+    id: 376
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos5.Switch.HeadRestraint.Up"
     type: "Boolean"
     description: "Head restraint up switch engaged"
-    id: 320
+    id: 375
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos5.Switch.Cooler"
     type: "Boolean"
     description: "Cooler switch for Seat heater"
-    id: 315
+    id: 370
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos5.Switch.Recline.Forward"
     type: "Boolean"
     description: "Seatback recline forward switch engaged"
-    id: 325
+    id: 380
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos5.Switch.Recline.Backward"
     type: "Boolean"
     description: "Seatback recline backward switch engaged"
-    id: 324
+    id: 379
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos5.Switch.Up"
     type: "Boolean"
     description: "Seat up switch engaged"
-    id: 318
+    id: 373
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos5.Switch.Lumbar.Down"
     type: "Boolean"
     description: "Lumbar down switch engaged"
-    id: 331
+    id: 386
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos5.Switch.Lumbar.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 332
+    id: 387
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos5.Switch.Lumbar.Up"
     type: "Boolean"
     description: "Lumbar up switch engaged"
-    id: 330
+    id: 385
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos5.Switch.Lumbar.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 333
+    id: 388
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos5.Switch.Down"
     type: "Boolean"
     description: "Seat down switch engaged"
-    id: 319
+    id: 374
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos5.Switch.Warmer"
     type: "Boolean"
     description: "Warmer switch for Seat heater"
-    id: 314
+    id: 369
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos5.Switch.Cushion.Down"
     type: "Boolean"
     description: "Seat cushion down switch engaged"
-    id: 327
+    id: 382
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos5.Switch.Cushion.Forward"
     type: "Boolean"
     description: "Seat cushion forward/lengthen switch engaged"
-    id: 328
+    id: 383
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos5.Switch.Cushion.Backward"
     type: "Boolean"
     description: "Seat cushion backward/shorten switch engaged"
-    id: 329
+    id: 384
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos5.Switch.Cushion.Up"
     type: "Boolean"
     description: "Seat cushion up switch engaged"
-    id: 326
+    id: 381
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos5.Switch.Forward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 316
+    id: 371
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos5.Switch.Backward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 317
+    id: 372
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos5.Switch.Massage.Increase"
     type: "Boolean"
     description: "Increase massage level switch engaged"
-    id: 322
+    id: 377
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos5.Switch.Massage.Decrease"
     type: "Boolean"
     description: "Decrease massage level switch engaged"
-    id: 323
+    id: 378
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos5.Switch.SideBolster.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 334
+    id: 389
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos5.Switch.SideBolster.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 335
+    id: 390
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos5.Cushion.Length"
     type: "UInt16"
     description: "Forward length of cushion (leg support). 0 = Rearmost. 500 = Forwardmost."
-    id: 309
+    id: 363
     min: 0
     max: 500
     unit: mm
@@ -1648,7 +2414,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos5.Cushion.Height"
     type: "UInt16"
     description: "Height of the seat front. 0 = Lowermost. 500 = Uppermost."
-    id: 308
+    id: 362
     min: 0
     max: 500
     unit: mm
@@ -1658,14 +2424,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos5.IsBelted"
     type: "Boolean"
     description: "Is the belt engaged."
-    id: 303
+    id: 357
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos5.Position"
     type: "UInt16"
     description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost"
-    id: 307
+    id: 361
     min: 0
     max: 1000
     unit: mm
@@ -1675,7 +2441,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos5.SideBolster.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 312
+    id: 366
     min: 0
     max: 255
 }
@@ -1684,7 +2450,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos5.Massage"
     type: "UInt8"
     description: "Seat massage level. 0 = off. 10 = max massage."
-    id: 305
+    id: 359
     min: 0
     max: 10
 }
@@ -1692,7 +2458,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos2.HeadRestraint.Height"
     type: "UInt8"
     description: "Height of heead restraing. 0 = Bottommost. 255 = Topmost."
-    id: 211
+    id: 262
     min: 0
     max: 255
     unit: mm
@@ -1701,7 +2467,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos2.Recline"
     type: "Int8"
     description: "Recline level. -90 = Max forward recline. 90 max backward recline"
-    id: 204
+    id: 255
     min: -90
     max: 90
     unit: degree
@@ -1711,14 +2477,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos2.HasPassenger"
     type: "Boolean"
     description: "Does the seat have a passenger in it."
-    id: 200
+    id: 251
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos2.Heating"
     type: "Int8"
     description: "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat"
-    id: 202
+    id: 253
     min: -10
     max: 10
 }
@@ -1727,7 +2493,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos2.Lumbar.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 208
+    id: 259
     min: 0
     max: 255
 }
@@ -1736,170 +2502,177 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos2.Lumbar.Height"
     type: "UInt8"
     description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    id: 209
+    id: 260
     min: 0
     max: 255
+}
+,
+{
+    name: "Signal.Cabin.Seat.Row1.Pos2.Airbag.IsDeployed"
+    type: "Boolean"
+    description: "Airbag deployement status. True = Airbag deployed. False = Airbag not deployed."
+    id: 263
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos2.Switch.HeadRestraint.Down"
     type: "Boolean"
     description: "Head restraint down switch engaged"
-    id: 219
+    id: 271
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos2.Switch.HeadRestraint.Up"
     type: "Boolean"
     description: "Head restraint up switch engaged"
-    id: 218
+    id: 270
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos2.Switch.Cooler"
     type: "Boolean"
     description: "Cooler switch for Seat heater"
-    id: 213
+    id: 265
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos2.Switch.Recline.Forward"
     type: "Boolean"
     description: "Seatback recline forward switch engaged"
-    id: 223
+    id: 275
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos2.Switch.Recline.Backward"
     type: "Boolean"
     description: "Seatback recline backward switch engaged"
-    id: 222
+    id: 274
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos2.Switch.Up"
     type: "Boolean"
     description: "Seat up switch engaged"
-    id: 216
+    id: 268
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos2.Switch.Lumbar.Down"
     type: "Boolean"
     description: "Lumbar down switch engaged"
-    id: 229
+    id: 281
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos2.Switch.Lumbar.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 230
+    id: 282
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos2.Switch.Lumbar.Up"
     type: "Boolean"
     description: "Lumbar up switch engaged"
-    id: 228
+    id: 280
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos2.Switch.Lumbar.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 231
+    id: 283
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos2.Switch.Down"
     type: "Boolean"
     description: "Seat down switch engaged"
-    id: 217
+    id: 269
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos2.Switch.Warmer"
     type: "Boolean"
     description: "Warmer switch for Seat heater"
-    id: 212
+    id: 264
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos2.Switch.Cushion.Down"
     type: "Boolean"
     description: "Seat cushion down switch engaged"
-    id: 225
+    id: 277
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos2.Switch.Cushion.Forward"
     type: "Boolean"
     description: "Seat cushion forward/lengthen switch engaged"
-    id: 226
+    id: 278
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos2.Switch.Cushion.Backward"
     type: "Boolean"
     description: "Seat cushion backward/shorten switch engaged"
-    id: 227
+    id: 279
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos2.Switch.Cushion.Up"
     type: "Boolean"
     description: "Seat cushion up switch engaged"
-    id: 224
+    id: 276
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos2.Switch.Forward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 214
+    id: 266
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos2.Switch.Backward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 215
+    id: 267
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos2.Switch.Massage.Increase"
     type: "Boolean"
     description: "Increase massage level switch engaged"
-    id: 220
+    id: 272
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos2.Switch.Massage.Decrease"
     type: "Boolean"
     description: "Decrease massage level switch engaged"
-    id: 221
+    id: 273
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos2.Switch.SideBolster.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 232
+    id: 284
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos2.Switch.SideBolster.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 233
+    id: 285
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos2.Cushion.Length"
     type: "UInt16"
     description: "Forward length of cushion (leg support). 0 = Rearmost. 500 = Forwardmost."
-    id: 207
+    id: 258
     min: 0
     max: 500
     unit: mm
@@ -1909,7 +2682,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos2.Cushion.Height"
     type: "UInt16"
     description: "Height of the seat front. 0 = Lowermost. 500 = Uppermost."
-    id: 206
+    id: 257
     min: 0
     max: 500
     unit: mm
@@ -1919,14 +2692,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos2.IsBelted"
     type: "Boolean"
     description: "Is the belt engaged."
-    id: 201
+    id: 252
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos2.Position"
     type: "UInt16"
     description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost"
-    id: 205
+    id: 256
     min: 0
     max: 1000
     unit: mm
@@ -1936,7 +2709,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos2.SideBolster.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 210
+    id: 261
     min: 0
     max: 255
 }
@@ -1945,7 +2718,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos2.Massage"
     type: "UInt8"
     description: "Seat massage level. 0 = off. 10 = max massage."
-    id: 203
+    id: 254
     min: 0
     max: 10
 }
@@ -1953,7 +2726,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos3.HeadRestraint.Height"
     type: "UInt8"
     description: "Height of heead restraing. 0 = Bottommost. 255 = Topmost."
-    id: 245
+    id: 297
     min: 0
     max: 255
     unit: mm
@@ -1962,7 +2735,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos3.Recline"
     type: "Int8"
     description: "Recline level. -90 = Max forward recline. 90 max backward recline"
-    id: 238
+    id: 290
     min: -90
     max: 90
     unit: degree
@@ -1972,14 +2745,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos3.HasPassenger"
     type: "Boolean"
     description: "Does the seat have a passenger in it."
-    id: 234
+    id: 286
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos3.Heating"
     type: "Int8"
     description: "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat"
-    id: 236
+    id: 288
     min: -10
     max: 10
 }
@@ -1988,7 +2761,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos3.Lumbar.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 242
+    id: 294
     min: 0
     max: 255
 }
@@ -1997,170 +2770,177 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos3.Lumbar.Height"
     type: "UInt8"
     description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    id: 243
+    id: 295
     min: 0
     max: 255
+}
+,
+{
+    name: "Signal.Cabin.Seat.Row1.Pos3.Airbag.IsDeployed"
+    type: "Boolean"
+    description: "Airbag deployement status. True = Airbag deployed. False = Airbag not deployed."
+    id: 298
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos3.Switch.HeadRestraint.Down"
     type: "Boolean"
     description: "Head restraint down switch engaged"
-    id: 253
+    id: 306
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos3.Switch.HeadRestraint.Up"
     type: "Boolean"
     description: "Head restraint up switch engaged"
-    id: 252
+    id: 305
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos3.Switch.Cooler"
     type: "Boolean"
     description: "Cooler switch for Seat heater"
-    id: 247
+    id: 300
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos3.Switch.Recline.Forward"
     type: "Boolean"
     description: "Seatback recline forward switch engaged"
-    id: 257
+    id: 310
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos3.Switch.Recline.Backward"
     type: "Boolean"
     description: "Seatback recline backward switch engaged"
-    id: 256
+    id: 309
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos3.Switch.Up"
     type: "Boolean"
     description: "Seat up switch engaged"
-    id: 250
+    id: 303
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos3.Switch.Lumbar.Down"
     type: "Boolean"
     description: "Lumbar down switch engaged"
-    id: 263
+    id: 316
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos3.Switch.Lumbar.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 264
+    id: 317
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos3.Switch.Lumbar.Up"
     type: "Boolean"
     description: "Lumbar up switch engaged"
-    id: 262
+    id: 315
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos3.Switch.Lumbar.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 265
+    id: 318
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos3.Switch.Down"
     type: "Boolean"
     description: "Seat down switch engaged"
-    id: 251
+    id: 304
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos3.Switch.Warmer"
     type: "Boolean"
     description: "Warmer switch for Seat heater"
-    id: 246
+    id: 299
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos3.Switch.Cushion.Down"
     type: "Boolean"
     description: "Seat cushion down switch engaged"
-    id: 259
+    id: 312
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos3.Switch.Cushion.Forward"
     type: "Boolean"
     description: "Seat cushion forward/lengthen switch engaged"
-    id: 260
+    id: 313
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos3.Switch.Cushion.Backward"
     type: "Boolean"
     description: "Seat cushion backward/shorten switch engaged"
-    id: 261
+    id: 314
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos3.Switch.Cushion.Up"
     type: "Boolean"
     description: "Seat cushion up switch engaged"
-    id: 258
+    id: 311
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos3.Switch.Forward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 248
+    id: 301
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos3.Switch.Backward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 249
+    id: 302
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos3.Switch.Massage.Increase"
     type: "Boolean"
     description: "Increase massage level switch engaged"
-    id: 254
+    id: 307
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos3.Switch.Massage.Decrease"
     type: "Boolean"
     description: "Decrease massage level switch engaged"
-    id: 255
+    id: 308
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos3.Switch.SideBolster.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 266
+    id: 319
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos3.Switch.SideBolster.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 267
+    id: 320
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos3.Cushion.Length"
     type: "UInt16"
     description: "Forward length of cushion (leg support). 0 = Rearmost. 500 = Forwardmost."
-    id: 241
+    id: 293
     min: 0
     max: 500
     unit: mm
@@ -2170,7 +2950,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos3.Cushion.Height"
     type: "UInt16"
     description: "Height of the seat front. 0 = Lowermost. 500 = Uppermost."
-    id: 240
+    id: 292
     min: 0
     max: 500
     unit: mm
@@ -2180,14 +2960,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos3.IsBelted"
     type: "Boolean"
     description: "Is the belt engaged."
-    id: 235
+    id: 287
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos3.Position"
     type: "UInt16"
     description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost"
-    id: 239
+    id: 291
     min: 0
     max: 1000
     unit: mm
@@ -2197,7 +2977,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos3.SideBolster.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 244
+    id: 296
     min: 0
     max: 255
 }
@@ -2206,7 +2986,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos3.Massage"
     type: "UInt8"
     description: "Seat massage level. 0 = off. 10 = max massage."
-    id: 237
+    id: 289
     min: 0
     max: 10
 }
@@ -2214,7 +2994,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos1.HeadRestraint.Height"
     type: "UInt8"
     description: "Height of heead restraing. 0 = Bottommost. 255 = Topmost."
-    id: 177
+    id: 227
     min: 0
     max: 255
     unit: mm
@@ -2223,7 +3003,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos1.Recline"
     type: "Int8"
     description: "Recline level. -90 = Max forward recline. 90 max backward recline"
-    id: 170
+    id: 220
     min: -90
     max: 90
     unit: degree
@@ -2233,14 +3013,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos1.HasPassenger"
     type: "Boolean"
     description: "Does the seat have a passenger in it."
-    id: 166
+    id: 216
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos1.Heating"
     type: "Int8"
     description: "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat"
-    id: 168
+    id: 218
     min: -10
     max: 10
 }
@@ -2249,7 +3029,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos1.Lumbar.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 174
+    id: 224
     min: 0
     max: 255
 }
@@ -2258,170 +3038,177 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos1.Lumbar.Height"
     type: "UInt8"
     description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    id: 175
+    id: 225
     min: 0
     max: 255
+}
+,
+{
+    name: "Signal.Cabin.Seat.Row1.Pos1.Airbag.IsDeployed"
+    type: "Boolean"
+    description: "Airbag deployement status. True = Airbag deployed. False = Airbag not deployed."
+    id: 228
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos1.Switch.HeadRestraint.Down"
     type: "Boolean"
     description: "Head restraint down switch engaged"
-    id: 185
+    id: 236
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos1.Switch.HeadRestraint.Up"
     type: "Boolean"
     description: "Head restraint up switch engaged"
-    id: 184
+    id: 235
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos1.Switch.Cooler"
     type: "Boolean"
     description: "Cooler switch for Seat heater"
-    id: 179
+    id: 230
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos1.Switch.Recline.Forward"
     type: "Boolean"
     description: "Seatback recline forward switch engaged"
-    id: 189
+    id: 240
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos1.Switch.Recline.Backward"
     type: "Boolean"
     description: "Seatback recline backward switch engaged"
-    id: 188
+    id: 239
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos1.Switch.Up"
     type: "Boolean"
     description: "Seat up switch engaged"
-    id: 182
+    id: 233
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos1.Switch.Lumbar.Down"
     type: "Boolean"
     description: "Lumbar down switch engaged"
-    id: 195
+    id: 246
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos1.Switch.Lumbar.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 196
+    id: 247
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos1.Switch.Lumbar.Up"
     type: "Boolean"
     description: "Lumbar up switch engaged"
-    id: 194
+    id: 245
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos1.Switch.Lumbar.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 197
+    id: 248
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos1.Switch.Down"
     type: "Boolean"
     description: "Seat down switch engaged"
-    id: 183
+    id: 234
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos1.Switch.Warmer"
     type: "Boolean"
     description: "Warmer switch for Seat heater"
-    id: 178
+    id: 229
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos1.Switch.Cushion.Down"
     type: "Boolean"
     description: "Seat cushion down switch engaged"
-    id: 191
+    id: 242
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos1.Switch.Cushion.Forward"
     type: "Boolean"
     description: "Seat cushion forward/lengthen switch engaged"
-    id: 192
+    id: 243
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos1.Switch.Cushion.Backward"
     type: "Boolean"
     description: "Seat cushion backward/shorten switch engaged"
-    id: 193
+    id: 244
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos1.Switch.Cushion.Up"
     type: "Boolean"
     description: "Seat cushion up switch engaged"
-    id: 190
+    id: 241
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos1.Switch.Forward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 180
+    id: 231
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos1.Switch.Backward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 181
+    id: 232
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos1.Switch.Massage.Increase"
     type: "Boolean"
     description: "Increase massage level switch engaged"
-    id: 186
+    id: 237
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos1.Switch.Massage.Decrease"
     type: "Boolean"
     description: "Decrease massage level switch engaged"
-    id: 187
+    id: 238
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos1.Switch.SideBolster.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 198
+    id: 249
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos1.Switch.SideBolster.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 199
+    id: 250
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos1.Cushion.Length"
     type: "UInt16"
     description: "Forward length of cushion (leg support). 0 = Rearmost. 500 = Forwardmost."
-    id: 173
+    id: 223
     min: 0
     max: 500
     unit: mm
@@ -2431,7 +3218,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos1.Cushion.Height"
     type: "UInt16"
     description: "Height of the seat front. 0 = Lowermost. 500 = Uppermost."
-    id: 172
+    id: 222
     min: 0
     max: 500
     unit: mm
@@ -2441,14 +3228,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos1.IsBelted"
     type: "Boolean"
     description: "Is the belt engaged."
-    id: 167
+    id: 217
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row1.Pos1.Position"
     type: "UInt16"
     description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost"
-    id: 171
+    id: 221
     min: 0
     max: 1000
     unit: mm
@@ -2458,7 +3245,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos1.SideBolster.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 176
+    id: 226
     min: 0
     max: 255
 }
@@ -2467,7 +3254,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row1.Pos1.Massage"
     type: "UInt8"
     description: "Seat massage level. 0 = off. 10 = max massage."
-    id: 169
+    id: 219
     min: 0
     max: 10
 }
@@ -2475,7 +3262,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos4.HeadRestraint.Height"
     type: "UInt8"
     description: "Height of heead restraing. 0 = Bottommost. 255 = Topmost."
-    id: 449
+    id: 507
     min: 0
     max: 255
     unit: mm
@@ -2484,7 +3271,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos4.Recline"
     type: "Int8"
     description: "Recline level. -90 = Max forward recline. 90 max backward recline"
-    id: 442
+    id: 500
     min: -90
     max: 90
     unit: degree
@@ -2494,14 +3281,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos4.HasPassenger"
     type: "Boolean"
     description: "Does the seat have a passenger in it."
-    id: 438
+    id: 496
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos4.Heating"
     type: "Int8"
     description: "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat"
-    id: 440
+    id: 498
     min: -10
     max: 10
 }
@@ -2510,7 +3297,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos4.Lumbar.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 446
+    id: 504
     min: 0
     max: 255
 }
@@ -2519,170 +3306,177 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos4.Lumbar.Height"
     type: "UInt8"
     description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    id: 447
+    id: 505
     min: 0
     max: 255
+}
+,
+{
+    name: "Signal.Cabin.Seat.Row2.Pos4.Airbag.IsDeployed"
+    type: "Boolean"
+    description: "Airbag deployement status. True = Airbag deployed. False = Airbag not deployed."
+    id: 508
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos4.Switch.HeadRestraint.Down"
     type: "Boolean"
     description: "Head restraint down switch engaged"
-    id: 457
+    id: 516
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos4.Switch.HeadRestraint.Up"
     type: "Boolean"
     description: "Head restraint up switch engaged"
-    id: 456
+    id: 515
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos4.Switch.Cooler"
     type: "Boolean"
     description: "Cooler switch for Seat heater"
-    id: 451
+    id: 510
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos4.Switch.Recline.Forward"
     type: "Boolean"
     description: "Seatback recline forward switch engaged"
-    id: 461
+    id: 520
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos4.Switch.Recline.Backward"
     type: "Boolean"
     description: "Seatback recline backward switch engaged"
-    id: 460
+    id: 519
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos4.Switch.Up"
     type: "Boolean"
     description: "Seat up switch engaged"
-    id: 454
+    id: 513
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos4.Switch.Lumbar.Down"
     type: "Boolean"
     description: "Lumbar down switch engaged"
-    id: 467
+    id: 526
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos4.Switch.Lumbar.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 468
+    id: 527
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos4.Switch.Lumbar.Up"
     type: "Boolean"
     description: "Lumbar up switch engaged"
-    id: 466
+    id: 525
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos4.Switch.Lumbar.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 469
+    id: 528
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos4.Switch.Down"
     type: "Boolean"
     description: "Seat down switch engaged"
-    id: 455
+    id: 514
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos4.Switch.Warmer"
     type: "Boolean"
     description: "Warmer switch for Seat heater"
-    id: 450
+    id: 509
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos4.Switch.Cushion.Down"
     type: "Boolean"
     description: "Seat cushion down switch engaged"
-    id: 463
+    id: 522
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos4.Switch.Cushion.Forward"
     type: "Boolean"
     description: "Seat cushion forward/lengthen switch engaged"
-    id: 464
+    id: 523
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos4.Switch.Cushion.Backward"
     type: "Boolean"
     description: "Seat cushion backward/shorten switch engaged"
-    id: 465
+    id: 524
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos4.Switch.Cushion.Up"
     type: "Boolean"
     description: "Seat cushion up switch engaged"
-    id: 462
+    id: 521
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos4.Switch.Forward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 452
+    id: 511
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos4.Switch.Backward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 453
+    id: 512
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos4.Switch.Massage.Increase"
     type: "Boolean"
     description: "Increase massage level switch engaged"
-    id: 458
+    id: 517
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos4.Switch.Massage.Decrease"
     type: "Boolean"
     description: "Decrease massage level switch engaged"
-    id: 459
+    id: 518
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos4.Switch.SideBolster.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 470
+    id: 529
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos4.Switch.SideBolster.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 471
+    id: 530
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos4.Cushion.Length"
     type: "UInt16"
     description: "Forward length of cushion (leg support). 0 = Rearmost. 500 = Forwardmost."
-    id: 445
+    id: 503
     min: 0
     max: 500
     unit: mm
@@ -2692,7 +3486,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos4.Cushion.Height"
     type: "UInt16"
     description: "Height of the seat front. 0 = Lowermost. 500 = Uppermost."
-    id: 444
+    id: 502
     min: 0
     max: 500
     unit: mm
@@ -2702,14 +3496,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos4.IsBelted"
     type: "Boolean"
     description: "Is the belt engaged."
-    id: 439
+    id: 497
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos4.Position"
     type: "UInt16"
     description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost"
-    id: 443
+    id: 501
     min: 0
     max: 1000
     unit: mm
@@ -2719,7 +3513,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos4.SideBolster.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 448
+    id: 506
     min: 0
     max: 255
 }
@@ -2728,7 +3522,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos4.Massage"
     type: "UInt8"
     description: "Seat massage level. 0 = off. 10 = max massage."
-    id: 441
+    id: 499
     min: 0
     max: 10
 }
@@ -2736,7 +3530,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos5.HeadRestraint.Height"
     type: "UInt8"
     description: "Height of heead restraing. 0 = Bottommost. 255 = Topmost."
-    id: 483
+    id: 542
     min: 0
     max: 255
     unit: mm
@@ -2745,7 +3539,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos5.Recline"
     type: "Int8"
     description: "Recline level. -90 = Max forward recline. 90 max backward recline"
-    id: 476
+    id: 535
     min: -90
     max: 90
     unit: degree
@@ -2755,14 +3549,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos5.HasPassenger"
     type: "Boolean"
     description: "Does the seat have a passenger in it."
-    id: 472
+    id: 531
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos5.Heating"
     type: "Int8"
     description: "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat"
-    id: 474
+    id: 533
     min: -10
     max: 10
 }
@@ -2771,7 +3565,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos5.Lumbar.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 480
+    id: 539
     min: 0
     max: 255
 }
@@ -2780,170 +3574,177 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos5.Lumbar.Height"
     type: "UInt8"
     description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    id: 481
+    id: 540
     min: 0
     max: 255
+}
+,
+{
+    name: "Signal.Cabin.Seat.Row2.Pos5.Airbag.IsDeployed"
+    type: "Boolean"
+    description: "Airbag deployement status. True = Airbag deployed. False = Airbag not deployed."
+    id: 543
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos5.Switch.HeadRestraint.Down"
     type: "Boolean"
     description: "Head restraint down switch engaged"
-    id: 491
+    id: 551
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos5.Switch.HeadRestraint.Up"
     type: "Boolean"
     description: "Head restraint up switch engaged"
-    id: 490
+    id: 550
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos5.Switch.Cooler"
     type: "Boolean"
     description: "Cooler switch for Seat heater"
-    id: 485
+    id: 545
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos5.Switch.Recline.Forward"
     type: "Boolean"
     description: "Seatback recline forward switch engaged"
-    id: 495
+    id: 555
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos5.Switch.Recline.Backward"
     type: "Boolean"
     description: "Seatback recline backward switch engaged"
-    id: 494
+    id: 554
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos5.Switch.Up"
     type: "Boolean"
     description: "Seat up switch engaged"
-    id: 488
+    id: 548
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos5.Switch.Lumbar.Down"
     type: "Boolean"
     description: "Lumbar down switch engaged"
-    id: 501
+    id: 561
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos5.Switch.Lumbar.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 502
+    id: 562
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos5.Switch.Lumbar.Up"
     type: "Boolean"
     description: "Lumbar up switch engaged"
-    id: 500
+    id: 560
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos5.Switch.Lumbar.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 503
+    id: 563
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos5.Switch.Down"
     type: "Boolean"
     description: "Seat down switch engaged"
-    id: 489
+    id: 549
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos5.Switch.Warmer"
     type: "Boolean"
     description: "Warmer switch for Seat heater"
-    id: 484
+    id: 544
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos5.Switch.Cushion.Down"
     type: "Boolean"
     description: "Seat cushion down switch engaged"
-    id: 497
+    id: 557
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos5.Switch.Cushion.Forward"
     type: "Boolean"
     description: "Seat cushion forward/lengthen switch engaged"
-    id: 498
+    id: 558
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos5.Switch.Cushion.Backward"
     type: "Boolean"
     description: "Seat cushion backward/shorten switch engaged"
-    id: 499
+    id: 559
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos5.Switch.Cushion.Up"
     type: "Boolean"
     description: "Seat cushion up switch engaged"
-    id: 496
+    id: 556
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos5.Switch.Forward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 486
+    id: 546
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos5.Switch.Backward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 487
+    id: 547
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos5.Switch.Massage.Increase"
     type: "Boolean"
     description: "Increase massage level switch engaged"
-    id: 492
+    id: 552
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos5.Switch.Massage.Decrease"
     type: "Boolean"
     description: "Decrease massage level switch engaged"
-    id: 493
+    id: 553
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos5.Switch.SideBolster.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 504
+    id: 564
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos5.Switch.SideBolster.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 505
+    id: 565
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos5.Cushion.Length"
     type: "UInt16"
     description: "Forward length of cushion (leg support). 0 = Rearmost. 500 = Forwardmost."
-    id: 479
+    id: 538
     min: 0
     max: 500
     unit: mm
@@ -2953,7 +3754,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos5.Cushion.Height"
     type: "UInt16"
     description: "Height of the seat front. 0 = Lowermost. 500 = Uppermost."
-    id: 478
+    id: 537
     min: 0
     max: 500
     unit: mm
@@ -2963,14 +3764,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos5.IsBelted"
     type: "Boolean"
     description: "Is the belt engaged."
-    id: 473
+    id: 532
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos5.Position"
     type: "UInt16"
     description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost"
-    id: 477
+    id: 536
     min: 0
     max: 1000
     unit: mm
@@ -2980,7 +3781,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos5.SideBolster.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 482
+    id: 541
     min: 0
     max: 255
 }
@@ -2989,7 +3790,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos5.Massage"
     type: "UInt8"
     description: "Seat massage level. 0 = off. 10 = max massage."
-    id: 475
+    id: 534
     min: 0
     max: 10
 }
@@ -2997,7 +3798,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos2.HeadRestraint.Height"
     type: "UInt8"
     description: "Height of heead restraing. 0 = Bottommost. 255 = Topmost."
-    id: 381
+    id: 437
     min: 0
     max: 255
     unit: mm
@@ -3006,7 +3807,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos2.Recline"
     type: "Int8"
     description: "Recline level. -90 = Max forward recline. 90 max backward recline"
-    id: 374
+    id: 430
     min: -90
     max: 90
     unit: degree
@@ -3016,14 +3817,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos2.HasPassenger"
     type: "Boolean"
     description: "Does the seat have a passenger in it."
-    id: 370
+    id: 426
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos2.Heating"
     type: "Int8"
     description: "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat"
-    id: 372
+    id: 428
     min: -10
     max: 10
 }
@@ -3032,7 +3833,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos2.Lumbar.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 378
+    id: 434
     min: 0
     max: 255
 }
@@ -3041,170 +3842,177 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos2.Lumbar.Height"
     type: "UInt8"
     description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    id: 379
+    id: 435
     min: 0
     max: 255
+}
+,
+{
+    name: "Signal.Cabin.Seat.Row2.Pos2.Airbag.IsDeployed"
+    type: "Boolean"
+    description: "Airbag deployement status. True = Airbag deployed. False = Airbag not deployed."
+    id: 438
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos2.Switch.HeadRestraint.Down"
     type: "Boolean"
     description: "Head restraint down switch engaged"
-    id: 389
+    id: 446
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos2.Switch.HeadRestraint.Up"
     type: "Boolean"
     description: "Head restraint up switch engaged"
-    id: 388
+    id: 445
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos2.Switch.Cooler"
     type: "Boolean"
     description: "Cooler switch for Seat heater"
-    id: 383
+    id: 440
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos2.Switch.Recline.Forward"
     type: "Boolean"
     description: "Seatback recline forward switch engaged"
-    id: 393
+    id: 450
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos2.Switch.Recline.Backward"
     type: "Boolean"
     description: "Seatback recline backward switch engaged"
-    id: 392
+    id: 449
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos2.Switch.Up"
     type: "Boolean"
     description: "Seat up switch engaged"
-    id: 386
+    id: 443
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos2.Switch.Lumbar.Down"
     type: "Boolean"
     description: "Lumbar down switch engaged"
-    id: 399
+    id: 456
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos2.Switch.Lumbar.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 400
+    id: 457
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos2.Switch.Lumbar.Up"
     type: "Boolean"
     description: "Lumbar up switch engaged"
-    id: 398
+    id: 455
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos2.Switch.Lumbar.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 401
+    id: 458
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos2.Switch.Down"
     type: "Boolean"
     description: "Seat down switch engaged"
-    id: 387
+    id: 444
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos2.Switch.Warmer"
     type: "Boolean"
     description: "Warmer switch for Seat heater"
-    id: 382
+    id: 439
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos2.Switch.Cushion.Down"
     type: "Boolean"
     description: "Seat cushion down switch engaged"
-    id: 395
+    id: 452
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos2.Switch.Cushion.Forward"
     type: "Boolean"
     description: "Seat cushion forward/lengthen switch engaged"
-    id: 396
+    id: 453
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos2.Switch.Cushion.Backward"
     type: "Boolean"
     description: "Seat cushion backward/shorten switch engaged"
-    id: 397
+    id: 454
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos2.Switch.Cushion.Up"
     type: "Boolean"
     description: "Seat cushion up switch engaged"
-    id: 394
+    id: 451
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos2.Switch.Forward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 384
+    id: 441
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos2.Switch.Backward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 385
+    id: 442
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos2.Switch.Massage.Increase"
     type: "Boolean"
     description: "Increase massage level switch engaged"
-    id: 390
+    id: 447
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos2.Switch.Massage.Decrease"
     type: "Boolean"
     description: "Decrease massage level switch engaged"
-    id: 391
+    id: 448
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos2.Switch.SideBolster.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 402
+    id: 459
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos2.Switch.SideBolster.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 403
+    id: 460
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos2.Cushion.Length"
     type: "UInt16"
     description: "Forward length of cushion (leg support). 0 = Rearmost. 500 = Forwardmost."
-    id: 377
+    id: 433
     min: 0
     max: 500
     unit: mm
@@ -3214,7 +4022,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos2.Cushion.Height"
     type: "UInt16"
     description: "Height of the seat front. 0 = Lowermost. 500 = Uppermost."
-    id: 376
+    id: 432
     min: 0
     max: 500
     unit: mm
@@ -3224,14 +4032,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos2.IsBelted"
     type: "Boolean"
     description: "Is the belt engaged."
-    id: 371
+    id: 427
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos2.Position"
     type: "UInt16"
     description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost"
-    id: 375
+    id: 431
     min: 0
     max: 1000
     unit: mm
@@ -3241,7 +4049,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos2.SideBolster.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 380
+    id: 436
     min: 0
     max: 255
 }
@@ -3250,7 +4058,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos2.Massage"
     type: "UInt8"
     description: "Seat massage level. 0 = off. 10 = max massage."
-    id: 373
+    id: 429
     min: 0
     max: 10
 }
@@ -3258,7 +4066,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos3.HeadRestraint.Height"
     type: "UInt8"
     description: "Height of heead restraing. 0 = Bottommost. 255 = Topmost."
-    id: 415
+    id: 472
     min: 0
     max: 255
     unit: mm
@@ -3267,7 +4075,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos3.Recline"
     type: "Int8"
     description: "Recline level. -90 = Max forward recline. 90 max backward recline"
-    id: 408
+    id: 465
     min: -90
     max: 90
     unit: degree
@@ -3277,14 +4085,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos3.HasPassenger"
     type: "Boolean"
     description: "Does the seat have a passenger in it."
-    id: 404
+    id: 461
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos3.Heating"
     type: "Int8"
     description: "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat"
-    id: 406
+    id: 463
     min: -10
     max: 10
 }
@@ -3293,7 +4101,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos3.Lumbar.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 412
+    id: 469
     min: 0
     max: 255
 }
@@ -3302,170 +4110,177 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos3.Lumbar.Height"
     type: "UInt8"
     description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    id: 413
+    id: 470
     min: 0
     max: 255
+}
+,
+{
+    name: "Signal.Cabin.Seat.Row2.Pos3.Airbag.IsDeployed"
+    type: "Boolean"
+    description: "Airbag deployement status. True = Airbag deployed. False = Airbag not deployed."
+    id: 473
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos3.Switch.HeadRestraint.Down"
     type: "Boolean"
     description: "Head restraint down switch engaged"
-    id: 423
+    id: 481
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos3.Switch.HeadRestraint.Up"
     type: "Boolean"
     description: "Head restraint up switch engaged"
-    id: 422
+    id: 480
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos3.Switch.Cooler"
     type: "Boolean"
     description: "Cooler switch for Seat heater"
-    id: 417
+    id: 475
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos3.Switch.Recline.Forward"
     type: "Boolean"
     description: "Seatback recline forward switch engaged"
-    id: 427
+    id: 485
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos3.Switch.Recline.Backward"
     type: "Boolean"
     description: "Seatback recline backward switch engaged"
-    id: 426
+    id: 484
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos3.Switch.Up"
     type: "Boolean"
     description: "Seat up switch engaged"
-    id: 420
+    id: 478
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos3.Switch.Lumbar.Down"
     type: "Boolean"
     description: "Lumbar down switch engaged"
-    id: 433
+    id: 491
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos3.Switch.Lumbar.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 434
+    id: 492
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos3.Switch.Lumbar.Up"
     type: "Boolean"
     description: "Lumbar up switch engaged"
-    id: 432
+    id: 490
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos3.Switch.Lumbar.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 435
+    id: 493
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos3.Switch.Down"
     type: "Boolean"
     description: "Seat down switch engaged"
-    id: 421
+    id: 479
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos3.Switch.Warmer"
     type: "Boolean"
     description: "Warmer switch for Seat heater"
-    id: 416
+    id: 474
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos3.Switch.Cushion.Down"
     type: "Boolean"
     description: "Seat cushion down switch engaged"
-    id: 429
+    id: 487
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos3.Switch.Cushion.Forward"
     type: "Boolean"
     description: "Seat cushion forward/lengthen switch engaged"
-    id: 430
+    id: 488
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos3.Switch.Cushion.Backward"
     type: "Boolean"
     description: "Seat cushion backward/shorten switch engaged"
-    id: 431
+    id: 489
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos3.Switch.Cushion.Up"
     type: "Boolean"
     description: "Seat cushion up switch engaged"
-    id: 428
+    id: 486
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos3.Switch.Forward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 418
+    id: 476
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos3.Switch.Backward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 419
+    id: 477
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos3.Switch.Massage.Increase"
     type: "Boolean"
     description: "Increase massage level switch engaged"
-    id: 424
+    id: 482
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos3.Switch.Massage.Decrease"
     type: "Boolean"
     description: "Decrease massage level switch engaged"
-    id: 425
+    id: 483
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos3.Switch.SideBolster.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 436
+    id: 494
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos3.Switch.SideBolster.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 437
+    id: 495
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos3.Cushion.Length"
     type: "UInt16"
     description: "Forward length of cushion (leg support). 0 = Rearmost. 500 = Forwardmost."
-    id: 411
+    id: 468
     min: 0
     max: 500
     unit: mm
@@ -3475,7 +4290,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos3.Cushion.Height"
     type: "UInt16"
     description: "Height of the seat front. 0 = Lowermost. 500 = Uppermost."
-    id: 410
+    id: 467
     min: 0
     max: 500
     unit: mm
@@ -3485,14 +4300,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos3.IsBelted"
     type: "Boolean"
     description: "Is the belt engaged."
-    id: 405
+    id: 462
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos3.Position"
     type: "UInt16"
     description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost"
-    id: 409
+    id: 466
     min: 0
     max: 1000
     unit: mm
@@ -3502,7 +4317,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos3.SideBolster.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 414
+    id: 471
     min: 0
     max: 255
 }
@@ -3511,7 +4326,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos3.Massage"
     type: "UInt8"
     description: "Seat massage level. 0 = off. 10 = max massage."
-    id: 407
+    id: 464
     min: 0
     max: 10
 }
@@ -3519,7 +4334,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos1.HeadRestraint.Height"
     type: "UInt8"
     description: "Height of heead restraing. 0 = Bottommost. 255 = Topmost."
-    id: 347
+    id: 402
     min: 0
     max: 255
     unit: mm
@@ -3528,7 +4343,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos1.Recline"
     type: "Int8"
     description: "Recline level. -90 = Max forward recline. 90 max backward recline"
-    id: 340
+    id: 395
     min: -90
     max: 90
     unit: degree
@@ -3538,14 +4353,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos1.HasPassenger"
     type: "Boolean"
     description: "Does the seat have a passenger in it."
-    id: 336
+    id: 391
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos1.Heating"
     type: "Int8"
     description: "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat"
-    id: 338
+    id: 393
     min: -10
     max: 10
 }
@@ -3554,7 +4369,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos1.Lumbar.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 344
+    id: 399
     min: 0
     max: 255
 }
@@ -3563,170 +4378,177 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos1.Lumbar.Height"
     type: "UInt8"
     description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    id: 345
+    id: 400
     min: 0
     max: 255
+}
+,
+{
+    name: "Signal.Cabin.Seat.Row2.Pos1.Airbag.IsDeployed"
+    type: "Boolean"
+    description: "Airbag deployement status. True = Airbag deployed. False = Airbag not deployed."
+    id: 403
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos1.Switch.HeadRestraint.Down"
     type: "Boolean"
     description: "Head restraint down switch engaged"
-    id: 355
+    id: 411
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos1.Switch.HeadRestraint.Up"
     type: "Boolean"
     description: "Head restraint up switch engaged"
-    id: 354
+    id: 410
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos1.Switch.Cooler"
     type: "Boolean"
     description: "Cooler switch for Seat heater"
-    id: 349
+    id: 405
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos1.Switch.Recline.Forward"
     type: "Boolean"
     description: "Seatback recline forward switch engaged"
-    id: 359
+    id: 415
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos1.Switch.Recline.Backward"
     type: "Boolean"
     description: "Seatback recline backward switch engaged"
-    id: 358
+    id: 414
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos1.Switch.Up"
     type: "Boolean"
     description: "Seat up switch engaged"
-    id: 352
+    id: 408
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos1.Switch.Lumbar.Down"
     type: "Boolean"
     description: "Lumbar down switch engaged"
-    id: 365
+    id: 421
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos1.Switch.Lumbar.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 366
+    id: 422
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos1.Switch.Lumbar.Up"
     type: "Boolean"
     description: "Lumbar up switch engaged"
-    id: 364
+    id: 420
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos1.Switch.Lumbar.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 367
+    id: 423
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos1.Switch.Down"
     type: "Boolean"
     description: "Seat down switch engaged"
-    id: 353
+    id: 409
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos1.Switch.Warmer"
     type: "Boolean"
     description: "Warmer switch for Seat heater"
-    id: 348
+    id: 404
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos1.Switch.Cushion.Down"
     type: "Boolean"
     description: "Seat cushion down switch engaged"
-    id: 361
+    id: 417
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos1.Switch.Cushion.Forward"
     type: "Boolean"
     description: "Seat cushion forward/lengthen switch engaged"
-    id: 362
+    id: 418
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos1.Switch.Cushion.Backward"
     type: "Boolean"
     description: "Seat cushion backward/shorten switch engaged"
-    id: 363
+    id: 419
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos1.Switch.Cushion.Up"
     type: "Boolean"
     description: "Seat cushion up switch engaged"
-    id: 360
+    id: 416
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos1.Switch.Forward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 350
+    id: 406
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos1.Switch.Backward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 351
+    id: 407
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos1.Switch.Massage.Increase"
     type: "Boolean"
     description: "Increase massage level switch engaged"
-    id: 356
+    id: 412
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos1.Switch.Massage.Decrease"
     type: "Boolean"
     description: "Decrease massage level switch engaged"
-    id: 357
+    id: 413
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos1.Switch.SideBolster.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 368
+    id: 424
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos1.Switch.SideBolster.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 369
+    id: 425
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos1.Cushion.Length"
     type: "UInt16"
     description: "Forward length of cushion (leg support). 0 = Rearmost. 500 = Forwardmost."
-    id: 343
+    id: 398
     min: 0
     max: 500
     unit: mm
@@ -3736,7 +4558,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos1.Cushion.Height"
     type: "UInt16"
     description: "Height of the seat front. 0 = Lowermost. 500 = Uppermost."
-    id: 342
+    id: 397
     min: 0
     max: 500
     unit: mm
@@ -3746,14 +4568,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos1.IsBelted"
     type: "Boolean"
     description: "Is the belt engaged."
-    id: 337
+    id: 392
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row2.Pos1.Position"
     type: "UInt16"
     description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost"
-    id: 341
+    id: 396
     min: 0
     max: 1000
     unit: mm
@@ -3763,7 +4585,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos1.SideBolster.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 346
+    id: 401
     min: 0
     max: 255
 }
@@ -3772,7 +4594,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row2.Pos1.Massage"
     type: "UInt8"
     description: "Seat massage level. 0 = off. 10 = max massage."
-    id: 339
+    id: 394
     min: 0
     max: 10
 }
@@ -3780,7 +4602,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos4.HeadRestraint.Height"
     type: "UInt8"
     description: "Height of heead restraing. 0 = Bottommost. 255 = Topmost."
-    id: 619
+    id: 682
     min: 0
     max: 255
     unit: mm
@@ -3789,7 +4611,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos4.Recline"
     type: "Int8"
     description: "Recline level. -90 = Max forward recline. 90 max backward recline"
-    id: 612
+    id: 675
     min: -90
     max: 90
     unit: degree
@@ -3799,14 +4621,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos4.HasPassenger"
     type: "Boolean"
     description: "Does the seat have a passenger in it."
-    id: 608
+    id: 671
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos4.Heating"
     type: "Int8"
     description: "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat"
-    id: 610
+    id: 673
     min: -10
     max: 10
 }
@@ -3815,7 +4637,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos4.Lumbar.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 616
+    id: 679
     min: 0
     max: 255
 }
@@ -3824,170 +4646,177 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos4.Lumbar.Height"
     type: "UInt8"
     description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    id: 617
+    id: 680
     min: 0
     max: 255
+}
+,
+{
+    name: "Signal.Cabin.Seat.Row3.Pos4.Airbag.IsDeployed"
+    type: "Boolean"
+    description: "Airbag deployement status. True = Airbag deployed. False = Airbag not deployed."
+    id: 683
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos4.Switch.HeadRestraint.Down"
     type: "Boolean"
     description: "Head restraint down switch engaged"
-    id: 627
+    id: 691
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos4.Switch.HeadRestraint.Up"
     type: "Boolean"
     description: "Head restraint up switch engaged"
-    id: 626
+    id: 690
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos4.Switch.Cooler"
     type: "Boolean"
     description: "Cooler switch for Seat heater"
-    id: 621
+    id: 685
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos4.Switch.Recline.Forward"
     type: "Boolean"
     description: "Seatback recline forward switch engaged"
-    id: 631
+    id: 695
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos4.Switch.Recline.Backward"
     type: "Boolean"
     description: "Seatback recline backward switch engaged"
-    id: 630
+    id: 694
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos4.Switch.Up"
     type: "Boolean"
     description: "Seat up switch engaged"
-    id: 624
+    id: 688
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos4.Switch.Lumbar.Down"
     type: "Boolean"
     description: "Lumbar down switch engaged"
-    id: 637
+    id: 701
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos4.Switch.Lumbar.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 638
+    id: 702
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos4.Switch.Lumbar.Up"
     type: "Boolean"
     description: "Lumbar up switch engaged"
-    id: 636
+    id: 700
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos4.Switch.Lumbar.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 639
+    id: 703
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos4.Switch.Down"
     type: "Boolean"
     description: "Seat down switch engaged"
-    id: 625
+    id: 689
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos4.Switch.Warmer"
     type: "Boolean"
     description: "Warmer switch for Seat heater"
-    id: 620
+    id: 684
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos4.Switch.Cushion.Down"
     type: "Boolean"
     description: "Seat cushion down switch engaged"
-    id: 633
+    id: 697
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos4.Switch.Cushion.Forward"
     type: "Boolean"
     description: "Seat cushion forward/lengthen switch engaged"
-    id: 634
+    id: 698
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos4.Switch.Cushion.Backward"
     type: "Boolean"
     description: "Seat cushion backward/shorten switch engaged"
-    id: 635
+    id: 699
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos4.Switch.Cushion.Up"
     type: "Boolean"
     description: "Seat cushion up switch engaged"
-    id: 632
+    id: 696
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos4.Switch.Forward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 622
+    id: 686
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos4.Switch.Backward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 623
+    id: 687
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos4.Switch.Massage.Increase"
     type: "Boolean"
     description: "Increase massage level switch engaged"
-    id: 628
+    id: 692
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos4.Switch.Massage.Decrease"
     type: "Boolean"
     description: "Decrease massage level switch engaged"
-    id: 629
+    id: 693
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos4.Switch.SideBolster.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 640
+    id: 704
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos4.Switch.SideBolster.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 641
+    id: 705
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos4.Cushion.Length"
     type: "UInt16"
     description: "Forward length of cushion (leg support). 0 = Rearmost. 500 = Forwardmost."
-    id: 615
+    id: 678
     min: 0
     max: 500
     unit: mm
@@ -3997,7 +4826,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos4.Cushion.Height"
     type: "UInt16"
     description: "Height of the seat front. 0 = Lowermost. 500 = Uppermost."
-    id: 614
+    id: 677
     min: 0
     max: 500
     unit: mm
@@ -4007,14 +4836,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos4.IsBelted"
     type: "Boolean"
     description: "Is the belt engaged."
-    id: 609
+    id: 672
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos4.Position"
     type: "UInt16"
     description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost"
-    id: 613
+    id: 676
     min: 0
     max: 1000
     unit: mm
@@ -4024,7 +4853,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos4.SideBolster.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 618
+    id: 681
     min: 0
     max: 255
 }
@@ -4033,7 +4862,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos4.Massage"
     type: "UInt8"
     description: "Seat massage level. 0 = off. 10 = max massage."
-    id: 611
+    id: 674
     min: 0
     max: 10
 }
@@ -4041,7 +4870,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos5.HeadRestraint.Height"
     type: "UInt8"
     description: "Height of heead restraing. 0 = Bottommost. 255 = Topmost."
-    id: 653
+    id: 717
     min: 0
     max: 255
     unit: mm
@@ -4050,7 +4879,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos5.Recline"
     type: "Int8"
     description: "Recline level. -90 = Max forward recline. 90 max backward recline"
-    id: 646
+    id: 710
     min: -90
     max: 90
     unit: degree
@@ -4060,14 +4889,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos5.HasPassenger"
     type: "Boolean"
     description: "Does the seat have a passenger in it."
-    id: 642
+    id: 706
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos5.Heating"
     type: "Int8"
     description: "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat"
-    id: 644
+    id: 708
     min: -10
     max: 10
 }
@@ -4076,7 +4905,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos5.Lumbar.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 650
+    id: 714
     min: 0
     max: 255
 }
@@ -4085,170 +4914,177 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos5.Lumbar.Height"
     type: "UInt8"
     description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    id: 651
+    id: 715
     min: 0
     max: 255
+}
+,
+{
+    name: "Signal.Cabin.Seat.Row3.Pos5.Airbag.IsDeployed"
+    type: "Boolean"
+    description: "Airbag deployement status. True = Airbag deployed. False = Airbag not deployed."
+    id: 718
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos5.Switch.HeadRestraint.Down"
     type: "Boolean"
     description: "Head restraint down switch engaged"
-    id: 661
+    id: 726
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos5.Switch.HeadRestraint.Up"
     type: "Boolean"
     description: "Head restraint up switch engaged"
-    id: 660
+    id: 725
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos5.Switch.Cooler"
     type: "Boolean"
     description: "Cooler switch for Seat heater"
-    id: 655
+    id: 720
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos5.Switch.Recline.Forward"
     type: "Boolean"
     description: "Seatback recline forward switch engaged"
-    id: 665
+    id: 730
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos5.Switch.Recline.Backward"
     type: "Boolean"
     description: "Seatback recline backward switch engaged"
-    id: 664
+    id: 729
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos5.Switch.Up"
     type: "Boolean"
     description: "Seat up switch engaged"
-    id: 658
+    id: 723
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos5.Switch.Lumbar.Down"
     type: "Boolean"
     description: "Lumbar down switch engaged"
-    id: 671
+    id: 736
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos5.Switch.Lumbar.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 672
+    id: 737
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos5.Switch.Lumbar.Up"
     type: "Boolean"
     description: "Lumbar up switch engaged"
-    id: 670
+    id: 735
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos5.Switch.Lumbar.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 673
+    id: 738
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos5.Switch.Down"
     type: "Boolean"
     description: "Seat down switch engaged"
-    id: 659
+    id: 724
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos5.Switch.Warmer"
     type: "Boolean"
     description: "Warmer switch for Seat heater"
-    id: 654
+    id: 719
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos5.Switch.Cushion.Down"
     type: "Boolean"
     description: "Seat cushion down switch engaged"
-    id: 667
+    id: 732
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos5.Switch.Cushion.Forward"
     type: "Boolean"
     description: "Seat cushion forward/lengthen switch engaged"
-    id: 668
+    id: 733
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos5.Switch.Cushion.Backward"
     type: "Boolean"
     description: "Seat cushion backward/shorten switch engaged"
-    id: 669
+    id: 734
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos5.Switch.Cushion.Up"
     type: "Boolean"
     description: "Seat cushion up switch engaged"
-    id: 666
+    id: 731
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos5.Switch.Forward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 656
+    id: 721
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos5.Switch.Backward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 657
+    id: 722
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos5.Switch.Massage.Increase"
     type: "Boolean"
     description: "Increase massage level switch engaged"
-    id: 662
+    id: 727
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos5.Switch.Massage.Decrease"
     type: "Boolean"
     description: "Decrease massage level switch engaged"
-    id: 663
+    id: 728
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos5.Switch.SideBolster.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 674
+    id: 739
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos5.Switch.SideBolster.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 675
+    id: 740
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos5.Cushion.Length"
     type: "UInt16"
     description: "Forward length of cushion (leg support). 0 = Rearmost. 500 = Forwardmost."
-    id: 649
+    id: 713
     min: 0
     max: 500
     unit: mm
@@ -4258,7 +5094,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos5.Cushion.Height"
     type: "UInt16"
     description: "Height of the seat front. 0 = Lowermost. 500 = Uppermost."
-    id: 648
+    id: 712
     min: 0
     max: 500
     unit: mm
@@ -4268,14 +5104,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos5.IsBelted"
     type: "Boolean"
     description: "Is the belt engaged."
-    id: 643
+    id: 707
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos5.Position"
     type: "UInt16"
     description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost"
-    id: 647
+    id: 711
     min: 0
     max: 1000
     unit: mm
@@ -4285,7 +5121,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos5.SideBolster.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 652
+    id: 716
     min: 0
     max: 255
 }
@@ -4294,7 +5130,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos5.Massage"
     type: "UInt8"
     description: "Seat massage level. 0 = off. 10 = max massage."
-    id: 645
+    id: 709
     min: 0
     max: 10
 }
@@ -4302,7 +5138,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos2.HeadRestraint.Height"
     type: "UInt8"
     description: "Height of heead restraing. 0 = Bottommost. 255 = Topmost."
-    id: 551
+    id: 612
     min: 0
     max: 255
     unit: mm
@@ -4311,7 +5147,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos2.Recline"
     type: "Int8"
     description: "Recline level. -90 = Max forward recline. 90 max backward recline"
-    id: 544
+    id: 605
     min: -90
     max: 90
     unit: degree
@@ -4321,14 +5157,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos2.HasPassenger"
     type: "Boolean"
     description: "Does the seat have a passenger in it."
-    id: 540
+    id: 601
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos2.Heating"
     type: "Int8"
     description: "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat"
-    id: 542
+    id: 603
     min: -10
     max: 10
 }
@@ -4337,7 +5173,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos2.Lumbar.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 548
+    id: 609
     min: 0
     max: 255
 }
@@ -4346,170 +5182,177 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos2.Lumbar.Height"
     type: "UInt8"
     description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    id: 549
+    id: 610
     min: 0
     max: 255
+}
+,
+{
+    name: "Signal.Cabin.Seat.Row3.Pos2.Airbag.IsDeployed"
+    type: "Boolean"
+    description: "Airbag deployement status. True = Airbag deployed. False = Airbag not deployed."
+    id: 613
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos2.Switch.HeadRestraint.Down"
     type: "Boolean"
     description: "Head restraint down switch engaged"
-    id: 559
+    id: 621
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos2.Switch.HeadRestraint.Up"
     type: "Boolean"
     description: "Head restraint up switch engaged"
-    id: 558
+    id: 620
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos2.Switch.Cooler"
     type: "Boolean"
     description: "Cooler switch for Seat heater"
-    id: 553
+    id: 615
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos2.Switch.Recline.Forward"
     type: "Boolean"
     description: "Seatback recline forward switch engaged"
-    id: 563
+    id: 625
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos2.Switch.Recline.Backward"
     type: "Boolean"
     description: "Seatback recline backward switch engaged"
-    id: 562
+    id: 624
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos2.Switch.Up"
     type: "Boolean"
     description: "Seat up switch engaged"
-    id: 556
+    id: 618
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos2.Switch.Lumbar.Down"
     type: "Boolean"
     description: "Lumbar down switch engaged"
-    id: 569
+    id: 631
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos2.Switch.Lumbar.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 570
+    id: 632
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos2.Switch.Lumbar.Up"
     type: "Boolean"
     description: "Lumbar up switch engaged"
-    id: 568
+    id: 630
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos2.Switch.Lumbar.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 571
+    id: 633
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos2.Switch.Down"
     type: "Boolean"
     description: "Seat down switch engaged"
-    id: 557
+    id: 619
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos2.Switch.Warmer"
     type: "Boolean"
     description: "Warmer switch for Seat heater"
-    id: 552
+    id: 614
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos2.Switch.Cushion.Down"
     type: "Boolean"
     description: "Seat cushion down switch engaged"
-    id: 565
+    id: 627
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos2.Switch.Cushion.Forward"
     type: "Boolean"
     description: "Seat cushion forward/lengthen switch engaged"
-    id: 566
+    id: 628
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos2.Switch.Cushion.Backward"
     type: "Boolean"
     description: "Seat cushion backward/shorten switch engaged"
-    id: 567
+    id: 629
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos2.Switch.Cushion.Up"
     type: "Boolean"
     description: "Seat cushion up switch engaged"
-    id: 564
+    id: 626
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos2.Switch.Forward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 554
+    id: 616
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos2.Switch.Backward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 555
+    id: 617
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos2.Switch.Massage.Increase"
     type: "Boolean"
     description: "Increase massage level switch engaged"
-    id: 560
+    id: 622
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos2.Switch.Massage.Decrease"
     type: "Boolean"
     description: "Decrease massage level switch engaged"
-    id: 561
+    id: 623
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos2.Switch.SideBolster.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 572
+    id: 634
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos2.Switch.SideBolster.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 573
+    id: 635
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos2.Cushion.Length"
     type: "UInt16"
     description: "Forward length of cushion (leg support). 0 = Rearmost. 500 = Forwardmost."
-    id: 547
+    id: 608
     min: 0
     max: 500
     unit: mm
@@ -4519,7 +5362,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos2.Cushion.Height"
     type: "UInt16"
     description: "Height of the seat front. 0 = Lowermost. 500 = Uppermost."
-    id: 546
+    id: 607
     min: 0
     max: 500
     unit: mm
@@ -4529,14 +5372,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos2.IsBelted"
     type: "Boolean"
     description: "Is the belt engaged."
-    id: 541
+    id: 602
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos2.Position"
     type: "UInt16"
     description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost"
-    id: 545
+    id: 606
     min: 0
     max: 1000
     unit: mm
@@ -4546,7 +5389,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos2.SideBolster.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 550
+    id: 611
     min: 0
     max: 255
 }
@@ -4555,7 +5398,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos2.Massage"
     type: "UInt8"
     description: "Seat massage level. 0 = off. 10 = max massage."
-    id: 543
+    id: 604
     min: 0
     max: 10
 }
@@ -4563,7 +5406,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos3.HeadRestraint.Height"
     type: "UInt8"
     description: "Height of heead restraing. 0 = Bottommost. 255 = Topmost."
-    id: 585
+    id: 647
     min: 0
     max: 255
     unit: mm
@@ -4572,7 +5415,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos3.Recline"
     type: "Int8"
     description: "Recline level. -90 = Max forward recline. 90 max backward recline"
-    id: 578
+    id: 640
     min: -90
     max: 90
     unit: degree
@@ -4582,14 +5425,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos3.HasPassenger"
     type: "Boolean"
     description: "Does the seat have a passenger in it."
-    id: 574
+    id: 636
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos3.Heating"
     type: "Int8"
     description: "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat"
-    id: 576
+    id: 638
     min: -10
     max: 10
 }
@@ -4598,7 +5441,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos3.Lumbar.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 582
+    id: 644
     min: 0
     max: 255
 }
@@ -4607,170 +5450,177 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos3.Lumbar.Height"
     type: "UInt8"
     description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    id: 583
+    id: 645
     min: 0
     max: 255
+}
+,
+{
+    name: "Signal.Cabin.Seat.Row3.Pos3.Airbag.IsDeployed"
+    type: "Boolean"
+    description: "Airbag deployement status. True = Airbag deployed. False = Airbag not deployed."
+    id: 648
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos3.Switch.HeadRestraint.Down"
     type: "Boolean"
     description: "Head restraint down switch engaged"
-    id: 593
+    id: 656
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos3.Switch.HeadRestraint.Up"
     type: "Boolean"
     description: "Head restraint up switch engaged"
-    id: 592
+    id: 655
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos3.Switch.Cooler"
     type: "Boolean"
     description: "Cooler switch for Seat heater"
-    id: 587
+    id: 650
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos3.Switch.Recline.Forward"
     type: "Boolean"
     description: "Seatback recline forward switch engaged"
-    id: 597
+    id: 660
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos3.Switch.Recline.Backward"
     type: "Boolean"
     description: "Seatback recline backward switch engaged"
-    id: 596
+    id: 659
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos3.Switch.Up"
     type: "Boolean"
     description: "Seat up switch engaged"
-    id: 590
+    id: 653
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos3.Switch.Lumbar.Down"
     type: "Boolean"
     description: "Lumbar down switch engaged"
-    id: 603
+    id: 666
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos3.Switch.Lumbar.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 604
+    id: 667
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos3.Switch.Lumbar.Up"
     type: "Boolean"
     description: "Lumbar up switch engaged"
-    id: 602
+    id: 665
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos3.Switch.Lumbar.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 605
+    id: 668
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos3.Switch.Down"
     type: "Boolean"
     description: "Seat down switch engaged"
-    id: 591
+    id: 654
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos3.Switch.Warmer"
     type: "Boolean"
     description: "Warmer switch for Seat heater"
-    id: 586
+    id: 649
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos3.Switch.Cushion.Down"
     type: "Boolean"
     description: "Seat cushion down switch engaged"
-    id: 599
+    id: 662
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos3.Switch.Cushion.Forward"
     type: "Boolean"
     description: "Seat cushion forward/lengthen switch engaged"
-    id: 600
+    id: 663
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos3.Switch.Cushion.Backward"
     type: "Boolean"
     description: "Seat cushion backward/shorten switch engaged"
-    id: 601
+    id: 664
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos3.Switch.Cushion.Up"
     type: "Boolean"
     description: "Seat cushion up switch engaged"
-    id: 598
+    id: 661
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos3.Switch.Forward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 588
+    id: 651
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos3.Switch.Backward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 589
+    id: 652
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos3.Switch.Massage.Increase"
     type: "Boolean"
     description: "Increase massage level switch engaged"
-    id: 594
+    id: 657
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos3.Switch.Massage.Decrease"
     type: "Boolean"
     description: "Decrease massage level switch engaged"
-    id: 595
+    id: 658
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos3.Switch.SideBolster.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 606
+    id: 669
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos3.Switch.SideBolster.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 607
+    id: 670
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos3.Cushion.Length"
     type: "UInt16"
     description: "Forward length of cushion (leg support). 0 = Rearmost. 500 = Forwardmost."
-    id: 581
+    id: 643
     min: 0
     max: 500
     unit: mm
@@ -4780,7 +5630,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos3.Cushion.Height"
     type: "UInt16"
     description: "Height of the seat front. 0 = Lowermost. 500 = Uppermost."
-    id: 580
+    id: 642
     min: 0
     max: 500
     unit: mm
@@ -4790,14 +5640,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos3.IsBelted"
     type: "Boolean"
     description: "Is the belt engaged."
-    id: 575
+    id: 637
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos3.Position"
     type: "UInt16"
     description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost"
-    id: 579
+    id: 641
     min: 0
     max: 1000
     unit: mm
@@ -4807,7 +5657,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos3.SideBolster.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 584
+    id: 646
     min: 0
     max: 255
 }
@@ -4816,7 +5666,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos3.Massage"
     type: "UInt8"
     description: "Seat massage level. 0 = off. 10 = max massage."
-    id: 577
+    id: 639
     min: 0
     max: 10
 }
@@ -4824,7 +5674,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos1.HeadRestraint.Height"
     type: "UInt8"
     description: "Height of heead restraing. 0 = Bottommost. 255 = Topmost."
-    id: 517
+    id: 577
     min: 0
     max: 255
     unit: mm
@@ -4833,7 +5683,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos1.Recline"
     type: "Int8"
     description: "Recline level. -90 = Max forward recline. 90 max backward recline"
-    id: 510
+    id: 570
     min: -90
     max: 90
     unit: degree
@@ -4843,14 +5693,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos1.HasPassenger"
     type: "Boolean"
     description: "Does the seat have a passenger in it."
-    id: 506
+    id: 566
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos1.Heating"
     type: "Int8"
     description: "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat"
-    id: 508
+    id: 568
     min: -10
     max: 10
 }
@@ -4859,7 +5709,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos1.Lumbar.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 514
+    id: 574
     min: 0
     max: 255
 }
@@ -4868,170 +5718,177 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos1.Lumbar.Height"
     type: "UInt8"
     description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    id: 515
+    id: 575
     min: 0
     max: 255
+}
+,
+{
+    name: "Signal.Cabin.Seat.Row3.Pos1.Airbag.IsDeployed"
+    type: "Boolean"
+    description: "Airbag deployement status. True = Airbag deployed. False = Airbag not deployed."
+    id: 578
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos1.Switch.HeadRestraint.Down"
     type: "Boolean"
     description: "Head restraint down switch engaged"
-    id: 525
+    id: 586
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos1.Switch.HeadRestraint.Up"
     type: "Boolean"
     description: "Head restraint up switch engaged"
-    id: 524
+    id: 585
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos1.Switch.Cooler"
     type: "Boolean"
     description: "Cooler switch for Seat heater"
-    id: 519
+    id: 580
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos1.Switch.Recline.Forward"
     type: "Boolean"
     description: "Seatback recline forward switch engaged"
-    id: 529
+    id: 590
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos1.Switch.Recline.Backward"
     type: "Boolean"
     description: "Seatback recline backward switch engaged"
-    id: 528
+    id: 589
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos1.Switch.Up"
     type: "Boolean"
     description: "Seat up switch engaged"
-    id: 522
+    id: 583
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos1.Switch.Lumbar.Down"
     type: "Boolean"
     description: "Lumbar down switch engaged"
-    id: 535
+    id: 596
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos1.Switch.Lumbar.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 536
+    id: 597
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos1.Switch.Lumbar.Up"
     type: "Boolean"
     description: "Lumbar up switch engaged"
-    id: 534
+    id: 595
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos1.Switch.Lumbar.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 537
+    id: 598
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos1.Switch.Down"
     type: "Boolean"
     description: "Seat down switch engaged"
-    id: 523
+    id: 584
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos1.Switch.Warmer"
     type: "Boolean"
     description: "Warmer switch for Seat heater"
-    id: 518
+    id: 579
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos1.Switch.Cushion.Down"
     type: "Boolean"
     description: "Seat cushion down switch engaged"
-    id: 531
+    id: 592
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos1.Switch.Cushion.Forward"
     type: "Boolean"
     description: "Seat cushion forward/lengthen switch engaged"
-    id: 532
+    id: 593
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos1.Switch.Cushion.Backward"
     type: "Boolean"
     description: "Seat cushion backward/shorten switch engaged"
-    id: 533
+    id: 594
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos1.Switch.Cushion.Up"
     type: "Boolean"
     description: "Seat cushion up switch engaged"
-    id: 530
+    id: 591
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos1.Switch.Forward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 520
+    id: 581
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos1.Switch.Backward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 521
+    id: 582
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos1.Switch.Massage.Increase"
     type: "Boolean"
     description: "Increase massage level switch engaged"
-    id: 526
+    id: 587
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos1.Switch.Massage.Decrease"
     type: "Boolean"
     description: "Decrease massage level switch engaged"
-    id: 527
+    id: 588
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos1.Switch.SideBolster.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 538
+    id: 599
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos1.Switch.SideBolster.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 539
+    id: 600
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos1.Cushion.Length"
     type: "UInt16"
     description: "Forward length of cushion (leg support). 0 = Rearmost. 500 = Forwardmost."
-    id: 513
+    id: 573
     min: 0
     max: 500
     unit: mm
@@ -5041,7 +5898,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos1.Cushion.Height"
     type: "UInt16"
     description: "Height of the seat front. 0 = Lowermost. 500 = Uppermost."
-    id: 512
+    id: 572
     min: 0
     max: 500
     unit: mm
@@ -5051,14 +5908,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos1.IsBelted"
     type: "Boolean"
     description: "Is the belt engaged."
-    id: 507
+    id: 567
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row3.Pos1.Position"
     type: "UInt16"
     description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost"
-    id: 511
+    id: 571
     min: 0
     max: 1000
     unit: mm
@@ -5068,7 +5925,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos1.SideBolster.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 516
+    id: 576
     min: 0
     max: 255
 }
@@ -5077,7 +5934,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row3.Pos1.Massage"
     type: "UInt8"
     description: "Seat massage level. 0 = off. 10 = max massage."
-    id: 509
+    id: 569
     min: 0
     max: 10
 }
@@ -5085,7 +5942,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos4.HeadRestraint.Height"
     type: "UInt8"
     description: "Height of heead restraing. 0 = Bottommost. 255 = Topmost."
-    id: 789
+    id: 857
     min: 0
     max: 255
     unit: mm
@@ -5094,7 +5951,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos4.Recline"
     type: "Int8"
     description: "Recline level. -90 = Max forward recline. 90 max backward recline"
-    id: 782
+    id: 850
     min: -90
     max: 90
     unit: degree
@@ -5104,14 +5961,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos4.HasPassenger"
     type: "Boolean"
     description: "Does the seat have a passenger in it."
-    id: 778
+    id: 846
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos4.Heating"
     type: "Int8"
     description: "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat"
-    id: 780
+    id: 848
     min: -10
     max: 10
 }
@@ -5120,7 +5977,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos4.Lumbar.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 786
+    id: 854
     min: 0
     max: 255
 }
@@ -5129,170 +5986,177 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos4.Lumbar.Height"
     type: "UInt8"
     description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    id: 787
+    id: 855
     min: 0
     max: 255
+}
+,
+{
+    name: "Signal.Cabin.Seat.Row4.Pos4.Airbag.IsDeployed"
+    type: "Boolean"
+    description: "Airbag deployement status. True = Airbag deployed. False = Airbag not deployed."
+    id: 858
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos4.Switch.HeadRestraint.Down"
     type: "Boolean"
     description: "Head restraint down switch engaged"
-    id: 797
+    id: 866
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos4.Switch.HeadRestraint.Up"
     type: "Boolean"
     description: "Head restraint up switch engaged"
-    id: 796
+    id: 865
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos4.Switch.Cooler"
     type: "Boolean"
     description: "Cooler switch for Seat heater"
-    id: 791
+    id: 860
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos4.Switch.Recline.Forward"
     type: "Boolean"
     description: "Seatback recline forward switch engaged"
-    id: 801
+    id: 870
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos4.Switch.Recline.Backward"
     type: "Boolean"
     description: "Seatback recline backward switch engaged"
-    id: 800
+    id: 869
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos4.Switch.Up"
     type: "Boolean"
     description: "Seat up switch engaged"
-    id: 794
+    id: 863
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos4.Switch.Lumbar.Down"
     type: "Boolean"
     description: "Lumbar down switch engaged"
-    id: 807
+    id: 876
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos4.Switch.Lumbar.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 808
+    id: 877
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos4.Switch.Lumbar.Up"
     type: "Boolean"
     description: "Lumbar up switch engaged"
-    id: 806
+    id: 875
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos4.Switch.Lumbar.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 809
+    id: 878
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos4.Switch.Down"
     type: "Boolean"
     description: "Seat down switch engaged"
-    id: 795
+    id: 864
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos4.Switch.Warmer"
     type: "Boolean"
     description: "Warmer switch for Seat heater"
-    id: 790
+    id: 859
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos4.Switch.Cushion.Down"
     type: "Boolean"
     description: "Seat cushion down switch engaged"
-    id: 803
+    id: 872
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos4.Switch.Cushion.Forward"
     type: "Boolean"
     description: "Seat cushion forward/lengthen switch engaged"
-    id: 804
+    id: 873
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos4.Switch.Cushion.Backward"
     type: "Boolean"
     description: "Seat cushion backward/shorten switch engaged"
-    id: 805
+    id: 874
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos4.Switch.Cushion.Up"
     type: "Boolean"
     description: "Seat cushion up switch engaged"
-    id: 802
+    id: 871
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos4.Switch.Forward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 792
+    id: 861
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos4.Switch.Backward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 793
+    id: 862
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos4.Switch.Massage.Increase"
     type: "Boolean"
     description: "Increase massage level switch engaged"
-    id: 798
+    id: 867
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos4.Switch.Massage.Decrease"
     type: "Boolean"
     description: "Decrease massage level switch engaged"
-    id: 799
+    id: 868
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos4.Switch.SideBolster.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 810
+    id: 879
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos4.Switch.SideBolster.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 811
+    id: 880
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos4.Cushion.Length"
     type: "UInt16"
     description: "Forward length of cushion (leg support). 0 = Rearmost. 500 = Forwardmost."
-    id: 785
+    id: 853
     min: 0
     max: 500
     unit: mm
@@ -5302,7 +6166,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos4.Cushion.Height"
     type: "UInt16"
     description: "Height of the seat front. 0 = Lowermost. 500 = Uppermost."
-    id: 784
+    id: 852
     min: 0
     max: 500
     unit: mm
@@ -5312,14 +6176,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos4.IsBelted"
     type: "Boolean"
     description: "Is the belt engaged."
-    id: 779
+    id: 847
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos4.Position"
     type: "UInt16"
     description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost"
-    id: 783
+    id: 851
     min: 0
     max: 1000
     unit: mm
@@ -5329,7 +6193,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos4.SideBolster.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 788
+    id: 856
     min: 0
     max: 255
 }
@@ -5338,7 +6202,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos4.Massage"
     type: "UInt8"
     description: "Seat massage level. 0 = off. 10 = max massage."
-    id: 781
+    id: 849
     min: 0
     max: 10
 }
@@ -5346,7 +6210,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos5.HeadRestraint.Height"
     type: "UInt8"
     description: "Height of heead restraing. 0 = Bottommost. 255 = Topmost."
-    id: 823
+    id: 892
     min: 0
     max: 255
     unit: mm
@@ -5355,7 +6219,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos5.Recline"
     type: "Int8"
     description: "Recline level. -90 = Max forward recline. 90 max backward recline"
-    id: 816
+    id: 885
     min: -90
     max: 90
     unit: degree
@@ -5365,14 +6229,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos5.HasPassenger"
     type: "Boolean"
     description: "Does the seat have a passenger in it."
-    id: 812
+    id: 881
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos5.Heating"
     type: "Int8"
     description: "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat"
-    id: 814
+    id: 883
     min: -10
     max: 10
 }
@@ -5381,7 +6245,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos5.Lumbar.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 820
+    id: 889
     min: 0
     max: 255
 }
@@ -5390,170 +6254,177 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos5.Lumbar.Height"
     type: "UInt8"
     description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    id: 821
+    id: 890
     min: 0
     max: 255
+}
+,
+{
+    name: "Signal.Cabin.Seat.Row4.Pos5.Airbag.IsDeployed"
+    type: "Boolean"
+    description: "Airbag deployement status. True = Airbag deployed. False = Airbag not deployed."
+    id: 893
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos5.Switch.HeadRestraint.Down"
     type: "Boolean"
     description: "Head restraint down switch engaged"
-    id: 831
+    id: 901
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos5.Switch.HeadRestraint.Up"
     type: "Boolean"
     description: "Head restraint up switch engaged"
-    id: 830
+    id: 900
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos5.Switch.Cooler"
     type: "Boolean"
     description: "Cooler switch for Seat heater"
-    id: 825
+    id: 895
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos5.Switch.Recline.Forward"
     type: "Boolean"
     description: "Seatback recline forward switch engaged"
-    id: 835
+    id: 905
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos5.Switch.Recline.Backward"
     type: "Boolean"
     description: "Seatback recline backward switch engaged"
-    id: 834
+    id: 904
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos5.Switch.Up"
     type: "Boolean"
     description: "Seat up switch engaged"
-    id: 828
+    id: 898
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos5.Switch.Lumbar.Down"
     type: "Boolean"
     description: "Lumbar down switch engaged"
-    id: 841
+    id: 911
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos5.Switch.Lumbar.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 842
+    id: 912
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos5.Switch.Lumbar.Up"
     type: "Boolean"
     description: "Lumbar up switch engaged"
-    id: 840
+    id: 910
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos5.Switch.Lumbar.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 843
+    id: 913
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos5.Switch.Down"
     type: "Boolean"
     description: "Seat down switch engaged"
-    id: 829
+    id: 899
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos5.Switch.Warmer"
     type: "Boolean"
     description: "Warmer switch for Seat heater"
-    id: 824
+    id: 894
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos5.Switch.Cushion.Down"
     type: "Boolean"
     description: "Seat cushion down switch engaged"
-    id: 837
+    id: 907
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos5.Switch.Cushion.Forward"
     type: "Boolean"
     description: "Seat cushion forward/lengthen switch engaged"
-    id: 838
+    id: 908
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos5.Switch.Cushion.Backward"
     type: "Boolean"
     description: "Seat cushion backward/shorten switch engaged"
-    id: 839
+    id: 909
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos5.Switch.Cushion.Up"
     type: "Boolean"
     description: "Seat cushion up switch engaged"
-    id: 836
+    id: 906
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos5.Switch.Forward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 826
+    id: 896
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos5.Switch.Backward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 827
+    id: 897
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos5.Switch.Massage.Increase"
     type: "Boolean"
     description: "Increase massage level switch engaged"
-    id: 832
+    id: 902
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos5.Switch.Massage.Decrease"
     type: "Boolean"
     description: "Decrease massage level switch engaged"
-    id: 833
+    id: 903
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos5.Switch.SideBolster.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 844
+    id: 914
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos5.Switch.SideBolster.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 845
+    id: 915
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos5.Cushion.Length"
     type: "UInt16"
     description: "Forward length of cushion (leg support). 0 = Rearmost. 500 = Forwardmost."
-    id: 819
+    id: 888
     min: 0
     max: 500
     unit: mm
@@ -5563,7 +6434,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos5.Cushion.Height"
     type: "UInt16"
     description: "Height of the seat front. 0 = Lowermost. 500 = Uppermost."
-    id: 818
+    id: 887
     min: 0
     max: 500
     unit: mm
@@ -5573,14 +6444,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos5.IsBelted"
     type: "Boolean"
     description: "Is the belt engaged."
-    id: 813
+    id: 882
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos5.Position"
     type: "UInt16"
     description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost"
-    id: 817
+    id: 886
     min: 0
     max: 1000
     unit: mm
@@ -5590,7 +6461,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos5.SideBolster.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 822
+    id: 891
     min: 0
     max: 255
 }
@@ -5599,7 +6470,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos5.Massage"
     type: "UInt8"
     description: "Seat massage level. 0 = off. 10 = max massage."
-    id: 815
+    id: 884
     min: 0
     max: 10
 }
@@ -5607,7 +6478,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos2.HeadRestraint.Height"
     type: "UInt8"
     description: "Height of heead restraing. 0 = Bottommost. 255 = Topmost."
-    id: 721
+    id: 787
     min: 0
     max: 255
     unit: mm
@@ -5616,7 +6487,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos2.Recline"
     type: "Int8"
     description: "Recline level. -90 = Max forward recline. 90 max backward recline"
-    id: 714
+    id: 780
     min: -90
     max: 90
     unit: degree
@@ -5626,14 +6497,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos2.HasPassenger"
     type: "Boolean"
     description: "Does the seat have a passenger in it."
-    id: 710
+    id: 776
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos2.Heating"
     type: "Int8"
     description: "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat"
-    id: 712
+    id: 778
     min: -10
     max: 10
 }
@@ -5642,7 +6513,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos2.Lumbar.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 718
+    id: 784
     min: 0
     max: 255
 }
@@ -5651,170 +6522,177 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos2.Lumbar.Height"
     type: "UInt8"
     description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    id: 719
+    id: 785
     min: 0
     max: 255
+}
+,
+{
+    name: "Signal.Cabin.Seat.Row4.Pos2.Airbag.IsDeployed"
+    type: "Boolean"
+    description: "Airbag deployement status. True = Airbag deployed. False = Airbag not deployed."
+    id: 788
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos2.Switch.HeadRestraint.Down"
     type: "Boolean"
     description: "Head restraint down switch engaged"
-    id: 729
+    id: 796
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos2.Switch.HeadRestraint.Up"
     type: "Boolean"
     description: "Head restraint up switch engaged"
-    id: 728
+    id: 795
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos2.Switch.Cooler"
     type: "Boolean"
     description: "Cooler switch for Seat heater"
-    id: 723
+    id: 790
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos2.Switch.Recline.Forward"
     type: "Boolean"
     description: "Seatback recline forward switch engaged"
-    id: 733
+    id: 800
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos2.Switch.Recline.Backward"
     type: "Boolean"
     description: "Seatback recline backward switch engaged"
-    id: 732
+    id: 799
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos2.Switch.Up"
     type: "Boolean"
     description: "Seat up switch engaged"
-    id: 726
+    id: 793
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos2.Switch.Lumbar.Down"
     type: "Boolean"
     description: "Lumbar down switch engaged"
-    id: 739
+    id: 806
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos2.Switch.Lumbar.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 740
+    id: 807
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos2.Switch.Lumbar.Up"
     type: "Boolean"
     description: "Lumbar up switch engaged"
-    id: 738
+    id: 805
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos2.Switch.Lumbar.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 741
+    id: 808
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos2.Switch.Down"
     type: "Boolean"
     description: "Seat down switch engaged"
-    id: 727
+    id: 794
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos2.Switch.Warmer"
     type: "Boolean"
     description: "Warmer switch for Seat heater"
-    id: 722
+    id: 789
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos2.Switch.Cushion.Down"
     type: "Boolean"
     description: "Seat cushion down switch engaged"
-    id: 735
+    id: 802
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos2.Switch.Cushion.Forward"
     type: "Boolean"
     description: "Seat cushion forward/lengthen switch engaged"
-    id: 736
+    id: 803
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos2.Switch.Cushion.Backward"
     type: "Boolean"
     description: "Seat cushion backward/shorten switch engaged"
-    id: 737
+    id: 804
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos2.Switch.Cushion.Up"
     type: "Boolean"
     description: "Seat cushion up switch engaged"
-    id: 734
+    id: 801
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos2.Switch.Forward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 724
+    id: 791
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos2.Switch.Backward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 725
+    id: 792
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos2.Switch.Massage.Increase"
     type: "Boolean"
     description: "Increase massage level switch engaged"
-    id: 730
+    id: 797
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos2.Switch.Massage.Decrease"
     type: "Boolean"
     description: "Decrease massage level switch engaged"
-    id: 731
+    id: 798
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos2.Switch.SideBolster.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 742
+    id: 809
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos2.Switch.SideBolster.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 743
+    id: 810
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos2.Cushion.Length"
     type: "UInt16"
     description: "Forward length of cushion (leg support). 0 = Rearmost. 500 = Forwardmost."
-    id: 717
+    id: 783
     min: 0
     max: 500
     unit: mm
@@ -5824,7 +6702,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos2.Cushion.Height"
     type: "UInt16"
     description: "Height of the seat front. 0 = Lowermost. 500 = Uppermost."
-    id: 716
+    id: 782
     min: 0
     max: 500
     unit: mm
@@ -5834,14 +6712,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos2.IsBelted"
     type: "Boolean"
     description: "Is the belt engaged."
-    id: 711
+    id: 777
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos2.Position"
     type: "UInt16"
     description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost"
-    id: 715
+    id: 781
     min: 0
     max: 1000
     unit: mm
@@ -5851,7 +6729,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos2.SideBolster.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 720
+    id: 786
     min: 0
     max: 255
 }
@@ -5860,7 +6738,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos2.Massage"
     type: "UInt8"
     description: "Seat massage level. 0 = off. 10 = max massage."
-    id: 713
+    id: 779
     min: 0
     max: 10
 }
@@ -5868,7 +6746,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos3.HeadRestraint.Height"
     type: "UInt8"
     description: "Height of heead restraing. 0 = Bottommost. 255 = Topmost."
-    id: 755
+    id: 822
     min: 0
     max: 255
     unit: mm
@@ -5877,7 +6755,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos3.Recline"
     type: "Int8"
     description: "Recline level. -90 = Max forward recline. 90 max backward recline"
-    id: 748
+    id: 815
     min: -90
     max: 90
     unit: degree
@@ -5887,14 +6765,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos3.HasPassenger"
     type: "Boolean"
     description: "Does the seat have a passenger in it."
-    id: 744
+    id: 811
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos3.Heating"
     type: "Int8"
     description: "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat"
-    id: 746
+    id: 813
     min: -10
     max: 10
 }
@@ -5903,7 +6781,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos3.Lumbar.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 752
+    id: 819
     min: 0
     max: 255
 }
@@ -5912,170 +6790,177 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos3.Lumbar.Height"
     type: "UInt8"
     description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    id: 753
+    id: 820
     min: 0
     max: 255
+}
+,
+{
+    name: "Signal.Cabin.Seat.Row4.Pos3.Airbag.IsDeployed"
+    type: "Boolean"
+    description: "Airbag deployement status. True = Airbag deployed. False = Airbag not deployed."
+    id: 823
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos3.Switch.HeadRestraint.Down"
     type: "Boolean"
     description: "Head restraint down switch engaged"
-    id: 763
+    id: 831
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos3.Switch.HeadRestraint.Up"
     type: "Boolean"
     description: "Head restraint up switch engaged"
-    id: 762
+    id: 830
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos3.Switch.Cooler"
     type: "Boolean"
     description: "Cooler switch for Seat heater"
-    id: 757
+    id: 825
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos3.Switch.Recline.Forward"
     type: "Boolean"
     description: "Seatback recline forward switch engaged"
-    id: 767
+    id: 835
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos3.Switch.Recline.Backward"
     type: "Boolean"
     description: "Seatback recline backward switch engaged"
-    id: 766
+    id: 834
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos3.Switch.Up"
     type: "Boolean"
     description: "Seat up switch engaged"
-    id: 760
+    id: 828
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos3.Switch.Lumbar.Down"
     type: "Boolean"
     description: "Lumbar down switch engaged"
-    id: 773
+    id: 841
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos3.Switch.Lumbar.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 774
+    id: 842
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos3.Switch.Lumbar.Up"
     type: "Boolean"
     description: "Lumbar up switch engaged"
-    id: 772
+    id: 840
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos3.Switch.Lumbar.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 775
+    id: 843
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos3.Switch.Down"
     type: "Boolean"
     description: "Seat down switch engaged"
-    id: 761
+    id: 829
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos3.Switch.Warmer"
     type: "Boolean"
     description: "Warmer switch for Seat heater"
-    id: 756
+    id: 824
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos3.Switch.Cushion.Down"
     type: "Boolean"
     description: "Seat cushion down switch engaged"
-    id: 769
+    id: 837
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos3.Switch.Cushion.Forward"
     type: "Boolean"
     description: "Seat cushion forward/lengthen switch engaged"
-    id: 770
+    id: 838
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos3.Switch.Cushion.Backward"
     type: "Boolean"
     description: "Seat cushion backward/shorten switch engaged"
-    id: 771
+    id: 839
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos3.Switch.Cushion.Up"
     type: "Boolean"
     description: "Seat cushion up switch engaged"
-    id: 768
+    id: 836
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos3.Switch.Forward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 758
+    id: 826
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos3.Switch.Backward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 759
+    id: 827
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos3.Switch.Massage.Increase"
     type: "Boolean"
     description: "Increase massage level switch engaged"
-    id: 764
+    id: 832
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos3.Switch.Massage.Decrease"
     type: "Boolean"
     description: "Decrease massage level switch engaged"
-    id: 765
+    id: 833
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos3.Switch.SideBolster.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 776
+    id: 844
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos3.Switch.SideBolster.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 777
+    id: 845
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos3.Cushion.Length"
     type: "UInt16"
     description: "Forward length of cushion (leg support). 0 = Rearmost. 500 = Forwardmost."
-    id: 751
+    id: 818
     min: 0
     max: 500
     unit: mm
@@ -6085,7 +6970,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos3.Cushion.Height"
     type: "UInt16"
     description: "Height of the seat front. 0 = Lowermost. 500 = Uppermost."
-    id: 750
+    id: 817
     min: 0
     max: 500
     unit: mm
@@ -6095,14 +6980,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos3.IsBelted"
     type: "Boolean"
     description: "Is the belt engaged."
-    id: 745
+    id: 812
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos3.Position"
     type: "UInt16"
     description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost"
-    id: 749
+    id: 816
     min: 0
     max: 1000
     unit: mm
@@ -6112,7 +6997,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos3.SideBolster.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 754
+    id: 821
     min: 0
     max: 255
 }
@@ -6121,7 +7006,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos3.Massage"
     type: "UInt8"
     description: "Seat massage level. 0 = off. 10 = max massage."
-    id: 747
+    id: 814
     min: 0
     max: 10
 }
@@ -6129,7 +7014,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos1.HeadRestraint.Height"
     type: "UInt8"
     description: "Height of heead restraing. 0 = Bottommost. 255 = Topmost."
-    id: 687
+    id: 752
     min: 0
     max: 255
     unit: mm
@@ -6138,7 +7023,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos1.Recline"
     type: "Int8"
     description: "Recline level. -90 = Max forward recline. 90 max backward recline"
-    id: 680
+    id: 745
     min: -90
     max: 90
     unit: degree
@@ -6148,14 +7033,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos1.HasPassenger"
     type: "Boolean"
     description: "Does the seat have a passenger in it."
-    id: 676
+    id: 741
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos1.Heating"
     type: "Int8"
     description: "Seat cooling / heating. 0 = off. -10 = max cold. +10 = max heat"
-    id: 678
+    id: 743
     min: -10
     max: 10
 }
@@ -6164,7 +7049,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos1.Lumbar.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 684
+    id: 749
     min: 0
     max: 255
 }
@@ -6173,170 +7058,177 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos1.Lumbar.Height"
     type: "UInt8"
     description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    id: 685
+    id: 750
     min: 0
     max: 255
+}
+,
+{
+    name: "Signal.Cabin.Seat.Row4.Pos1.Airbag.IsDeployed"
+    type: "Boolean"
+    description: "Airbag deployement status. True = Airbag deployed. False = Airbag not deployed."
+    id: 753
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos1.Switch.HeadRestraint.Down"
     type: "Boolean"
     description: "Head restraint down switch engaged"
-    id: 695
+    id: 761
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos1.Switch.HeadRestraint.Up"
     type: "Boolean"
     description: "Head restraint up switch engaged"
-    id: 694
+    id: 760
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos1.Switch.Cooler"
     type: "Boolean"
     description: "Cooler switch for Seat heater"
-    id: 689
+    id: 755
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos1.Switch.Recline.Forward"
     type: "Boolean"
     description: "Seatback recline forward switch engaged"
-    id: 699
+    id: 765
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos1.Switch.Recline.Backward"
     type: "Boolean"
     description: "Seatback recline backward switch engaged"
-    id: 698
+    id: 764
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos1.Switch.Up"
     type: "Boolean"
     description: "Seat up switch engaged"
-    id: 692
+    id: 758
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos1.Switch.Lumbar.Down"
     type: "Boolean"
     description: "Lumbar down switch engaged"
-    id: 705
+    id: 771
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos1.Switch.Lumbar.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 706
+    id: 772
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos1.Switch.Lumbar.Up"
     type: "Boolean"
     description: "Lumbar up switch engaged"
-    id: 704
+    id: 770
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos1.Switch.Lumbar.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 707
+    id: 773
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos1.Switch.Down"
     type: "Boolean"
     description: "Seat down switch engaged"
-    id: 693
+    id: 759
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos1.Switch.Warmer"
     type: "Boolean"
     description: "Warmer switch for Seat heater"
-    id: 688
+    id: 754
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos1.Switch.Cushion.Down"
     type: "Boolean"
     description: "Seat cushion down switch engaged"
-    id: 701
+    id: 767
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos1.Switch.Cushion.Forward"
     type: "Boolean"
     description: "Seat cushion forward/lengthen switch engaged"
-    id: 702
+    id: 768
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos1.Switch.Cushion.Backward"
     type: "Boolean"
     description: "Seat cushion backward/shorten switch engaged"
-    id: 703
+    id: 769
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos1.Switch.Cushion.Up"
     type: "Boolean"
     description: "Seat cushion up switch engaged"
-    id: 700
+    id: 766
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos1.Switch.Forward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 690
+    id: 756
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos1.Switch.Backward"
     type: "Boolean"
     description: "Seat forward switch engaged"
-    id: 691
+    id: 757
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos1.Switch.Massage.Increase"
     type: "Boolean"
     description: "Increase massage level switch engaged"
-    id: 696
+    id: 762
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos1.Switch.Massage.Decrease"
     type: "Boolean"
     description: "Decrease massage level switch engaged"
-    id: 697
+    id: 763
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos1.Switch.SideBolster.Inflate"
     type: "Boolean"
     description: "Lumbar inflation switch engaged"
-    id: 708
+    id: 774
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos1.Switch.SideBolster.Deflate"
     type: "Boolean"
     description: "Lumbar deflation switch engaged"
-    id: 709
+    id: 775
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos1.Cushion.Length"
     type: "UInt16"
     description: "Forward length of cushion (leg support). 0 = Rearmost. 500 = Forwardmost."
-    id: 683
+    id: 748
     min: 0
     max: 500
     unit: mm
@@ -6346,7 +7238,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos1.Cushion.Height"
     type: "UInt16"
     description: "Height of the seat front. 0 = Lowermost. 500 = Uppermost."
-    id: 682
+    id: 747
     min: 0
     max: 500
     unit: mm
@@ -6356,14 +7248,14 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos1.IsBelted"
     type: "Boolean"
     description: "Is the belt engaged."
-    id: 677
+    id: 742
 }
 ,
 {
     name: "Signal.Cabin.Seat.Row4.Pos1.Position"
     type: "UInt16"
     description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost"
-    id: 681
+    id: 746
     min: 0
     max: 1000
     unit: mm
@@ -6373,7 +7265,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos1.SideBolster.Inflation"
     type: "UInt8"
     description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    id: 686
+    id: 751
     min: 0
     max: 255
 }
@@ -6382,7 +7274,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Seat.Row4.Pos1.Massage"
     type: "UInt8"
     description: "Seat massage level. 0 = off. 10 = max massage."
-    id: 679
+    id: 744
     min: 0
     max: 10
 }
@@ -6390,108 +7282,108 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.Lights.Row1.IsSharedOn"
     type: "Boolean"
     description: "Is light shared across first row on"
-    id: 98
+    id: 148
 }
 ,
 {
     name: "Signal.Cabin.Lights.Row1.Right.IsPassengerOn"
     type: "Boolean"
     description: "Is passenger light on"
-    id: 100
+    id: 150
 }
 ,
 {
     name: "Signal.Cabin.Lights.Row1.Left.IsPassengerLightOn"
     type: "Boolean"
     description: "Is passenger light on"
-    id: 99
+    id: 149
 }
 {
     name: "Signal.Cabin.Lights.Row2.IsSharedOn"
     type: "Boolean"
     description: "Is light shared across second row on"
-    id: 101
+    id: 151
 }
 ,
 {
     name: "Signal.Cabin.Lights.Row2.Right.IsPassengerOn"
     type: "Boolean"
     description: "Is passenger light on"
-    id: 103
+    id: 153
 }
 ,
 {
     name: "Signal.Cabin.Lights.Row2.Left.IsPassengerLightOn"
     type: "Boolean"
     description: "Is passenger light on"
-    id: 102
+    id: 152
 }
 {
     name: "Signal.Cabin.Lights.Row3.IsSharedOn"
     type: "Boolean"
     description: "Is light shared third across row on"
-    id: 104
+    id: 154
 }
 ,
 {
     name: "Signal.Cabin.Lights.Row3.Right.IsPassengerOn"
     type: "Boolean"
     description: "Is passenger light on"
-    id: 106
+    id: 156
 }
 ,
 {
     name: "Signal.Cabin.Lights.Row3.Left.IsPassengerLightOn"
     type: "Boolean"
     description: "Is passenger light on"
-    id: 105
+    id: 155
 }
 {
     name: "Signal.Cabin.Lights.Row4.IsSharedOn"
     type: "Boolean"
     description: "Is light shared across fourth row on"
-    id: 107
+    id: 157
 }
 ,
 {
     name: "Signal.Cabin.Lights.Row4.Right.IsPassengerOn"
     type: "Boolean"
     description: "Is passenger light on"
-    id: 109
+    id: 159
 }
 ,
 {
     name: "Signal.Cabin.Lights.Row4.Left.IsPassengerLightOn"
     type: "Boolean"
     description: "Is passenger light on"
-    id: 108
+    id: 158
 }
 {
     name: "Signal.Cabin.Lights.IsGloveBoxOn"
     type: "Boolean"
     description: "Is glove box light on"
-    id: 94
+    id: 144
 }
 ,
 {
     name: "Signal.Cabin.Lights.IsDomeOn"
     type: "Boolean"
     description: "Is central dome light light on"
-    id: 96
+    id: 146
 }
 ,
 {
     name: "Signal.Cabin.Lights.IsTrunkOn"
     type: "Boolean"
     description: "Is trunk light light on"
-    id: 95
+    id: 145
 }
 ,
 {
     name: "Signal.Cabin.Lights.AmbientLightSensor"
     type: "UInt8"
     description: "How much ambient light is detected in cabin. 0 = No ambient light. 100 = Full brightness"
-    id: 97
+    id: 147
     min: 0
     max: 100
 }
@@ -6499,13 +7391,13 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.RearviewMirror.Dimmed"
     type: "UInt8"
     description: "Dimming level of rearview mirror. 0 = undimmed. 100 = fully dimmed"
-    id: 93
+    id: 143
 }
 {
     name: "Signal.Cabin.RearShade.Position"
     type: "UInt8"
     description: "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed."
-    id: 52
+    id: 99
     min: 0
     max: 100
 }
@@ -6514,7 +7406,7 @@ const SignalSpec[] signal_spec = [
     name: "Signal.Cabin.RearShade.Switch"
     type: "String"
     description: "Switch controlling sliding action such as window, sunroof, or blind."
-    id: 51
+    id: 98
     enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 

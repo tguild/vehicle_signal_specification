@@ -1,0 +1,78 @@
+#
+# (C) 2016 Jaguar Land Rover - All rights reserved.
+#
+# All documents in this repository are licensed under the Creative
+# Commons Attribution 4.0 International (CC BY 4.0). 
+# See https://creativecommons.org/licenses/by/4.0/ for details.
+#
+ 
+
+#
+# Highlevel vehicle signals.
+#
+
+- IgnitionOnTime:
+  type: Uint32
+  unit: s
+  description: Accumulated ignition on time in seconds.
+  
+- IgnitionOffTime:
+  type: Uint32
+  unit: s
+  description: Accumulated ignition off time in seconds.  
+  
+- DriveTime:
+  type: Uint32
+  unit: s
+  description: Accumulated drive time in seconds.
+  
+- IdleTime:
+  type: Uint32
+  unit: s
+  description: Accumulated idle time in seconds.
+  
+
+#
+# Spacial Acceleration
+#
+- Acceleration:
+  type: branch
+  description: Spacial acceleration
+  
+- Acceleration.X:
+  type: Int32
+  unit: cm/s2
+  description: Vehicle acceleration in X (longitudinal acceleration).
+  
+- Acceleration.Y:
+  type: Int32
+  unit: cm/s2
+  description: Vehicle acceleration in Y (lateral acceleration).  
+  
+- Acceleration.Z:
+  type: Int32
+  unit: cm/s2
+  description: Vehicle acceleration in Z (vertical acceleration).
+  
+
+#
+# Spacial Rotation
+#
+- Gyro:
+  type: branch
+  description: Spacial rotation
+  
+- Gyro.Roll:
+  type: Int16
+  unit: degrees/s
+  description: Vehicle rotation rate along X (longitudinal).
+  
+- Acceleration.Pitch:
+  type: Int16
+  unit: degrees/s
+  description: Vehicle rotation rate along Y (lateral).  
+  
+- Acceleration.Yaw:
+  type: Int16
+  unit: degrees/s
+  description: Vehicle rotatin rate along Z (vertical).    

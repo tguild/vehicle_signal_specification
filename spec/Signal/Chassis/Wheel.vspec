@@ -1,0 +1,53 @@
+# (C) 2016 Jaguar Land Rover - All rights reserved.
+#
+# All documents in this repository are licensed under the Creative
+# Commons Attribution 4.0 International (CC BY 4.0). 
+# See https://creativecommons.org/licenses/by/4.0/ for details.
+#
+
+#
+# Brake
+#
+- Brake:
+  type: branch
+  description: Brake signals for wheel
+  
+- Brake.FluidLevel:
+  type: Uint8
+  unit: percentage
+  description: Brake fluid level as percentage. 0 = Empty. 100 = Full.
+
+- Brake.FluidLevelLow:
+  type: Boolean
+  description: Brake fluid level status. True = Brake fluid level low. False = Brake fluid level ok.
+  
+- Brake.PadWear:
+  type: Uint8
+  description: Brake pad wear as percentage. 0 = No Wear. 100 = Worn.
+
+- Brake.BrakesWorn:
+  type: Boolean
+  description: Brake pad wear status. True = Worn. False = Not Worn.
+
+
+#
+# Tire
+#
+- Tire:
+  type: branch
+  description: Tire signals for wheel
+  
+- Tire.Pressure:
+  type: Uint8
+  unit: kpa
+  description: Tire pressure in kilo-Pascal
+
+- Tire.PressureLow:
+  type: Boolean
+  description: Tire Pressure Status. True = Low tire pressure. False = Good tire pressure.
+  
+- Tire.Temperature:
+  type: Float
+  unit: celsius
+  description: Tire temperature in Celsius.
+

@@ -58,7 +58,6 @@
 #include Transmission.vspec Drivetrain.Transmission
 
 
-
 #
 # The battery management attributes used to host the the attributes in BatteryManagement.vspec.
 #
@@ -70,6 +69,19 @@
 # battery management branch created above.
 
 #include BatteryManagement.vspec Drivetrain.BatteryManagement
+
+
+#
+# The fuel system attributes used to host the the attributes in FuelSystem.vspec.
+#
+- Drivetrain.FuelSystem:
+  type: branch
+  description: Fuel System attributes
+
+# Include the fuel system vspec file and attach all its attributes under the
+# fuel system branch created above.
+
+#include FuelSystem.vspec Drivetrain.FuelSystem
 
 
 #
@@ -127,4 +139,14 @@
   description: All Advanced Driver Assist Systems attributes
 
 #include ADAS.vspec ADAS
+
+
+#
+# General vehicle attributes
+#
+- Vehicle:
+  type: branch
+  description: All Advanced Driver Assist Systems attributes
+
+#include Vehicle.vspec Vehicle
 

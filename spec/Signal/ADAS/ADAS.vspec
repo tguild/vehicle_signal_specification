@@ -22,3 +22,138 @@
 #  AntiSkid (Better name)
 #  TerrainMode
 #
+
+- CruiseControl:
+  type: branch
+  description: Signals from Cruise Control system
+
+- CruiseControl.IsActive:
+  type: Boolean
+  description: Indicates if cruise control system is enabled. True = Enabled. False = Disabled.
+  
+- CruiseControl.SpeedSet:
+  type: Int32
+  unit: mps
+  description: Set cruise control speed in meters per hour
+  
+- CruiseControl.Error:
+  type: Boolean
+  description: Indicates if cruise control system incurred and error condition. True = Error. False = NoError.
+
+#
+# Lane Departure Detection System
+#
+- LaneDepartureDetection:
+  type: branch
+  description: Signals from Land Departure Detection System
+
+- LaneDepartureDetection.IsActive:
+  type: Boolean
+  description: Indicates if lane departure detection system is enabled. True = Enabled. False = Disabled.
+  
+- LaneDepartureDetection.Warning:
+  type: Boolean
+  description: Indicates if lane departure detection registered a lane departure
+  
+- LaneDepartureDetection.Error:
+  type: Boolean
+  description: Indicates if lane departure system incurred an error condition. True = Error. False = No Error.
+
+#
+# Obstacle Sensor Sytem
+#
+- ObstacleSensor:
+  type: branch
+  description: Signals form Obstacle Sensor System
+  
+- ObstacleSensor.IsActive:
+  type: boolean
+  description: Indicates if obstacle sensor system is enabled. Tue = Enabled. False = Disabled.
+  
+- ObstacleSensor.Error:
+  type: boolean
+  description: Indicates if obstacle sensor system incurred an error condition. True = Error. False = No Error.
+  
+- ObstacleSensor.DistanceToObject:
+  type: branch
+  description: Distance signals form Obstacle Sensor System
+  
+- ObstacleSensor.DistanceToObject.FrontLeft:
+  type: Uint16
+  unit: mm
+  description: Front left distance to object in millimeters
+
+- ObstacleSensor.DistanceToObject.FrontRight:
+  type: Uint16
+  unit: mm
+  description: Front right distance to object in millimeters
+
+- ObstacleSensor.DistanceToObject.RearLeft:
+  type: Uint16
+  unit: mm
+  description: Rear left distance to object in millimeters
+
+- ObstacleSensor.DistanceToObject.RearRight:
+  type: Uint16
+  unit: mm
+  description: Rear right distance to object in millimeters
+
+
+#
+# Antilock Braking System
+#
+- ABS:
+  type: branch
+  description: Antilock Braking System signals
+  
+- ABS.IsActive:
+  type: boolean
+  description: Indicates if ABS is enabled. Tue = Enabled. False = Disabled.
+  
+- ABS.Error:
+  type: boolean
+  description: Indicates if ABS incurred an error condition. True = Error. False = No Error.
+  
+- ABS.IsEngaged:
+  type: boolean
+  description: Indicates if ABS is currently regulating brake pressure. True = Engaged. False = Not Engaged.
+  
+
+#
+# Traction Control System
+#
+- TCS:
+  type: branch
+  description: Traction Control System signals
+  
+- TCS.IsActive:
+  type: boolean
+  description: Indicates if TCS is enabled. Tue = Enabled. False = Disabled.
+  
+- TCS.Error:
+  type: boolean
+  description: Indicates if TCS incurred an error condition. True = Error. False = No Error.
+  
+- TCS.IsEngaged:
+  type: boolean
+  description: Indicates if TCS is currently regulating traction. True = Engaged. False = Not Engaged.
+  
+  
+#
+# Electronic Stability Control System
+#
+- ESC:
+  type: branch
+  description: Electronig Stability Control System signals
+  
+- ESC.IsActive:
+  type: boolean
+  description: Indicates if ECS is enabled. Tue = Enabled. False = Disabled.
+  
+- ESC.Error:
+  type: boolean
+  description: Indicates if ESC incurred an error condition. True = Error. False = No Error.
+  
+- ESC.IsEngaged:
+  type: boolean
+  description: Indicates if ESC is currently regulating vehicle stability. True = Engaged. False = Not Engaged.

@@ -1,0 +1,41 @@
+#
+# (C) 2016 Jaguar Land Rover - All rights reserved.
+#
+# All documents in this repository are licensed under the Creative
+# Commons Attribution 4.0 International (CC BY 4.0). 
+# See https://creativecommons.org/licenses/by/4.0/ for details.
+#
+ 
+#
+# Fuel system for ICE / hybrids
+#
+
+- Level:
+  type: Uint8
+  unit: percentage
+  description: Level in fuel tank as percentage of capacity. 0 = empty. 100 = full.
+  
+- Range:
+  type: Uint32
+  unit: m
+  description: Range in meters.
+  
+- InstantConsumption:
+  type: Uint32
+  unit: ml/100km
+  description: Current consumption in milliliters per 100 km.
+  
+- AverageConsumption:
+  type: Uint32
+  unit: ml/100km
+  description: Average consumption in milliliters per 100 km.
+  
+- ConsumptionSinceStart:
+  type: Uint32
+  unit: ml
+  description: Fuel amount consumed since start in milliliters.
+  
+- TimeSinceStart:
+  type: Uint32
+  unit: s
+  description: Time elapsed since start in seconds.

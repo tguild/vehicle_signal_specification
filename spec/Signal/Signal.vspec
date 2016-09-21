@@ -8,6 +8,19 @@
  
 
 #
+# The vehicle branch for highlevel vehicle signals.
+#
+- Vehicle:
+  type: branch
+  description: Highlevel vehicle data.
+
+# Include the Vehicle/Vehicle.vspec file and attach all its signals under the
+# Vehicle branch created above.
+
+#include Vehicle/Vehicle.vspec Vehicle
+
+
+#
 # The engine branch used to host the the signals in engine.vspec.
 #
 - Drivetrain:
@@ -23,8 +36,7 @@
 
 # Include the engine.vspec file and attach all its signals under the engine
 # branch created above.
-
-
+#
 #include Drivetrain/Engine.vspec Drivetrain.InternalCombustionEngine
 
 #
@@ -66,16 +78,16 @@
 
 
 #
-# The battery management signals used to host the the signals in BatteryManagement.vspec.
+# The fuels system signals used to host the the signals in FuelSystem.vspec.
 #
-- Drivetrain.BatteryManagement:
+- Drivetrain.FuelSystem:
   type: branch
-  description: Battery Management signals
+  description: Fuel system signals
 
-# Include the battery management vspec file and attach all its signals under the
-# battery management branch created above.
+# Include the fuel system vspec file and attach all its signals under the
+# fuels system branch created above.
 
-#include Drivetrain/BatteryManagement.vspec Drivetrain.BatteryManagement
+#include Drivetrain/FuelSystem.vspec Drivetrain.FuelSystem
 
 #
 # The fuel cell signals used to host the the signals in FuelCell.vspec.

@@ -17,10 +17,10 @@
 # Current speed.
 
 - Speed:
-  type: UInt16
-  min: 0
-  max: 400
-  unit: kph
+  type: Int32
+  min: -250
+  max: 250
+  unit: m/s
   description: Vehicle speed, as sensed by the gearbox.
   
 # 
@@ -63,4 +63,26 @@
   description: The current gearbox temperature
 
 
-
+#
+# Odometer
+#
+- Odometer:
+  type: Uint32
+  unit: m
+  description: Odometer reading
+  
+#
+# Trip Meter
+#
+- TripMeter:
+  type: Uint32
+  unit: m
+  description: Current trip meter reading
+  
+#
+# Clutch
+#
+- ClutchWear:
+  type: Uint8
+  unit: percentage
+  description: Clutch wear as a percentage. 0 = no wear. 100 = worn.

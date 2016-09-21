@@ -134,32 +134,43 @@ values are of the same type as the signal itself.
 A signal can optionally specify a unit of measurement from the following set:
 TO BE REPLACED BY SI REFERENCE.
 
-Unit type  | Domain      | Description
-:----------|:------------|:-------------
-kph        | Speed       | Kilometers per hour
-celsius    | Temperature | Degrees Celsius
-mbar       | Pressure    | millibar
-percent    | Relation    | Percent
-lat        | Position    | Decimal latitude
-lon        | Position    | Decimal longitude
-mm         | Distance    | Millimeter
-m          | Distance    | Meter
-km         | Distance    | Kilometer
-rpm        | Frequency   | Rotations per minute
-hz         | Frequency   | Frequency
-W          | Power       | Watt
-kW         | Power       | Kilowatt
-kwh        | Power       | Kilowatt hours
-ms         | Time        | Milliseconds
-s          | Time        | Seconds
-min        | Time        | Minutes
-h          | Time        | Hours
-g          | Weight      | Grams
-kg         | Weight      | Kilograms
-g/s        | Flow        | Grams per second
-m/s        | Acceleration| Acceleration in meters per second
-N          | Force       | Newton
-Nm         | Force       | Torque
+Unit type  | Domain        | Description
+:----------|:--------------|:-------------
+k/h        | Speed         | Kilometers per hour
+m/s        | Speed         | Meters per hour
+celsius    | Temperature   | Degrees Celsius
+mbar       | Pressure      | millibar
+pa         | Pressure      | Pascal
+kpa        | Pressure      | kilo-Pascal
+percent    | Relation      | Percent
+lat        | Position      | Decimal latitude
+lon        | Position      | Decimal longitude
+inch       | Distance      | Inch
+mm         | Distance      | Millimeter
+m          | Distance      | Meter
+km         | Distance      | Kilometer
+rpm        | Frequency     | Rotations per minute
+hz         | Frequency     | Frequency
+W          | Power         | Watt
+kW         | Power         | Kilowatt
+kwh        | Power         | Kilowatt hours
+ms         | Time          | Milliseconds
+s          | Time          | Seconds
+min        | Time          | Minutes
+h          | Time          | Hours
+g          | Weight        | Grams
+kg         | Weight        | Kilograms
+g/s        | Flow          | Grams per second
+m/s2       | Acceleration  | Acceleration in meters per second squared
+cm/s2      | Acceleration  | Acceleration in centimeters per second squared
+N          | Force         | Newton
+Nm         | Force         | Torque
+l          | Volume        | Liter
+ml         | Volume        | Milliliter
+degree     | Angle         | Angle in degrees
+degrees/s  | Angluar Speed | Angular speed in degrees/s
+l/100km    | Consumption   | Liters per 100 km
+ml/100km   | Consumption | Milliliters per 100 km
 ... | ... | ...
 
 

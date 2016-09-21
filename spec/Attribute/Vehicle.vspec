@@ -1,0 +1,37 @@
+#
+# (C) 2016 Jaguar Land Rover - All rights reserved.
+#
+# All documents in this repository are licensed under the Creative
+# Commons Attribution 4.0 International (CC BY 4.0). 
+# See https://creativecommons.org/licenses/by/4.0/ for details.
+#
+
+#
+# General vehicle attributes.
+#
+
+- VehicleIdentification:
+  type: branch
+  description: Attributes that identify a vehicle
+  
+- VehicleIdentification.VIN:
+  type: String
+  description: 17-character Vehicle Identification Number (VIN) as defined by ISO 3779
+  
+- VehicleIdentification.WMI:
+  type: String
+  description: 3-character World Manufacturer Identification (WMI) as defined by ISO 3780
+
+- VehicleIdentification.Brand:
+  type: String
+  description: Vehicle brand or manufacturer
+  
+- VehicleIdentification.Model:
+  type: String
+  description: Vehicle model
+
+- VehicleIdentification.Year:
+  type: Uint16
+  description: Model year of the vehicle
+
+  
