@@ -13,6 +13,7 @@
   description: All Media actions
 
 - Media.Action:
+  type: string
   enum: [ "unknown", "Stop", "Play", "FastForward", "FastBackward", "SkipForward",  "SkipBackward" ]
   description: Tells if the media was 
 
@@ -22,6 +23,7 @@
   description: Collection of signals updated in concert when a new media is played
 
 - Media.Played.Source:
+  type: string
   enum: [ "unknown", "SiriusXM", "AM", "FM", "DAB", "TV",  "CD", "DVD", "AUX", "USB", "Disk", "Bluetooth", "Internet", "Voice", "Beep" ]
   description: Media selected for playback
 

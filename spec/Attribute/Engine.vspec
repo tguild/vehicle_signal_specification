@@ -11,6 +11,7 @@
   description: Displacement in cubic centimetres.
 
 - Configuration:
+  type: String
   enum: [ "unknown", "straight", "V", "boxer", "W",
         "rotary", "radial", "square", "H", "U", "opposed", "X" ]
   description: Engine configuration.
@@ -27,6 +28,7 @@
   description: Peak power, in newton meter, that the engine can generate.
   
 - FuelType:
+  type: String
   enum: [ "unknown", "gasoline", "diesel", "E85", "CNG" ]
   default: "unknown"
   description: Type of fuel that the engine runs on.

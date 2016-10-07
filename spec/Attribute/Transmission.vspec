@@ -7,6 +7,7 @@
 #
 
 - Type:
+  type: String
   enum: [ "unknown", "sequential", "H", "automatic", "DSG", "CVT" ]
   value: "unknown"
   description: Transmission type.
@@ -18,6 +19,7 @@
   description: Number of forward gears in the transmission. -1 = CVT. 
   
 - DriveType:
+  type: String
   enum: [ "unknown", "fwd", "rwd", "awd" ]
   value: "unknown"
   description: Drive type.

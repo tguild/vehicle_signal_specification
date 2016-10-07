@@ -8,12 +8,10 @@
 
 - BodyType:
   type: String
-  value: XXX
   description: Body type code as defined by ISO 3779
 
 - RefuelPosition:
   type: String
-  value: XXX
   enum: ["front_left", "front_right", "middle_left", "middle_right", "rear_left", "rear_right"]
   description: Location of the fuel cap or charge port
 
