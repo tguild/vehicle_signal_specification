@@ -1,0 +1,117 @@
+#
+# (C) 2016 CARFIT CORP. - All rights reserved.
+# AUTHOR: Peter Hauser CARFIT CORP.
+# NO LICENSE GRANT AT THIS TIME
+#
+
+#
+# Brake
+#
+- Brake:
+  type: branch
+  description: Brake signals for wheel
+
+- Brake.FluidLevel:
+  type: Uint8
+  unit: percentage
+  description: Brake fluid level as percentage. 0 = Empty. 100 = Full.
+
+- Brake.FluidLevelLow:
+  type: Boolean
+  description: Brake fluid level status. True = Brake fluid level low. False = Brake fluid level ok.
+
+- Brake.PadWear:
+  type: Uint8
+  description: Brake pad wear as percentage. 0 = No Wear. 100 = Replace.
+
+- Brake.PadWorn:
+  type: Boolean
+  description: Brake pad wear status. True = Worn. False = Not Worn.
+
+- Brake.RotorWear:
+  type: Uint16
+  description: Brake rotor wear as a percentage.  0 = No Wear.  100 = Replace.
+
+- Brake.RotorThin:
+  type: Boolean
+  description: Brake rotor wear status. True = Thin. False = Not Thin.
+
+- Brake.RotorDamage:
+  type: Boolean
+  description: Brake rotor damage status. True = Damaged. False = Not Damaged.
+
+- Brake.Runout:
+  type: Boolean
+  description: Unbalance brake thickness.  True = Runout present.  False = No runout
+
+- Brake.Calipers:
+  type: Boolean
+  description: Brake caliper damage.  True = damaged.  False = no damage
+
+
+#
+# Tire
+#
+- Tire:
+  type: branch
+  description: Tire signals for wheel
+
+- Tire.Pressure:
+  type: Uint8
+  unit: kpa
+  description: Tire pressure in kilo-Pascal
+
+- Tire.PressureLow:
+  type: Boolean
+  description: Tire Pressure Status. True = Low tire pressure. False = Good tire pressure.
+
+- Tire.Temperature:
+  type: Float
+  unit: celsius
+  description: Tire temperature in Celsius.
+
+- Tire.Condition:
+  type: Branch
+  aggregate: true
+  description: All signals relating to the tire condition.
+
+- Tire.Condition.Tread:
+  type: String,
+  enum: [ good, flat spot, low, uneven, separated, other damage ]
+  description: The condition of the tread
+
+- Tire.Condition.Sidewall:
+  type: Boolean
+  description: Tire sidewall condition .  True = Tire sidewall is good.  False = Tire sidewall is bad.
+
+- Tire.Condition.Bead:
+  type: Boolean
+  description: Tire bead condition .  True = Tire bead is good.  False = Tire bead is bad.
+
+- Tire.Condition.Internal:
+  type: Boolean
+  description: Tire internal condition .  True = Tire internal condition is good.  False = Tire internal condition is bad.
+
+#
+# Wheel
+#
+- Wheel:
+  type: branch
+  description: Wheel signals (not including the tire)
+
+- Wheel.Balance:
+  type: Boolean
+  description: Wheel Balance Status.  True = Good wheel balance.  False = Bad wheel balance.
+
+- Wheel.Condition:
+  type: String,
+  enum: [ good, dents, cracks, flat spot, other damage ]
+  description: The condition of the tread
+
+- Wheel.Bearing:
+  type: Boolean
+  description: Wheel Bearing Status.  True = Good wheel bearings.  False = bad wheel bearings.
+
+- Wheel.Torque:
+  type: Boolean
+  description: Wheel torque status.  True = Wheel correctly torqued.  False = Wheel not torqued correctly.
