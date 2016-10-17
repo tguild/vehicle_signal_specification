@@ -2,19 +2,11 @@
 # (C) 2016 CARFIT CORP. - All rights reserved.
 # AUTHOR: Peter Hauser CARFIT CORP.
 # NO LICENSE GRANT AT THIS TIME
-# Signal Name - What do you want to call it, should be short, can use camel case
-# Data Type - one of: UInt8, Int8, UInt16, Int16, UInt32, Int32, UInt64, Int64, Boolean, Float, Double, String, ByteBuffer
-# Minimum Value - all data types except for Boolean, String, ByteBuffer or if it is an enumeration
-# Maximum Value - all data types except for Boolean, String, ByteBuffer of if it is an enumeration
-# Enumeration - if the signal has a set of discrete values
-# Unit - please see [1] for the list of units (if the unit you require is not specified please flag it)
-# Description - descriptive text
 #
 
 #
 # Chassis signals
 #
-
 
 #
 # Axle definition
