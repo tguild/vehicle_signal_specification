@@ -5,59 +5,13 @@
 #
 
 #
-# Chassis signals
+# Steering Wheel
 #
+- SteeringWheelBias.Angle:
+  type: Int16
+  unit: degree
+  description: Steering wheel bias angle (offset). Positive = degrees to the left. Negative = degrees to the right.
 
-#
-# Axle definition
-#
-- Axle:
-  type: branch
-  description: Axle signals
-
-- Axle.Row1:
-  type: branch
-  description: Axle signals for first row
-
-- Axle.Row2:
-  type: branch
-  description: Axle signals for second row
-
-
-#
-# Wheels on Axles
-#
-- Axle.Row1.Wheel:
-  type: branch
-  description: Brake signals for first row
-
-- Axle.Row1.Wheel.Left:
-  type: branch
-  description: Row1 wheel left.
-
-#include Wheel.vspec Axle.Row1.Wheel.Left
-
-- Axle.Row1.Wheel.Right:
-  type: branch
-  description: Row1 wheel right.
-
-#include Wheel.vspec Axle.Row1.Wheel.Right
-
-- Axle.Row2.Wheel:
-  type: branch
-  description: Wheel signals for second row
-
-- Axle.Row2.Wheel.Left:
-  type: branch
-  description: Row2 wheel left.
-
-#include Wheel.vspec Axle.Row2.Wheel.Left
-
-- Axle.Row2.Wheel.Right:
-  type: branch
-  description: Row2 wheel right.
-
-#include Wheel.vspec Axle.Row2.Wheel.Right
 
 #
 # Alignment
@@ -84,42 +38,6 @@
   type: Uint8
   unit: degree
   description: Toe in degrees.  Positive = right toe, Negative = left toe
-
-
-#
-# Parking Brake
-#
-- ParkingBrake:
-  type: branch
-  description: Parking brake signals
-
-- ParkingBrake.IsEngaged:
-  type: Boolean
-  description: Parking brake status. True = Parking Brake is Engaged. False = Parking Brake is not Engaged.
-
-
-#
-# Steering Wheel
-#
-- SteeringWheel:
-  type: branch
-  description: Steering wheel signals
-
-- SteeringWheel.Angle:
-  type: Int16
-  unit: degree
-  description: Steering wheel angle. Positive = degrees to the left. Negative = degrees to the right.
-
-- SteeringWheel.Tilt:
-  type: Uint8
-  unit: percentage
-  description: Steering wheel column tilt. 0 = Lowest position. 100 = Highest position.
-
-- SteeringWheel.Extension:
-  type: Uint8
-  unit: percentage
-  description: Steering wheel column extension from dashboard. 0 = Closest to dashboard. 100 = Furthest from dashboard.
-
 
 #
 # Suspension signals
@@ -148,11 +66,6 @@
 #
 # Axle signals
 #
-
-- Axle:
-  type: branch
-  description: Axle signals
-
 - Axle.Shaft:
   type: boolean
   description: Axle shaft condition.  True = good condition.  False = bad condition
