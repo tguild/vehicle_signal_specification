@@ -22,9 +22,13 @@ Attribute.Chassis.Length 19
 Attribute.Chassis.Axle.Count 10
 Attribute.Chassis.Axle.Row1.WheelCount 11
 Attribute.Chassis.Axle.Row1.WheelWidth 13
+Attribute.Chassis.Axle.Row1.TireDiameter 977
 Attribute.Chassis.Axle.Row1.WheelDiameter 12
+Attribute.Chassis.Axle.Row1.TireWidth 978
 Attribute.Chassis.Axle.Row2.WheelWidth 15
+Attribute.Chassis.Axle.Row2.TireDiameter 979
 Attribute.Chassis.Axle.Row2.WheelDiameter 14
+Attribute.Chassis.Axle.Row2.TireWidth 980
 Attribute.Chassis.CurbWeight 16
 Attribute.Chassis.Height 20
 Attribute.Chassis.Wheelbase 22

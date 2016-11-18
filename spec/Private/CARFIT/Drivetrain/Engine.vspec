@@ -1,0 +1,28 @@
+#
+# (C) 2016 CARFIT CORP. - All rights reserved.
+# AUTHOR: Peter Hauser CARFIT CORP.
+# NO LICENSE GRANT AT THIS TIME
+#
+
+#
+# ENGINE SPECIFICATION FILE
+#
+# This vehicle specification file, included by the top level
+# root.vspec file, contains all engine-based signals.
+#
+
+#
+# Drive Shaft
+#
+- DriveShaft:
+  type: branch
+  description: BallJoint signals
+
+- DriveShaft.Condition:
+  type: boolean
+  description: Drive shaft condition.  True = good condition.  False = bad condition
+
+- DriveShaft.Angle:
+  type: Uint8
+  uint: degree
+  description: Drive shaft angle in degrees.  This impacts trucks.

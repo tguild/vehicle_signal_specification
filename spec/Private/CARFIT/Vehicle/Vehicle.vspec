@@ -1,0 +1,24 @@
+#
+# (C) 2016 CARFIT CORP. - All rights reserved.
+# AUTHOR: Peter Hauser CARFIT CORP.
+# NO LICENSE GRANT AT THIS TIME
+#
+
+#
+# Highlevel CARFIT vehicle signals.
+#
+
+- StopAndGoTime:
+  type: Uint32
+  unit: s
+  description: Accumulated time spent under 10kph.
+
+- SurfaceStreetTime:
+  type: Uint32
+  unit: s
+  description: Accumulated time spent under and including 70kph.
+
+- HighwayTime:
+  type: Uint32
+  unit: s
+  description: Accumulated time spent over 70kph.

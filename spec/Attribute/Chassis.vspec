@@ -2,7 +2,7 @@
 # (C) 2016 Jaguar Land Rover - All rights reserved.
 #
 # All documents in this repository are licensed under the Creative
-# Commons Attribution 4.0 International (CC BY 4.0). 
+# Commons Attribution 4.0 International (CC BY 4.0).
 # See https://creativecommons.org/licenses/by/4.0/ for details.
 #
 
@@ -14,7 +14,7 @@
   type: Uint8
   value: 2
   description: Number of axles on the vehicle
-  
+
 - Axle.Row1:
   type: branch
   description: Axle configuration attributes for axle row
@@ -42,18 +42,39 @@
   type: Uint8
   unit: inch
   description: Diameter of wheels (without tires), in inches, as per ETRO / TRA standard.
-  
+
 - Axle.Row2.WheelWidth:
   type: Uint8
   unit: inch
   description: Width of wheels (without tires), in inches, as per ETRO / TRA standard.
 
-
+#
 # Tire size
+#
+
+- Axle.Row1.TireDiameter:
+  type: Uint8
+  unit: inch
+  description: Diameter of tires, in inches, as per ETRO / TRA standard.
+
+- Axle.Row1.TireWidth:
+  type: Uint8
+  unit: inch
+  description: Width of tires, in inches, as per ETRO / TRA standard.
+
+- Axle.Row2.TireDiameter:
+  type: Uint8
+  unit: inch
+  description: Diameter of tires, in inches, as per ETRO / TRA standard.
+
+- Axle.Row2.TireWidth:
+  type: Uint8
+  unit: inch
+  description: Width of tires, in inches, as per ETRO / TRA standard.
 
 
 #
-# Vehcile Weight and Dimensions
+# Vehicle Weight and Dimensions
 #
 - CurbWeight:
   type: Uint16

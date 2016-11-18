@@ -144,10 +144,26 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
+    name: "Attribute.Chassis.Axle.Row1.TireDiameter"
+    type: "UInt8"
+    description: "Diameter of tires, in inches, as per ETRO / TRA standard."
+    id: 977
+    unit: inch
+}
+,
+{
     name: "Attribute.Chassis.Axle.Row1.WheelDiameter"
     type: "UInt8"
     description: "Diameter of wheels (without tires), in inches, as per ETRO / TRA standard."
     id: 12
+    unit: inch
+}
+,
+{
+    name: "Attribute.Chassis.Axle.Row1.TireWidth"
+    type: "UInt8"
+    description: "Width of tires, in inches, as per ETRO / TRA standard."
+    id: 978
     unit: inch
 }
 ,
@@ -160,10 +176,26 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
+    name: "Attribute.Chassis.Axle.Row2.TireDiameter"
+    type: "UInt8"
+    description: "Diameter of tires, in inches, as per ETRO / TRA standard."
+    id: 979
+    unit: inch
+}
+,
+{
     name: "Attribute.Chassis.Axle.Row2.WheelDiameter"
     type: "UInt8"
     description: "Diameter of wheels (without tires), in inches, as per ETRO / TRA standard."
     id: 14
+    unit: inch
+}
+,
+{
+    name: "Attribute.Chassis.Axle.Row2.TireWidth"
+    type: "UInt8"
+    description: "Width of tires, in inches, as per ETRO / TRA standard."
+    id: 980
     unit: inch
 }
 ,
