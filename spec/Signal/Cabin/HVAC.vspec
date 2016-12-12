@@ -47,6 +47,6 @@
   type: Boolean
   description: Is rear defroster active.
 
-- isAirConditioningActive:
+- IsAirConditioningActive:
   type: Boolean
   description: Is Air conditioning active.
