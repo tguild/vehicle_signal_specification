@@ -144,3 +144,16 @@
   description: All signals concerning steering, suspension, wheels, and brakes.
 
 #include Chassis/Chassis.vspec Chassis
+
+
+#
+# On-board Diagnostic (OBD) Branch
+#
+- OBD:
+  type: branch
+  description: OBD data.
+
+# Include the OBD/OBD.vspec file and attach all its signals under the
+# OBD branch created above.
+
+#include OBD/OBD.vspec OBD
