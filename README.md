@@ -143,6 +143,7 @@ mbar       | Pressure      | millibar
 pa         | Pressure      | Pascal
 kpa        | Pressure      | kilo-Pascal
 percent    | Relation      | Percent
+ratio      | Relation      | Ratio
 lat        | Position      | Decimal latitude
 lon        | Position      | Decimal longitude
 inch       | Distance      | Inch
@@ -161,6 +162,7 @@ h          | Time          | Hours
 g          | Weight        | Grams
 kg         | Weight        | Kilograms
 g/s        | Flow          | Grams per second
+l/h        | Flow          | Liters per hour
 m/s2       | Acceleration  | Acceleration in meters per second squared
 cm/s2      | Acceleration  | Acceleration in centimeters per second squared
 N          | Force         | Newton
@@ -170,7 +172,9 @@ ml         | Volume        | Milliliter
 degree     | Angle         | Angle in degrees
 degrees/s  | Angluar Speed | Angular speed in degrees/s
 l/100km    | Consumption   | Liters per 100 km
-ml/100km   | Consumption | Milliliters per 100 km
+ml/100km   | Consumption   | Milliliters per 100 km
+V          | Electrical    | potential difference in volt
+A          | Electrical    | current in amperes
 ... | ... | ...
 
 
