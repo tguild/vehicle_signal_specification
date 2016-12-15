@@ -136,7 +136,7 @@ TO BE REPLACED BY SI REFERENCE.
 
 Unit type  | Domain        | Description
 :----------|:--------------|:-------------
-k/h        | Speed         | Kilometers per hour
+km/h       | Speed         | Kilometers per hour
 m/s        | Speed         | Meters per hour
 celsius    | Temperature   | Degrees Celsius
 mbar       | Pressure      | millibar
