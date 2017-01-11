@@ -1,13 +1,10 @@
 #
-# (C) 2016 Jaguar Land Rover - All rights reserved.
+# (C) 2016 Jaguar Land Rover
 #
-# All documents in this repository are licensed under the Creative
-# Commons Attribution 4.0 International (CC BY 4.0). 
-# See https://creativecommons.org/licenses/by/4.0/ for details.
+# All files and artifacts in this repository are licensed under the
+# provisions of the license provided by the LICENSE file in this repository.
 #
 
-#
-# Attribute tree.p
 #
 # An attribute is a signal with a default value to be reported if no
 # other value has been published for it.
@@ -16,13 +13,6 @@
 # weight, driver seat location, number of doors, etc.
 #
 # The attributes are organized in a similar manner as the signal tree.
-#
-#
-# (C) 2016 Jaguar Land Rover - All rights reserved.
-#
-# All documents in this repository are licensed under the Creative
-# Commons Attribution 4.0 International (CC BY 4.0). 
-# See https://creativecommons.org/licenses/by/4.0/ for details.
 #
 
 #
