@@ -9,3 +9,12 @@
 # Battery management system for EV / Hybrids
 #
 
+- BatteryTemperature:
+  type: float
+  unit: celsius
+  description: Temperature of the battery pack
+  
+- BatteryCapacity:
+  type: int8
+  unit: percentage
+  description: Remaining capacity of the batter pack

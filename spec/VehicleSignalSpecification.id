@@ -946,6 +946,8 @@ Signal.Chassis.ParkingBrake.IsEngaged: 976
 Signal.Chassis.SteeringWheel.Angle: 977
 Signal.Chassis.SteeringWheel.Extension: 979
 Signal.Chassis.SteeringWheel.Tilt: 978
+Signal.Drivetrain.BatteryManagement.BatteryCapacity: 1091
+Signal.Drivetrain.BatteryManagement.BatteryTemperature: 1090
 Signal.Drivetrain.FuelSystem.AverageConsumption: 74
 Signal.Drivetrain.FuelSystem.ConsumptionSinceStart: 75
 Signal.Drivetrain.FuelSystem.InstantConsumption: 73
@@ -980,6 +982,7 @@ Signal.OBD.BarometricPressure: 1056
 Signal.OBD.Catalyst.Bank1.Temperature1: 1057
 Signal.OBD.Catalyst.Bank1.Temperature2: 1058
 Signal.OBD.Catalyst.Bank2.Temperature1: 1059
+Signal.OBD.Catalyst.Bank2.Temperature2: 1090
 Signal.OBD.CommandedEGR: 1049
 Signal.OBD.CommandedEVAP: 1051
 Signal.OBD.CommandedEquivalenceRatio: 1065

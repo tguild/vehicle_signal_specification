@@ -100,6 +100,8 @@ Signal.Drivetrain.InternalCombustionEngine.ECT 55
 Signal.Drivetrain.InternalCombustionEngine.TPS 59
 Signal.Drivetrain.InternalCombustionEngine.MAF 58
 Signal.Drivetrain.InternalCombustionEngine.RPM 54
+Signal.Drivetrain.BatteryManagement.BatteryCapacity 1091
+Signal.Drivetrain.BatteryManagement.BatteryTemperature 1090
 Signal.OBD.TimingAdvance 997
 Signal.OBD.DistanceSinceDTCClear 1054
 Signal.OBD.AmbiantAirTemperature 1067
@@ -136,6 +138,7 @@ Signal.OBD.EthanolPercent 1078
 Signal.OBD.LongTermFuelTrim2 992
 Signal.OBD.CoolantTemperature 988
 Signal.OBD.CommandedEVAP 1051
+Signal.OBD.Catalyst.Bank2.Temperature2 1090
 Signal.OBD.Catalyst.Bank2.Temperature1 1059
 Signal.OBD.Catalyst.Bank1.Temperature2 1058
 Signal.OBD.Catalyst.Bank1.Temperature1 1057

@@ -542,3 +542,14 @@ The name of the database file.
 The first ID value for a signal ID database. Note that the ID is only unique for the same database. If you use the ```-i``` option multiple times and would like to have unique IDs across all database files, you need to make sure to specify start IDs for each database so that there is no overlap.
 
 The signal ID databases with their mappings of signal names to ID can be used for easy indexing of signals without the need of providing the entire qualified signal name. However, if vspec files are updated and new signals are added, the existing signal mappings must not change. If database files with mappings already exist, the tools first search them for a signal name and only assign a new signal ID if no existing mapping was found. The signal ID number continues from the highest ID found.
+
+To avoid signal ID conflicts blocks of IDs are reserved as follows:
+
+Block First ID | Block Last ID   | Description
+:--------------|:----------------|:---------------------------------
+        1      |   999,999       | reserved for standardized signals
+1,000,000      | 1,199,999       | reserved for signals to be merged from the development branch
+1,200,000      | 1,999,999       | currently unused
+2,000,000      | 2,999,999       | private and unpublished signals
+
+Private and unpublished signals are not expected to conflict with each other as it is not deemed to be likely that private signals from different entities are going to be used within the same signal tree.
