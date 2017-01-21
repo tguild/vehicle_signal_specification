@@ -50,4 +50,3 @@
   description: All signals that can dynamically be updated by the vehicle
 
 #include Signal/Signal.vspec Signal
-#include Private/RJS/CAN.vspec Signal

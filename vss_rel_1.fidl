@@ -734,6 +734,21 @@ const SignalSpec[] signal_spec = [
     unit: rpm
 }
 {
+    name: "Signal.Drivetrain.BatteryManagement.BatteryCapacity"
+    type: "Int8"
+    description: "Remaining capacity of the batter pack"
+    id: 1091
+    unit: percentage
+}
+,
+{
+    name: "Signal.Drivetrain.BatteryManagement.BatteryTemperature"
+    type: "Float"
+    description: "Temperature of the battery pack"
+    id: 1090
+    unit: celsius
+}
+{
     name: "Signal.OBD.TimingAdvance"
     type: "Float"
     description: "PID 0E - Time advance"
@@ -1008,9 +1023,17 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
+    name: "Signal.OBD.Catalyst.Bank2.Temperature2"
+    type: "Float"
+    description: "PID 3F - Catalyst temperature from bank 2, sensor 2"
+    id: 1090
+    unit: celsius
+}
+,
+{
     name: "Signal.OBD.Catalyst.Bank2.Temperature1"
     type: "Float"
-    description: "PID 3F - Catalyst temperature from bank 1, sensor 2"
+    description: "PID 3D - Catalyst temperature from bank 2, sensor 1"
     id: 1059
     unit: celsius
 }
@@ -1564,7 +1587,7 @@ const SignalSpec[] signal_spec = [
     type: "Float"
     description: "PID 0D - Vehicle speed"
     id: 996
-    unit: k/h
+    unit: km/h
 }
 ,
 {
