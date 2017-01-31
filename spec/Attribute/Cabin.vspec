@@ -55,7 +55,7 @@
 - Seat.Row2PosCount:
   type: Uint8
   value: 0
-  description: Number of seats across row 3
+  description: Number of seats across row 2
 
 - Seat.Row3PosCount:
   type: Uint8
