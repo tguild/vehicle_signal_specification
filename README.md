@@ -178,7 +178,7 @@ A          | Electrical    | current in amperes
 An attribute is an entry, such as vehicle weight or fuel type, with a static
 value. The difference between a signal and an attribute is that the signal has
 a publisher (or producer) that continuously updates the signal value while an
-attribute has a set value, defined in the specifiation, that never changes.
+attribute has a set value, defined in the specification, that never changes.
 
 
 ### <a name="attribute-type"/>ATTRIBUTE TYPE
@@ -196,7 +196,7 @@ Signals are named, left-to-right, from the root of the signal tree
 toward the signal itself. Each element in the name is delimited with
 a period (".") .
 
-For example, the dimming status of the reaview mirror in the cabin is named:
+For example, the dimming status of the rearview mirror in the cabin is named:
 
 	
     Cabin.RearviewMirror.Dimmed
@@ -409,7 +409,7 @@ its ```value``` member.
 The value set for an attribute by a vspec file can be read by a
 consumer without the need of having the value sent out by a
 publisher. The attribute, in effect, is configuration data that
-can be specified when the bspec file is installed.
+can be specified when the vspec file is installed.
 
 Below is an example of a complete attribute describing engine power
 
@@ -438,14 +438,14 @@ as is shown in Fig 4.
 
 
 ![Signal Extension](pics/signal_override.png)<br>
-*Fig 4. Overidden signals*
+*Fig 4. Overridden signals*
 
 In this case, the ```GearChangeMode``` signal provided by the core
 specification lacks an additional semi-automatic mode featured by an
 OEM-specific vehicle.
 
 By having an OEM master spec file, ```oem_x_proprietary.vspec```
-include the core spec file, ```vss_23.vspec``` and then oveerriding
+include the core spec file, ```vss_23.vspec``` and then overriding
 the original ```GearChangeMode``` signal and add the ```semi-auto```
 element as an enumerated value
 
