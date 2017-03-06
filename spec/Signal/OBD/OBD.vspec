@@ -570,10 +570,10 @@
   unit: percent
   description: PID 45 - Relative throttle position
   
-- AmbiantAirTemperature:
+- AmbientAirTemperature:
   type: float
   unit: celsius
-  description: PID 46 - Ambiant air temperature
+  description: PID 46 - Ambient air temperature
   
 - ThrottlePositionB:
   type: uint8

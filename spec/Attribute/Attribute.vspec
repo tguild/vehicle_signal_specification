@@ -16,7 +16,7 @@
 #
 
 #
-# The engine branch used to host the the attributes in engine.vspec.
+# The engine branch used to host the attributes in engine.vspec.
 #
 - Drivetrain:
   type: branch
@@ -35,7 +35,7 @@
 #include Engine.vspec Drivetrain.InternalCombustionEngine
 
 #
-# The transmission branch used to host the the attributes in transmission.vspec.
+# The transmission branch used to host the attributes in transmission.vspec.
 #
 - Drivetrain.Transmission:
   type: branch
@@ -49,7 +49,7 @@
 
 
 #
-# The battery management attributes used to host the the attributes in BatteryManagement.vspec.
+# The battery management attributes used to host the attributes in BatteryManagement.vspec.
 #
 - Drivetrain.BatteryManagement:
   type: branch
@@ -62,7 +62,7 @@
 
 
 #
-# The fuel system attributes used to host the the attributes in FuelSystem.vspec.
+# The fuel system attributes used to host the attributes in FuelSystem.vspec.
 #
 - Drivetrain.FuelSystem:
   type: branch
@@ -75,7 +75,7 @@
 
 
 #
-# The fuel cell attributes used to host the the attributes in FuelCell.vspec.
+# The fuel cell attributes used to host the attributes in FuelCell.vspec.
 #
 - Drivetrain.FuelCell:
   type: branch
@@ -99,7 +99,7 @@
 
 
 #
-# The Body branch used to host the the attributes Body/Body.vspec.
+# The Body branch used to host the attributes Body/Body.vspec.
 #
 - Body:
   type: branch
@@ -122,7 +122,7 @@
 
 
 #
-# Advanced Driver Assist Systems siggnals
+# Advanced Driver Assist Systems signals
 #
 - ADAS:
   type: branch
