@@ -53,7 +53,7 @@
                
 #
 # Sunroof controlling switch. 
-# We cannot use SingleSliderSwitch.vspce since we have TiltUp and TiltDown also
+# We cannot use SingleSliderSwitch.vspec since we have TiltUp and TiltDown also
 - Sunroof.Switch:
   type: String
   enum: [ "Inactive", "Close", "Open", "OneShotClose", "OneShotOpen", "TiltUp", "TiltDown" ]

@@ -74,4 +74,4 @@
 - Acceleration.Yaw:
   type: Int16
   unit: degrees/s
-  description: Vehicle rotatin rate along Z (vertical).    
+  description: Vehicle rotation rate along Z (vertical).    

@@ -59,7 +59,7 @@
   description: Indicates if lane departure system incurred an error condition. True = Error. False = No Error.
 
 #
-# Obstacle Sensor Sytem
+# Obstacle Sensor System
 #
 - ObstacleSensor:
   type: branch
@@ -143,7 +143,7 @@
 #
 - ESC:
   type: branch
-  description: Electronig Stability Control System signals
+  description: Electronic Stability Control System signals
   
 - ESC.IsActive:
   type: boolean

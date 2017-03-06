@@ -91,14 +91,14 @@
   
 - HeadRestraint:
   type: branch
-  description: Head restratint settings
+  description: Head restraint settings
 
 - HeadRestraint.Height:
   type: UInt8
   min: 0
   max: 255
   unit: mm
-  description: Height of heead restraing. 0 = Bottommost. 255 = Topmost.
+  description: Height of head restraint. 0 = Bottommost. 255 = Topmost.
   
 - Airbag:
   type: branch
@@ -106,7 +106,7 @@
   
 - Airbag.IsDeployed:
   type: Boolean
-  description: Airbag deployement status. True = Airbag deployed. False = Airbag not deployed.
+  description: Airbag deployment status. True = Airbag deployed. False = Airbag not deployed.
   
 
 #--------------------------------------
@@ -141,7 +141,7 @@
 
 - Switch.HeadRestraint:
   type: branch
-  description: Head restratint switches
+  description: Head restraint switches
   
 - Switch.HeadRestraint.Up:
   type: Boolean

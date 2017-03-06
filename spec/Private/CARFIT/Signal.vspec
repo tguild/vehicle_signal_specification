@@ -17,7 +17,7 @@
 #include Vehicle/Vehicle.vspec Vehicle
 
 #
-# The engine branch used to host the the signals in engine.vspec.
+# The engine branch used to host the signals in engine.vspec.
 #
 - Drivetrain:
   type: branch

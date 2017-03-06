@@ -111,7 +111,7 @@
 #
 - Windshield.Rear:
   type: branch
-  description: Rear sindshield signals
+  description: Rear windshield signals
 
 - Windshield.Rear.Wiper:
   type: branch
@@ -151,7 +151,7 @@
 ## 
 - Lights:
   type: branch
-  description: All lgihts
+  description: All lights
 
 # Include lights specification and attach it to the Lights branch
 #include ExteriorLights.vspec Lights

@@ -19,7 +19,7 @@
 
 - Brake.FluidLevelLow:
   type: Boolean
-  description: Brake fluid level status. True = Brake fluid level low. False = Brake fluid level ok.
+  description: Brake fluid level status. True = Brake fluid level low. False = Brake fluid level OK.
   
 - Brake.PadWear:
   type: Uint8
