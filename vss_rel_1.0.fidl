@@ -4,7 +4,7 @@
 // Mozilla Public License, version 2.0.  The full text of the
 // Mozilla Public License is at https://www.mozilla.org/MPL/2.0/
 
-const UInt32 VSS_VERSION = 1
+const UTF8String VSS_VERSION = "1.0"
 
 struct SignalSpec {
     UInt32 id
