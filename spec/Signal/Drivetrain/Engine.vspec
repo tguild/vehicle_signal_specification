@@ -107,3 +107,12 @@
   min: 0
   max: 3000
   description: Current engine torque.
+
+#
+# Current Ambient (Outside) Air Temperature
+#
+- AmbientAirTemperature:
+  type: float
+  unit: celsius
+  description: Ambient air temperature
+

@@ -13,16 +13,25 @@
 #
 
 #
-# Current speed.
-
+# Current vehicle speed
+#
 - Speed:
   type: Int32
   min: -250
   max: 250
   unit: m/s
   description: Vehicle speed, as sensed by the gearbox.
-  
-# 
+
+
+#
+# Current odometer reading
+#
+- Odometer:
+  type: Uint32
+  unit: m
+  description: Odometer reading
+
+ 
 #
 # Current gear
 #
@@ -62,22 +71,6 @@
   description: The current gearbox temperature
 
 
-#
-# Odometer
-#
-- Odometer:
-  type: Uint32
-  unit: m
-  description: Odometer reading
-  
-#
-# Trip Meter
-#
-- TripMeter:
-  type: Uint32
-  unit: m
-  description: Current trip meter reading
-  
 #
 # Clutch
 #

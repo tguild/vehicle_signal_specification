@@ -23,9 +23,17 @@
 
 - AmbientLightSensor:
   type: UInt8
+  unit: percent
   min: 0
   max: 100
   description: How much ambient light is detected in cabin. 0 = No ambient light. 100 = Full brightness
+
+- LightIntensity:
+  type: UInt8
+  unit: percent
+  min: 0
+  max: 100
+  description: Intensity of the interior lights. 0 = Off. 100 = Full brightness.
 
 #
 # First / front row lights
@@ -42,7 +50,7 @@
   type: Boolean
   description: Is light shared across first row on
 
-- Row1.Left.IsPassengerLightOn:
+- Row1.Left.IsPassengerOn:
   type: Boolean
   description: Is passenger light on
 
@@ -68,7 +76,7 @@
   type: Boolean
   description: Is light shared across second row on
 
-- Row2.Left.IsPassengerLightOn:
+- Row2.Left.IsPassengerOn:
   type: Boolean
   description: Is passenger light on
 
@@ -95,7 +103,7 @@
   type: Boolean
   description: Is light shared third across row on
 
-- Row3.Left.IsPassengerLightOn:
+- Row3.Left.IsPassengerOn:
   type: Boolean
   description: Is passenger light on
 
@@ -122,7 +130,7 @@
   type: Boolean
   description: Is light shared across fourth row on
 
-- Row4.Left.IsPassengerLightOn:
+- Row4.Left.IsPassengerOn:
   type: Boolean
   description: Is passenger light on
 

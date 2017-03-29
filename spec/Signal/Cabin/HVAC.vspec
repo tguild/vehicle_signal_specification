@@ -13,26 +13,61 @@
   type: branch
   description: Frontmost row HVAC.
 
-# Attach a single HVAC station for front row.
-#include SingleHVACStation.vspec Row1
+- Row1.Left:
+  type: branch
+  description: Frontmost row left HVAC.
+
+- Row1.Right:
+  type: branch
+  description: Frontmost row right HVAC.
+
+#include SingleHVACStation.vspec Row1.Left
+#include SingleHVACStation.vspec Row1.Right
 
 - Row2:
   type: branch
   description: Second row HVAC.
 
-#include SingleHVACStation.vspec Row2
+- Row2.Left:
+  type: branch
+  description: Second row left HVAC.
+
+- Row2.Right:
+  type: branch
+  description: Second row right HVAC.
+
+#include SingleHVACStation.vspec Row2.Left
+#include SingleHVACStation.vspec Row2.Right
 
 - Row3:
   type: branch
   description: Third row HVAC.
 
-#include SingleHVACStation.vspec Row3
+- Row3.Left:
+  type: branch
+  description: Third row left HVAC.
+
+- Row3.Right:
+  type: branch
+  description: Third row right HVAC.
+
+#include SingleHVACStation.vspec Row3.Left
+#include SingleHVACStation.vspec Row3.Right
 
 - Row4:
   type: branch
   description: Fourth row HVAC.
 
-#include SingleHVACStation.vspec Row4
+- Row4.Left:
+  type: branch
+  description: Fourth row left HVAC.
+
+- Row4.Right:
+  type: branch
+  description: Fourth row right HVAC.
+
+#include SingleHVACStation.vspec Row4.Left
+#include SingleHVACStation.vspec Row4.Right
 
 - IsRecirculationActive:
   type: Boolean
@@ -49,3 +84,9 @@
 - IsAirConditioningActive:
   type: Boolean
   description: Is Air conditioning active.
+
+- AmbientAirTemperature:
+  type: float
+  unit: celsius
+  description: Ambient air temperature
+

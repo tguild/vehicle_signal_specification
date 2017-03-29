@@ -30,6 +30,29 @@
   unit: s
   description: Accumulated idle time in seconds.
   
+- Speed:
+  type: Int32
+  min: -250
+  max: 250
+  unit: m/s
+  description: Vehicle speed, as sensed by the gearbox.
+
+- Odometer:
+  type: Uint32
+  unit: m
+  description: Odometer reading
+
+- TripMeter:
+  type: Uint32
+  unit: m
+  description: Current trip meter reading
+
+- AmbientAirTemperature:
+  type: float
+  unit: celsius
+  description: Ambient air temperature
+
+
 
 #
 # Spacial Acceleration
