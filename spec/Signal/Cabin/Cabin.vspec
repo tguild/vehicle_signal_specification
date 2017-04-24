@@ -14,7 +14,7 @@
 ##
 - RearShade: 
   type: branch
-  desription: Rear window shader.
+  description: Rear window shade.
 
 # Include the same shade spec used for sunroof and side windows.
 #include SingleShade.vspec RearShade
