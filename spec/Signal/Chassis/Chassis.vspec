@@ -82,7 +82,7 @@
   
 - SteeringWheel.Angle:
   type: Int16
-  unit: degree
+  unit: degrees
   description: Steering wheel angle. Positive = degrees to the left. Negative = degrees to the right.
   
 - SteeringWheel.Tilt:

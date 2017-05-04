@@ -97,7 +97,7 @@
   
 - TimingAdvance:
   type: float
-  unit: degree
+  unit: degrees
   description: PID 0E - Time advance
   
 - IntakeTemp:
@@ -681,7 +681,7 @@
   
 - FuelInjectionTiming:
   type: int16
-  unit: degree
+  unit: degrees
   description: PID 5D - Fuel injection timing
   
 - FuelRate:
