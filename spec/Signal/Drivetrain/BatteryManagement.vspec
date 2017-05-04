@@ -16,5 +16,5 @@
   
 - BatteryCapacity:
   type: int8
-  unit: percentage
+  unit: percent
   description: Remaining capacity of the batter pack

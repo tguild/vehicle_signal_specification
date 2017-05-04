@@ -11,8 +11,8 @@
 
 - Level:
   type: Uint8
-  unit: percentage
-  description: Level in fuel tank as percentage of capacity. 0 = empty. 100 = full.
+  unit: percent
+  description: Level in fuel tank as percent of capacity. 0 = empty. 100 = full.
   
 - Range:
   type: Uint32

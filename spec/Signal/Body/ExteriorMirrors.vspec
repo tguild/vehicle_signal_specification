@@ -11,13 +11,13 @@
 
 - Tilt:
   type: Int8
-  unit: percentage
-  description: Mirror tilt as a percentage. 0 = Center Position. 100 = Fully Upward Position. -100 = Fully Downward Position.
+  unit: percent
+  description: Mirror tilt as a percent. 0 = Center Position. 100 = Fully Upward Position. -100 = Fully Downward Position.
 
 - Pan:
   type: Int8
-  unit: percentage
-  description: Mirror pan as a percentage. 0 = Center Position. 100 = Fully Left Position. -100 = Fully Right Position.
+  unit: percent
+  description: Mirror pan as a percent. 0 = Center Position. 100 = Fully Left Position. -100 = Fully Right Position.
 
 - Heater:
   type: branch

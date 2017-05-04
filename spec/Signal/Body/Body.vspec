@@ -57,7 +57,7 @@
 
 - Rainsensor.Intensity:
   type: Uint8
-  unit: percentage
+  unit: percent
   description: Rain intensity. 0 = Dry, No Rain. 100 = Covered.
 
 
@@ -104,7 +104,7 @@
 - Windshield.Front.WasherFluid.Level:
   type: Uint8
   unit: percent
-  description: Washer fluid level as a percentage. 0 = Empty. 100 = Full.
+  description: Washer fluid level as a percent. 0 = Empty. 100 = Full.
 
 #
 # Rear Windshield
@@ -142,7 +142,7 @@
 - Windshield.Rear.WasherFluid.Level:
   type: Uint8
   unit: percent
-  description: Washer fluid level as a percentage. 0 = Empty. 100 = Full.
+  description: Washer fluid level as a percent. 0 = Empty. 100 = Full.
 
 
 

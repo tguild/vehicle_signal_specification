@@ -76,5 +76,5 @@
 #
 - ClutchWear:
   type: Uint8
-  unit: percentage
-  description: Clutch wear as a percentage. 0 = no wear. 100 = worn.
+  unit: percent
+  description: Clutch wear as a percent. 0 = no wear. 100 = worn.
