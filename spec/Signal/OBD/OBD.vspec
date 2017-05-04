@@ -19,7 +19,7 @@
 
 - PidsA:
   type: uint32
-  description: PID 00 - Bitarry of the supported pids 01 to 20
+  description: PID 00 - Bit array of the supported pids 01 to 20
   
 - Status:
   type: branch
@@ -326,7 +326,7 @@
   
 - PidsB:
   type: uint32
-  description: PID 20 - Bitarry of the supported pids 21 to 40
+  description: PID 20 - Bit array of the supported pids 21 to 40
 
 - DistanceWithMIL:
   type: uint32
@@ -532,7 +532,7 @@
   
 - PidsC:
   type: uint32
-  description: PID 40 - Bitarry of the supported pids 41 to 60
+  description: PID 40 - Bit array of the supported pids 41 to 60
   
 - DriveCycleStatus:
   type: branch
