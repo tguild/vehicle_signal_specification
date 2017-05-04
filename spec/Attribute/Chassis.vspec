@@ -78,11 +78,13 @@
 - CurbWeight:
   type: Uint16
   value: 0
+  unit: kg
   description: Vehicle curb weight, in kg, including all liquids and full tank of fuel, but no cargo or passengers.
 
 - GrossWeight:
   type: Uint16
   value: 0
+  unit: kg
   description: Curb weight of vehicle, including all liquids and full tank of fuel and full load of cargo and passengers.
 
 - TowWeight:
