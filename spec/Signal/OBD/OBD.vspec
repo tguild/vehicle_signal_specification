@@ -19,7 +19,7 @@
 
 - PidsA:
   type: uint32
-  description: PID 00 - Bitarry of the supported pids 01 to 20
+  description: PID 00 - Bit array of the supported pids 01 to 20
   
 - Status:
   type: branch
@@ -47,7 +47,7 @@
   
 - EngineLoad:
   type: uint8
-  unit: percentage
+  unit: percent
   description: PID 04 - Engine load in percent - 0 = no load, 100 = full load
   
 - CoolantTemperature:
@@ -57,23 +57,23 @@
   
 - ShortTermFuelTrim1:
   type: int8
-  unit: percentage
-  description: PID 06 - Short Term (immediate) Fuel Trim - Bank 1 - negative percentage leaner, positive percentage richer
+  unit: percent
+  description: PID 06 - Short Term (immediate) Fuel Trim - Bank 1 - negative percent leaner, positive percent richer
   
 - LongTermFuelTrim1:
   type: int8
-  unit: percentage
-  description: PID 07 - Long Term (learned) Fuel Trim - Bank 1 - negative percentage leaner, positive percentage richer
+  unit: percent
+  description: PID 07 - Long Term (learned) Fuel Trim - Bank 1 - negative percent leaner, positive percent richer
   
 - ShortTermFuelTrim2:
   type: int8
-  unit: percentage
-  description: PID 08 - Short Term (immediate) Fuel Trim - Bank 2 - negative percentage leaner, positive percentage richer
+  unit: percent
+  description: PID 08 - Short Term (immediate) Fuel Trim - Bank 2 - negative percent leaner, positive percent richer
   
 - LongTermFuelTrim2:
   type: int8
-  unit: percentage
-  description: PID 09 - Long Term (learned) Fuel Trim - Bank 2 - negative percentage leaner, positive percentage richer
+  unit: percent
+  description: PID 09 - Long Term (learned) Fuel Trim - Bank 2 - negative percent leaner, positive percent richer
   
 - FuelPressure:
   type: float
@@ -97,7 +97,7 @@
   
 - TimingAdvance:
   type: float
-  unit: degree
+  unit: degrees
   description: PID 0E - Time advance
   
 - IntakeTemp:
@@ -112,7 +112,7 @@
   
 - ThrottlePosition:
   type: uint8
-  unit: percentage
+  unit: percent
   description: PID 11 - Throttle position - 0 = closed throttle, 100 = open throttle
   
 - AirStatus:
@@ -326,7 +326,7 @@
   
 - PidsB:
   type: uint32
-  description: PID 20 - Bitarry of the supported pids 21 to 40
+  description: PID 20 - Bit array of the supported pids 21 to 40
 
 - DistanceWithMIL:
   type: uint32
@@ -461,22 +461,22 @@
   
 - CommandedEGR:
   type: uint8
-  unit: percentage
+  unit: percent
   description: PID 2C - Commanded exhaust gas recirculation (EGR)
   
 - EGRError:
   type: uint8
-  unit: percentage
+  unit: percent
   description: PID 2D - Exhaust gas recirculation (EGR) error
   
 - CommandedEVAP:
   type: uint8
-  unit: percentage
+  unit: percent
   description: PID 2E - Commanded evaporative purge (EVAP) valve
   
 - FuelLevel:
   type: uint8
-  unit: percentage
+  unit: percent
   description: PID 2F - Fuel level in the fuel tank
   
 - WarmupsSinceDTCClear:
@@ -532,7 +532,7 @@
   
 - PidsC:
   type: uint32
-  description: PID 40 - Bitarry of the supported pids 41 to 60
+  description: PID 40 - Bit array of the supported pids 41 to 60
   
 - DriveCycleStatus:
   type: branch
@@ -681,7 +681,7 @@
   
 - FuelInjectionTiming:
   type: int16
-  unit: degree
+  unit: degrees
   description: PID 5D - Fuel injection timing
   
 - FuelRate:

@@ -103,7 +103,7 @@
 #
 - Torque:
   type: Int16
-  unit: Nm
+  unit: N.m
   min: 0
   max: 3000
   description: Current engine torque.

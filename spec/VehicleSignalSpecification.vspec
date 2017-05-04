@@ -4,7 +4,7 @@
 # All files and artifacts in this repository are licensed under the
 # provisions of the license provided by the LICENSE file in this repository.
 #
- 
+
 #
 # Root Vehicle Signal Specification file
 #
@@ -23,7 +23,7 @@
 # An uncontrolled private branch.
 #
 # Top level speed, location, and other vehicle state?
-# odo. trip. 
+# odo. trip.
 # Alias Speed -> Drivetrain.Transmission.Speed
 #
 # Global.Speed
@@ -35,17 +35,17 @@
 # Put in accuracy as attribute for signal
 #
 
-- Private: 
+- Private:
   type: branch
   description: Uncontrolled branch where non-public signals can be defined.
 
-- Attribute: 
+- Attribute:
   type: branch
   description: Attribute signals that do not change during the power cycle of a vehicle.
 
 #include Attribute/Attribute.vspec Attribute
 
-- Signal: 
+- Signal:
   type: branch
   description: All signals that can dynamically be updated by the vehicle
 

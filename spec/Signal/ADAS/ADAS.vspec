@@ -32,7 +32,7 @@
   
 - CruiseControl.SpeedSet:
   type: Int32
-  unit: mps
+  unit: m/s
   description: Set cruise control speed in meters per hour
   
 - CruiseControl.Error:

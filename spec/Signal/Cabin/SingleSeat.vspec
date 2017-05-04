@@ -33,7 +33,7 @@
   type: Int8
   min: -90
   max: 90
-  unit: degree
+  unit: degrees
   description: Recline level. -90 = Max forward recline. 90 max backward recline
 
 - Position:

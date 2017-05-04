@@ -13,7 +13,7 @@
 
 - Brake.RotorWear:
   type: Uint16
-  description: Brake rotor wear as a percentage.  0 = No Wear.  100 = Replace.
+  description: Brake rotor wear as a percent.  0 = No Wear.  100 = Replace.
 
 - Brake.RotorThin:
   type: Boolean

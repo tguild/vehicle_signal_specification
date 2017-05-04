@@ -14,8 +14,8 @@
   
 - Brake.FluidLevel:
   type: Uint8
-  unit: percentage
-  description: Brake fluid level as percentage. 0 = Empty. 100 = Full.
+  unit: percent
+  description: Brake fluid level as percent. 0 = Empty. 100 = Full.
 
 - Brake.FluidLevelLow:
   type: Boolean
@@ -23,7 +23,7 @@
   
 - Brake.PadWear:
   type: Uint8
-  description: Brake pad wear as percentage. 0 = No Wear. 100 = Worn.
+  description: Brake pad wear as percent. 0 = No Wear. 100 = Worn.
 
 - Brake.BrakesWorn:
   type: Boolean
