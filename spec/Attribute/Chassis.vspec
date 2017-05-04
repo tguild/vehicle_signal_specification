@@ -88,31 +88,37 @@
 - TowWeight:
   type: Uint16
   value: 0
+  unit: kg
   description: Maximum weight, in kilos, of trailer.
 
 - Length:
   type: Uint16
   value: 0
+  unit: mm
   description: Overall vehicle length, in mm.
 
 - Height:
   type: Uint16
   value: 0
+  unit: mm
   description: Overall vehicle height, in mm.
 
 - Width:
   type: Uint16
   value: 0
+  unit: mm
   description: Overall vehicle width, in mm.
 
 - Wheelbase:
   type: Uint16
   value: 0
+  unit: mm
   description: Overall wheel base, in mm.
 
 - Track:
   type: Uint16
   value: 0
+  unit: mm
   description: Overall wheel tracking, in mm.
 
 #

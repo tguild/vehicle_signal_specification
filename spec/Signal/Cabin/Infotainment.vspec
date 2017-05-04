@@ -15,7 +15,7 @@
 - Media.Action:
   type: string
   enum: [ "unknown", "Stop", "Play", "FastForward", "FastBackward", "SkipForward",  "SkipBackward" ]
-  description: Tells if the media was 
+  description: Tells if the media was
 
 - Media.Played:
   type: branch
@@ -87,18 +87,21 @@
   type: Double
   min: -90
   max: 90
+  unit: degrees
   description: Current latitude of vehicle, as reported by GPS.
 
 - Navigation.CurrentLocation.Longitude:
   type: Double
   min: -180
   max: 180
+  unit: degrees
   description: Current longitude of vehicle, as reported by GPS.
 
 - Navigation.CurrentLocation.Heading:
   type: Double
   min: 0
   max: 360
+  unit: degrees
   description: Current magnetic compass heading, in degrees.
 
 - Navigation.CurrentLocation.Accuracy:
