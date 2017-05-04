@@ -76,6 +76,7 @@
   type: Double
   min: -180
   max: 180
+  unit: degrees
   description: Longitude of destination
 
 - Navigation.CurrentLocation:
