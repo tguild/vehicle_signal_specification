@@ -32,8 +32,8 @@
   
 - CruiseControl.SpeedSet:
   type: Int32
-  unit: m/s
-  description: Set cruise control speed in meters per hour
+  unit: km/h
+  description: Set cruise control speed in kilometers per hour
   
 - CruiseControl.Error:
   type: Boolean
@@ -61,41 +61,41 @@
 #
 # Obstacle Sensor System
 #
-- ObstacleSensor:
+- ObstacleDetection:
   type: branch
   description: Signals form Obstacle Sensor System
   
-- ObstacleSensor.IsActive:
+- ObstacleDetection.IsActive:
   type: boolean
   description: Indicates if obstacle sensor system is enabled. Tue = Enabled. False = Disabled.
   
-- ObstacleSensor.Error:
+- ObstacleDetection.Error:
   type: boolean
   description: Indicates if obstacle sensor system incurred an error condition. True = Error. False = No Error.
   
-- ObstacleSensor.DistanceToObject:
+- ObstacleDetection.DistanceToObject:
   type: branch
   description: Distance signals form Obstacle Sensor System
   
-- ObstacleSensor.DistanceToObject.FrontLeft:
+- ObstacleDetection.DistanceToObject.FrontLeft:
   type: Uint16
-  unit: mm
-  description: Front left distance to object in millimeters
+  unit: m
+  description: Front left distance to object in meters
 
-- ObstacleSensor.DistanceToObject.FrontRight:
+- ObstacleDetection.DistanceToObject.FrontRight:
   type: Uint16
-  unit: mm
-  description: Front right distance to object in millimeters
+  unit: m
+  description: Front right distance to object in meters
 
-- ObstacleSensor.DistanceToObject.RearLeft:
+- ObstacleDetection.DistanceToObject.RearLeft:
   type: Uint16
-  unit: mm
-  description: Rear left distance to object in millimeters
+  unit: m
+  description: Rear left distance to object in meters
 
-- ObstacleSensor.DistanceToObject.RearRight:
+- ObstacleDetection.DistanceToObject.RearRight:
   type: Uint16
-  unit: mm
-  description: Rear right distance to object in millimeters
+  unit: m
+  description: Rear right distance to object in meters
 
 
 #
