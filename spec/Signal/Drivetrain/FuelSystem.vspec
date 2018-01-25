@@ -12,6 +12,8 @@
 - Level:
   type: Uint8
   unit: percent
+  min: 0
+  max: 100
   description: Level in fuel tank as percent of capacity. 0 = empty. 100 = full.
   
 - Range:
@@ -20,19 +22,21 @@
   description: Range in meters.
   
 - InstantConsumption:
-  type: Uint32
-  unit: ml/100km
-  description: Current consumption in milliliters per 100 km.
+  type: Float
+  unit: l/100km
+  min:0
+  description: Current consumption in liters per 100 km.
   
 - AverageConsumption:
-  type: Uint32
-  unit: ml/100km
-  description: Average consumption in milliliters per 100 km.
+  type: Float
+  unit: l/100km
+  min: 0
+  description: Average consumption in liters per 100 km.
   
 - ConsumptionSinceStart:
-  type: Uint32
-  unit: ml
-  description: Fuel amount consumed since start in milliliters.
+  type: Float
+  unit: l
+  description: Fuel amount consumed since start in liters.
   
 - TimeSinceStart:
   type: Uint32

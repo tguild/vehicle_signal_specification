@@ -19,16 +19,16 @@
   type: Int32
   min: -250
   max: 250
-  unit: m/s
+  unit: km/h
   description: Vehicle speed, as sensed by the gearbox.
 
 
 #
 # Current odometer reading
 #
-- Odometer:
-  type: Uint32
-  unit: m
+- TravelledDistance:
+  type: Float
+  unit: km
   description: Odometer reading
 
  
