@@ -24,7 +24,7 @@
 - InstantConsumption:
   type: Float
   unit: l/100km
-  min:0
+  min: 0
   description: Current consumption in liters per 100 km.
   
 - AverageConsumption:

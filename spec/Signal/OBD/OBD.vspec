@@ -141,7 +141,7 @@
   type: branch
   description: Oxygen sensors on bank 1, at most 4 sensors per bank
   
-- O2a.Bank1.Sensor1:
+- O2.Bank1.Sensor1:
   type: branch
   description: Oxygen sensor  
   
