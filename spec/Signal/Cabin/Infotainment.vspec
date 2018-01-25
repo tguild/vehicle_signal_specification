@@ -120,5 +120,5 @@
   type: UInt16
   min: 0
   max: 250
-  unit: m/s
+  unit: km/h
   description: Vehicle speed, as sensed by the GPS receiver.
