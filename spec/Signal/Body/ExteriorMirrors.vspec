@@ -19,11 +19,11 @@
   unit: percent
   description: Mirror pan as a percent. 0 = Center Position. 100 = Fully Left Position. -100 = Fully Right Position.
 
-- Heater:
+- Heating:
   type: branch
   description: Mirror heater signals
 
-- Heater.Status:
+- Heating.Status:
   type: Boolean
   description: Mirror Heater on or off. True = Heater On. False = Heater Off.
 
