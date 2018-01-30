@@ -192,8 +192,8 @@ Signal.Cabin.Infotainment.Navigation.CurrentLocation.Heading: 157
 Signal.Cabin.Infotainment.Navigation.CurrentLocation.Latitude: 155
 Signal.Cabin.Infotainment.Navigation.CurrentLocation.Longitude: 156
 Signal.Cabin.Infotainment.Navigation.CurrentLocation.Speed: 160
-Signal.Cabin.Infotainment.Navigation.DestinatonSet.Latitude: 153
-Signal.Cabin.Infotainment.Navigation.DestinatonSet.Longitude: 154
+Signal.Cabin.Infotainment.Navigation.DestinationSet.Latitude: 153
+Signal.Cabin.Infotainment.Navigation.DestinationSet.Longitude: 154
 Signal.Cabin.Lights.AmbientLightSensor: 169
 Signal.Cabin.Lights.IsDomeOn: 168
 Signal.Cabin.Lights.IsGloveBoxOn: 166
