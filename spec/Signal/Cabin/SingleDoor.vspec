@@ -28,6 +28,7 @@
   type: Uint8
   min: 0
   max: 100
+  unit: percent
   description: Window position. 0 = Fully closed 100 = Fully opened.
 
 

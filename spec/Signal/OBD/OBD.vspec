@@ -48,6 +48,8 @@
 - EngineLoad:
   type: uint8
   unit: percent
+  min: 0
+  max: 100
   description: PID 04 - Engine load in percent - 0 = no load, 100 = full load
   
 - CoolantTemperature:
@@ -58,34 +60,44 @@
 - ShortTermFuelTrim1:
   type: int8
   unit: percent
+  min: -100
+  max: 100
   description: PID 06 - Short Term (immediate) Fuel Trim - Bank 1 - negative percent leaner, positive percent richer
   
 - LongTermFuelTrim1:
   type: int8
   unit: percent
+  min: -100
+  max: 100
   description: PID 07 - Long Term (learned) Fuel Trim - Bank 1 - negative percent leaner, positive percent richer
   
 - ShortTermFuelTrim2:
   type: int8
   unit: percent
+  min: -100
+  max: 100
   description: PID 08 - Short Term (immediate) Fuel Trim - Bank 2 - negative percent leaner, positive percent richer
   
 - LongTermFuelTrim2:
   type: int8
   unit: percent
+  min: -100
+  max: 100
   description: PID 09 - Long Term (learned) Fuel Trim - Bank 2 - negative percent leaner, positive percent richer
   
 - FuelPressure:
   type: float
   unit: kpa
+  min: 0
   description: PID 0A - Fuel pressure
   
 - MAP:
   type: float
   unit: kpa
+  min: 0
   description: PID 0B - Intake manifold pressure
   
-- RPM:
+- EngineSpeed:
   type: float
   unit: rpm
   description: PID 0C - Engine speed measured as rotations per minute
@@ -113,124 +125,126 @@
 - ThrottlePosition:
   type: uint8
   unit: percent
+  min: 0
+  max: 100
   description: PID 11 - Throttle position - 0 = closed throttle, 100 = open throttle
   
 - AirStatus:
   type: string
   description: PID 12 - Secondary air status
   
-- O2Sensors:
+- O2:
   type: branch
   description: PID 13 - Presence of oxygen sensors for the banks
   
-- O2Sensors.Bank1:
+- O2.Bank1:
   type: branch
   description: Oxygen sensors on bank 1, at most 4 sensors per bank
   
-- O2Sensors.Bank1.Sensor1:
+- O2.Bank1.Sensor1:
   type: branch
   description: Oxygen sensor  
   
-- O2Sensors.Bank1.Sensor1.Present:
+- O2.Bank1.Sensor1.Present:
   type: boolean
   description: Sensor present - True = sensor present, False = sensor not present
     
-- O2Sensors.Bank1.Sensor1.Voltage:
+- O2.Bank1.Sensor1.Voltage:
   type: float
   unit: V
   description: PID 14 - Sensor voltage
     
-- O2Sensors.Bank1.Sensor2:
+- O2.Bank1.Sensor2:
   type: branch
   description: Oxygen sensor  
   
-- O2Sensors.Bank1.Sensor2.Present:
+- O2.Bank1.Sensor2.Present:
   type: boolean
   description: Sensor present - True = sensor present, False = sensor not present
     
-- O2Sensors.Bank1.Sensor2.Voltage:
+- O2.Bank1.Sensor2.Voltage:
   type: float
   unit: V
   description: PID 15 - Sensor voltage
     
-- O2Sensors.Bank1.Sensor3:
+- O2.Bank1.Sensor3:
   type: branch
   description: Oxygen sensor  
   
-- O2Sensors.Bank1.Sensor3.Present:
+- O2.Bank1.Sensor3.Present:
   type: boolean
   description: Sensor present - True = sensor present, False = sensor not present
     
-- O2Sensors.Bank1.Sensor3.Voltage:
+- O2.Bank1.Sensor3.Voltage:
   type: float
   unit: V
   description: PID 16 - Sensor voltage
     
-- O2Sensors.Bank1.Sensor4:
+- O2.Bank1.Sensor4:
   type: branch
   description: Oxygen sensor  
   
-- O2Sensors.Bank1.Sensor4.Present:
+- O2.Bank1.Sensor4.Present:
   type: boolean
   description: Sensor present - True = sensor present, False = sensor not present
     
-- O2Sensors.Bank1.Sensor4.Voltage:
+- O2.Bank1.Sensor4.Voltage:
   type: float
   unit: V
   description: PID 17 - Sensor voltage
 
-- O2Sensors.Bank2:
+- O2.Bank2:
   type: branch
   description: Oxygen sensors on bank 2, at most 4 sensors per bank
   
-- O2Sensors.Bank2.Sensor1:
+- O2.Bank2.Sensor1:
   type: branch
   description: Oxygen sensor  
   
-- O2Sensors.Bank2.Sensor1.Present:
+- O2.Bank2.Sensor1.Present:
   type: boolean
   description: Sensor present - True = sensor present, False = sensor not present
     
-- O2Sensors.Bank2.Sensor1.Voltage:
+- O2.Bank2.Sensor1.Voltage:
   type: float
   unit: V
   description: PID 18 - Sensor voltage
     
-- O2Sensors.Bank2.Sensor2:
+- O2.Bank2.Sensor2:
   type: branch
   description: Oxygen sensor  
   
-- O2Sensors.Bank2.Sensor2.Present:
+- O2.Bank2.Sensor2.Present:
   type: boolean
   description: Sensor present - True = sensor present, False = sensor not present
     
-- O2Sensors.Bank2.Sensor2.Voltage:
+- O2.Bank2.Sensor2.Voltage:
   type: float
   unit: V
   description: PID 19 - Sensor voltage
     
-- O2Sensors.Bank2.Sensor3:
+- O2.Bank2.Sensor3:
   type: branch
   description: Oxygen sensor  
   
-- O2Sensors.Bank2.Sensor3.Present:
+- O2.Bank2.Sensor3.Present:
   type: boolean
   description: Sensor present - True = sensor present, False = sensor not present
     
-- O2Sensors.Bank2.Sensor3.Voltage:
+- O2.Bank2.Sensor3.Voltage:
   type: float
   unit: V
   description: PID 1A - Sensor voltage
     
-- O2Sensors.Bank2.Sensor4:
+- O2.Bank2.Sensor4:
   type: branch
   description: Oxygen sensor  
   
-- O2Sensors.Bank2.Sensor4.Present:
+- O2.Bank2.Sensor4.Present:
   type: boolean
   description: Sensor present - True = sensor present, False = sensor not present
     
-- O2Sensors.Bank2.Sensor4.Voltage:
+- O2.Bank2.Sensor4.Voltage:
   type: float
   unit: V
   description: PID 1B - Sensor voltage
@@ -239,79 +253,79 @@
   type: string
   description: PID 1C - Compliance details of OBD
   
-- O2SensorsAlt:
+- O2Alt:
   type: branch
   description: PID 1D - Presence of alternate oxygen sensors for the banks
   
-- O2SensorsAlt.Bank1:
+- O2Alt.Bank1:
   type: branch
   description: Alternate oxygen sensors on bank 1, at most 4 sensors per bank
   
-- O2SensorsAlt.Bank1.Sensor1:
+- O2Alt.Bank1.Sensor1:
   type: branch
   description: Alternate oxygen sensor  
   
-- O2SensorsAlt.Bank1.Sensor1.Present:
+- O2Alt.Bank1.Sensor1.Present:
   type: boolean
   description: Sensor present - True = sensor present, False = sensor not present
     
-- O2SensorsAlt.Bank1.Sensor2:
+- O2Alt.Bank1.Sensor2:
   type: branch
   description: Alternate oxygen sensor  
   
-- O2SensorsAlt.Bank1.Sensor2.Present:
+- O2Alt.Bank1.Sensor2.Present:
   type: boolean
   description: Sensor present - True = sensor present, False = sensor not present
     
-- O2SensorsAlt.Bank1.Sensor3:
+- O2Alt.Bank1.Sensor3:
   type: branch
   description: Alternate oxygen sensor  
   
-- O2SensorsAlt.Bank1.Sensor3.Present:
+- O2Alt.Bank1.Sensor3.Present:
   type: boolean
   description: Sensor present - True = sensor present, False = sensor not present
     
-- O2SensorsAlt.Bank1.Sensor4:
+- O2Alt.Bank1.Sensor4:
   type: branch
   description: Alternate oxygen sensor  
   
-- O2SensorsAlt.Bank1.Sensor4.Present:
+- O2Alt.Bank1.Sensor4.Present:
   type: boolean
   description: Sensor present - True = sensor present, False = sensor not present
 
-- O2SensorsAlt.Bank2:
+- O2Alt.Bank2:
   type: branch
   description: Alternate oxygen sensors on bank 2, at most 4 sensors per bank
   
-- O2SensorsAlt.Bank2.Sensor1:
+- O2Alt.Bank2.Sensor1:
   type: branch
   description: Alternate oxygen sensor  
   
-- O2SensorsAlt.Bank2.Sensor1.Present:
+- O2Alt.Bank2.Sensor1.Present:
   type: boolean
   description: Sensor present - True = sensor present, False = sensor not present
     
-- O2SensorsAlt.Bank2.Sensor2:
+- O2Alt.Bank2.Sensor2:
   type: branch
   description: Alternate oxygen sensor  
   
-- O2SensorsAlt.Bank2.Sensor2.Present:
+- O2Alt.Bank2.Sensor2.Present:
   type: boolean
   description: Sensor present - True = sensor present, False = sensor not present
     
-- O2SensorsAlt.Bank2.Sensor3:
+- O2Alt.Bank2.Sensor3:
   type: branch
   description: Alternate oxygen sensor  
   
-- O2SensorsAlt.Bank2.Sensor3.Present:
+- O2Alt.Bank2.Sensor3.Present:
   type: boolean
   description: Sensor present - True = sensor present, False = sensor not present
     
-- O2SensorsAlt.Bank2.Sensor4:
+- O2Alt.Bank2.Sensor4:
   type: branch
   description: Alternate oxygen sensor  
   
-- O2SensorsAlt.Bank2.Sensor4.Present:
+- O2Alt.Bank2.Sensor4.Present:
   type: boolean
   description: Sensor present - True = sensor present, False = sensor not present
     
@@ -343,118 +357,118 @@
   unit: kpa
   description: PID 23 - Fuel rail pressure direct inject
   
-- O2SensorsWR:
+- O2WR:
   type: branch
   description: Wide range/band oxygen sensors
   
-- O2SensorsWR.Sensor1:
+- O2WR.Sensor1:
   type: branch
   description: Wide range/band oxygen senor 1
  
-- O2SensorsWR.Sensor1.Voltage:
+- O2WR.Sensor1.Voltage:
   type: float
   unit: V
   description: PID 24 - Lambda voltage for wide range/band oxygen sensor 1
   
-- O2SensorsWR.Sensor1.Current:
+- O2WR.Sensor1.Current:
   type: float
   unit: A
   description: PID 34 - Lambda current for wide range/band oxygen sensor 1
   
-- O2SensorsWR.Sensor2:
+- O2WR.Sensor2:
   type: branch
   description: Wide range/band oxygen senor 2
  
-- O2SensorsWR.Sensor2.Voltage:
+- O2WR.Sensor2.Voltage:
   type: float
   unit: V
   description: PID 25 - Lambda voltage for wide range/band oxygen sensor 2
   
-- O2SensorsWR.Sensor2.Current:
+- O2WR.Sensor2.Current:
   type: float
   unit: A
   description: PID 35 - Lambda current for wide range/band oxygen sensor 2
   
-- O2SensorsWR.Sensor3:
+- O2WR.Sensor3:
   type: branch
   description: Wide range/band oxygen senor 3
  
-- O2SensorsWR.Sensor3.Voltage:
+- O2WR.Sensor3.Voltage:
   type: float
   unit: V
   description: PID 26 - Lambda voltage for wide range/band oxygen sensor 3
   
-- O2SensorsWR.Sensor3.Current:
+- O2WR.Sensor3.Current:
   type: float
   unit: A
   description: PID 36 - Lambda current for wide range/band oxygen sensor 4
   
-- O2SensorsWR.Sensor4:
+- O2WR.Sensor4:
   type: branch
   description: Wide range/band oxygen senor 4
  
-- O2SensorsWR.Sensor4.Voltage:
+- O2WR.Sensor4.Voltage:
   type: float
   unit: V
   description: PID 27 - Lambda voltage for wide range/band oxygen sensor 4
   
-- O2SensorsWR.Sensor4.Current:
+- O2WR.Sensor4.Current:
   type: float
   unit: A
   description: PID 37 - Lambda current for wide range/band oxygen sensor 4
   
-- O2SensorsWR.Sensor5:
+- O2WR.Sensor5:
   type: branch
   description: Wide range/band oxygen senor 5
  
-- O2SensorsWR.Sensor5.Voltage:
+- O2WR.Sensor5.Voltage:
   type: float
   unit: V
   description: PID 28 - Lambda voltage for wide range/band oxygen sensor 5
   
-- O2SensorsWR.Sensor5.Current:
+- O2WR.Sensor5.Current:
   type: float
   unit: A
   description: PID 38 - Lambda current for wide range/band oxygen sensor 5
   
-- O2SensorsWR.Sensor6:
+- O2WR.Sensor6:
   type: branch
   description: Wide range/band oxygen senor 6
  
-- O2SensorsWR.Sensor6.Voltage:
+- O2WR.Sensor6.Voltage:
   type: float
   unit: V
   description: PID 29 - Lambda voltage for wide range/band oxygen sensor 6
   
-- O2SensorsWR.Sensor6.Current:
+- O2WR.Sensor6.Current:
   type: float
   unit: A
   description: PID 39 - Lambda current for wide range/band oxygen sensor 6
   
-- O2SensorsWR.Sensor7:
+- O2WR.Sensor7:
   type: branch
   description: Wide range/band oxygen senor 7
  
-- O2SensorsWR.Sensor7.Voltage:
+- O2WR.Sensor7.Voltage:
   type: float
   unit: V
   description: PID 2A - Lambda voltage for wide range/band oxygen sensor 7
   
-- O2SensorsWR.Sensor7.Current:
+- O2WR.Sensor7.Current:
   type: float
   unit: A
   description: PID 3A - Lambda current for wide range/band oxygen sensor 7
   
-- O2SensorsWR.Sensor8:
+- O2WR.Sensor8:
   type: branch
   description: Wide range/band oxygen senor 8
  
-- O2SensorsWR.Sensor8.Voltage:
+- O2WR.Sensor8.Voltage:
   type: float
   unit: V
   description: PID 2B - Lambda voltage for wide range/band oxygen sensor 8
   
-- O2SensorsWR.Sensor8.Current:
+- O2WR.Sensor8.Current:
   type: float
   unit: A
   description: PID 3B - Lambda current for wide range/band oxygen sensor 8

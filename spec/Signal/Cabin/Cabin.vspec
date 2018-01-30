@@ -73,8 +73,9 @@
   type: branch
   description: Rearview mirror 
 
-- RearviewMirror.Dimmed:
+- RearviewMirror.DimmingLevel:
   type: UInt8
+  unit: percent
   description: Dimming level of rearview mirror. 0 = undimmed. 100 = fully dimmed
 
 

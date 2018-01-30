@@ -49,13 +49,13 @@
 
 
 #
-# Rainsensor description
+# Raindetection description
 #
-- Rainsensor:
+- Raindetection:
   type: branch
   description: Rainsensor signals
 
-- Rainsensor.Intensity:
+- Raindetection.Intensity:
   type: Uint8
   unit: percent
   description: Rain intensity. 0 = Dry, No Rain. 100 = Covered.
@@ -75,20 +75,20 @@
   type: branch
   description: Front windshield signals
 
-- Windshield.Front.Wiper:
+- Windshield.Front.Wiping:
   type: branch
   description: Front windshield wiper signals
 
-- Windshield.Front.Wiper.Status:
+- Windshield.Front.Wiping.Status:
   type: String
   enum: ["off", "slow", "medium", "fast", "interval", "rainsensor"]
   description: Front wiper status
 
-- Windshield.Front.Heater:
+- Windshield.Front.Heating:
   type: branch
   description: Front windshield heater signals
 
-- Windshield.Front.Heater.Status:
+- Windshield.Front.Heating.Status:
   type: Boolean
   description: Front windshield heater status. 0 - off, 1 - on
 
