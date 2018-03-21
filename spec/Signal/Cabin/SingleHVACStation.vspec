@@ -12,8 +12,9 @@
 - FanSpeed:
   type: UInt8
   min: 0
-  max: 20
-  description: Fan Speed, 0 = off. 20 = max
+  max: 100
+  unit: percent
+  description: Fan Speed, 0 = off. 100 = max
 
 - Temperature:
   type: Int8

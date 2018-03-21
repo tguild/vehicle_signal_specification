@@ -256,7 +256,7 @@
 - O2Alt.Bank2.Sensor3:
   type: branch
   description: Alternate oxygen sensor  
-    
+
 - O2Alt.Bank2.Sensor4:
   type: branch
   description: Alternate oxygen sensor  

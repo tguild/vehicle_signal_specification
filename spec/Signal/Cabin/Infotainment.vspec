@@ -61,19 +61,19 @@
   type: branch
   description: All navigation actions
 
-- Navigation.DestinatonSet:
+- Navigation.DestinationSet:
   type: branch
   aggregate: true
   description: A navigation has been selected.
 
-- Navigation.DestinatonSet.Latitude:
+- Navigation.DestinationSet.Latitude:
   type: Double
   min: -90
   max: 90
   unit: degrees
   description: Latitude of destination
 
-- Navigation.DestinatonSet.Longitude:
+- Navigation.DestinationSet.Longitude:
   type: Double
   min: -180
   max: 180
@@ -120,5 +120,5 @@
   type: UInt16
   min: 0
   max: 250
-  unit: m/s
+  unit: km/h
   description: Vehicle speed, as sensed by the GPS receiver.

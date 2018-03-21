@@ -13,9 +13,17 @@
 #
 
 #
+# Engine
+#
+- Engine:
+  type: branch
+  description: Engine signals
+
+
+#
 # Engine rotations per minute
 #
-- RPM:
+- Engine.Speed:
   type: Uint16
   unit: rpm
   min: 0
@@ -26,7 +34,7 @@
 #
 # Engine coolant temperature
 #
-- ECT:
+- Engine.ECT:
   type: Int16
   unit: celsius
   min: -50
@@ -37,7 +45,7 @@
 #
 # Engine Oil Temperature
 #
-- EOT:
+- Engine.EOT:
   type: Int16
   unit: celsius
   min: -50
@@ -48,18 +56,18 @@
 #
 # Manifold Air Pressure
 #
-- MAP:
+- Engine.MAP:
   type: Int16
-  unit: mbar
+  unit: kpa
   min: 0
-  max: 10000
+  max: 1000
   description: Manifold air pressure possibly boosted using forced induction.
 
 
 #
 # Mass Air Flow
 #
-- MAF:
+- Engine.MAF:
   type: Int16
   unit: g/s
   min: 0
@@ -69,7 +77,7 @@
 #
 # Throttle Position
 #
-- TPS:
+- Engine.TPS:
   type: Int8
   unit: percent
   min: 0
@@ -80,18 +88,18 @@
 #
 # Engine Oil Pressure
 #
-- EOP:
+- Engine.EOP:
   type: Int16
-  unit: mbar
+  unit: kpa
   min: 0
-  max: 10000
+  max: 1000
   description: Engine oil pressure.
 
 
 #
 # Current Power
 #
-- Power:
+- Engine.Power:
   type: Int16
   unit: kW
   min: 0
@@ -101,7 +109,7 @@
 #
 # Current Torque 
 #
-- Torque:
+- Engine.Torque:
   type: Int16
   unit: N.m
   min: 0
@@ -111,8 +119,8 @@
 #
 # Current Ambient (Outside) Air Temperature
 #
-- AmbientAirTemperature:
+- Engine.AmbientAirTemperature:
   type: float
   unit: celsius
-  description: Ambient air temperature
+  description: Ambient (Outside) air temperature
 

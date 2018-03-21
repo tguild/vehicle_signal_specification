@@ -34,17 +34,17 @@
   type: Int32
   min: -250
   max: 250
-  unit: m/s
+  unit: km/h
   description: Vehicle speed, as sensed by the gearbox.
 
-- Odometer:
-  type: Uint32
-  unit: m
+- TravelledDistance:
+  type: float
+  unit: km
   description: Odometer reading
 
-- TripMeter:
-  type: Uint32
-  unit: m
+- TripMeterReading:
+  type: float
+  unit: km
   description: Current trip meter reading
 
 - AmbientAirTemperature:
@@ -63,17 +63,17 @@
   
 - Acceleration.X:
   type: Int32
-  unit: cm/s2
+  unit: m/s2
   description: Vehicle acceleration in X (longitudinal acceleration).
   
 - Acceleration.Y:
   type: Int32
-  unit: cm/s2
+  unit: m/s2
   description: Vehicle acceleration in Y (lateral acceleration).  
   
 - Acceleration.Z:
   type: Int32
-  unit: cm/s2
+  unit: m/s2
   description: Vehicle acceleration in Z (vertical acceleration).
   
 
