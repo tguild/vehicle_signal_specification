@@ -56,4 +56,5 @@
   type: Float
   unit: celsius
   description: Tire temperature in Celsius.
+  sensor: Tire Temperature Sensor
 
