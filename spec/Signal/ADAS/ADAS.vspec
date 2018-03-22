@@ -29,15 +29,20 @@
 - CruiseControl.IsActive:
   type: Boolean
   description: Indicates if cruise control system is enabled. True = Enabled. False = Disabled.
+  sensor: Cruise Control System
+  actuator: Cruise Control System
   
 - CruiseControl.SpeedSet:
   type: Int32
   unit: km/h
   description: Set cruise control speed in kilometers per hour
+  sensor: Cruise Control System
+  actuator: Cruise Control System
   
 - CruiseControl.Error:
   type: Boolean
   description: Indicates if cruise control system incurred and error condition. True = Error. False = NoError.
+  sensor: Cruise Control System
 
 #
 # Lane Departure Detection System
