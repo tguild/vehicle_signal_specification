@@ -60,6 +60,8 @@
 - IsHazardOn:
   type: Boolean
   description: Are hazards on
+  sensor: Hazard Light Switch
+  actuator: Hazard Light
 
 - IsLeftIndicatorOn:
   type: Boolean
