@@ -99,13 +99,16 @@
   type: Int16
   unit: degrees/s
   description: Vehicle rotation rate along X (longitudinal).
+  sensor: Gyroscope
   
 - Acceleration.Pitch:
   type: Int16
   unit: degrees/s
   description: Vehicle rotation rate along Y (lateral).  
+  sensor: Gyroscope
   
 - Acceleration.Yaw:
   type: Int16
   unit: degrees/s
   description: Vehicle rotation rate along Z (vertical).    
+  sensor: Gyroscope
