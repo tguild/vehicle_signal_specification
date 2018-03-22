@@ -72,6 +72,8 @@
 - IsRecirculationActive:
   type: Boolean
   description: Is recirculation active.
+  sensor: Recirculation System
+  actuator: Recirculation System
 
 - IsFrontDefrosterActive:
   type: Boolean
