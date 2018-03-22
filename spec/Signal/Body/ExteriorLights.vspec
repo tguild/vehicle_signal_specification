@@ -48,10 +48,14 @@
 - IsRearFogOn:
   type: Boolean
   description: Is rear fog light on
+  sensor: Rear Fog Light Switch
+  actuator: Rear Fog Light
 
 - IsFrontFogOn:
   type: Boolean
   description: Is front fog light on
+  sensor: Front Fog Light Switch
+  actuator: Front Fog Light
 
 - IsHazardOn:
   type: Boolean
