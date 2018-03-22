@@ -112,6 +112,7 @@
   min: 0
   max: 2000
   description: Current engine power output.
+  sensor: Power Meter
 
 #
 # Current Torque 
