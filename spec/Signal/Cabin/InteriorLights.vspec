@@ -41,6 +41,7 @@
   min: 0
   max: 100
   description: Intensity of the interior lights. 0 = Off. 100 = Full brightness.
+  sensor: Light Sensor
 
 #
 # First / front row lights
