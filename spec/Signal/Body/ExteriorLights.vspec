@@ -12,6 +12,8 @@
 - IsHighBeamOn:
   type: Boolean
   description: Is high beam on
+  sensor: High Beam Light Switch
+  actuator: High Beam Light
 
 - IsLowBeamOn:
   type: Boolean
