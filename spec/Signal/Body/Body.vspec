@@ -92,6 +92,8 @@
   type: String
   enum: ["off", "slow", "medium", "fast", "interval", "rainsensor"]
   description: Front wiper status
+  sensor: Wiper Switch
+  actuator: Wiper
 
 - Windshield.Front.Heating:
   type: branch
@@ -100,6 +102,8 @@
 - Windshield.Front.Heating.Status:
   type: Boolean
   description: Front windshield heater status. 0 - off, 1 - on
+  sensor: Windshield Heater Switch
+  actuator: Windshield Heater
 
 - Windshield.Front.WasherFluid:
   type: branch
@@ -108,11 +112,13 @@
 - Windshield.Front.WasherFluid.LevelLow:
   type: Boolean
   description: Low level indication for washer fluid. True = Level Low. False = Level OK.
+  sensor: Washer Fuild Level Sensor
 
 - Windshield.Front.WasherFluid.Level:
   type: Uint8
   unit: percent
   description: Washer fluid level as a percent. 0 = Empty. 100 = Full.
+  sensor: Washer Fuild Level Sensor
 
 #
 # Rear Windshield
@@ -129,6 +135,8 @@
   type: String
   enum: ["off", "slow", "medium", "fast", "interval", "rainsensor"]
   description: Rear wiper status
+  sensor: Wiper Switch
+  actuator: Wiper
 
 - Windshield.Rear.Heater:
   type: branch
@@ -137,6 +145,8 @@
 - Windshield.Rear.Heater.Status:
   type: Boolean
   description: Rear windshield heater status. 0 - off, 1 - on
+  sensor: Windshield Heater Switch
+  actuator: Windshield Heater
 
 - Windshield.Rear.WasherFluid:
   type: branch
@@ -145,11 +155,13 @@
 - Windshield.Rear.WasherFluid.LevelLow:
   type: Boolean
   description: Low level indication for washer fluid. True = Level Low. False = Level OK.
+  sensor: Washer Fuild Level Sensor
 
 - Windshield.Rear.WasherFluid.Level:
   type: Uint8
   unit: percent
   description: Washer fluid level as a percent. 0 = Empty. 100 = Full.
+  sensor: Washer Fuild Level Sensor
 
 
 
