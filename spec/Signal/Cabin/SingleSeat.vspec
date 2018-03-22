@@ -81,6 +81,7 @@
   min: 0
   max: 255
   description: Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated.
+  sensor: Lumbar Position Sensor
 
   
 - Lumbar.Height:
@@ -88,6 +89,7 @@
   min: 0
   max: 255
   description: Lumbar support position. 0 = Lowermost. 255 = Uppermost.
+  sensor: Lumbar Position Sensor
 
 - SideBolster:
   type: branch
@@ -98,6 +100,7 @@
   min: 0
   max: 255
   description: Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated.
+  sensor: Lumbar Pressure Sensor
   
 - HeadRestraint:
   type: branch
@@ -226,18 +229,22 @@
 - Switch.Lumbar.Up:
   type: Boolean
   description: Lumbar up switch engaged
+  actuator: Lumbar Position Actuator
     
 - Switch.Lumbar.Down:
   type: Boolean
   description: Lumbar down switch engaged
+  actuator: Lumbar Position Actuator
     
 - Switch.Lumbar.Inflate:
   type: Boolean
   description: Lumbar inflation switch engaged
+  actuator: Lumbar Pressure Actuator
     
 - Switch.Lumbar.Deflate:
   type: Boolean
   description: Lumbar deflation switch engaged
+  actuator: Lumbar Pressure Actuator
 
 - Switch.SideBolster:
   type: branch
@@ -246,7 +253,9 @@
 - Switch.SideBolster.Inflate:
   type: Boolean
   description: Lumbar inflation switch engaged
+  actuator: Lumbar Pressure Actuator
     
 - Switch.SideBolster.Deflate:
   type: Boolean
   description: Lumbar deflation switch engaged
+  actuator: Lumbar Pressure Actuator
