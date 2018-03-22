@@ -12,6 +12,7 @@
 - HasPassenger:
   type: Boolean
   description: Does the seat have a passenger in it.
+  sensor: Occupant Classification System
   
 - IsBelted:
   type: Boolean
