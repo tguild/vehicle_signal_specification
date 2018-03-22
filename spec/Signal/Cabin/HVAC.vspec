@@ -90,6 +90,8 @@
 - IsAirConditioningActive:
   type: Boolean
   description: Is Air conditioning active.
+  sensor: Air Conditioning System
+  actuaor: Air Conditioning System
 
 - AmbientAirTemperature:
   type: float
