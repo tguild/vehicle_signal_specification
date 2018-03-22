@@ -124,14 +124,18 @@
 - ABS.IsActive:
   type: boolean
   description: Indicates if ABS is enabled. Tue = Enabled. False = Disabled.
+  sensor: Antilock Braking System
+  actuator: Antilock Braking System
   
 - ABS.Error:
   type: boolean
   description: Indicates if ABS incurred an error condition. True = Error. False = No Error.
+  sensor: Antilock Braking System
   
 - ABS.IsEngaged:
   type: boolean
   description: Indicates if ABS is currently regulating brake pressure. True = Engaged. False = Not Engaged.
+  sensor: Antilock Braking System
   
 
 #
