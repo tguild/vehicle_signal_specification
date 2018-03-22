@@ -57,6 +57,7 @@
 - Row1.IsSharedOn:
   type: Boolean
   description: Is light shared across first row on
+  sensor: Light Sensor
 
 - Row1.Left.IsPassengerOn:
   type: Boolean
@@ -83,6 +84,7 @@
 - Row2.IsSharedOn:
   type: Boolean
   description: Is light shared across second row on
+  sensor: Light Sensor
 
 - Row2.Left.IsPassengerOn:
   type: Boolean
@@ -110,6 +112,7 @@
 - Row3.IsSharedOn:
   type: Boolean
   description: Is light shared third across row on
+  sensor: Light Sensor
 
 - Row3.Left.IsPassengerOn:
   type: Boolean
@@ -137,6 +140,7 @@
 - Row4.IsSharedOn:
   type: Boolean
   description: Is light shared across fourth row on
+  sensor: Light Sensor
 
 - Row4.Left.IsPassengerOn:
   type: Boolean
