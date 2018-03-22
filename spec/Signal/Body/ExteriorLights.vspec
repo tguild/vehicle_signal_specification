@@ -24,6 +24,8 @@
 - IsRunningOn:
   type: Boolean
   description: Are running lights on
+  sensor: Running Light Switch
+  actuator: Running Light
 
 - IsBackupOn:
   type: Boolean
