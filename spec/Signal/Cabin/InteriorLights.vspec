@@ -24,6 +24,8 @@
 - IsDomeOn:
   type: Boolean
   description: Is central dome light light on
+  sensor: Dome Light
+  actuator: Dome Light
 
 - AmbientLightSensor:
   type: UInt8
