@@ -21,3 +21,4 @@
   min: 0
   max: 100
   description: Remaining capacity of the batter pack
+  sensor: Battery Monitor
