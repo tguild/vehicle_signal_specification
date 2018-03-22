@@ -17,6 +17,7 @@
 - IsBelted:
   type: Boolean
   description: Is the belt engaged.
+  sensor: Belt Sensor
   
 - Heating:
   type: Int8
