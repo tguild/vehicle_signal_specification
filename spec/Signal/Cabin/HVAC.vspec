@@ -78,10 +78,14 @@
 - IsFrontDefrosterActive:
   type: Boolean
   description: Is front defroster active.
+  sensor: Defroster
+  actuator: Defroster
 
 - IsRearDefrosterActive:
   type: Boolean
   description: Is rear defroster active.
+  sensor: Defroster
+  actuator: Defroster
 
 - IsAirConditioningActive:
   type: Boolean
