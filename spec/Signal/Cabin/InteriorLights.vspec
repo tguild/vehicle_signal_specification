@@ -62,6 +62,8 @@
 - Row1.Left.IsPassengerOn:
   type: Boolean
   description: Is passenger light on
+  sensor: Passenger Light
+  actuator: Passenger Light
 
 - Row1.Right:
   type: branch
@@ -70,6 +72,8 @@
 - Row1.Right.IsPassengerOn:
   type: Boolean
   description: Is passenger light on
+  sensor: Passenger Light
+  actuator: Passenger Light
 
 
 
@@ -89,6 +93,8 @@
 - Row2.Left.IsPassengerOn:
   type: Boolean
   description: Is passenger light on
+  sensor: Passenger Light
+  actuator: Passenger Light
 
 - Row2.Right:
   type: branch
@@ -97,6 +103,8 @@
 - Row2.Right.IsPassengerOn:
   type: Boolean
   description: Is passenger light on
+  sensor: Passenger Light
+  actuator: Passenger Light
 
 
 
@@ -117,6 +125,8 @@
 - Row3.Left.IsPassengerOn:
   type: Boolean
   description: Is passenger light on
+  sensor: Passenger Light
+  actuator: Passenger Light
 
 - Row3.Right:
   type: branch
@@ -125,6 +135,8 @@
 - Row3.Right.IsPassengerOn:
   type: Boolean
   description: Is passenger light on
+  sensor: Passenger Light
+  actuator: Passenger Light
 
 
 
@@ -145,6 +157,8 @@
 - Row4.Left.IsPassengerOn:
   type: Boolean
   description: Is passenger light on
+  sensor: Passenger Light
+  actuator: Passenger Light
 
 - Row4.Right:
   type: branch
@@ -153,3 +167,5 @@
 - Row4.Right.IsPassengerOn:
   type: Boolean
   description: Is passenger light on
+  sensor: Passenger Light
+  actuator: Passenger Light
