@@ -85,6 +85,8 @@
   max: 90
   unit: degrees
   description: Latitude of destination
+  sensor: GPS
+  actuator: GPS
 
 - Navigation.DestinationSet.Longitude:
   type: Double
@@ -92,6 +94,8 @@
   max: 180
   unit: degrees
   description: Longitude of destination
+  sensor: GPS
+  actuator: GPS
 
 - Navigation.CurrentLocation:
   type: branch
@@ -104,6 +108,7 @@
   max: 90
   unit: degrees
   description: Current latitude of vehicle, as reported by GPS.
+  sensor: GPS
 
 - Navigation.CurrentLocation.Longitude:
   type: Double
@@ -111,6 +116,7 @@
   max: 180
   unit: degrees
   description: Current longitude of vehicle, as reported by GPS.
+  sensor: GPS
 
 - Navigation.CurrentLocation.Heading:
   type: Double
@@ -118,11 +124,13 @@
   max: 360
   unit: degrees
   description: Current magnetic compass heading, in degrees.
+  sensor: GPS
 
 - Navigation.CurrentLocation.Accuracy:
   type: Double
   unit: m
   description: Accuracy level of the latitude and longitude coordinates in meters.
+  sensor: GPS
 
 - Navigation.CurrentLocation.Altitude:
   type: Double
@@ -135,3 +143,4 @@
   max: 250
   unit: km/h
   description: Vehicle speed, as sensed by the GPS receiver.
+  sensor: GPS
