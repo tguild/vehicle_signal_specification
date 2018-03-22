@@ -132,4 +132,5 @@
   type: float
   unit: celsius
   description: Ambient (Outside) air temperature
+  sensor: Thermometer
 
