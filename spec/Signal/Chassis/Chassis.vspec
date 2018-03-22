@@ -120,6 +120,7 @@
   max: 100
   unit: percent
   description: Accelerator pedal position as percent. 0 = Not depressed. 100 = Fully depressed.
+  sensor: Pedal Position Sensor
   
   
 #
