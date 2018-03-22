@@ -15,11 +15,13 @@
   min: 0
   max: 100
   description: Level in fuel tank as percent of capacity. 0 = empty. 100 = full.
+  sensor: Fuel Tank Level Sensor
   
 - Range:
   type: Uint32
   unit: m
   description: Range in meters.
+  sensor: Fuel Tank Level Sensor
   
 - InstantConsumption:
   type: Float
