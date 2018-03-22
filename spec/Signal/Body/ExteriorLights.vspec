@@ -18,7 +18,8 @@
 - IsLowBeamOn:
   type: Boolean
   description: Is low beam on
-
+  sensor: Low Beam Light Switch
+  actuator: Low Beam Light
 
 - IsRunningOn:
   type: Boolean
