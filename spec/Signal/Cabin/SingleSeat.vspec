@@ -61,6 +61,7 @@
   max: 500
   unit: mm
   description: Height of the seat front. 0 = Lowermost. 500 = Uppermost.
+  sensor: Cushion Position Sensor
 
 - Cushion.Length:
   type: UInt16
@@ -68,6 +69,7 @@
   max: 500
   unit: mm
   description: Forward length of cushion (leg support). 0 = Rearmost. 500 = Forwardmost.
+  sensor: Cushion Position Sensor
 
 
 - Lumbar:
@@ -200,18 +202,22 @@
 - Switch.Cushion.Up:
   type: Boolean
   description: Seat cushion up switch engaged
+  actuator: Cushion Position Actuator
 
 - Switch.Cushion.Down:
   type: Boolean
   description: Seat cushion down switch engaged
+  actuator: Cushion Position Actuator
 
 - Switch.Cushion.Forward:
   type: Boolean
   description: Seat cushion forward/lengthen switch engaged
+  actuator: Cushion Position Actuator
 
 - Switch.Cushion.Backward:
   type: Boolean
   description: Seat cushion backward/shorten switch engaged
+  actuator: Cushion Position Actuator
 
 - Switch.Lumbar:
   type: branch
