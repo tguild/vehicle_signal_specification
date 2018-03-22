@@ -77,10 +77,13 @@
 - ObstacleDetection.IsActive:
   type: boolean
   description: Indicates if obstacle sensor system is enabled. Tue = Enabled. False = Disabled.
+  sensor: Obstacle Detection Sensor
+  actuator: Obstacle Detection Sensor
   
 - ObstacleDetection.Error:
   type: boolean
   description: Indicates if obstacle sensor system incurred an error condition. True = Error. False = No Error.
+  sensor: Obstacle Detection Sensor
   
 - ObstacleDetection.DistanceToObject:
   type: branch
@@ -90,21 +93,25 @@
   type: Uint16
   unit: m
   description: Front left distance to object in meters
+  sensor: Obstacle Detection Sensor
 
 - ObstacleDetection.DistanceToObject.FrontRight:
   type: Uint16
   unit: m
   description: Front right distance to object in meters
+  sensor: Obstacle Detection Sensor
 
 - ObstacleDetection.DistanceToObject.RearLeft:
   type: Uint16
   unit: m
   description: Rear left distance to object in meters
+  sensor: Obstacle Detection Sensor
 
 - ObstacleDetection.DistanceToObject.RearRight:
   type: Uint16
   unit: m
   description: Rear right distance to object in meters
+  sensor: Obstacle Detection Sensor
 
 
 #
