@@ -148,14 +148,18 @@
 - TCS.IsActive:
   type: boolean
   description: Indicates if TCS is enabled. Tue = Enabled. False = Disabled.
+  sensor: Traction Control System
+  actuator: Traction Control System
   
 - TCS.Error:
   type: boolean
   description: Indicates if TCS incurred an error condition. True = Error. False = No Error.
+  sensor: Traction Control System
   
 - TCS.IsEngaged:
   type: boolean
   description: Indicates if TCS is currently regulating traction. True = Engaged. False = Not Engaged.
+  sensor: Traction Control System
   
   
 #
