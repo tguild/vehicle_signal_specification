@@ -42,6 +42,8 @@
 - IsBrakeOn:
   type: Boolean
   description: Is brake light on
+  sensor: Brake Light Switch
+  actuator: Brake Light
 
 - IsRearFogOn:
   type: Boolean
