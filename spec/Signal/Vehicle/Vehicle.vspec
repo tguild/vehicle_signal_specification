@@ -46,11 +46,13 @@
   type: float
   unit: km
   description: Odometer reading
+  sensor: Odometer
 
 - TripMeterReading:
   type: float
   unit: km
   description: Current trip meter reading
+  sensor: Odometer
 
 - AmbientAirTemperature:
   type: float
