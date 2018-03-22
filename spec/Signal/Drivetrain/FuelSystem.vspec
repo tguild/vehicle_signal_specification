@@ -28,17 +28,20 @@
   unit: l/100km
   min: 0
   description: Current consumption in liters per 100 km.
+  sensor: Flow Sensor
   
 - AverageConsumption:
   type: Float
   unit: l/100km
   min: 0
   description: Average consumption in liters per 100 km.
+  sensor: Flow Sensor
   
 - ConsumptionSinceStart:
   type: Float
   unit: l
   description: Fuel amount consumed since start in liters.
+  sensor: Flow Sensor
   
 - TimeSinceStart:
   type: Uint32
