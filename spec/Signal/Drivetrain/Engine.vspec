@@ -41,6 +41,7 @@
   min: -50
   max: 200
   description: Engine coolant temperature.
+  sensor: Coolant Thermometer
 
 
 #
@@ -52,6 +53,7 @@
   min: -50
   max: 300
   description: Engine oil temperature.
+  sensor: Oil Thermometer
 
 
 #
