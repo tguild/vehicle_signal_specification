@@ -52,6 +52,8 @@
 - Horn.IsActive:
   type: Boolean
   description: Horn active or inactive. True = Active. False = Inactive.
+  sensor: Horn System
+  actuator: Horn System
 
 
 #
