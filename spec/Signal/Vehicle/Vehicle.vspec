@@ -40,6 +40,7 @@
   max: 250
   unit: km/h
   description: Vehicle speed, as sensed by the gearbox.
+  sensor: Speedometer
 
 - TravelledDistance:
   type: float
