@@ -67,6 +67,7 @@
   type: Uint8
   unit: percent
   description: Rain intensity. 0 = Dry, No Rain. 100 = Covered.
+  sensor: Rain Sensor
 
 
 #
