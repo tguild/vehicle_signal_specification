@@ -58,6 +58,7 @@
   type: float
   unit: celsius
   description: Ambient air temperature
+  sensor: Thermometer
 
 
 
