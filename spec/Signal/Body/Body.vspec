@@ -32,10 +32,14 @@
 - Trunk.IsOpen:
   type: Boolean
   description: Trunk open or closed. True = Open. False = Closed
+  sensor: Trunk Latch
+  actuator: Trunk Latch
 
 - Trunk.IsLocked:
   type: Boolean
   description: Is trunk locked or unlocked. True = Locked. False = Unlocked.
+  sensor: Trunk Lock
+  actuator: Trunk Lock
 
 
 #
