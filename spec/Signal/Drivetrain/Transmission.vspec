@@ -86,3 +86,4 @@
   type: Uint8
   unit: percent
   description: Clutch wear as a percent. 0 = no wear. 100 = worn.
+  sensor: Clutch Wear Indicator
