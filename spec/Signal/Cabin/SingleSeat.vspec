@@ -121,6 +121,7 @@
 - Airbag.IsDeployed:
   type: Boolean
   description: Airbag deployment status. True = Airbag deployed. False = Airbag not deployed.
+  sensor: Airbag System
   
 
 #--------------------------------------
