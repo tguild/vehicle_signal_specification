@@ -36,6 +36,8 @@
 - IsParkingOn:
   type: Boolean
   description: Is parking light on
+  sensor: Parking Light Switch
+  actuator: Parking Light
 
 - IsBrakeOn:
   type: Boolean
