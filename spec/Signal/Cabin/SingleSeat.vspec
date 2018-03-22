@@ -25,6 +25,7 @@
   max: 100
   unit: percent
   description: Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat
+  sensor: Seat Heater
 
 - Massage:
   type: UInt8
@@ -122,10 +123,12 @@
 - Switch.Warmer:
   type: Boolean
   description: Warmer switch for Seat heater
+  actuator: Seat Heater
 
 - Switch.Cooler:
   type: Boolean
   description: Cooler switch for Seat heater
+  actuator: Seat Cooler
 
 - Switch.Forward:
   type: Boolean
