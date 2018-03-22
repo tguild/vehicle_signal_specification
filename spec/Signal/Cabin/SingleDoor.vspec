@@ -17,6 +17,8 @@
 - IsLocked:
   type: Boolean
   description: Is door locked or unlocked. True = Locked. False = Unlocked.
+  sensor: Door Lock
+  actuator: Door Lock
 
 
 #
