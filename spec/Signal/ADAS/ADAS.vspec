@@ -172,11 +172,15 @@
 - ESC.IsActive:
   type: boolean
   description: Indicates if ECS is enabled. Tue = Enabled. False = Disabled.
+  sensor: Electronic Stability Control System
+  actuator: Electronic Stability Control System
   
 - ESC.Error:
   type: boolean
   description: Indicates if ESC incurred an error condition. True = Error. False = No Error.
+  sensor: Electronic Stability Control System
   
 - ESC.IsEngaged:
   type: boolean
   description: Indicates if ESC is currently regulating vehicle stability. True = Engaged. False = Not Engaged.
+  sensor: Electronic Stability Control System
