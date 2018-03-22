@@ -77,6 +77,7 @@
   min: 0
   max: 3000
   description: Grams of air drawn into engine per second.
+  sensor: Mass Air Flow Sensor
 
 #
 # Throttle Position
