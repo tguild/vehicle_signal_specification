@@ -18,6 +18,8 @@
 - IsTrunkOn:
   type: Boolean
   description: Is trunk light light on
+  sensor: Trunk Light
+  actuator: Trunk Light
 
 - IsDomeOn:
   type: Boolean
