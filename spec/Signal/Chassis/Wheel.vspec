@@ -26,10 +26,12 @@
 - Brake.PadWear:
   type: Uint8
   description: Brake pad wear as percent. 0 = No Wear. 100 = Worn.
+  sensor: Brake Pad Wear Sensor
 
 - Brake.BrakesWorn:
   type: Boolean
   description: Brake pad wear status. True = Worn. False = Not Worn.
+  sensor: Brake Pad Wear Sensor
 
 
 #
