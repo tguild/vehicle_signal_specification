@@ -34,6 +34,7 @@
   max: 100
   unit: percent
   description: Window position. 0 = Fully closed 100 = Fully opened.
+  sensor: Window Position Sensor
 
 
 # Include the window controlling switch and attach it to the
