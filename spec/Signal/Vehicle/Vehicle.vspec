@@ -73,16 +73,19 @@
   type: Int32
   unit: m/s2
   description: Vehicle acceleration in X (longitudinal acceleration).
+  sensor: Accelerometer
   
 - Acceleration.Y:
   type: Int32
   unit: m/s2
   description: Vehicle acceleration in Y (lateral acceleration).  
+  sensor: Accelerometer
   
 - Acceleration.Z:
   type: Int32
   unit: m/s2
   description: Vehicle acceleration in Z (vertical acceleration).
+  sensor: Accelerometer
   
 
 #
