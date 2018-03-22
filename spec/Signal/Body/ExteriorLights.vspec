@@ -66,7 +66,11 @@
 - IsLeftIndicatorOn:
   type: Boolean
   description: Is left indicator flashing
+  sensor: Left Indicator Switch
+  actuator: Left Indicator Light
 
 - IsRightIndicatorOn:
   type: Boolean
   description: Is right indicator flashing
+  sensor: Right Indicator Switch
+  actuator: Right Indicator Light
