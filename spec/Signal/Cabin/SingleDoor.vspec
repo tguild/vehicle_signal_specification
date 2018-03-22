@@ -11,6 +11,8 @@
 - IsOpen:
   type: Boolean
   description: Is door open or closed
+  sensor: Door Contact Sensor
+  actuator: Door Contact Actuator
 
 - IsLocked:
   type: Boolean
