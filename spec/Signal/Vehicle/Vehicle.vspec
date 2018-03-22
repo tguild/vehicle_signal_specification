@@ -91,23 +91,23 @@
 #
 # Spacial Rotation
 #
-- Gyro:
+- AngularVelocity:
   type: branch
   description: Spacial rotation
   
-- Gyro.Roll:
+- AngularVelocity.Roll:
   type: Int16
   unit: degrees/s
   description: Vehicle rotation rate along X (longitudinal).
   sensor: Gyroscope
   
-- Acceleration.Pitch:
+- AngularVelocity.Pitch:
   type: Int16
   unit: degrees/s
   description: Vehicle rotation rate along Y (lateral).  
   sensor: Gyroscope
   
-- Acceleration.Yaw:
+- AngularVelocity.Yaw:
   type: Int16
   unit: degrees/s
   description: Vehicle rotation rate along Z (vertical).    
