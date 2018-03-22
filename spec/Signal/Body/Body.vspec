@@ -19,6 +19,8 @@
 - Hood.IsOpen:
   type: Boolean
   description: hood open or closed. True = Open. False = Closed
+  sensor: Hood Latch
+  actuator: Hood Latch
 
 #
 # Trunk description
