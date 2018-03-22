@@ -16,10 +16,12 @@
   type: Uint8
   unit: percent
   description: Brake fluid level as percent. 0 = Empty. 100 = Full.
+  sensor: Brake Fluid Level Sensor
 
 - Brake.FluidLevelLow:
   type: Boolean
   description: Brake fluid level status. True = Brake fluid level low. False = Brake fluid level OK.
+  sensor: Brake Fluid Level Sensor
   
 - Brake.PadWear:
   type: Uint8
