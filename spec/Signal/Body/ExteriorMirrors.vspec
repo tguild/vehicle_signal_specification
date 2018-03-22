@@ -20,6 +20,8 @@
   type: Int8
   unit: percent
   description: Mirror pan as a percent. 0 = Center Position. 100 = Fully Left Position. -100 = Fully Right Position.
+  sensor: Mirror Pan Sensor
+  actuator: Mirror Pan Actuator
 
 - Heating:
   type: branch
