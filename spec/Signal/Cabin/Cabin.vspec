@@ -79,6 +79,8 @@
   type: UInt8
   unit: percent
   description: Dimming level of rearview mirror. 0 = undimmed. 100 = fully dimmed
+  sensor: Dimming System
+  actuator: Dimming System
 
 
 ##
