@@ -33,6 +33,7 @@
   max: 100
   unit: percent
   description: Seat massage level. 0 = off. 100 = max massage.
+  sensor: Massage System
 
 - Recline:
   type: Int8
@@ -40,6 +41,7 @@
   max: 90
   unit: degrees
   description: Recline level. -90 = Max forward recline. 90 max backward recline
+  sensor: Seat Position Sensor
 
 - Position:
   type: UInt16
@@ -47,6 +49,7 @@
   max: 1000
   unit: mm
   description: Seat horizontal position. 0 = Frontmost. 1000 = Rearmost
+  sensor: Seat Position Sensor
 
 - Cushion:
   type: branch
@@ -133,18 +136,22 @@
 - Switch.Forward:
   type: Boolean
   description: Seat forward switch engaged
+  actuator: Seat Position Actuator
 
 - Switch.Backward:
   type: Boolean
   description: Seat forward switch engaged
+  actuator: Seat Position Actuator
 
 - Switch.Up:
   type: Boolean
   description: Seat up switch engaged
+  actuator: Seat Position Actuator
 
 - Switch.Down:
   type: Boolean
   description: Seat down switch engaged
+  actuator: Seat Position Actuator
 
 - Switch.HeadRestraint:
   type: branch
@@ -165,10 +172,12 @@
 - Switch.Massage.Increase:
   type: Boolean
   description: Increase massage level switch engaged
+  actuator: Massage System
 
 - Switch.Massage.Decrease:
   type: Boolean
   description: Decrease massage level switch engaged
+  actuator: Massage System
 
 - Switch.Recline:
   type: branch
@@ -177,10 +186,12 @@
 - Switch.Recline.Backward:
   type: Boolean
   description: Seatback recline backward switch engaged
+  actuator: Seat Position Actuator
 
 - Switch.Recline.Forward:
   type: Boolean
   description: Seatback recline forward switch engaged
+  actuator: Seat Position Actuator
 
 - Switch.Cushion:
   type: branch
