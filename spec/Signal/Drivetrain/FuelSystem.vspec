@@ -47,3 +47,4 @@
   type: Uint32
   unit: s
   description: Time elapsed since start in seconds.
+  sensor: Timer
