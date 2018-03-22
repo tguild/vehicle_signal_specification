@@ -12,6 +12,8 @@
 - IsGloveBoxOn:
   type: Boolean
   description: Is glove box light on
+  sensor: Glove Box Light
+  actuator: Glove Box Light
 
 - IsTrunkOn:
   type: Boolean
