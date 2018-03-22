@@ -71,6 +71,8 @@
 - ParkingBrake.IsEngaged:
   type: Boolean
   description: Parking brake status. True = Parking Brake is Engaged. False = Parking Brake is not Engaged.
+  sensor: Parking Brake Sensor
+  actuator: Parking Brake Switch
   
 
 #
