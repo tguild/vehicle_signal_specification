@@ -13,6 +13,8 @@
   type: Int8
   unit: percent
   description: Mirror tilt as a percent. 0 = Center Position. 100 = Fully Upward Position. -100 = Fully Downward Position.
+  sensor: Mirror Tilt Sensor
+  actuator: Mirror Tilt Actuator
 
 - Pan:
   type: Int8
