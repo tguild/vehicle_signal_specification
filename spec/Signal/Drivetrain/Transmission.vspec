@@ -31,6 +31,7 @@
   type: Float
   unit: km
   description: Odometer reading
+  sensor: Odometer
 
  
 #
