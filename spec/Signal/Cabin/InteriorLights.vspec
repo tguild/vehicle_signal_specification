@@ -27,12 +27,13 @@
   sensor: Dome Light
   actuator: Dome Light
 
-- AmbientLightSensor:
+- AmbientLight:
   type: UInt8
   unit: percent
   min: 0
   max: 100
   description: How much ambient light is detected in cabin. 0 = No ambient light. 100 = Full brightness
+  sensor: Light Sensor
 
 - LightIntensity:
   type: UInt8
