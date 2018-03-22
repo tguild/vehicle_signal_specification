@@ -30,6 +30,8 @@
 - IsBackupOn:
   type: Boolean
   description: Is backup (reverse) light on
+  sensor: Backup Light Switch
+  actuator: Backup Light
 
 - IsParkingOn:
   type: Boolean
