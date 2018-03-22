@@ -50,6 +50,7 @@
   min: -100
   max: 100
   description: Sunroof position. 0 = Fully closed 100 = Fully opened. -100 = Fully tilted
+  sensor: Sunroof Position Sensor
                
 #
 # Sunroof controlling switch. 
@@ -58,6 +59,7 @@
   type: String
   enum: [ "Inactive", "Close", "Open", "OneShotClose", "OneShotOpen", "TiltUp", "TiltDown" ]
   description: Switch controlling sliding action such as window, sunroof, or shade.
+  actuator: Sunroof Position Actuator
 
 - Sunroof.Shade:
   type: branch
