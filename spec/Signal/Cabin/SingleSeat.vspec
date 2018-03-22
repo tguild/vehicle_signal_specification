@@ -112,6 +112,7 @@
   max: 255
   unit: mm
   description: Height of head restraint. 0 = Bottommost. 255 = Topmost.
+  sensor: Head Restraint Sensor
   
 - Airbag:
   type: branch
@@ -165,10 +166,12 @@
 - Switch.HeadRestraint.Up:
   type: Boolean
   description: Head restraint up switch engaged
+  actuator: Head Restraint Actuator
 
 - Switch.HeadRestraint.Down:
   type: Boolean
   description: Head restraint down switch engaged
+  actuator: Head Restraint Actuator
 
 - Switch.Massage:
   type: branch
