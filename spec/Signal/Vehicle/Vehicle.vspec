@@ -69,19 +69,19 @@
   type: branch
   description: Spacial acceleration
   
-- Acceleration.X:
+- Acceleration.Longitudinal:
   type: Int32
   unit: m/s2
   description: Vehicle acceleration in X (longitudinal acceleration).
   sensor: Accelerometer
   
-- Acceleration.Y:
+- Acceleration.Lateral:
   type: Int32
   unit: m/s2
   description: Vehicle acceleration in Y (lateral acceleration).  
   sensor: Accelerometer
   
-- Acceleration.Z:
+- Acceleration.Vertical:
   type: Int32
   unit: m/s2
   description: Vehicle acceleration in Z (vertical acceleration).
