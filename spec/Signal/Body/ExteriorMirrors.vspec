@@ -30,4 +30,6 @@
 - Heating.Status:
   type: Boolean
   description: Mirror Heater on or off. True = Heater On. False = Heater Off.
+  sensor: Mirror heater
+  actuator: Mirror heater
 
