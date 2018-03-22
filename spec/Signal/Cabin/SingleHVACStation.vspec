@@ -31,3 +31,5 @@
   type: string
   enum: [ "up", "middle", "down" ]
   description: Direction of airstream
+  sensor: Fan Sensor
+  actuator: Fan Control
