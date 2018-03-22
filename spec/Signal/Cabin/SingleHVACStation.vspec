@@ -15,6 +15,8 @@
   max: 100
   unit: percent
   description: Fan Speed, 0 = off. 100 = max
+  sensor: Fan Sensor
+  actuator: Fan Control
 
 - Temperature:
   type: Int8
