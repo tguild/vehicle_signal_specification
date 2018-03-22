@@ -86,6 +86,7 @@
   type: Int16
   unit: degrees
   description: Steering wheel angle. Positive = degrees to the left. Negative = degrees to the right.
+  sensor: Steering Wheel Angle Sensor
   
 - SteeringWheel.Tilt:
   type: Uint8
