@@ -54,14 +54,18 @@
 - LaneDepartureDetection.IsActive:
   type: Boolean
   description: Indicates if lane departure detection system is enabled. True = Enabled. False = Disabled.
+  sensor: Lane Departure Detection Sensor
+  actuator: Lane Departure Detection Sensor
   
 - LaneDepartureDetection.Warning:
   type: Boolean
   description: Indicates if lane departure detection registered a lane departure
+  sensor: Lane Departure Detection Sensor
   
 - LaneDepartureDetection.Error:
   type: Boolean
   description: Indicates if lane departure system incurred an error condition. True = Error. False = No Error.
+  sensor: Lane Departure Detection Sensor
 
 #
 # Obstacle Sensor System
