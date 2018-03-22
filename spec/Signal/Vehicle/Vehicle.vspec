@@ -14,21 +14,25 @@
   type: Uint32
   unit: s
   description: Accumulated ignition on time in seconds.
+  sensor: Timer
   
 - IgnitionOffTime:
   type: Uint32
   unit: s
   description: Accumulated ignition off time in seconds.  
+  sensor: Timer
   
 - DriveTime:
   type: Uint32
   unit: s
   description: Accumulated drive time in seconds.
+  sensor: Timer
   
 - IdleTime:
   type: Uint32
   unit: s
   description: Accumulated idle time in seconds.
+  sensor: Timer
   
 - Speed:
   type: Int32
