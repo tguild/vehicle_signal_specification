@@ -177,6 +177,9 @@ V          | Electrical    | potential difference in volt
 A          | Electrical    | current in amperes
 ... | ... | ...
 
+### <a name="signal-sensor-actuator"/>SIGNAL SENSOR & ACTUATOR [OPTIONAL]
+A signal can optionally specify a sensor and/or actuator respectively producing or consuming the signal.
+They are independant from the technology used.
 
 ## <a name="attribute-entry"/>ATTRIBUTE ENTRY
 An attribute is an entry, such as vehicle weight or fuel type, with a static
@@ -309,6 +312,7 @@ entry example is given below:
 	min: 0
 	max: 300
 	description: The vehicle speed, as measured by the drivetrain.
+	sensor: Speedometer
 ```
 
 * **```Drivetrain.Transmission.Speed```**<br>
@@ -340,6 +344,11 @@ cannot be specified if ```enum``` is specified as the signal type.
 A description string to be included (when applicable) in the various
 specification files generated from this signal entry.
 
+* **```sensor```[optional]**<br>
+The sensing appliance used to produce the signal.
+
+* **```actuator```[optional]**<br>
+The actuating appliance consuming the signal.
 
 ## ENUMERATED SIGNAL ENTRY
 A signal can optionally be enumerated, allowing it to be assigned a value from a
@@ -351,6 +360,8 @@ specified set of values. An example of an enumerated signal is given below:
 	type: Uint16,
 	enum: [ -1, 1, 2, 3, 4, 5, 6, 7, 8 ]
 	description: The selected gear. -1 is reverse.
+	sensor: Gearbox
+	actuator: Gearbox
 ```
 
 An enumerated signal entry has no ```min```, ```max```, or ```unit```
@@ -374,6 +385,7 @@ entry example is given below:
 	min: 0
 	max: 300
 	description: The vehicle speed, as measured by the drivetrain.
+	sensor: Speedometer
 ```
 
 * **```Drivetrain.Transmission.Speed```**<br>
@@ -404,6 +416,12 @@ cannot be specified if ```enum``` is specified as the signal type.
 * **```description```**<br>
 A description string to be included (when applicable) in the various
 specification files generated from this signal entry.
+
+* **```sensor```[optional]**<br>
+The sensing appliance used to produce the signal.
+
+* **```actuator```[optional]**<br>
+The actuating appliance consuming the signal.
 
 
 ## <a name="attributes"/>ATTRIBUTES
