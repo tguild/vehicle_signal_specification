@@ -13,6 +13,7 @@
   type: float
   unit: celsius
   description: Temperature of the battery pack
+  sensor: Thermometer
   
 - BatteryCapacity:
   type: int8
@@ -20,3 +21,4 @@
   min: 0
   max: 100
   description: Remaining capacity of the batter pack
+  sensor: Battery Monitor

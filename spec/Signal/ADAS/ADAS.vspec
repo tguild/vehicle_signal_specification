@@ -29,15 +29,20 @@
 - CruiseControl.IsActive:
   type: Boolean
   description: Indicates if cruise control system is enabled. True = Enabled. False = Disabled.
+  sensor: Cruise Control System
+  actuator: Cruise Control System
   
 - CruiseControl.SpeedSet:
   type: Int32
   unit: km/h
   description: Set cruise control speed in kilometers per hour
+  sensor: Cruise Control System
+  actuator: Cruise Control System
   
 - CruiseControl.Error:
   type: Boolean
   description: Indicates if cruise control system incurred and error condition. True = Error. False = NoError.
+  sensor: Cruise Control System
 
 #
 # Lane Departure Detection System
@@ -49,14 +54,18 @@
 - LaneDepartureDetection.IsActive:
   type: Boolean
   description: Indicates if lane departure detection system is enabled. True = Enabled. False = Disabled.
+  sensor: Lane Departure Detection Sensor
+  actuator: Lane Departure Detection Sensor
   
 - LaneDepartureDetection.Warning:
   type: Boolean
   description: Indicates if lane departure detection registered a lane departure
+  sensor: Lane Departure Detection Sensor
   
 - LaneDepartureDetection.Error:
   type: Boolean
   description: Indicates if lane departure system incurred an error condition. True = Error. False = No Error.
+  sensor: Lane Departure Detection Sensor
 
 #
 # Obstacle Sensor System
@@ -68,10 +77,13 @@
 - ObstacleDetection.IsActive:
   type: boolean
   description: Indicates if obstacle sensor system is enabled. Tue = Enabled. False = Disabled.
+  sensor: Obstacle Detection Sensor
+  actuator: Obstacle Detection Sensor
   
 - ObstacleDetection.Error:
   type: boolean
   description: Indicates if obstacle sensor system incurred an error condition. True = Error. False = No Error.
+  sensor: Obstacle Detection Sensor
   
 - ObstacleDetection.DistanceToObject:
   type: branch
@@ -81,21 +93,25 @@
   type: Uint16
   unit: m
   description: Front left distance to object in meters
+  sensor: Obstacle Detection Sensor
 
 - ObstacleDetection.DistanceToObject.FrontRight:
   type: Uint16
   unit: m
   description: Front right distance to object in meters
+  sensor: Obstacle Detection Sensor
 
 - ObstacleDetection.DistanceToObject.RearLeft:
   type: Uint16
   unit: m
   description: Rear left distance to object in meters
+  sensor: Obstacle Detection Sensor
 
 - ObstacleDetection.DistanceToObject.RearRight:
   type: Uint16
   unit: m
   description: Rear right distance to object in meters
+  sensor: Obstacle Detection Sensor
 
 
 #
@@ -108,14 +124,18 @@
 - ABS.IsActive:
   type: boolean
   description: Indicates if ABS is enabled. Tue = Enabled. False = Disabled.
+  sensor: Antilock Braking System
+  actuator: Antilock Braking System
   
 - ABS.Error:
   type: boolean
   description: Indicates if ABS incurred an error condition. True = Error. False = No Error.
+  sensor: Antilock Braking System
   
 - ABS.IsEngaged:
   type: boolean
   description: Indicates if ABS is currently regulating brake pressure. True = Engaged. False = Not Engaged.
+  sensor: Antilock Braking System
   
 
 #
@@ -128,14 +148,18 @@
 - TCS.IsActive:
   type: boolean
   description: Indicates if TCS is enabled. Tue = Enabled. False = Disabled.
+  sensor: Traction Control System
+  actuator: Traction Control System
   
 - TCS.Error:
   type: boolean
   description: Indicates if TCS incurred an error condition. True = Error. False = No Error.
+  sensor: Traction Control System
   
 - TCS.IsEngaged:
   type: boolean
   description: Indicates if TCS is currently regulating traction. True = Engaged. False = Not Engaged.
+  sensor: Traction Control System
   
   
 #
@@ -148,11 +172,15 @@
 - ESC.IsActive:
   type: boolean
   description: Indicates if ECS is enabled. Tue = Enabled. False = Disabled.
+  sensor: Electronic Stability Control System
+  actuator: Electronic Stability Control System
   
 - ESC.Error:
   type: boolean
   description: Indicates if ESC incurred an error condition. True = Error. False = No Error.
+  sensor: Electronic Stability Control System
   
 - ESC.IsEngaged:
   type: boolean
   description: Indicates if ESC is currently regulating vehicle stability. True = Engaged. False = Not Engaged.
+  sensor: Electronic Stability Control System

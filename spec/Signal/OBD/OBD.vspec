@@ -144,10 +144,6 @@
 - O2.Bank1.Sensor1:
   type: branch
   description: Oxygen sensor  
-  
-- O2.Bank1.Sensor1.Present:
-  type: boolean
-  description: Sensor present - True = sensor present, False = sensor not present
     
 - O2.Bank1.Sensor1.Voltage:
   type: float
@@ -157,10 +153,6 @@
 - O2.Bank1.Sensor2:
   type: branch
   description: Oxygen sensor  
-  
-- O2.Bank1.Sensor2.Present:
-  type: boolean
-  description: Sensor present - True = sensor present, False = sensor not present
     
 - O2.Bank1.Sensor2.Voltage:
   type: float
@@ -170,10 +162,6 @@
 - O2.Bank1.Sensor3:
   type: branch
   description: Oxygen sensor  
-  
-- O2.Bank1.Sensor3.Present:
-  type: boolean
-  description: Sensor present - True = sensor present, False = sensor not present
     
 - O2.Bank1.Sensor3.Voltage:
   type: float
@@ -184,10 +172,6 @@
   type: branch
   description: Oxygen sensor  
   
-- O2.Bank1.Sensor4.Present:
-  type: boolean
-  description: Sensor present - True = sensor present, False = sensor not present
-    
 - O2.Bank1.Sensor4.Voltage:
   type: float
   unit: V
@@ -200,10 +184,6 @@
 - O2.Bank2.Sensor1:
   type: branch
   description: Oxygen sensor  
-  
-- O2.Bank2.Sensor1.Present:
-  type: boolean
-  description: Sensor present - True = sensor present, False = sensor not present
     
 - O2.Bank2.Sensor1.Voltage:
   type: float
@@ -213,10 +193,6 @@
 - O2.Bank2.Sensor2:
   type: branch
   description: Oxygen sensor  
-  
-- O2.Bank2.Sensor2.Present:
-  type: boolean
-  description: Sensor present - True = sensor present, False = sensor not present
     
 - O2.Bank2.Sensor2.Voltage:
   type: float
@@ -226,10 +202,6 @@
 - O2.Bank2.Sensor3:
   type: branch
   description: Oxygen sensor  
-  
-- O2.Bank2.Sensor3.Present:
-  type: boolean
-  description: Sensor present - True = sensor present, False = sensor not present
     
 - O2.Bank2.Sensor3.Voltage:
   type: float
@@ -239,19 +211,11 @@
 - O2.Bank2.Sensor4:
   type: branch
   description: Oxygen sensor  
-  
-- O2.Bank2.Sensor4.Present:
-  type: boolean
-  description: Sensor present - True = sensor present, False = sensor not present
     
 - O2.Bank2.Sensor4.Voltage:
   type: float
   unit: V
   description: PID 1B - Sensor voltage
-
-- OBDCompliance:
-  type: string
-  description: PID 1C - Compliance details of OBD
   
 - O2Alt:
   type: branch
@@ -264,34 +228,18 @@
 - O2Alt.Bank1.Sensor1:
   type: branch
   description: Alternate oxygen sensor  
-  
-- O2Alt.Bank1.Sensor1.Present:
-  type: boolean
-  description: Sensor present - True = sensor present, False = sensor not present
     
 - O2Alt.Bank1.Sensor2:
   type: branch
   description: Alternate oxygen sensor  
-  
-- O2Alt.Bank1.Sensor2.Present:
-  type: boolean
-  description: Sensor present - True = sensor present, False = sensor not present
     
 - O2Alt.Bank1.Sensor3:
   type: branch
   description: Alternate oxygen sensor  
-  
-- O2Alt.Bank1.Sensor3.Present:
-  type: boolean
-  description: Sensor present - True = sensor present, False = sensor not present
     
 - O2Alt.Bank1.Sensor4:
   type: branch
   description: Alternate oxygen sensor  
-  
-- O2Alt.Bank1.Sensor4.Present:
-  type: boolean
-  description: Sensor present - True = sensor present, False = sensor not present
 
 - O2Alt.Bank2:
   type: branch
@@ -300,34 +248,18 @@
 - O2Alt.Bank2.Sensor1:
   type: branch
   description: Alternate oxygen sensor  
-  
-- O2Alt.Bank2.Sensor1.Present:
-  type: boolean
-  description: Sensor present - True = sensor present, False = sensor not present
     
 - O2Alt.Bank2.Sensor2:
   type: branch
   description: Alternate oxygen sensor  
-  
-- O2Alt.Bank2.Sensor2.Present:
-  type: boolean
-  description: Sensor present - True = sensor present, False = sensor not present
     
 - O2Alt.Bank2.Sensor3:
   type: branch
   description: Alternate oxygen sensor  
-  
-- O2Alt.Bank2.Sensor3.Present:
-  type: boolean
-  description: Sensor present - True = sensor present, False = sensor not present
-    
+
 - O2Alt.Bank2.Sensor4:
   type: branch
   description: Alternate oxygen sensor  
-  
-- O2Alt.Bank2.Sensor4.Present:
-  type: boolean
-  description: Sensor present - True = sensor present, False = sensor not present
     
 - AuxInputStatus:
   type: boolean
