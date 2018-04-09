@@ -112,3 +112,30 @@
   unit: degrees/s
   description: Vehicle rotation rate along Z (vertical).    
   sensor: Gyroscope
+
+#
+# Schema from schema.org
+#
+
+- RoofLoad:
+  type: Int16
+  unit: kg
+  description: The permitted total weight of cargo and installations (e.g. a roof rack) on top of the vehicle.
+  sensor: Gyroscope
+
+- accelerationTime:
+  type: Int16
+  unit: sec
+  description: The time needed to accelerate the vehicle from a given start velocity to a given target velocity.
+
+- cargoVolume:
+  type: Int16
+  unit: litres
+  description: The available volume for cargo or luggage. For automobiles, this is usually the trunk volume.
+  min: 0
+  max: 100
+
+- emissionsCO2:
+  type: Int16
+  description: The CO2 emissions in g/km.
+  unit: g/km
