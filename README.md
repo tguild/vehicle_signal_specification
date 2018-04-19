@@ -166,7 +166,7 @@ Nm         | Force         | Torque
 l          | Volume        | Liter
 ml         | Volume        | Milliliter
 degree     | Angle         | Angle in degrees
-degrees/s  | Angluar Speed | Angular speed in degrees/s
+degrees/s  | Angular Speed | Angular speed in degrees/s
 l/100km    | Consumption   | Liters per 100 km
 ml/100km   | Consumption   | Milliliters per 100 km
 V          | Electrical    | potential difference in volt
