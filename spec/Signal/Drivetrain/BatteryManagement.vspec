@@ -18,3 +18,8 @@
   type: int8
   unit: percentage
   description: Remaining capacity of the batter pack
+
+- LowBatteryLevel:
+  type: Boolean
+  description: Indicates that the battery level is low
+  sensor: Battery Monitor
