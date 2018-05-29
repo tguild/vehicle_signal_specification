@@ -129,7 +129,7 @@
 
 - HMI.DateFormat:
   type: string
-  enum: [ "DD MM YYYY", "MM DD YYYY" ]
+  enum: [ "YYYY MM DD", "DD MM YYYY", "MM DD YYYY" ]
   description: Date format used in the current HMI
   sensor: HMI
   actuator: HMI
@@ -143,8 +143,22 @@
 
 - HMI.DistanceUnit:
   type: string
-  enum: [ "Miles", "Kilometers" ]
+  enum: [ "mi", "km" ]
   description: Distance unit used in the current HMI
+  sensor: HMI
+  actuator: HMI
+
+- HMI.FuelEconomyUnits:
+  type: string
+  enum: [ "mpg_UK", "mpg_US", "mpl", "km/l", "l/100km" ]
+  description: Fuel economy unit used in the current HMI
+  sensor: HMI
+  actuator: HMI
+
+- HMI.EVEconomyUnits:
+  type: string
+  enum: [ "mi/kWh", "km/kWh", "kWh/100mi", "kWh/100km", "Wh/mi", "Wh/km" ]
+  description: EV fuel economy unit used in the current HMI
   sensor: HMI
   actuator: HMI
 
@@ -161,4 +175,3 @@
   description: Current display theme
   sensor: HMI
   actuator: HMI
-  
