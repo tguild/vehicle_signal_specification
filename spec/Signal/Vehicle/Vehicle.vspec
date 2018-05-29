@@ -32,11 +32,11 @@
   
 
 #
-# Spacial Acceleration
+# Spatial Acceleration
 #
 - Acceleration:
   type: branch
-  description: Spacial acceleration
+  description: Spatial acceleration
   
 - Acceleration.X:
   type: Int32
@@ -55,11 +55,11 @@
   
 
 #
-# Spacial Rotation
+# Spatial Rotation
 #
 - Gyro:
   type: branch
-  description: Spacial rotation
+  description: Spatial rotation
   
 - Gyro.Roll:
   type: Int16
