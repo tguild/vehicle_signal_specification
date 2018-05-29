@@ -20,7 +20,7 @@
 
 
 #
-# The engine branch used to host the the signals in engine.vspec.
+# The engine branch used to host the signals in engine.vspec.
 #
 - Drivetrain:
   type: branch
@@ -39,7 +39,7 @@
 #include Drivetrain/Engine.vspec Drivetrain.InternalCombustionEngine
 
 #
-# The transmission branch used to host the the signals in transmission.vspec.
+# The transmission branch used to host the signals in transmission.vspec.
 #
 - Drivetrain.Transmission:
   type: branch
@@ -52,7 +52,7 @@
 
 
 #
-# The electric motor branch used to host the the signals in ElectricMotor.vspec.
+# The electric motor branch used to host the signals in ElectricMotor.vspec.
 #
 - Drivetrain.ElectricMotor:
   type: branch
@@ -64,7 +64,7 @@
 #include Drivetrain/ElectricMotor.vspec Drivetrain.ElectricMotor
 
 #
-# The battery management signals used to host the the signals in BatteryManagement.vspec.
+# The battery management signals used to host the signals in BatteryManagement.vspec.
 #
 - Drivetrain.BatteryManagement:
   type: branch
@@ -77,7 +77,7 @@
 
 
 #
-# The fuels system signals used to host the the signals in FuelSystem.vspec.
+# The fuels system signals used to host the signals in FuelSystem.vspec.
 #
 - Drivetrain.FuelSystem:
   type: branch
@@ -89,7 +89,7 @@
 #include Drivetrain/FuelSystem.vspec Drivetrain.FuelSystem
 
 #
-# The fuel cell signals used to host the the signals in FuelCell.vspec.
+# The fuel cell signals used to host the signals in FuelCell.vspec.
 #
 - Drivetrain.FuelCell:
   type: branch
@@ -101,7 +101,7 @@
 #include Drivetrain/FuelCell.vspec Drivetrain.FuelCell
 
 #
-# The Body branch used to host the the signals Body/Body.vspec.
+# The Body branch used to host the signals Body/Body.vspec.
 #
 - Body:
   type: branch
@@ -125,7 +125,7 @@
 
 
 #
-# Advanced Driver Assist Systems siggnals
+# Advanced Driver Assist Systems signals
 #
 - ADAS:
   type: branch

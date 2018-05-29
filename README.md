@@ -45,8 +45,7 @@ the ```VERSION``` file.
 
 A web-based JSON viewer can be used to view the current version.
 
-Click **[here](http://www.jsoneditoronline.org/?url=https://raw.githubusercontent.com/GENIVI/vehicle_signal_specification/develop/vss_rel_1.json)**
-
+Click **[here](https://jsoneditoronline.org/?url=https%3A%2F%2Fraw.githubusercontent.com%2FGENIVI%2Fvehicle_signal_specification%2Fdevelop%2Fvss_rel_1.0.json)**
 
 # CREATE JSON VEHICLE SIGNAL SPECIFICATION
 
@@ -70,6 +69,10 @@ The results will be stored in ```vss_$VERSION.[xxx]```,
 where ```$VERSION``` is the contents of the ```VERSION``` file and ```xxx``` is
 the appropriate file extension for the type of output being produced.  For
 example, the JSON version of the output will have a ```.json``` extension.
+
+Changes to files under the spec/ directory results in changes to the generated
+files, namely ```.json```, ```.fidl```, ```.csv``` etc.
+Hence, it is recommended to run ```make```, post spec/ file changes.
 
 By default, the ```make``` processor will produce all of the currently
 installed output formats.  If only a single format is desired, specify it as
@@ -127,8 +130,9 @@ the signal can be assigned, effectively turning it into an enumerator.  The
 values are of the same type as the signal itself.
 
 ### <a name="signal-unit-type"/>SIGNAL UNIT TYPE [OPTIONAL]
-A signal can optionally specify a unit of measurement from the following set:
-TO BE REPLACED BY SI REFERENCE.
+A signal can optionally specify a unit of measurement from the following set.
+This list intends to be according to International Units (SI): [Specification](https://www.iso.org/standard/30669.html), [Wikipedia](https://en.wikipedia.org/wiki/International_System_of_Units)
+
 
 Unit type  | Domain        | Description
 :----------|:--------------|:-------------
@@ -137,7 +141,7 @@ m/s        | Speed         | Meters per hour
 celsius    | Temperature   | Degrees Celsius
 mbar       | Pressure      | millibar
 pa         | Pressure      | Pascal
-kpa        | Pressure      | kilo-Pascal
+kpa        | Pressure      | Kilo-Pascal
 percent    | Relation      | Percent
 ratio      | Relation      | Ratio
 lat        | Position      | Decimal latitude
@@ -169,16 +173,19 @@ degree     | Angle         | Angle in degrees
 degrees/s  | Angluar Speed | Angular speed in degrees/s
 l/100km    | Consumption   | Liters per 100 km
 ml/100km   | Consumption   | Milliliters per 100 km
-V          | Electrical    | potential difference in volt
-A          | Electrical    | current in amperes
+V          | Electrical    | Potential difference in volt
+A          | Electrical    | Current in amperes
 ... | ... | ...
 
+### <a name="signal-sensor-actuator"/>SIGNAL SENSOR & ACTUATOR [OPTIONAL]
+A signal can optionally specify a sensor and/or actuator respectively producing or consuming the signal.
+They are independant from the technology used.
 
 ## <a name="attribute-entry"/>ATTRIBUTE ENTRY
 An attribute is an entry, such as vehicle weight or fuel type, with a static
 value. The difference between a signal and an attribute is that the signal has
 a publisher (or producer) that continuously updates the signal value while an
-attribute has a set value, defined in the specifiation, that never changes.
+attribute has a set value, defined in the specification, that never changes.
 
 
 ### <a name="attribute-type"/>ATTRIBUTE TYPE
@@ -196,7 +203,7 @@ Signals are named, left-to-right, from the root of the signal tree
 toward the signal itself. Each element in the name is delimited with
 a period (".") .
 
-For example, the dimming status of the reaview mirror in the cabin is named:
+For example, the dimming status of the rearview mirror in the cabin is named:
 
 	
     Cabin.RearviewMirror.Dimmed
@@ -300,11 +307,11 @@ entry example is given below:
 
 ```YAML
 - Drivetrain.Transmission.Speed:
-	type: Uint16
-	unit: km/h
-	min: 0
-	max: 300
-	description: The vehicle speed, as measured by the drivetrain.
+  type: Uint16
+  unit: km/h
+  min: 0
+  max: 300
+  description: The vehicle speed, as measured by the drivetrain.
 ```
 
 * **```Drivetrain.Transmission.Speed```**<br>
@@ -336,6 +343,11 @@ cannot be specified if ```enum``` is specified as the signal type.
 A description string to be included (when applicable) in the various
 specification files generated from this signal entry.
 
+* **```sensor```[optional]**<br>
+The sensing appliance used to produce the signal.
+
+* **```actuator```[optional]**<br>
+The actuating appliance consuming the signal.
 
 ## ENUMERATED SIGNAL ENTRY
 A signal can optionally be enumerated, allowing it to be assigned a value from a
@@ -344,9 +356,9 @@ specified set of values. An example of an enumerated signal is given below:
 
 ```YAML
 - Chassis.Transmission.Gear:
-	type: Uint16,
-	enum: [ -1, 1, 2, 3, 4, 5, 6, 7, 8 ]
-	description: The selected gear. -1 is reverse.
+  type: Uint16,
+  enum: [ -1, 1, 2, 3, 4, 5, 6, 7, 8 ]
+  description: The selected gear. -1 is reverse.
 ```
 
 An enumerated signal entry has no ```min```, ```max```, or ```unit```
@@ -365,11 +377,11 @@ entry example is given below:
 
 ```YAML
 - Drivetrain.Transmission.Speed:
-	type: Uint16
-	unit: km/h
-	min: 0
-	max: 300
-	description: The vehicle speed, as measured by the drivetrain.
+  type: Uint16
+  unit: km/h
+  min: 0
+  max: 300
+  description: The vehicle speed, as measured by the drivetrain.
 ```
 
 * **```Drivetrain.Transmission.Speed```**<br>
@@ -401,6 +413,12 @@ cannot be specified if ```enum``` is specified as the signal type.
 A description string to be included (when applicable) in the various
 specification files generated from this signal entry.
 
+* **```sensor```[optional]**<br>
+The sensing appliance used to produce the signal.
+
+* **```actuator```[optional]**<br>
+The actuating appliance consuming the signal.
+
 
 ## <a name="attributes"/>ATTRIBUTES
 An attribute is a signal with a default value, specified by
@@ -409,7 +427,7 @@ its ```value``` member.
 The value set for an attribute by a vspec file can be read by a
 consumer without the need of having the value sent out by a
 publisher. The attribute, in effect, is configuration data that
-can be specified when the bspec file is installed.
+can be specified when the vspec file is installed.
 
 Below is an example of a complete attribute describing engine power
 
@@ -438,14 +456,14 @@ as is shown in Fig 4.
 
 
 ![Signal Extension](pics/signal_override.png)<br>
-*Fig 4. Overidden signals*
+*Fig 4. Overridden signals*
 
 In this case, the ```GearChangeMode``` signal provided by the core
 specification lacks an additional semi-automatic mode featured by an
 OEM-specific vehicle.
 
 By having an OEM master spec file, ```oem_x_proprietary.vspec```
-include the core spec file, ```vss_23.vspec``` and then oveerriding
+include the core spec file, ```vss_23.vspec``` and then overriding
 the original ```GearChangeMode``` signal and add the ```semi-auto```
 element as an enumerated value
 

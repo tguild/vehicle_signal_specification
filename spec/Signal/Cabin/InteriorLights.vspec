@@ -12,20 +12,36 @@
 - IsGloveBoxOn:
   type: Boolean
   description: Is glove box light on
+  sensor: Glove Box Light
+  actuator: Glove Box Light
 
 - IsTrunkOn:
   type: Boolean
   description: Is trunk light light on
+  sensor: Trunk Light
+  actuator: Trunk Light
 
 - IsDomeOn:
   type: Boolean
   description: Is central dome light light on
+  sensor: Dome Light
+  actuator: Dome Light
 
-- AmbientLightSensor:
+- AmbientLight:
   type: UInt8
+  unit: percent
   min: 0
   max: 100
   description: How much ambient light is detected in cabin. 0 = No ambient light. 100 = Full brightness
+  sensor: Light Sensor
+
+- LightIntensity:
+  type: UInt8
+  unit: percent
+  min: 0
+  max: 100
+  description: Intensity of the interior lights. 0 = Off. 100 = Full brightness.
+  sensor: Light Sensor
 
 #
 # First / front row lights
@@ -41,10 +57,13 @@
 - Row1.IsSharedOn:
   type: Boolean
   description: Is light shared across first row on
+  sensor: Light Sensor
 
-- Row1.Left.IsPassengerLightOn:
+- Row1.Left.IsPassengerOn:
   type: Boolean
   description: Is passenger light on
+  sensor: Passenger Light
+  actuator: Passenger Light
 
 - Row1.Right:
   type: branch
@@ -53,6 +72,8 @@
 - Row1.Right.IsPassengerOn:
   type: Boolean
   description: Is passenger light on
+  sensor: Passenger Light
+  actuator: Passenger Light
 
 
 
@@ -67,10 +88,13 @@
 - Row2.IsSharedOn:
   type: Boolean
   description: Is light shared across second row on
+  sensor: Light Sensor
 
-- Row2.Left.IsPassengerLightOn:
+- Row2.Left.IsPassengerOn:
   type: Boolean
   description: Is passenger light on
+  sensor: Passenger Light
+  actuator: Passenger Light
 
 - Row2.Right:
   type: branch
@@ -79,6 +103,8 @@
 - Row2.Right.IsPassengerOn:
   type: Boolean
   description: Is passenger light on
+  sensor: Passenger Light
+  actuator: Passenger Light
 
 
 
@@ -94,10 +120,13 @@
 - Row3.IsSharedOn:
   type: Boolean
   description: Is light shared third across row on
+  sensor: Light Sensor
 
-- Row3.Left.IsPassengerLightOn:
+- Row3.Left.IsPassengerOn:
   type: Boolean
   description: Is passenger light on
+  sensor: Passenger Light
+  actuator: Passenger Light
 
 - Row3.Right:
   type: branch
@@ -106,6 +135,8 @@
 - Row3.Right.IsPassengerOn:
   type: Boolean
   description: Is passenger light on
+  sensor: Passenger Light
+  actuator: Passenger Light
 
 
 
@@ -121,10 +152,13 @@
 - Row4.IsSharedOn:
   type: Boolean
   description: Is light shared across fourth row on
+  sensor: Light Sensor
 
-- Row4.Left.IsPassengerLightOn:
+- Row4.Left.IsPassengerOn:
   type: Boolean
   description: Is passenger light on
+  sensor: Passenger Light
+  actuator: Passenger Light
 
 - Row4.Right:
   type: branch
@@ -133,3 +167,5 @@
 - Row4.Right.IsPassengerOn:
   type: Boolean
   description: Is passenger light on
+  sensor: Passenger Light
+  actuator: Passenger Light

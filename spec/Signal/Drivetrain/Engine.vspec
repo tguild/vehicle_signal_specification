@@ -13,97 +13,124 @@
 #
 
 #
+# Engine
+#
+- Engine:
+  type: branch
+  description: Engine signals
+
+
+#
 # Engine rotations per minute
 #
-- RPM:
+- Engine.Speed:
   type: Uint16
   unit: rpm
   min: 0
   max: 20000
   description: Engine speed measured as rotations per minute.
+  sensor: Rotational Speed Sensor
 
 
 #
 # Engine coolant temperature
 #
-- ECT:
+- Engine.ECT:
   type: Int16
   unit: celsius
   min: -50
   max: 200
   description: Engine coolant temperature.
+  sensor: Coolant Thermometer
 
 
 #
 # Engine Oil Temperature
 #
-- EOT:
+- Engine.EOT:
   type: Int16
   unit: celsius
   min: -50
   max: 300
   description: Engine oil temperature.
+  sensor: Oil Thermometer
 
 
 #
 # Manifold Air Pressure
 #
-- MAP:
+- Engine.MAP:
   type: Int16
-  unit: mbar
+  unit: kpa
   min: 0
-  max: 10000
+  max: 1000
   description: Manifold air pressure possibly boosted using forced induction.
+  sensor: Manifold Air Pressure Sensor
 
 
 #
 # Mass Air Flow
 #
-- MAF:
+- Engine.MAF:
   type: Int16
   unit: g/s
   min: 0
   max: 3000
   description: Grams of air drawn into engine per second.
+  sensor: Mass Air Flow Sensor
 
 #
 # Throttle Position
 #
-- TPS:
+- Engine.TPS:
   type: Int8
   unit: percent
   min: 0
   max: 100
   description: Current throttle position.
+  sensor: Throttle Position Sensor
 
 
 #
 # Engine Oil Pressure
 #
-- EOP:
+- Engine.EOP:
   type: Int16
-  unit: mbar
+  unit: kpa
   min: 0
-  max: 10000
+  max: 1000
   description: Engine oil pressure.
+  sensor: Oil Pressure Sensor
 
 
 #
 # Current Power
 #
-- Power:
+- Engine.Power:
   type: Int16
   unit: kW
   min: 0
   max: 2000
   description: Current engine power output.
+  sensor: Power Meter
 
 #
 # Current Torque 
 #
-- Torque:
+- Engine.Torque:
   type: Int16
-  unit: Nm
+  unit: N.m
   min: 0
   max: 3000
   description: Current engine torque.
+  sensor: Torque Meter
+
+#
+# Current Ambient (Outside) Air Temperature
+#
+- Engine.AmbientAirTemperature:
+  type: float
+  unit: celsius
+  description: Ambient (Outside) air temperature
+  sensor: Thermometer
+

@@ -9,31 +9,27 @@
 # A single HVAC station in the vehicle.
 #
 
-- Recirculation:
-  type: Boolean
-  description: Recirculation active.
-
 - FanSpeed:
   type: UInt8
   min: 0
-  max: 20
-  description: Fan Speed, 0 = off. 20 = max
+  max: 100
+  unit: percent
+  description: Fan Speed, 0 = off. 100 = max
+  sensor: Fan Sensor
+  actuator: Fan Control
 
-- LeftTemperature:
+- Temperature:
   type: Int8
   min: -50
   max: 50
   unit: celsius 
-  description: Left side Temperature
-
-- RightTemperature:
-  type: Int8
-  min: -50
-  max: 50
-  unit: celsius 
-  description: Right side Temperature
+  description: Temperature
+  sensor: Thermometer
+  actuator: TemperatureSwitch
 
 - AirDistribution:
   type: string
   enum: [ "up", "middle", "down" ]
   description: Direction of airstream
+  sensor: Fan Sensor
+  actuator: Fan Control

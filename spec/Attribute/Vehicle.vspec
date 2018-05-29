@@ -34,4 +34,59 @@
   type: Uint16
   description: Model year of the vehicle
 
-  
+
+#
+# Imports from schema.org/Car
+#
+
+- VehicleIdentification.ACRISSCode:
+  type: String
+  description: The ACRISS Car Classification Code is a code used by many car rental companies.
+
+- VehicleIdentification.bodyType:
+  type: String
+  description: Indicates the design and body style of the vehicle (e.g. station wagon, hatchback, etc.).
+
+- VehicleIdentification.dateVehicleFirstRegistered:
+  type: String
+  description: The date of the first registration of the vehicle with the respective public authorities.
+
+- VehicleIdentification.meetsEmissionStandard:
+  type: String
+  description: Indicates that the vehicle meets the respective emission standard.
+
+- VehicleIdentification.productionDate:
+  type: String
+  description: The date of production of the item, e.g. vehicle.
+
+- VehicleIdentification.purchaseDate:
+  type: String
+  description: The date the item e.g. vehicle was purchased by the current owner.
+
+- VehicleIdentification.vehicleModelDate:
+  type: String
+  description: The release date of a vehicle model (often used to differentiate versions of the same make and model).
+
+- VehicleIdentification.vehicleConfiguration:
+  type: String
+  description: A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'.
+
+- VehicleIdentification.vehicleSeatingCapacity:
+  type: UInt16
+  description: The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.
+
+- VehicleIdentification.vehicleSpecialUsage:
+  type: String
+  description: Indicates whether the vehicle has been used for special purposes, like commercial rental, driving school.
+
+- VehicleIdentification.vehicleInteriorColor:
+  type: String
+  description: A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'.
+
+- VehicleIdentification.vehicleInteriorType:
+  type: String
+  description: The type or material of the interior of the vehicle (e.g. synthetic fabric, leather, wood, etc.).
+
+- VehicleIdentification.knownVehicleDamages:
+  type: String
+  description: A textual description of known damages, both repaired and unrepaired.

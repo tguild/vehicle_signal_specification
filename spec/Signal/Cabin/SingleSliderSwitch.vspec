@@ -13,3 +13,4 @@
   type: String
   enum: [ "Inactive", "Close", "Open", "OneShotClose", "OneShotOpen" ]
   description: Switch controlling sliding action such as window, sunroof, or blind.
+  actuator: RearShade System

@@ -13,24 +13,37 @@
 #
 
 #
-# Current speed.
-
+# Current vehicle speed
+#
 - Speed:
   type: Int32
   min: -250
   max: 250
-  unit: m/s
+  unit: km/h
   description: Vehicle speed, as sensed by the gearbox.
-  
-# 
+  sensor: Speedometer
+
+
+#
+# Current odometer reading
+#
+- TravelledDistance:
+  type: Float
+  unit: km
+  description: Odometer reading
+  sensor: Odometer
+
+ 
 #
 # Current gear
 #
 - Gear:
-  type: UInt8
+  type: Int8
   min: -1
   max: 16
   description: Current gear. 0=Neutral. -1=Reverse
+  sensor: Gearbox
+  actuator: Gearbox
 
 
 #
@@ -40,6 +53,8 @@
   type: string
   enum: [ "normal", "sport", "economy", "snow", "rain" ]
   description: Current gearbox performance mode. 
+  sensor: Drive System
+  actuator: Drive System
 
 
 #
@@ -49,6 +64,8 @@
   type: string
   enum: [ "manual", "automatic" ]
   description: Is the gearbox in automatic or manual (paddle) mode. 
+  sensor: Drive System
+  actuator: Drive System
 
 
 #
@@ -63,25 +80,10 @@
 
 
 #
-# Odometer
-#
-- Odometer:
-  type: Uint32
-  unit: m
-  description: Odometer reading
-  
-#
-# Trip Meter
-#
-- TripMeter:
-  type: Uint32
-  unit: m
-  description: Current trip meter reading
-  
-#
 # Clutch
 #
 - ClutchWear:
   type: Uint8
-  unit: percentage
-  description: Clutch wear as a percentage. 0 = no wear. 100 = worn.
+  unit: percent
+  description: Clutch wear as a percent. 0 = no wear. 100 = worn.
+  sensor: Clutch Wear Indicator
