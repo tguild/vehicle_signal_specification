@@ -5,6 +5,18 @@
 # provisions of the license provided by the LICENSE file in this repository.
 #
 
+- FuelType:
+  type: String
+  enum: [ "unknown", "gasoline", "diesel", "electric", "hybrid", "E85", "CNG", "LPG" ]
+  default: "unknown"
+  description: Defines the fuel type of the vehicle
+
+- HybridType:
+  type: String
+  enum: [ "unknown", "not_applicable", "stop_start", "belt_ISG", "CIMG", "PHEV" ]
+  default: "unknown"
+  description: Defines the hybrid type of the vehicle
+
 - TankCapacity:
   type: Uint16
   value: 0
