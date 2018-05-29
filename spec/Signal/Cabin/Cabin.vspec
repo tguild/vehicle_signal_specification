@@ -341,3 +341,16 @@
 
 #include SingleSeat.vspec Seat.Row4.Pos5
 
+##
+# Convertible roof status
+##
+- Convertible:
+  type: branch
+  description: Convertible roof status.
+
+- Convertible.Status:
+  type: String
+  enum: ["undefined", "closed", "open", "closing", "opening", "stalled"]
+  description: Roof status on convertible vehicles
+  sensor: Roof Position Sensor
+  
