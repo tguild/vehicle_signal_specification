@@ -346,7 +346,7 @@
 ##
 - Convertible:
   type: branch
-  description: Convertible roof status.
+  description: Convertible roof
 
 - Convertible.Status:
   type: String
