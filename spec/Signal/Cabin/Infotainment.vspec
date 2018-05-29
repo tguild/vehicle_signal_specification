@@ -15,7 +15,9 @@
 - Media.Action:
   type: string
   enum: [ "unknown", "Stop", "Play", "FastForward", "FastBackward", "SkipForward",  "SkipBackward" ]
-  description: Tells if the media was 
+  description: Tells if the media was
+  sensor: Multimedia System
+  actuator: Multimedia System
 
 - Media.Played:
   type: branch
@@ -26,57 +28,74 @@
   type: string
   enum: [ "unknown", "SiriusXM", "AM", "FM", "DAB", "TV",  "CD", "DVD", "AUX", "USB", "Disk", "Bluetooth", "Internet", "Voice", "Beep" ]
   description: Media selected for playback
+  sensor: Multimedia System
+  actuator: Multimedia System
 
 - Media.Played.Artist:
   type: string
   description: Name of artist being played
+  sensor: Multimedia System
 
 - Media.Played.Album:
   type: string
   description: Name of album being played
+  sensor: Multimedia System
 
 - Media.Played.Track:
   type: string
   description: Name of track being played
+  sensor: Multimedia System
 
 - Media.Played.URI:
   type: string
   description: User Resource associated with the media
+  sensor: Multimedia System
 
 - Media.DeclinedURI:
   type: string
   description: URI of suggested media that was declined
+  sensor: Multimedia System
 
 - Media.SelectedURI:
   type: string
   description: URI of suggested media that was selected
+  sensor: Multimedia System
+  actuator: Multimedia System
 
 - Media.Volume:
   type: UInt8
   min: 0
   max: 100
   description: Current Media Volume
+  sensor: Multimedia System
+  actuator: Multimedia System
 
 - Navigation:
   type: branch
   description: All navigation actions
 
-- Navigation.DestinatonSet:
+- Navigation.DestinationSet:
   type: branch
   aggregate: true
   description: A navigation has been selected.
 
-- Navigation.DestinatonSet.Latitude:
+- Navigation.DestinationSet.Latitude:
   type: Double
   min: -90
   max: 90
+  unit: degrees
   description: Latitude of destination
+  sensor: GPS
+  actuator: GPS
 
-- Navigation.DestinatonSet.Longitude:
+- Navigation.DestinationSet.Longitude:
   type: Double
   min: -180
   max: 180
+  unit: degrees
   description: Longitude of destination
+  sensor: GPS
+  actuator: GPS
 
 - Navigation.CurrentLocation:
   type: branch
@@ -87,24 +106,31 @@
   type: Double
   min: -90
   max: 90
+  unit: degrees
   description: Current latitude of vehicle, as reported by GPS.
+  sensor: GPS
 
 - Navigation.CurrentLocation.Longitude:
   type: Double
   min: -180
   max: 180
+  unit: degrees
   description: Current longitude of vehicle, as reported by GPS.
+  sensor: GPS
 
 - Navigation.CurrentLocation.Heading:
   type: Double
   min: 0
   max: 360
+  unit: degrees
   description: Current magnetic compass heading, in degrees.
+  sensor: GPS
 
 - Navigation.CurrentLocation.Accuracy:
   type: Double
   unit: m
   description: Accuracy level of the latitude and longitude coordinates in meters.
+  sensor: GPS
 
 - Navigation.CurrentLocation.Altitude:
   type: Double
@@ -115,8 +141,9 @@
   type: UInt16
   min: 0
   max: 250
-  unit: m/s
+  unit: km/h
   description: Vehicle speed, as sensed by the GPS receiver.
+  sensor: GPS
 
 - HMI:
   type: branch

@@ -6,24 +6,30 @@
 #
 
 #
-# All exterior mirros
+# All exterior mirrors
 #
 
 - Tilt:
   type: Int8
-  unit: percentage
-  description: Mirror tilt as a percentage. 0 = Center Position. 100 = Fully Upward Position. -100 = Fully Downward Position.
+  unit: percent
+  description: Mirror tilt as a percent. 0 = Center Position. 100 = Fully Upward Position. -100 = Fully Downward Position.
+  sensor: Mirror Tilt Sensor
+  actuator: Mirror Tilt Actuator
 
 - Pan:
   type: Int8
-  unit: percentage
-  description: Mirror pan as a percentage. 0 = Center Position. 100 = Fully Left Position. -100 = Fully Right Position.
+  unit: percent
+  description: Mirror pan as a percent. 0 = Center Position. 100 = Fully Left Position. -100 = Fully Right Position.
+  sensor: Mirror Pan Sensor
+  actuator: Mirror Pan Actuator
 
-- Heater:
+- Heating:
   type: branch
   description: Mirror heater signals
 
-- Heater.Status:
+- Heating.Status:
   type: Boolean
   description: Mirror Heater on or off. True = Heater On. False = Heater Off.
+  sensor: Mirror heater
+  actuator: Mirror heater
 

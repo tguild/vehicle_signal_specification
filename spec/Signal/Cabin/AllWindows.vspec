@@ -6,7 +6,7 @@
 #
 
 #
-# Definition of a single door
+# Definition of a Window
 #
 - Open:
   type: Boolean
@@ -16,10 +16,11 @@
   type: Boolean
   description: Is door locked or unlocked. True = Locked. False = Unlocked.
 
-- WindowPosition:
+- Position:
   type: Uint8
   min: 0
   max: 100
+  unit: percent
   description: Window position. 0 = Fully closed 100 = Fully opened.
 
 - ChildLock:
@@ -30,6 +31,7 @@
   type: UInt8
   min: 0
   max: 100
+  unit: percent
   description: Position of curtain. 0 = Fully retracted. 100 = Fully deployed.
 
 - WindowSwitch:

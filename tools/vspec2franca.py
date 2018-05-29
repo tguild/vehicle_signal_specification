@@ -76,6 +76,12 @@ def traverse_tree(tree, outf, prefix_arr, is_first_element):
         if val.has_key("enum"):
             outf.write("    enum: {}\n".format(val["enum"]))
 
+        if val.has_key("sensor"):
+            outf.write("    sensor: {}\n".format(val["sensor"]))
+
+        if val.has_key("actuator"):
+            outf.write("    actuator: {}\n".format(val["actuator"]))
+
         outf.write("}\n")
         is_first_element = False
 
@@ -87,13 +93,13 @@ if __name__ == "__main__":
     opts, args= getopt.getopt(sys.argv[1:], "I:i:v:")
 
     # Always search current directory for include_file
-    vss_version = -1
+    vss_version = "unspecified version"
     include_dirs = ["."]
     for o, a in opts:
         if o == "-I":
             include_dirs.append(a)
         elif o == "-v":
-            vss_version = int(a)
+            vss_version = a
         elif o == "-i":
             id_spec = a.split(":")
             if len(id_spec) != 3:
@@ -122,7 +128,7 @@ if __name__ == "__main__":
 // Mozilla Public License, version 2.0.  The full text of the
 // Mozilla Public License is at https://www.mozilla.org/MPL/2.0/
 
-const UInt32 VSS_VERSION = {}
+const UTF8String VSS_VERSION = "{}"
 
 struct SignalSpec {{
     UInt32 id

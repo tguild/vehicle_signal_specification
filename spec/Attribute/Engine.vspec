@@ -9,6 +9,7 @@
 - Displacement:
   type: Uint16
   description: Displacement in cubic centimetres.
+  unit: cm3
 
 - Configuration:
   type: String
@@ -20,19 +21,21 @@
 - MaxPower:
   type:  Uint16
   default: 0
+  unit: kw
   description: Peak power, in kilowatts, that engine can generate.
-  
+
 - MaxTorque:
   type:  Uint16
   default: 0
+  unit: N.m
   description: Peak power, in newton meter, that the engine can generate.
-  
+
 - FuelType:
   type: String
   enum: [ "unknown", "gasoline", "diesel", "E85", "CNG" ]
   default: "unknown"
   description: Type of fuel that the engine runs on.
-  
+
 #
 # More attributes here
 # MaxRPM. Supercharged / Turbocharged, etc, octane, etc

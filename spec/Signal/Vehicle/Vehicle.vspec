@@ -14,22 +14,53 @@
   type: Uint32
   unit: s
   description: Accumulated ignition on time in seconds.
+  sensor: Timer
   
 - IgnitionOffTime:
   type: Uint32
   unit: s
   description: Accumulated ignition off time in seconds.  
+  sensor: Timer
   
 - DriveTime:
   type: Uint32
   unit: s
   description: Accumulated drive time in seconds.
+  sensor: Timer
   
 - IdleTime:
   type: Uint32
   unit: s
   description: Accumulated idle time in seconds.
+  sensor: Timer
   
+- Speed:
+  type: Int32
+  min: -250
+  max: 250
+  unit: km/h
+  description: Vehicle speed, as sensed by the gearbox.
+  sensor: Speedometer
+
+- TravelledDistance:
+  type: float
+  unit: km
+  description: Odometer reading
+  sensor: Odometer
+
+- TripMeterReading:
+  type: float
+  unit: km
+  description: Current trip meter reading
+  sensor: Odometer
+
+- AmbientAirTemperature:
+  type: float
+  unit: celsius
+  description: Ambient air temperature
+  sensor: Thermometer
+
+
 
 #
 # Spacial Acceleration
@@ -38,40 +69,73 @@
   type: branch
   description: Spacial acceleration
   
-- Acceleration.X:
+- Acceleration.Longitudinal:
   type: Int32
-  unit: cm/s2
+  unit: m/s2
   description: Vehicle acceleration in X (longitudinal acceleration).
+  sensor: Accelerometer
   
-- Acceleration.Y:
+- Acceleration.Lateral:
   type: Int32
-  unit: cm/s2
+  unit: m/s2
   description: Vehicle acceleration in Y (lateral acceleration).  
+  sensor: Accelerometer
   
-- Acceleration.Z:
+- Acceleration.Vertical:
   type: Int32
-  unit: cm/s2
+  unit: m/s2
   description: Vehicle acceleration in Z (vertical acceleration).
+  sensor: Accelerometer
   
 
 #
 # Spacial Rotation
 #
-- Gyro:
+- AngularVelocity:
   type: branch
   description: Spacial rotation
   
-- Gyro.Roll:
+- AngularVelocity.Roll:
   type: Int16
   unit: degrees/s
   description: Vehicle rotation rate along X (longitudinal).
+  sensor: Gyroscope
   
-- Acceleration.Pitch:
+- AngularVelocity.Pitch:
   type: Int16
   unit: degrees/s
   description: Vehicle rotation rate along Y (lateral).  
+  sensor: Gyroscope
   
-- Acceleration.Yaw:
+- AngularVelocity.Yaw:
   type: Int16
   unit: degrees/s
-  description: Vehicle rotatin rate along Z (vertical).    
+  description: Vehicle rotation rate along Z (vertical).    
+  sensor: Gyroscope
+
+#
+# Schema from schema.org
+#
+
+- RoofLoad:
+  type: Int16
+  unit: kg
+  description: The permitted total weight of cargo and installations (e.g. a roof rack) on top of the vehicle.
+  sensor: Gyroscope
+
+- accelerationTime:
+  type: Int16
+  unit: sec
+  description: The time needed to accelerate the vehicle from a given start velocity to a given target velocity.
+
+- cargoVolume:
+  type: Int16
+  unit: litres
+  description: The available volume for cargo or luggage. For automobiles, this is usually the trunk volume.
+  min: 0
+  max: 100
+
+- emissionsCO2:
+  type: Int16
+  description: The CO2 emissions in g/km.
+  unit: g/km

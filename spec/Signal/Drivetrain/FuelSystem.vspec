@@ -11,30 +11,40 @@
 
 - Level:
   type: Uint8
-  unit: percentage
-  description: Level in fuel tank as percentage of capacity. 0 = empty. 100 = full.
+  unit: percent
+  min: 0
+  max: 100
+  description: Level in fuel tank as percent of capacity. 0 = empty. 100 = full.
+  sensor: Fuel Tank Level Sensor
   
 - Range:
   type: Uint32
   unit: m
   description: Range in meters.
+  sensor: Fuel Tank Level Sensor
   
 - InstantConsumption:
-  type: Uint32
-  unit: ml/100km
-  description: Current consumption in milliliters per 100 km.
+  type: Float
+  unit: l/100km
+  min: 0
+  description: Current consumption in liters per 100 km.
+  sensor: Flow Sensor
   
 - AverageConsumption:
-  type: Uint32
-  unit: ml/100km
-  description: Average consumption in milliliters per 100 km.
+  type: Float
+  unit: l/100km
+  min: 0
+  description: Average consumption in liters per 100 km.
+  sensor: Flow Sensor
   
 - ConsumptionSinceStart:
-  type: Uint32
-  unit: ml
-  description: Fuel amount consumed since start in milliliters.
+  type: Float
+  unit: l
+  description: Fuel amount consumed since start in liters.
+  sensor: Flow Sensor
   
 - TimeSinceStart:
   type: Uint32
   unit: s
   description: Time elapsed since start in seconds.
+  sensor: Timer
