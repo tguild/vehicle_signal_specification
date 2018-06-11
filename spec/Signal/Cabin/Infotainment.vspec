@@ -144,3 +144,61 @@
   unit: km/h
   description: Vehicle speed, as sensed by the GPS receiver.
   sensor: GPS
+
+- HMI:
+  type: branch
+  description: HMI related signals
+
+- HMI.CurrentLanguage:
+  type: string
+  description: ISO 639-1 standard language code for the current HMI
+  sensor: HMI
+
+- HMI.DateFormat:
+  type: string
+  enum: [ "YYYY MM DD", "DD MM YYYY", "MM DD YYYY", "YY MM DD", "DD MM YY", "MM DD YY"]
+  description: Date format used in the current HMI
+  sensor: HMI
+  actuator: HMI
+
+- HMI.TimeFormat:
+  type: string
+  enum: [ "12HR", "24HR" ]
+  description: Time format used in the current HMI
+  sensor: HMI
+  actuator: HMI
+
+- HMI.DistanceUnit:
+  type: string
+  enum: [ "mi", "km" ]
+  description: Distance unit used in the current HMI
+  sensor: HMI
+  actuator: HMI
+
+- HMI.FuelEconomyUnits:
+  type: string
+  enum: [ "mpg_UK", "mpg_US", "mpl", "km/l", "l/100km" ]
+  description: Fuel economy unit used in the current HMI
+  sensor: HMI
+  actuator: HMI
+
+- HMI.EVEconomyUnits:
+  type: string
+  enum: [ "mi/kWh", "km/kWh", "kWh/100mi", "kWh/100km", "Wh/mi", "Wh/km" ]
+  description: EV fuel economy unit used in the current HMI
+  sensor: HMI
+  actuator: HMI
+
+- HMI.TemperatureUnit:
+  type: string
+  enum: [ "C", "F" ]
+  description: Temperature unit used in the current HMI
+  sensor: HMI
+  actuator: HMI
+
+- HMI.DayNightMode:
+  type: string
+  enum: [ "Day", "Night" ]
+  description: Current display theme
+  sensor: HMI
+  actuator: HMI
