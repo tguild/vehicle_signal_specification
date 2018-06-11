@@ -22,3 +22,8 @@
   max: 100
   description: Remaining capacity of the batter pack
   sensor: Battery Monitor
+  
+- LowBatteryLevel:
+  type: Boolean
+  description: Indicates that the battery level is low
+  sensor: Battery Monitor

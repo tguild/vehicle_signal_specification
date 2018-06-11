@@ -48,3 +48,8 @@
   unit: s
   description: Time elapsed since start in seconds.
   sensor: Timer
+
+- EngineStopStartEnabled:
+  type: Boolean
+  description: Indicates whether eco start stop is currently enabled
+  sensor: Eco Mode

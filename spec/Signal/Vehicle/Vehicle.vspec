@@ -60,14 +60,26 @@
   description: Ambient air temperature
   sensor: Thermometer
 
+- IsMoving:
+  type: Boolean
+  description: Indicates whether the vehicle is stationary or moving
+  sensor: Speedometer
+
+- AverageSpeed:
+  type: Int32
+  min: -250
+  max: 250
+  unit: km/h
+  description: Average speed for the current trip
+  sensor: Odometer
 
 
 #
-# Spacial Acceleration
+# Spatial Acceleration
 #
 - Acceleration:
   type: branch
-  description: Spacial acceleration
+  description: Spatial acceleration
   
 - Acceleration.Longitudinal:
   type: Int32
@@ -89,11 +101,11 @@
   
 
 #
-# Spacial Rotation
+# Spatial Rotation
 #
 - AngularVelocity:
   type: branch
-  description: Spacial rotation
+  description: Spatial rotation
   
 - AngularVelocity.Roll:
   type: Int16
