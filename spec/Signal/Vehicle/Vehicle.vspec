@@ -60,6 +60,18 @@
   description: Ambient air temperature
   sensor: Thermometer
 
+- IsMoving:
+  type: Boolean
+  description: Indicates whether the vehicle is stationary or moving
+  sensor: Speedometer
+
+- AverageSpeed:
+  type: Int32
+  min: -250
+  max: 250
+  unit: km/h
+  description: Average speed for the current trip
+  sensor: Odometer
 
 
 #
