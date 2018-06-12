@@ -365,7 +365,7 @@ An enumerated signal entry has no ```min```, ```max```, or ```unit```
 element.
 
 The ```enum``` element is an array of values, all of which must be specified
-in the emum list.  This signal can only be assigned one of the values
+in the enum list.  This signal can only be assigned one of the values
 specified in the enum list.
 The ```type``` specifier is the type of the individual elements of the enum
 list.
