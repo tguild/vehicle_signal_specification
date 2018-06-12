@@ -53,3 +53,8 @@
   type: Boolean
   description: Indicates whether eco start stop is currently enabled
   sensor: Eco Mode
+
+- LowFuelLevel:
+  type: Boolean
+  description: Indicates that the fuel level is low (e.g. <50km range)
+  sensor: Fuel Tank Level Sensor
