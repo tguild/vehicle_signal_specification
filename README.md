@@ -137,7 +137,7 @@ This list intends to be according to International Units (SI): [Specification](h
 Unit type  | Domain        | Description
 :----------|:--------------|:-------------
 km/h       | Speed         | Kilometers per hour
-m/s        | Speed         | Meters per hour
+m/s        | Speed         | Meters per second
 celsius    | Temperature   | Degrees Celsius
 mbar       | Pressure      | millibar
 pa         | Pressure      | Pascal
@@ -154,7 +154,7 @@ rpm        | Frequency     | Rotations per minute
 hz         | Frequency     | Frequency
 W          | Power         | Watt
 kW         | Power         | Kilowatt
-kwh        | Power         | Kilowatt hours
+kWh        | Power         | Kilowatt hours
 ms         | Time          | Milliseconds
 s          | Time          | Seconds
 min        | Time          | Minutes
