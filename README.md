@@ -371,55 +371,6 @@ The ```type``` specifier is the type of the individual elements of the enum
 list.
 
 
-## SIGNAL ENTRY
-A signal entry defines a single signal and its members. A signal
-entry example is given below:
-
-```YAML
-- Drivetrain.Transmission.Speed:
-  type: Uint16
-  unit: km/h
-  min: 0
-  max: 300
-  description: The vehicle speed, as measured by the drivetrain.
-```
-
-* **```Drivetrain.Transmission.Speed```**<br>
-Defines the dot-notated signal name of the signal. Please note that
-all parental branches included in the name must be defined as well.
-
-* **```type```**<br>
-The string value of the type specifies the scalar type of the signal
-value. See [signal type](#signal-type) chapter for a list of available types.
-
-* **```min``` [optional]**<br>
-The minimum value, within the interval of the given ```type```, that the
-signal can be assigned.<br>
-If omitted, the minimum value will be the "Min" value for the given type.<br>
-Cannot be specified if ```enum``` is specified for the same signal entry.
-
-* **```max``` [optional]**<br>
-The maximum value, within the interval of the given ```type```, that the
-signal can be assigned.<br>
-If omitted, the maximum value will be the "Max" value for the given type.<br>
-Cannot be specified if ```enum``` is specified for the same signal entry.
-
-* **```unit``` [optional]**<br>
-The unit of measurement that the signal has. See [Unit
-Type](#signal-unit-type) chapter for a list of available unit types.<br> This
-cannot be specified if ```enum``` is specified as the signal type.
-
-* **```description```**<br>
-A description string to be included (when applicable) in the various
-specification files generated from this signal entry.
-
-* **```sensor```[optional]**<br>
-The sensing appliance used to produce the signal.
-
-* **```actuator```[optional]**<br>
-The actuating appliance consuming the signal.
-
-
 ## <a name="attributes"/>ATTRIBUTES
 An attribute is a signal with a default value, specified by
 its ```value``` member.
