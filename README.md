@@ -151,7 +151,7 @@ mm         | Distance      | Millimeter
 m          | Distance      | Meter
 km         | Distance      | Kilometer
 rpm        | Frequency     | Rotations per minute
-hz         | Frequency     | Frequency
+Hz         | Frequency     | Frequency
 W          | Power         | Watt
 kW         | Power         | Kilowatt
 kWh        | Power         | Kilowatt hours
@@ -505,9 +505,9 @@ The ```-i``` option can be specified any number of times to created different si
 * **```<prefix>```**<br>
 Prefix that is matched against signal names. The longest match will be used to determine the signal ID database the signal is stored into. For example, two signal ID databases are specified with ```-i Attribute:vspec_attr.id:0 -i Attribute.Cabin:vspec_attr_cab.id:0```. A signal named ```Attribute.Chassis.Curbweight``` will be stored in ```vspec_attr.id``` while
 a signal named ```Attribute.Cabin.Seat.DriverPosition``` will be stored in the ```vspec_attr_cab.id``` database.
-* **```<database_file```**<br>
+* **```<database_file>```**<br>
 The name of the database file.
-* **```<start_id```**<br>
+* **```<start_id>```**<br>
 The first ID value for a signal ID database. Note that the ID is only unique for the same database. If you use the ```-i``` option multiple times and would like to have unique IDs across all database files, you need to make sure to specify start IDs for each database so that there is no overlap.
 
 The signal ID databases with their mappings of signal names to ID can be used for easy indexing of signals without the need of providing the entire qualified signal name. However, if vspec files are updated and new signals are added, the existing signal mappings must not change. If database files with mappings already exist, the tools first search them for a signal name and only assign a new signal ID if no existing mapping was found. The signal ID number continues from the highest ID found.
