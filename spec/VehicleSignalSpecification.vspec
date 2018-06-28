@@ -39,6 +39,8 @@
   type: branch
   description: Uncontrolled branch where non-public signals can be defined.
 
+#include Private/Private.vspec Private
+
 - Attribute:
   type: branch
   description: Attribute signals that do not change during the power cycle of a vehicle.
