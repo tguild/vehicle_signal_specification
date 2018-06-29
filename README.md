@@ -137,7 +137,7 @@ This list intends to be according to International Units (SI): [Specification](h
 Unit type  | Domain        | Description
 :----------|:--------------|:-------------
 km/h       | Speed         | Kilometers per hour
-m/s        | Speed         | Meters per hour
+m/s        | Speed         | Meters per second
 celsius    | Temperature   | Degrees Celsius
 mbar       | Pressure      | millibar
 pa         | Pressure      | Pascal
@@ -151,10 +151,10 @@ mm         | Distance      | Millimeter
 m          | Distance      | Meter
 km         | Distance      | Kilometer
 rpm        | Frequency     | Rotations per minute
-hz         | Frequency     | Frequency
+Hz         | Frequency     | Frequency
 W          | Power         | Watt
 kW         | Power         | Kilowatt
-kwh        | Power         | Kilowatt hours
+kWh        | Power         | Kilowatt hours
 ms         | Time          | Milliseconds
 s          | Time          | Seconds
 min        | Time          | Minutes
@@ -365,59 +365,10 @@ An enumerated signal entry has no ```min```, ```max```, or ```unit```
 element.
 
 The ```enum``` element is an array of values, all of which must be specified
-in the emum list.  This signal can only be assigned one of the values
+in the enum list.  This signal can only be assigned one of the values
 specified in the enum list.
 The ```type``` specifier is the type of the individual elements of the enum
 list.
-
-
-## SIGNAL ENTRY
-A signal entry defines a single signal and its members. A signal
-entry example is given below:
-
-```YAML
-- Drivetrain.Transmission.Speed:
-  type: Uint16
-  unit: km/h
-  min: 0
-  max: 300
-  description: The vehicle speed, as measured by the drivetrain.
-```
-
-* **```Drivetrain.Transmission.Speed```**<br>
-Defines the dot-notated signal name of the signal. Please note that
-all parental branches included in the name must be defined as well.
-
-* **```type```**<br>
-The string value of the type specifies the scalar type of the signal
-value. See [signal type](#signal-type) chapter for a list of available types.
-
-* **```min``` [optional]**<br>
-The minimum value, within the interval of the given ```type```, that the
-signal can be assigned.<br>
-If omitted, the minimum value will be the "Min" value for the given type.<br>
-Cannot be specified if ```enum``` is specified for the same signal entry.
-
-* **```max``` [optional]**<br>
-The maximum value, within the interval of the given ```type```, that the
-signal can be assigned.<br>
-If omitted, the maximum value will be the "Max" value for the given type.<br>
-Cannot be specified if ```enum``` is specified for the same signal entry.
-
-* **```unit``` [optional]**<br>
-The unit of measurement that the signal has. See [Unit
-Type](#signal-unit-type) chapter for a list of available unit types.<br> This
-cannot be specified if ```enum``` is specified as the signal type.
-
-* **```description```**<br>
-A description string to be included (when applicable) in the various
-specification files generated from this signal entry.
-
-* **```sensor```[optional]**<br>
-The sensing appliance used to produce the signal.
-
-* **```actuator```[optional]**<br>
-The actuating appliance consuming the signal.
 
 
 ## <a name="attributes"/>ATTRIBUTES
@@ -554,9 +505,9 @@ The ```-i``` option can be specified any number of times to created different si
 * **```<prefix>```**<br>
 Prefix that is matched against signal names. The longest match will be used to determine the signal ID database the signal is stored into. For example, two signal ID databases are specified with ```-i Attribute:vspec_attr.id:0 -i Attribute.Cabin:vspec_attr_cab.id:0```. A signal named ```Attribute.Chassis.Curbweight``` will be stored in ```vspec_attr.id``` while
 a signal named ```Attribute.Cabin.Seat.DriverPosition``` will be stored in the ```vspec_attr_cab.id``` database.
-* **```<database_file```**<br>
+* **```<database_file>```**<br>
 The name of the database file.
-* **```<start_id```**<br>
+* **```<start_id>```**<br>
 The first ID value for a signal ID database. Note that the ID is only unique for the same database. If you use the ```-i``` option multiple times and would like to have unique IDs across all database files, you need to make sure to specify start IDs for each database so that there is no overlap.
 
 The signal ID databases with their mappings of signal names to ID can be used for easy indexing of signals without the need of providing the entire qualified signal name. However, if vspec files are updated and new signals are added, the existing signal mappings must not change. If database files with mappings already exist, the tools first search them for a signal name and only assign a new signal ID if no existing mapping was found. The signal ID number continues from the highest ID found.

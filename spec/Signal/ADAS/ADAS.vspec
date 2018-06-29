@@ -76,7 +76,7 @@
   
 - ObstacleDetection.IsActive:
   type: boolean
-  description: Indicates if obstacle sensor system is enabled. Tue = Enabled. False = Disabled.
+  description: Indicates if obstacle sensor system is enabled. True = Enabled. False = Disabled.
   sensor: Obstacle Detection Sensor
   actuator: Obstacle Detection Sensor
   
@@ -123,7 +123,7 @@
   
 - ABS.IsActive:
   type: boolean
-  description: Indicates if ABS is enabled. Tue = Enabled. False = Disabled.
+  description: Indicates if ABS is enabled. True = Enabled. False = Disabled.
   sensor: Antilock Braking System
   actuator: Antilock Braking System
   
@@ -147,7 +147,7 @@
   
 - TCS.IsActive:
   type: boolean
-  description: Indicates if TCS is enabled. Tue = Enabled. False = Disabled.
+  description: Indicates if TCS is enabled. True = Enabled. False = Disabled.
   sensor: Traction Control System
   actuator: Traction Control System
   
@@ -171,7 +171,7 @@
   
 - ESC.IsActive:
   type: boolean
-  description: Indicates if ECS is enabled. Tue = Enabled. False = Disabled.
+  description: Indicates if ECS is enabled. True = Enabled. False = Disabled.
   sensor: Electronic Stability Control System
   actuator: Electronic Stability Control System
   
