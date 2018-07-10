@@ -4,26 +4,25 @@ All files and artifacts in this repository are licensed under the
 provisions of the license provided by the LICENSE file in this repository.
 
 # VEHICLE SIGNAL SPECIFICATION
-This repository specifies a set of vehicle signals that can be used in
-automotive applications to communicate the state of various vehicle
-systems.
+This repository specifies a data model that can be used in automotive applications to communicate different kinds of data that are relevant in an automotive context. The data model is adapted to handle both the signal data that is related to the various sensors and actuators on vehicle buses, and the type of data that is more commonly associated with the infotainment system, such as media data. 
 
-A standardized vehicle signal specification allows for an industry actor
-to use a common naming space for communicating vehicle state and,
-ultimately, allows the decoupling of the IVI stack from the underlying
-vehicle electrical architecture.
+Further, the repository also specifies sets of data in different domains, such as the Car domain and the Media domain, that are expected to be of common interest for automotive applications. 
 
-The collection of signal specifications, or simply signals, is vendor
-independent. Vendor-specific extensions can be specified in a dedicated and
-uncontrolled branch of the signal specification tree.
+A standardized vehicle data specification allows for an industry actor
+to use a common naming space for communication and,
+ultimately, abstracts underlying vehicle implementation details.
 
-The format of the directories and signal specification files is aimed
+The collection of vehicle data specifications is vendorindependent. 
+Vendor-specific extensions can be specified in a dedicated and
+uncontrolled branch of the specification tree.
+
+The format of the directories and specification files is aimed
 at allowing easy, git-based management with branching, merging, and
-release. With this in mind, the signal specification can be broken up
+release. With this in mind, the vehicle data specification can be broken up
 into smaller files that can be edited and re-used while minimizing
 merge conflicts.
 
-A released signal specification can be used, together with tools in
+A released specification can be used, together with tools in
 this repository, to automatically generate a number of different
 target specification formats, such as JSON, FrancaIDL, etc.
 
@@ -39,7 +38,7 @@ The release management process will be driven in the context of GENIVI
 and its Remote Vehicle Interaction expert group.
 
 # BROWSE JSON VEHICLE SIGNAL SPECIFICATION
-A variant of the vehicle signal specification is checked in
+A variant of the vehicle data specification is checked in
 as ```vss_$VERSION.json```, where ```$VERSION``` is the content of
 the ```VERSION``` file.
 
@@ -80,8 +79,8 @@ an arguement.  For example, to generate only the json format, type:
 
     make json
 
-# SIGNAL, BRANCH, AND ATTRIBUTE DEFINITION
-Signals, branches, and attributes are organized into a tree such as outlined
+# BRANCH, RBRANCH, SIGNAL, ATTRIBUTE, AND ELEMENT DEFINITION
+Branches, rbranches, signals, attributes, and elements are organized into a tree such as outlined
 in Fig 2.
 
 ![Signal tree](pics/tree.png)<br>
@@ -91,7 +90,43 @@ in Fig 2.
 ## <a name="branch-entry"/>BRANCH ENTRY
 A branch is an entity that can host other branches, signals, and attributes.
 A branch is identified as an entry with its signal type set to ```branch```.
-The only required field for a branch is ```description```.
+The only required field for a branch are ```type``` and ```description```.
+
+## <a name="rbranch-entry"/>RBRANCH ENTRY
+A ```resource branch``` is an entity that can host only element nodes.
+A resorce branch is identified as an entry with its node type set to ```rbranch```. 
+It can host zero or more element nodes, and it contains the format definition
+of its element nodes.
+Besides the required fields ```type``` and ```description```, are also the following.
+
+## <a name="rbranch-child-type"/>RBRANCH CHILDTYPE
+An rbranch child must be of the generic type ```element```, but it also has a uniquely specified 
+part that can be referred to by the child type.
+
+## <a name="rbranch-child-properties"/>RBRANCH CHILDPROPERTIES
+An rbranch child format is defined through a number of ```properties```, 
+each property is defined by the attributes: ```name```, ```description```, 
+```type```, ```format```, ```unit```, and ```value```.
+
+## <a name="rbranch-property-name"/>RBRANCH PROPNAME
+This is the key value used to refer to this property. An element must contain the 
+properties named ```id```, ```name```, and ```uri``` <inherited from VIWI?>.
+
+## <a name="rbranch-property-description"/>RBRANCH PROPDESCRIPTION
+This is a description of the property.
+
+## <a name="rbranch-property-type"/>RBRANCH PROPTYPE
+This is the type of the property.
+
+## <a name="rbranch-property-format"/>RBRANCH PROPFORMAT
+This is the format of this property.
+
+## <a name="rbranch-property-unit"/>RBRANCH PROPUNIT
+This is the unit of this property.
+
+## <a name="rbranch-property-value"/>RBRANCH PROPVALUE
+If this property is a logical link to other elements, then the path to the rbranch 
+of these elements is given here. The ```id``` value of these elements are provided in a list.
 
 ## <a name="signal-entry"/>SIGNAL ENTRY
 A signal is a named entity, such as rpm, that can have a value, such as 3400,
@@ -197,6 +232,11 @@ Each attribute specifies a static value of the correct type.
 ### <a name="attribute-unit-type"/>ATTRIBUTE UNIT TYPE [OPTIONAL]
 An attribute can optionally specify a unit of measurement in the same way that
 a signal does.
+
+## <a name="element-entry"/>ELEMENT ENTRY
+An element node must only be a child of an rbranch node. 
+Default and mandatory fields are ```type```, and ```description```, other mandatory fields are specified by
+the property definitions in the rbranch parent.
 
 ## SIGNAL NAMING CONVENTION
 Signals are named, left-to-right, from the root of the signal tree
