@@ -45,12 +45,6 @@
 
 #include Private/Private.vspec VSS-Root.Private
 
-#- Attribute:
-#  type: branch
-#  description: Attribute signals that do not change during the power cycle of a vehicle.
-
-##include Attribute/Attribute.vspec Attribute
-
 - VSS-Root.Car:
   type: branch
   description: Signal and attribute type vehicle data.
