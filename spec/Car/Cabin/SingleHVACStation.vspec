@@ -11,25 +11,23 @@
 
 - FanSpeed:
   type: UInt8
+  function: senseactuator
   min: 0
   max: 100
   unit: percent
   description: Fan Speed, 0 = off. 100 = max
-  sensor: Fan Sensor
-  actuator: Fan Control
 
 - Temperature:
   type: Int8
+  function: senseactuator
   min: -50
   max: 50
   unit: celsius 
   description: Temperature
-  sensor: Thermometer
-  actuator: TemperatureSwitch
 
 - AirDistribution:
   type: string
+  function: senseactuator
   enum: [ "up", "middle", "down" ]
   description: Direction of airstream
-  sensor: Fan Sensor
-  actuator: Fan Control
+

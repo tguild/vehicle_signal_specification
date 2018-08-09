@@ -17,11 +17,13 @@
 #
 - Displacement:
   type: Uint16
+  function: attribute
   description: Displacement in cubic centimetres.
   unit: cm3
 
 - Configuration:
   type: String
+  function: attribute
   enum: [ "unknown", "straight", "V", "boxer", "W",
         "rotary", "radial", "square", "H", "U", "opposed", "X" ]
   description: Engine configuration.
@@ -29,18 +31,21 @@
 
 - MaxPower:
   type:  Uint16
+  function: attribute
   default: 0
   unit: kw
   description: Peak power, in kilowatts, that engine can generate.
 
 - MaxTorque:
   type:  Uint16
+  function: attribute
   default: 0
   unit: N.m
   description: Peak power, in newton meter, that the engine can generate.
 
 - FuelType:
   type: String
+  function: attribute
   enum: [ "unknown", "gasoline", "diesel", "E85", "CNG" ]
   default: "unknown"
   description: Type of fuel that the engine runs on.
@@ -63,11 +68,11 @@
 #
 - Engine.Speed:
   type: Uint16
+  function: sensor
   unit: rpm
   min: 0
   max: 20000
   description: Engine speed measured as rotations per minute.
-  sensor: Rotational Speed Sensor
 
 
 #
@@ -75,11 +80,11 @@
 #
 - Engine.ECT:
   type: Int16
+  function: sensor
   unit: celsius
   min: -50
   max: 200
   description: Engine coolant temperature.
-  sensor: Coolant Thermometer
 
 
 #
@@ -87,11 +92,11 @@
 #
 - Engine.EOT:
   type: Int16
+  function: sensor
   unit: celsius
   min: -50
   max: 300
   description: Engine oil temperature.
-  sensor: Oil Thermometer
 
 
 #
@@ -99,11 +104,11 @@
 #
 - Engine.MAP:
   type: Int16
+  function: sensor
   unit: kpa
   min: 0
   max: 1000
   description: Manifold air pressure possibly boosted using forced induction.
-  sensor: Manifold Air Pressure Sensor
 
 
 #
@@ -111,22 +116,22 @@
 #
 - Engine.MAF:
   type: Int16
+  function: sensor
   unit: g/s
   min: 0
   max: 3000
   description: Grams of air drawn into engine per second.
-  sensor: Mass Air Flow Sensor
 
 #
 # Throttle Position
 #
 - Engine.TPS:
   type: Int8
+  function: sensor
   unit: percent
   min: 0
   max: 100
   description: Current throttle position.
-  sensor: Throttle Position Sensor
 
 
 #
@@ -134,11 +139,11 @@
 #
 - Engine.EOP:
   type: Int16
+  function: sensor
   unit: kpa
   min: 0
   max: 1000
   description: Engine oil pressure.
-  sensor: Oil Pressure Sensor
 
 
 #
@@ -146,29 +151,29 @@
 #
 - Engine.Power:
   type: Int16
+  function: sensor
   unit: kW
   min: 0
   max: 2000
   description: Current engine power output.
-  sensor: Power Meter
 
 #
 # Current Torque 
 #
 - Engine.Torque:
   type: Int16
+  function: sensor
   unit: N.m
   min: 0
   max: 3000
   description: Current engine torque.
-  sensor: Torque Meter
 
 #
 # Current Ambient (Outside) Air Temperature
 #
 - Engine.AmbientAirTemperature:
   type: float
+  function: sensor
   unit: celsius
   description: Ambient (Outside) air temperature
-  sensor: Thermometer
 

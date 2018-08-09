@@ -71,31 +71,27 @@
 
 - IsRecirculationActive:
   type: Boolean
+  function: senseactuator
   description: Is recirculation active.
-  sensor: Recirculation System
-  actuator: Recirculation System
 
 - IsFrontDefrosterActive:
   type: Boolean
+  function: senseactuator
   description: Is front defroster active.
-  sensor: Defroster
-  actuator: Defroster
 
 - IsRearDefrosterActive:
   type: Boolean
+  function: senseactuator
   description: Is rear defroster active.
-  sensor: Defroster
-  actuator: Defroster
 
 - IsAirConditioningActive:
   type: Boolean
+  function: senseactuator
   description: Is Air conditioning active.
-  sensor: Air Conditioning System
-  actuator: Air Conditioning System
 
 - AmbientAirTemperature:
   type: float
+  function: sensor
   unit: celsius
   description: Ambient air temperature
-  sensor: Thermometer
 

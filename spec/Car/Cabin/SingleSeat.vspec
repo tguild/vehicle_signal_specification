@@ -11,45 +11,45 @@
 
 - HasPassenger:
   type: Boolean
+  function: sensor
   description: Does the seat have a passenger in it.
-  sensor: Occupant Classification System
   
 - IsBelted:
   type: Boolean
+  function: sensor
   description: Is the belt engaged.
-  sensor: Belt Sensor
   
 - Heating:
   type: Int8
+  function: sensor
   min: -100
   max: 100
   unit: percent
   description: Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat
-  sensor: Seat Heater
 
 - Massage:
   type: UInt8
+  function: sensor
   min: 0
   max: 100
   unit: percent
   description: Seat massage level. 0 = off. 100 = max massage.
-  sensor: Massage System
 
 - Recline:
   type: Int8
+  function: sensor
   min: -90
   max: 90
   unit: degrees
   description: Recline level. -90 = Max forward recline. 90 max backward recline
-  sensor: Seat Position Sensor
 
 - Position:
   type: UInt16
+  function: sensor
   min: 0
   max: 1000
   unit: mm
   description: Seat horizontal position. 0 = Frontmost. 1000 = Rearmost
-  sensor: Seat Position Sensor
 
 - Cushion:
   type: branch
@@ -57,19 +57,19 @@
   
 - Cushion.Height:
   type: UInt16
+  function: sensor
   min: 0
   max: 500
   unit: mm
   description: Height of the seat front. 0 = Lowermost. 500 = Uppermost.
-  sensor: Cushion Position Sensor
 
 - Cushion.Length:
   type: UInt16
+  function: sensor
   min: 0
   max: 500
   unit: mm
   description: Forward length of cushion (leg support). 0 = Rearmost. 500 = Forwardmost.
-  sensor: Cushion Position Sensor
 
 
 - Lumbar:
@@ -78,18 +78,18 @@
   
 - Lumbar.Inflation:
   type: UInt8
+  function: sensor
   min: 0
   max: 255
   description: Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated.
-  sensor: Lumbar Position Sensor
 
   
 - Lumbar.Height:
   type: UInt8
+  function: sensor
   min: 0
   max: 255
   description: Lumbar support position. 0 = Lowermost. 255 = Uppermost.
-  sensor: Lumbar Position Sensor
 
 - SideBolster:
   type: branch
@@ -97,10 +97,10 @@
   
 - SideBolster.Inflation:
   type: UInt8
+  function: sensor
   min: 0
   max: 255
   description: Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated.
-  sensor: Lumbar Pressure Sensor
   
 - HeadRestraint:
   type: branch
@@ -108,11 +108,11 @@
 
 - HeadRestraint.Height:
   type: UInt8
+  function: sensor
   min: 0
   max: 255
   unit: mm
   description: Height of head restraint. 0 = Bottommost. 255 = Topmost.
-  sensor: Head Restraint Sensor
   
 - Airbag:
   type: branch
@@ -120,8 +120,8 @@
   
 - Airbag.IsDeployed:
   type: Boolean
+  function: sensor
   description: Airbag deployment status. True = Airbag deployed. False = Airbag not deployed.
-  sensor: Airbag System
   
 
 #--------------------------------------
@@ -132,33 +132,33 @@
 
 - Switch.Warmer:
   type: Boolean
+  function: actuator
   description: Warmer switch for Seat heater
-  actuator: Seat Heater
 
 - Switch.Cooler:
   type: Boolean
+  function: actuator
   description: Cooler switch for Seat heater
-  actuator: Seat Cooler
 
 - Switch.Forward:
   type: Boolean
+  function: actuator
   description: Seat forward switch engaged
-  actuator: Seat Position Actuator
 
 - Switch.Backward:
   type: Boolean
+  function: actuator
   description: Seat forward switch engaged
-  actuator: Seat Position Actuator
 
 - Switch.Up:
   type: Boolean
+  function: actuator
   description: Seat up switch engaged
-  actuator: Seat Position Actuator
 
 - Switch.Down:
   type: Boolean
+  function: actuator
   description: Seat down switch engaged
-  actuator: Seat Position Actuator
 
 - Switch.HeadRestraint:
   type: branch
@@ -166,13 +166,13 @@
   
 - Switch.HeadRestraint.Up:
   type: Boolean
+  function: actuator
   description: Head restraint up switch engaged
-  actuator: Head Restraint Actuator
 
 - Switch.HeadRestraint.Down:
   type: Boolean
+  function: actuator
   description: Head restraint down switch engaged
-  actuator: Head Restraint Actuator
 
 - Switch.Massage:
   type: branch
@@ -180,13 +180,13 @@
 
 - Switch.Massage.Increase:
   type: Boolean
+  function: actuator
   description: Increase massage level switch engaged
-  actuator: Massage System
 
 - Switch.Massage.Decrease:
   type: Boolean
+  function: actuator
   description: Decrease massage level switch engaged
-  actuator: Massage System
 
 - Switch.Recline:
   type: branch
@@ -194,13 +194,13 @@
 
 - Switch.Recline.Backward:
   type: Boolean
+  function: actuator
   description: Seatback recline backward switch engaged
-  actuator: Seat Position Actuator
 
 - Switch.Recline.Forward:
   type: Boolean
+  function: actuator
   description: Seatback recline forward switch engaged
-  actuator: Seat Position Actuator
 
 - Switch.Cushion:
   type: branch
@@ -208,23 +208,23 @@
 
 - Switch.Cushion.Up:
   type: Boolean
+  function: actuator
   description: Seat cushion up switch engaged
-  actuator: Cushion Position Actuator
 
 - Switch.Cushion.Down:
   type: Boolean
+  function: actuator
   description: Seat cushion down switch engaged
-  actuator: Cushion Position Actuator
 
 - Switch.Cushion.Forward:
   type: Boolean
+  function: actuator
   description: Seat cushion forward/lengthen switch engaged
-  actuator: Cushion Position Actuator
 
 - Switch.Cushion.Backward:
   type: Boolean
+  function: actuator
   description: Seat cushion backward/shorten switch engaged
-  actuator: Cushion Position Actuator
 
 - Switch.Lumbar:
   type: branch
@@ -232,23 +232,23 @@
   
 - Switch.Lumbar.Up:
   type: Boolean
+  function: actuator
   description: Lumbar up switch engaged
-  actuator: Lumbar Position Actuator
     
 - Switch.Lumbar.Down:
   type: Boolean
+  function: actuator
   description: Lumbar down switch engaged
-  actuator: Lumbar Position Actuator
     
 - Switch.Lumbar.Inflate:
   type: Boolean
+  function: actuator
   description: Lumbar inflation switch engaged
-  actuator: Lumbar Pressure Actuator
     
 - Switch.Lumbar.Deflate:
   type: Boolean
+  function: actuator
   description: Lumbar deflation switch engaged
-  actuator: Lumbar Pressure Actuator
 
 - Switch.SideBolster:
   type: branch
@@ -256,10 +256,11 @@
 
 - Switch.SideBolster.Inflate:
   type: Boolean
+  function: actuator
   description: Lumbar inflation switch engaged
-  actuator: Lumbar Pressure Actuator
     
 - Switch.SideBolster.Deflate:
   type: Boolean
+  function: actuator
   description: Lumbar deflation switch engaged
-  actuator: Lumbar Pressure Actuator
+

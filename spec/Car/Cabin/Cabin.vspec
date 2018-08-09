@@ -47,19 +47,19 @@
 
 - Sunroof.Position:
   type: Int8
+  function: sensor
   min: -100
   max: 100
   description: Sunroof position. 0 = Fully closed 100 = Fully opened. -100 = Fully tilted
-  sensor: Sunroof Position Sensor
                
 #
 # Sunroof controlling switch. 
 # We cannot use SingleSliderSwitch.vspec since we have TiltUp and TiltDown also
 - Sunroof.Switch:
   type: String
+  function: actuator
   enum: [ "Inactive", "Close", "Open", "OneShotClose", "OneShotOpen", "TiltUp", "TiltDown" ]
   description: Switch controlling sliding action such as window, sunroof, or shade.
-  actuator: Sunroof Position Actuator
 
 - Sunroof.Shade:
   type: branch
@@ -77,10 +77,9 @@
 
 - RearviewMirror.DimmingLevel:
   type: UInt8
+  function: senseactuator
   unit: percent
   description: Dimming level of rearview mirror. 0 = undimmed. 100 = fully dimmed
-  sensor: Dimming System
-  actuator: Dimming System
 
 
 ##
@@ -102,6 +101,7 @@
 
 - Door.Count:
   type: Uint8
+  function: attribute
   value: 0
   description: Number of doors in vehicle
 
@@ -205,37 +205,44 @@
 #
 - Seat.DriverPosition:
   type: Uint8
+  function: attribute
   value: 0
   description: The position of the driver seat in row 1. (1-5)
 
 - Seat.RowCount:
   type: Uint8
+  function: senseactuator
   value: 0
   description: Number of seat rows in vehicle
 
 - Seat.Row1PosCount:
   type: Uint8
+  function: attribute
   value: 0
   description: Number of seats across row 1 (frontmost)
 
 - Seat.Row2PosCount:
   type: Uint8
+  function: attribute
   value: 0
   description: Number of seats across row 2
 
 - Seat.Row3PosCount:
   type: Uint8
+  function: attribute
   value: 0
   description: Number of seats across row 3
 
 
 - Seat.Row4PosCount:
   type: Uint8
+  function: attribute
   value: 0
   description: Number of seats across row 4
 
 - Seat.Row5PosCount:
   type: Uint8
+  function: attribute
   value: 0
   description: Number of seats across row 5
 
@@ -415,6 +422,7 @@
 
 - SteeringWheel.Position:
   type: String
+  function: attribute
   value: front_left
   enum: ["front_left", "front_right"]
   description: Position of the steering wheel inside the cabin

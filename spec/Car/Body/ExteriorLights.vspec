@@ -11,66 +11,56 @@
 
 - IsHighBeamOn:
   type: Boolean
+  function: senseactuator
   description: Is high beam on
-  sensor: High Beam Light Switch
-  actuator: High Beam Light
 
 - IsLowBeamOn:
   type: Boolean
+  function: senseactuator
   description: Is low beam on
-  sensor: Low Beam Light Switch
-  actuator: Low Beam Light
 
 - IsRunningOn:
   type: Boolean
+  function: senseactuator
   description: Are running lights on
-  sensor: Running Light Switch
-  actuator: Running Light
 
 - IsBackupOn:
   type: Boolean
+  function: senseactuator
   description: Is backup (reverse) light on
-  sensor: Backup Light Switch
-  actuator: Backup Light
 
 - IsParkingOn:
   type: Boolean
+  function: senseactuator
   description: Is parking light on
-  sensor: Parking Light Switch
-  actuator: Parking Light
 
 - IsBrakeOn:
   type: Boolean
+  function: senseactuator
   description: Is brake light on
-  sensor: Brake Light Switch
-  actuator: Brake Light
 
 - IsRearFogOn:
   type: Boolean
+  function: senseactuator
   description: Is rear fog light on
-  sensor: Rear Fog Light Switch
-  actuator: Rear Fog Light
 
 - IsFrontFogOn:
   type: Boolean
+  function: senseactuator
   description: Is front fog light on
-  sensor: Front Fog Light Switch
-  actuator: Front Fog Light
 
 - IsHazardOn:
   type: Boolean
+  function: senseactuator
   description: Are hazards on
-  sensor: Hazard Light Switch
-  actuator: Hazard Light
 
 - IsLeftIndicatorOn:
   type: Boolean
+  function: senseactuator
   description: Is left indicator flashing
-  sensor: Left Indicator Switch
-  actuator: Left Indicator Light
 
 - IsRightIndicatorOn:
   type: Boolean
+  function: senseactuator
   description: Is right indicator flashing
-  sensor: Right Indicator Switch
-  actuator: Right Indicator Light
+

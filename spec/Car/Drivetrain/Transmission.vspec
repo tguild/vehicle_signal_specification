@@ -14,6 +14,7 @@
 
 - Type:
   type: String
+  function: attribute
   enum: [ "unknown", "sequential", "H", "automatic", "DSG", "CVT" ]
   value: "unknown"
   description: Transmission type.
@@ -21,11 +22,13 @@
 
 - GearCount:
   type: Uint8
+  function: attribute
   value: 0
   description: Number of forward gears in the transmission. -1 = CVT. 
   
 - DriveType:
   type: String
+  function: attribute
   enum: [ "unknown", "forward wheel drive", "rear wheel drive", "all wheel drive" ]
   value: "unknown"
   description: Drive type.
@@ -39,11 +42,11 @@
 #
 - Speed:
   type: Int32
+  function: sensor
   min: -250
   max: 250
   unit: km/h
   description: Vehicle speed, as sensed by the gearbox.
-  sensor: Speedometer
 
 
 #
@@ -51,9 +54,9 @@
 #
 - TravelledDistance:
   type: Float
+  function: sensor
   unit: km
   description: Odometer reading
-  sensor: Odometer
 
  
 #
@@ -61,11 +64,10 @@
 #
 - Gear:
   type: Int8
+  function: senseactuator
   min: -1
   max: 16
   description: Current gear. 0=Neutral. -1=Reverse
-  sensor: Gearbox
-  actuator: Gearbox
 
 
 #
@@ -73,10 +75,9 @@
 #
 - PerformanceMode:
   type: string
+  function: senseactuator
   enum: [ "normal", "sport", "economy", "snow", "rain" ]
   description: Current gearbox performance mode. 
-  sensor: Drive System
-  actuator: Drive System
 
 
 #
@@ -84,10 +85,9 @@
 #
 - GearChangeMode:
   type: string
+  function: senseactuator
   enum: [ "manual", "automatic" ]
   description: Is the gearbox in automatic or manual (paddle) mode. 
-  sensor: Drive System
-  actuator: Drive System
 
 
 #
@@ -95,6 +95,7 @@
 #
 - Temperature:
   type: Int16
+  function: sensor
   min: -50
   max: 200
   unit: celsius
@@ -106,6 +107,7 @@
 #
 - ClutchWear:
   type: Uint8
+  function: sensor
   unit: percent
   description: Clutch wear as a percent. 0 = no wear. 100 = worn.
-  sensor: Clutch Wear Indicator
+

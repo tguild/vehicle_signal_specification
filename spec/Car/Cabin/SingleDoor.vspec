@@ -10,15 +10,13 @@
 #
 - IsOpen:
   type: Boolean
+  function: senseactuator
   description: Is door open or closed
-  sensor: Door Contact Sensor
-  actuator: Door Contact Actuator
 
 - IsLocked:
   type: Boolean
+  function: senseactuator
   description: Is door locked or unlocked. True = Locked. False = Unlocked.
-  sensor: Door Lock
-  actuator: Door Lock
 
 
 #
@@ -30,11 +28,11 @@
 
 - Window.Position:
   type: Uint8
+  function: sensor
   min: 0
   max: 100
   unit: percent
   description: Window position. 0 = Fully closed 100 = Fully opened.
-  sensor: Window Position Sensor
 
 
 # Include the window controlling switch and attach it to the
@@ -49,8 +47,8 @@
 
 - IsChildLockActive:
   type: Boolean
+  function: sensor
   description: Is door child lock engaged. True = Engaged. False = Disengaged.
-  sensor: Child Lock
 
 #
 # Window shade / curtain status

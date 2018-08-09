@@ -14,24 +14,24 @@
   
 - Brake.FluidLevel:
   type: Uint8
+  function: sensor
   unit: percent
   description: Brake fluid level as percent. 0 = Empty. 100 = Full.
-  sensor: Brake Fluid Level Sensor
 
 - Brake.FluidLevelLow:
   type: Boolean
+  function: sensor
   description: Brake fluid level status. True = Brake fluid level low. False = Brake fluid level OK.
-  sensor: Brake Fluid Level Sensor
   
 - Brake.PadWear:
   type: Uint8
+  function: sensor
   description: Brake pad wear as percent. 0 = No Wear. 100 = Worn.
-  sensor: Brake Pad Wear Sensor
 
 - Brake.BrakesWorn:
   type: Boolean
+  function: sensor
   description: Brake pad wear status. True = Worn. False = Not Worn.
-  sensor: Brake Pad Wear Sensor
 
 
 #
@@ -43,18 +43,18 @@
   
 - Tire.Pressure:
   type: Uint8
+  function: sensor
   unit: kpa
   description: Tire pressure in kilo-Pascal
-  sensor: Tire Pressure Monitoring System
 
 - Tire.PressureLow:
   type: Boolean
+  function: sensor
   description: Tire Pressure Status. True = Low tire pressure. False = Good tire pressure.
-  sensor: Tire Pressure Monitoring System
   
 - Tire.Temperature:
   type: Float
+  function: sensor
   unit: celsius
   description: Tire temperature in Celsius.
-  sensor: Tire Temperature Sensor
 

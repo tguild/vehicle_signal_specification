@@ -14,48 +14,56 @@
 #
 - CurbWeight:
   type: Uint16
+  function: attribute
   value: 0
   unit: kg
   description: Vehicle curb weight, in kg, including all liquids and full tank of fuel, but no cargo or passengers.
 
 - GrossWeight:
   type: Uint16
+  function: attribute
   value: 0
   unit: kg
   description: Curb weight of vehicle, including all liquids and full tank of fuel and full load of cargo and passengers.
 
 - TowWeight:
   type: Uint16
+  function: attribute
   value: 0
   unit: kg
   description: Maximum weight, in kilos, of trailer.
 
 - Length:
   type: Uint16
+  function: attribute
   value: 0
   unit: mm
   description: Overall vehicle length, in mm.
 
 - Height:
   type: Uint16
+  function: attribute
   value: 0
   unit: mm
   description: Overall vehicle height, in mm.
 
 - Width:
   type: Uint16
+  function: attribute
   value: 0
   unit: mm
   description: Overall vehicle width, in mm.
 
 - Wheelbase:
   type: Uint16
+  function: attribute
   value: 0
   unit: mm
   description: Overall wheel base, in mm.
 
 - Track:
   type: Uint16
+  function: attribute
   value: 0
   unit: mm
   description: Overall wheel tracking, in mm.
@@ -69,6 +77,7 @@
 
 - Axle.Count:
   type: Uint8
+  function: attribute
   value: 2
   description: Number of axles on the vehicle
 
@@ -85,15 +94,18 @@
 #
 - Axle.Row1.WheelCount:
   type: Uint8
+  function: attribute
   description: Number of wheels on the first axle
 
 - Axle.Row1.WheelDiameter:
   type: Uint8
+  function: attribute
   unit: inch
   description: Diameter of wheels (without tires), in inches, as per ETRO / TRA standard.
 
 - Axle.Row1.WheelWidth:
   type: Uint8
+  function: attribute
   unit: inch
   description: Width of wheels (without tires), in inches, as per ETRO / TRA standard.
 
@@ -101,11 +113,13 @@
 
 - Axle.Row2.WheelDiameter:
   type: Uint8
+  function: attribute
   unit: inch
   description: Diameter of wheels (without tires), in inches, as per ETRO / TRA standard.
 
 - Axle.Row2.WheelWidth:
   type: Uint8
+  function: attribute
   unit: inch
   description: Width of wheels (without tires), in inches, as per ETRO / TRA standard.
 
@@ -115,21 +129,25 @@
 
 - Axle.Row1.TireDiameter:
   type: Uint8
+  function: attribute
   unit: inch
   description: Diameter of tires, in inches, as per ETRO / TRA standard.
 
 - Axle.Row1.TireWidth:
   type: Uint8
+  function: attribute
   unit: inch
   description: Width of tires, in inches, as per ETRO / TRA standard.
 
 - Axle.Row2.TireDiameter:
   type: Uint8
+  function: attribute
   unit: inch
   description: Diameter of tires, in inches, as per ETRO / TRA standard.
 
 - Axle.Row2.TireWidth:
   type: Uint8
+  function: attribute
   unit: inch
   description: Width of tires, in inches, as per ETRO / TRA standard.
 
@@ -178,9 +196,8 @@
 
 - ParkingBrake.IsEngaged:
   type: Boolean
+  function: senseactuator
   description: Parking brake status. True = Parking Brake is Engaged. False = Parking Brake is not Engaged.
-  sensor: Parking Brake Sensor
-  actuator: Parking Brake Switch
   
 
 #
@@ -192,27 +209,25 @@
   
 - SteeringWheel.Angle:
   type: Int16
+  function: sensor
   unit: degrees
   description: Steering wheel angle. Positive = degrees to the left. Negative = degrees to the right.
-  sensor: Steering Wheel Angle Sensor
   
 - SteeringWheel.Tilt:
   type: Uint8
+  function: senseactuator
   min: 0
   max: 100
   unit: percent
   description: Steering wheel column tilt. 0 = Lowest position. 100 = Highest position.
-  sensor: Steering Wheel Position Sensor
-  actuator: Steering Wheel Position Actuator
   
 - SteeringWheel.Extension:
   type: Uint8
+  function: senseactuator
   min: 0
   max: 100
   unit: percent
   description: Steering wheel column extension from dashboard. 0 = Closest to dashboard. 100 = Furthest from dashboard.
-  sensor: Steering Wheel Position Sensor
-  actuator: Steering Wheel Position Actuator
   
   
 #
@@ -224,11 +239,11 @@
   
 - Accelerator.PedalPosition:
   type: Uint8
+  function: sensor
   min: 0
   max: 100
   unit: percent
   description: Accelerator pedal position as percent. 0 = Not depressed. 100 = Fully depressed.
-  sensor: Pedal Position Sensor
   
   
 #
@@ -240,21 +255,9 @@
   
 - Brake.PedalPosition:
   type: Uint8
+  function: sensor
   min: 0
   max: 100
   unit: percent
   description: Brake pedal position as percent. 0 = Not depressed. 100 = Fully depressed.
-  sensor: Pedal Position Sensor
 
-
-#
-# Trailer
-#
-- Trailer:
-  type: branch
-  description: Trailer signals
-
-- Trailer.Connected:
-  type: Boolean
-  description: Signal indicating if trailer is connected or no
-  sensor: Trailer sensor

@@ -11,10 +11,12 @@
 
 - BodyType:
   type: String
+  function: attribute
   description: Body type code as defined by ISO 3779
 
 - RefuelPosition:
   type: String
+  function: attribute
   enum: ["front_left", "front_right", "middle_left", "middle_right", "rear_left", "rear_right"]
   description: Location of the fuel cap or charge port
 
@@ -27,9 +29,8 @@
 
 - Hood.IsOpen:
   type: Boolean
+  function: senseactuator
   description: hood open or closed. True = Open. False = Closed
-  sensor: Hood Latch
-  actuator: Hood Latch
 
 #
 # Trunk description
@@ -40,15 +41,13 @@
 
 - Trunk.IsOpen:
   type: Boolean
+  function: senseactuator
   description: Trunk open or closed. True = Open. False = Closed
-  sensor: Trunk Latch
-  actuator: Trunk Latch
 
 - Trunk.IsLocked:
   type: Boolean
+  function: senseactuator
   description: Is trunk locked or unlocked. True = Locked. False = Unlocked.
-  sensor: Trunk Lock
-  actuator: Trunk Lock
 
 
 #
@@ -60,9 +59,8 @@
 
 - Horn.IsActive:
   type: Boolean
+  function: senseactuator
   description: Horn active or inactive. True = Active. False = Inactive.
-  sensor: Horn System
-  actuator: Horn System
 
 
 #
@@ -74,9 +72,9 @@
 
 - Raindetection.Intensity:
   type: Uint8
+  function: sensor
   unit: percent
   description: Rain intensity. 0 = Dry, No Rain. 100 = Covered.
-  sensor: Rain Sensor
 
 
 #
@@ -99,10 +97,9 @@
 
 - Windshield.Front.Wiping.Status:
   type: String
+  function: senseactuator
   enum: ["off", "slow", "medium", "fast", "interval", "rainsensor"]
   description: Front wiper status
-  sensor: Wiper Switch
-  actuator: Wiper
 
 - Windshield.Front.Heating:
   type: branch
@@ -110,9 +107,8 @@
 
 - Windshield.Front.Heating.Status:
   type: Boolean
+  function: senseactuator
   description: Front windshield heater status. 0 - off, 1 - on
-  sensor: Windshield Heater Switch
-  actuator: Windshield Heater
 
 - Windshield.Front.WasherFluid:
   type: branch
@@ -120,14 +116,14 @@
 
 - Windshield.Front.WasherFluid.LevelLow:
   type: Boolean
+  function: sensor
   description: Low level indication for washer fluid. True = Level Low. False = Level OK.
-  sensor: Washer Fluid Level Sensor
 
 - Windshield.Front.WasherFluid.Level:
   type: Uint8
   unit: percent
+  function: sensor
   description: Washer fluid level as a percent. 0 = Empty. 100 = Full.
-  sensor: Washer Fluid Level Sensor
 
 #
 # Rear Windshield
@@ -142,10 +138,9 @@
 
 - Windshield.Rear.Wiping.Status:
   type: String
+  function: senseactuator
   enum: ["off", "slow", "medium", "fast", "interval", "rainsensor"]
   description: Rear wiper status
-  sensor: Wiper Switch
-  actuator: Wiper
 
 - Windshield.Rear.Heating:
   type: branch
@@ -153,9 +148,8 @@
 
 - Windshield.Rear.Heating.Status:
   type: Boolean
+  function: senseactuator
   description: Rear windshield heater status. 0 - off, 1 - on
-  sensor: Windshield Heater Switch
-  actuator: Windshield Heater
 
 - Windshield.Rear.WasherFluid:
   type: branch
@@ -163,14 +157,14 @@
 
 - Windshield.Rear.WasherFluid.LevelLow:
   type: Boolean
+  function: sensor
   description: Low level indication for washer fluid. True = Level Low. False = Level OK.
-  sensor: Washer Fluid Level Sensor
 
 - Windshield.Rear.WasherFluid.Level:
   type: Uint8
   unit: percent
+  function: sensor
   description: Washer fluid level as a percent. 0 = Empty. 100 = Full.
-  sensor: Washer Fluid Level Sensor
 
 
 

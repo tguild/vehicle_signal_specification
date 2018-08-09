@@ -15,9 +15,9 @@
 
 - Position:
   type: UInt8
+  function: actuator
   min: 0
   max: 100
   unit: percent
   description: Position of side window blind. 0 = Fully retracted. 100 = Fully deployed.
-  actuator: RearShade Actuator
 
