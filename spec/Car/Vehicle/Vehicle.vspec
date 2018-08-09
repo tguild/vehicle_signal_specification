@@ -1,0 +1,229 @@
+#
+# (C) 2016 Jaguar Land Rover
+#
+# All files and artifacts in this repository are licensed under the
+# provisions of the license provided by the LICENSE file in this repository.
+#
+ 
+
+#
+# Highlevel vehicle signals and attributes.
+#
+
+#
+# Vehicle identification attributes.
+#
+
+- VehicleIdentification:
+  type: branch
+  description: Attributes that identify a vehicle
+  
+- VehicleIdentification.VIN:
+  type: String
+  description: 17-character Vehicle Identification Number (VIN) as defined by ISO 3779
+  
+- VehicleIdentification.WMI:
+  type: String
+  description: 3-character World Manufacturer Identification (WMI) as defined by ISO 3780
+
+- VehicleIdentification.Brand:
+  type: String
+  description: Vehicle brand or manufacturer
+  
+- VehicleIdentification.Model:
+  type: String
+  description: Vehicle model
+
+- VehicleIdentification.Year:
+  type: Uint16
+  description: Model year of the vehicle
+
+
+#
+# Imports from schema.org/Car
+#
+
+- VehicleIdentification.ACRISSCode:
+  type: String
+  description: The ACRISS Car Classification Code is a code used by many car rental companies.
+
+- VehicleIdentification.bodyType:
+  type: String
+  description: Indicates the design and body style of the vehicle (e.g. station wagon, hatchback, etc.).
+
+- VehicleIdentification.dateVehicleFirstRegistered:
+  type: String
+  description: The date of the first registration of the vehicle with the respective public authorities.
+
+- VehicleIdentification.meetsEmissionStandard:
+  type: String
+  description: Indicates that the vehicle meets the respective emission standard.
+
+- VehicleIdentification.productionDate:
+  type: String
+  description: The date of production of the item, e.g. vehicle.
+
+- VehicleIdentification.purchaseDate:
+  type: String
+  description: The date the item e.g. vehicle was purchased by the current owner.
+
+- VehicleIdentification.vehicleModelDate:
+  type: String
+  description: The release date of a vehicle model (often used to differentiate versions of the same make and model).
+
+- VehicleIdentification.vehicleConfiguration:
+  type: String
+  description: A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'.
+
+- VehicleIdentification.vehicleSeatingCapacity:
+  type: UInt16
+  description: The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.
+
+- VehicleIdentification.vehicleSpecialUsage:
+  type: String
+  description: Indicates whether the vehicle has been used for special purposes, like commercial rental, driving school.
+
+- VehicleIdentification.vehicleInteriorColor:
+  type: String
+  description: A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'.
+
+- VehicleIdentification.vehicleInteriorType:
+  type: String
+  description: The type or material of the interior of the vehicle (e.g. synthetic fabric, leather, wood, etc.).
+
+- VehicleIdentification.knownVehicleDamages:
+  type: String
+  description: A textual description of known damages, both repaired and unrepaired.
+
+#
+# Vehicle signals
+#
+- IgnitionOnTime:
+  type: Uint32
+  unit: s
+  description: Accumulated ignition on time in seconds.
+  sensor: Timer
+  
+- IgnitionOffTime:
+  type: Uint32
+  unit: s
+  description: Accumulated ignition off time in seconds.  
+  sensor: Timer
+  
+- DriveTime:
+  type: Uint32
+  unit: s
+  description: Accumulated drive time in seconds.
+  sensor: Timer
+  
+- IdleTime:
+  type: Uint32
+  unit: s
+  description: Accumulated idle time in seconds.
+  sensor: Timer
+  
+- Speed:
+  type: Int32
+  min: -250
+  max: 250
+  unit: km/h
+  description: Vehicle speed, as sensed by the gearbox.
+  sensor: Speedometer
+
+- TravelledDistance:
+  type: float
+  unit: km
+  description: Odometer reading
+  sensor: Odometer
+
+- TripMeterReading:
+  type: float
+  unit: km
+  description: Current trip meter reading
+  sensor: Odometer
+
+- AmbientAirTemperature:
+  type: float
+  unit: celsius
+  description: Ambient air temperature
+  sensor: Thermometer
+
+
+
+#
+# Spacial Acceleration
+#
+- Acceleration:
+  type: branch
+  description: Spacial acceleration
+  
+- Acceleration.Longitudinal:
+  type: Int32
+  unit: m/s2
+  description: Vehicle acceleration in X (longitudinal acceleration).
+  sensor: Accelerometer
+  
+- Acceleration.Lateral:
+  type: Int32
+  unit: m/s2
+  description: Vehicle acceleration in Y (lateral acceleration).  
+  sensor: Accelerometer
+  
+- Acceleration.Vertical:
+  type: Int32
+  unit: m/s2
+  description: Vehicle acceleration in Z (vertical acceleration).
+  sensor: Accelerometer
+  
+
+#
+# Spacial Rotation
+#
+- AngularVelocity:
+  type: branch
+  description: Spacial rotation
+  
+- AngularVelocity.Roll:
+  type: Int16
+  unit: degrees/s
+  description: Vehicle rotation rate along X (longitudinal).
+  sensor: Gyroscope
+  
+- AngularVelocity.Pitch:
+  type: Int16
+  unit: degrees/s
+  description: Vehicle rotation rate along Y (lateral).  
+  sensor: Gyroscope
+  
+- AngularVelocity.Yaw:
+  type: Int16
+  unit: degrees/s
+  description: Vehicle rotation rate along Z (vertical).    
+  sensor: Gyroscope
+
+#
+# Schema from schema.org
+#
+
+- RoofLoad:
+  type: Int16
+  unit: kg
+  description: The permitted total weight of cargo and installations (e.g. a roof rack) on top of the vehicle.
+  sensor: Gyroscope
+
+- accelerationTime:
+  type: Int16
+  unit: sec
+  description: The time needed to accelerate the vehicle from a given start velocity to a given target velocity.
+
+- cargoVolume:
+  type: Int16
+  unit: litres
+  description: The available volume for cargo or luggage. For automobiles, this is usually the trunk volume.
+  min: 0
+  max: 100
+
+- emissionsCO2:
+  type: Int16
+  description: The CO2 emissions in g/km.
+  unit: g/km

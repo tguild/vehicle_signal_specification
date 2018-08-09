@@ -35,20 +35,24 @@
 # Put in accuracy as attribute for signal
 #
 
-- Private:
+- VSS-Root:
+  type: branch
+  description: Root node of the VSS tree.
+
+- VSS-Root.Private:
   type: branch
   description: Uncontrolled branch where non-public signals can be defined.
 
-#include Private/Private.vspec Private
+#include Private/Private.vspec VSS-Root.Private
 
-- Attribute:
+#- Attribute:
+#  type: branch
+#  description: Attribute signals that do not change during the power cycle of a vehicle.
+
+##include Attribute/Attribute.vspec Attribute
+
+- VSS-Root.Car:
   type: branch
-  description: Attribute signals that do not change during the power cycle of a vehicle.
+  description: Signal and attribute type vehicle data.
 
-#include Attribute/Attribute.vspec Attribute
-
-- Signal:
-  type: branch
-  description: All signals that can dynamically be updated by the vehicle
-
-#include Signal/Signal.vspec Signal
+#include Car/Car.vspec VSS-Root.Car

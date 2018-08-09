@@ -94,11 +94,16 @@
 #include InteriorLights.vspec Lights
 
 ##
-# Door signals
+# Door signals and attributes
 ##
 - Door:
   type: branch
   description: All doors, including windows and switches
+
+- Door.Count:
+  type: Uint8
+  value: 0
+  description: Number of doors in vehicle
 
 #
 # Front row of doors
@@ -195,6 +200,48 @@
   type: branch
   description: All seats.
 
+#
+# Seat attributes.
+#
+- Seat.DriverPosition:
+  type: Uint8
+  value: 0
+  description: The position of the driver seat in row 1. (1-5)
+
+- Seat.RowCount:
+  type: Uint8
+  value: 0
+  description: Number of seat rows in vehicle
+
+- Seat.Row1PosCount:
+  type: Uint8
+  value: 0
+  description: Number of seats across row 1 (frontmost)
+
+- Seat.Row2PosCount:
+  type: Uint8
+  value: 0
+  description: Number of seats across row 2
+
+- Seat.Row3PosCount:
+  type: Uint8
+  value: 0
+  description: Number of seats across row 3
+
+
+- Seat.Row4PosCount:
+  type: Uint8
+  value: 0
+  description: Number of seats across row 4
+
+- Seat.Row5PosCount:
+  type: Uint8
+  value: 0
+  description: Number of seats across row 5
+
+#
+# Front row seats signals.
+# 
 - Seat.Row1:
   type: branch
   description: Front seats
@@ -359,3 +406,15 @@
   description: Roof status on convertible vehicles
   sensor: Roof Position Sensor
   
+#
+# Steering Wheel Configuration
+#
+- SteeringWheel:
+  type: branch
+  description: Steering wheel configuration attributes
+
+- SteeringWheel.Position:
+  type: String
+  value: front_left
+  enum: ["front_left", "front_right"]
+  description: Position of the steering wheel inside the cabin

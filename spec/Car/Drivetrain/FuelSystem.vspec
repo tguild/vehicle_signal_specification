@@ -9,6 +9,12 @@
 # Fuel system for ICE / hybrids
 #
 
+- TankCapacity:
+  type: Uint16
+  value: 0
+  unit: l
+  description: Capacity of the fuel tank in liters
+
 - Level:
   type: Uint8
   unit: percent

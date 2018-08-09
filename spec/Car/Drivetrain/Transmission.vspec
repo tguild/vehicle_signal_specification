@@ -9,7 +9,29 @@
 # TRANSMISSION SPECIFICATION FILE
 #
 # This vehicle specification file, included by the top level
-# root.vspec file, contains all transmission-originated signals
+# root.vspec file, contains all transmission-originated signals and attributes
+#
+
+- Type:
+  type: String
+  enum: [ "unknown", "sequential", "H", "automatic", "DSG", "CVT" ]
+  value: "unknown"
+  description: Transmission type.
+
+
+- GearCount:
+  type: Uint8
+  value: 0
+  description: Number of forward gears in the transmission. -1 = CVT. 
+  
+- DriveType:
+  type: String
+  enum: [ "unknown", "forward wheel drive", "rear wheel drive", "all wheel drive" ]
+  value: "unknown"
+  description: Drive type.
+
+#
+# More transmissions (gear ratios etc)
 #
 
 #
