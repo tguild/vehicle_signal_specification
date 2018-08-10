@@ -50,3 +50,10 @@
   description: Signal and attribute type vehicle data.
 
 #include Car/Car.vspec VSS-Root.Car
+
+- VSS-Root.Media:
+  type: branch
+  description: Media service data.
+
+#include Media/Media.vspec VSS-Root.Media
+

@@ -129,8 +129,7 @@ If this property is a logical link to other elements, then the path to the rbran
 of these elements is given here. The ```id``` value of these elements are provided in a list.
 
 ## <a name="signal-entry"/>SIGNAL ENTRY
-A signal is a named entity, such as rpm, that can have a value, such as 3400,
-at any given time.
+The term signal is for convenience reasons used for any of the data types sensor, actuator, senseactuator, and diagnostic wherever it is not needed to distinguish between them, see Signal function below.
 
 ### <a name="signal-type"/>SIGNAL TYPE
 Each signal specifies a type from the following set (from FrancaIDL):
@@ -151,9 +150,18 @@ Double     | double precision floating point number | -1.7e -300 | 1.7e 300
 String     | character string           | n/a  | n/a
 ByteBuffer | buffer of bytes (aka BLOB) | n/a | n/a
 
-Please note that the special type ```branch``` denotes a branch, not a
-signal. See the [branch entry](#branch-entry) chapter for details.
+Please note that the special type ```branch``` and  ```rbranch``` denotes branches, not 
+signals. See the [branch/rbranch entry](#branch-entry) chapter for details.
 
+## <a name="signal-function"/>SIGNAL FUNCTION
+The function definition is used to classify data available on the Car service branch into five different groups:
+-	attribute: Data having a static value, such as vehicle weight or fuel type. 
+-	sensor: Data having a dynamic, time variant value, produced by a transducer. 
+-	actuator: Data having a dynamic, time variant value, consumed by a transducer.
+-	senseactuator: Data having the properties of both sensor and actuator types.
+-	diagnostic: Data having a dynamic, time variant value, that resides on the OBD branch.
+Except for the node types branch, rbranch, and element, every node shall be classified into one of the data types above. For element nodes the classification is optional. 
+In this specification the data types sensor, actuator, senseactuator, and diagnostic are, when there is no reason to distinguish between them, called signals. 
 
 ### <a name="signal-range"/>SIGNAL RANGE [OPTIONAL]
 A signal can optionally be specified with a minimum and maximum limit,
@@ -211,10 +219,6 @@ ml/100km   | Consumption   | Milliliters per 100 km
 V          | Electrical    | Potential difference in volt
 A          | Electrical    | Current in amperes
 ... | ... | ...
-
-### <a name="signal-sensor-actuator"/>SIGNAL SENSOR & ACTUATOR [OPTIONAL]
-A signal can optionally specify a sensor and/or actuator respectively producing or consuming the signal.
-They are independant from the technology used.
 
 ## <a name="attribute-entry"/>ATTRIBUTE ENTRY
 An attribute is an entry, such as vehicle weight or fuel type, with a static
