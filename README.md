@@ -130,7 +130,7 @@ If this property is a logical link to other elements, then the path to the rbran
 of these elements is given here. The ```id``` value of these elements are provided in a list.
 
 ## <a name="signal-entry"/>SIGNAL ENTRY
-The term signal is for convenience reasons used for any of the data types sensor, actuator, senseactuator, and diagnostic wherever it is not needed to distinguish between them, see Signal function below.
+The term signal is for convenience reasons used for any of the function types sensor, actuator, senseactuator, and diagnostic wherever it is not needed to distinguish between them, see Signal function below.
 
 ### <a name="signal-type"/>SIGNAL TYPE
 Each signal specifies a type from the following set (from FrancaIDL):
@@ -161,8 +161,9 @@ The function definition is used to classify data available on the Car service br
 -	actuator: Data having a dynamic, time variant value, consumed by a transducer.
 -	senseactuator: Data having the properties of both sensor and actuator types.
 -	diagnostic: Data having a dynamic, time variant value, that resides on the OBD branch.
-Except for the node types branch, rbranch, and element, every node shall be classified into one of the data types above. For element nodes the classification is optional. 
-In this specification the data types sensor, actuator, senseactuator, and diagnostic are, when there is no reason to distinguish between them, called signals. 
+
+Except for the node types branch, rbranch, and element, every node shall be classified into one of the data functions above. For element nodes the classification is optional. 
+In this specification the data functions sensor, actuator, senseactuator, and diagnostic are, when there is no reason to distinguish between them, called signals. 
 
 ### <a name="signal-range"/>SIGNAL RANGE [OPTIONAL]
 A signal can optionally be specified with a minimum and maximum limit,
