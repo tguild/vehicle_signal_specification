@@ -130,7 +130,7 @@ If this property is a logical link to other elements, then the path to the rbran
 of these elements is given here. The ```id``` value of these elements are provided in a list.
 
 ## <a name="signal-entry"/>SIGNAL ENTRY
-The term signal is for convenience reasons used for any of the function types sensor, actuator, senseactuator, and diagnostic wherever it is not needed to distinguish between them, see Signal function below.
+The term signal is for convenience reasons used for any of the function types sensor, actuator, senseactuator, and diagnostic wherever it is not needed to distinguish between them, see Function types below.
 
 ### <a name="signal-type"/>SIGNAL TYPE
 Each signal specifies a type from the following set (from FrancaIDL):
@@ -154,7 +154,7 @@ ByteBuffer | buffer of bytes (aka BLOB) | n/a | n/a
 Please note that the special type ```branch``` and  ```rbranch``` denotes branches, not 
 signals. See the [branch/rbranch entry](#branch-entry) chapter for details.
 
-## <a name="signal-function"/>SIGNAL FUNCTION
+## <a name="function-types"/>FUNCTION TYPES
 The function definition is used to classify data available on the Car service branch into five different groups:
 -	attribute: Data having a static value, such as vehicle weight or fuel type. 
 -	sensor: Data having a dynamic, time variant value, produced by a transducer. 
