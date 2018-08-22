@@ -129,10 +129,18 @@ This is the unit of this property.
 If this property is a logical link to other elements, then the path to the rbranch 
 of these elements is given here. The ```id``` value of these elements are provided in a list.
 
-## <a name="signal-entry"/>SIGNAL ENTRY
-The term signal is for convenience reasons used for any of the function types sensor, actuator, senseactuator, and diagnostic wherever it is not needed to distinguish between them, see Function types below.
+## <a name="data-entry"/>DATA ENTRY
+Leaf nodes of the tree contain metadata describing the data associated to the node. 
+This specification makes a distinction between signals and attributes for the following reason.
+The difference between a signal and an attribute is that the signal has
+a publisher (or producer) that continuously updates the signal value while an
+attribute has a set value, defined in the specification, that never changes.
+The term signal is for legacy and convenience reasons used for any of the function types sensor, 
+actuator, senseactuator, and diagnostic wherever it is not needed to distinguish between them, 
+see Data function below. 
 
-### <a name="signal-type"/>SIGNAL TYPE
+
+### <a name="data-type"/>DATA TYPE
 Each signal specifies a type from the following set (from FrancaIDL):
 
 Name       | Type                       | Min  | Max
@@ -154,27 +162,28 @@ ByteBuffer | buffer of bytes (aka BLOB) | n/a | n/a
 Please note that the special type ```branch``` and  ```rbranch``` denotes branches, not 
 signals. See the [branch/rbranch entry](#branch-entry) chapter for details.
 
-## <a name="function-types"/>FUNCTION TYPES
+## <a name="data-function"/>DATA FUNCTION
 The function definition is used to classify data available on the Car service branch into five different groups:
 -	attribute: Data having a static value, such as vehicle weight or fuel type. 
 -	sensor: Data having a dynamic, time variant value, produced by a transducer. 
 -	actuator: Data having a dynamic, time variant value, consumed by a transducer.
 -	senseactuator: Data having the properties of both sensor and actuator types.
 -	diagnostic: Data having a dynamic, time variant value, that resides on the OBD branch.
+-	unknown: To enable nodes to be added to the tree prior to knowledge of its actual function type.
 
 Except for the node types branch, rbranch, and element, every node shall be classified into one of the data functions above. For element nodes the classification is optional. 
 In this specification the data functions sensor, actuator, senseactuator, and diagnostic are, when there is no reason to distinguish between them, called signals. 
 
-### <a name="signal-range"/>SIGNAL RANGE [OPTIONAL]
+### <a name="data-range"/>DATA RANGE [OPTIONAL]
 A signal can optionally be specified with a minimum and maximum limit,
 defining the valid range that the signal can assume.
 
-### <a name="signal-enumeration"/>SIGNAL ENUMERATION [OPTIONAL]
+### <a name="data-enumeration"/>DATA ENUMERATION [OPTIONAL]
 A signal can optionally be specified with a set of allowed values that
 the signal can be assigned, effectively turning it into an enumerator.  The
 values are of the same type as the signal itself.
 
-### <a name="signal-unit-type"/>SIGNAL UNIT TYPE [OPTIONAL]
+### <a name="data-unit-type"/>DATA UNIT TYPE [OPTIONAL]
 A signal can optionally specify a unit of measurement from the following set.
 This list intends to be according to International Units (SI): [Specification](https://www.iso.org/standard/30669.html), [Wikipedia](https://en.wikipedia.org/wiki/International_System_of_Units)
 
@@ -222,41 +231,28 @@ V          | Electrical    | Potential difference in volt
 A          | Electrical    | Current in amperes
 ... | ... | ...
 
-## <a name="attribute-entry"/>ATTRIBUTE ENTRY
-An attribute is an entry, such as vehicle weight or fuel type, with a static
-value. The difference between a signal and an attribute is that the signal has
-a publisher (or producer) that continuously updates the signal value while an
-attribute has a set value, defined in the specification, that never changes.
-
-
-### <a name="attribute-type"/>ATTRIBUTE TYPE
-Each attribute specifies a type in the same way that a signal does.
-
-### <a name="attribute-type"/>ATTRIBUTE VALUE
-Each attribute specifies a static value of the correct type.
-
-### <a name="attribute-unit-type"/>ATTRIBUTE UNIT TYPE [OPTIONAL]
-An attribute can optionally specify a unit of measurement in the same way that
-a signal does.
+### <a name="data-value"/>DATA VALUE
+A data node specifying "function: attribute" must specify a static value of the correct type. 
+Data nodes specifying and other function value must not specify a data value.
 
 ## <a name="element-entry"/>ELEMENT ENTRY
 An element node must only be a child of an rbranch node. 
 Default and mandatory fields are ```type```, and ```description```, other mandatory fields are specified by
 the property definitions in the rbranch parent.
 
-## SIGNAL NAMING CONVENTION
-Signals are named, left-to-right, from the root of the signal tree
-toward the signal itself. Each element in the name is delimited with
+## NODE ADDRESSING CONVENTION
+Trre nodes are addressed, left-to-right, from the root of the tree
+toward the node itself. Each element in the name is delimited with
 a period (".") .
 
-For example, the dimming status of the rearview mirror in the cabin is named:
+For example, the dimming status of the rearview mirror in the cabin is addressed:
 
 	
     Cabin.RearviewMirror.Dimmed
 
 
 If there are an array of elements, such as door rows 1-3, they will be
-named with an index branch:
+addressed with an index branch:
 
 ```
 Cabin.Door.Row1.Left.IsLocked
@@ -366,7 +362,7 @@ all parental branches included in the name must be defined as well.
 
 * **```type```**<br>
 The string value of the type specifies the scalar type of the signal
-value. See [signal type](#signal-type) chapter for a list of available types.
+value. See [data type](#data-type) chapter for a list of available types.
 
 * **```min``` [optional]**<br>
 The minimum value, within the interval of the given ```type```, that the
@@ -382,7 +378,7 @@ Cannot be specified if ```enum``` is specified for the same signal entry.
 
 * **```unit``` [optional]**<br>
 The unit of measurement that the signal has. See [Unit
-Type](#signal-unit-type) chapter for a list of available unit types.<br> This
+Type](#data-unit-type) chapter for a list of available unit types.<br> This
 cannot be specified if ```enum``` is specified as the signal type.
 
 * **```description```**<br>
@@ -411,10 +407,59 @@ An enumerated signal entry has no ```min```, ```max```, or ```unit```
 element.
 
 The ```enum``` element is an array of values, all of which must be specified
-in the enum list.  This signal can only be assigned one of the values
+in the emum list.  This signal can only be assigned one of the values
 specified in the enum list.
 The ```type``` specifier is the type of the individual elements of the enum
 list.
+
+
+## SIGNAL ENTRY
+A signal entry defines a single signal and its members. A signal
+entry example is given below:
+
+```YAML
+- Drivetrain.Transmission.Speed:
+  type: Uint16
+  unit: km/h
+  min: 0
+  max: 300
+  description: The vehicle speed, as measured by the drivetrain.
+```
+
+* **```Drivetrain.Transmission.Speed```**<br>
+Defines the dot-notated signal name of the signal. Please note that
+all parental branches included in the name must be defined as well.
+
+* **```type```**<br>
+The string value of the type specifies the scalar type of the signal
+value. See [data type](#data-type) chapter for a list of available types.
+
+* **```min``` [optional]**<br>
+The minimum value, within the interval of the given ```type```, that the
+signal can be assigned.<br>
+If omitted, the minimum value will be the "Min" value for the given type.<br>
+Cannot be specified if ```enum``` is specified for the same signal entry.
+
+* **```max``` [optional]**<br>
+The maximum value, within the interval of the given ```type```, that the
+signal can be assigned.<br>
+If omitted, the maximum value will be the "Max" value for the given type.<br>
+Cannot be specified if ```enum``` is specified for the same signal entry.
+
+* **```unit``` [optional]**<br>
+The unit of measurement that the signal has. See [Unit
+Type](#data-unit-type) chapter for a list of available unit types.<br> This
+cannot be specified if ```enum``` is specified as the signal type.
+
+* **```description```**<br>
+A description string to be included (when applicable) in the various
+specification files generated from this signal entry.
+
+* **```sensor```[optional]**<br>
+The sensing appliance used to produce the signal.
+
+* **```actuator```[optional]**<br>
+The actuating appliance consuming the signal.
 
 
 ## <a name="attributes"/>ATTRIBUTES
