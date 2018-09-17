@@ -7,7 +7,7 @@
 #
  
 #
-# All in-cabin originated signals
+# All in-cabin originated signals and attributes
 #
 
 ##
@@ -185,7 +185,7 @@
 
 
 ##
-# Seat signals
+# Seat signals and attributes
 # Row1 is the frontmost row.
 # Row2-Row4 are subsequent rows of seats.
 #
@@ -194,9 +194,6 @@
 # Pos5 is rightmost.
 ##
 
-#
-# Front row seats.
-# 
 - Seat:
   type: branch
   description: All seats.
@@ -410,10 +407,10 @@
 
 - Convertible.Status:
   type: String
+  function: sensor
   enum: ["undefined", "closed", "open", "closing", "opening", "stalled"]
   description: Roof status on convertible vehicles
-  sensor: Roof Position Sensor
-  
+
 #
 # Steering Wheel Configuration
 #
@@ -427,3 +424,4 @@
   value: front_left
   enum: ["front_left", "front_right"]
   description: Position of the steering wheel inside the cabin
+

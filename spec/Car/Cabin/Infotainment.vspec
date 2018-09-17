@@ -39,34 +39,34 @@
   type: string
   function: sensor
   description: Name of album being played
-  
+
 - Media.Played.Track:
   type: string
   function: sensor
   description: Name of track being played
-  
+
 - Media.Played.URI:
   type: string
   function: sensor
   description: User Resource associated with the media
-  
+
 - Media.DeclinedURI:
   type: string
   function: sensor
   description: URI of suggested media that was declined
-  
+
 - Media.SelectedURI:
   type: string
   function: senseactuator
   description: URI of suggested media that was selected
-  
+
 - Media.Volume:
   type: UInt8
   function: senseactuator
   min: 0
   max: 100
   description: Current Media Volume
-  
+
 - Navigation:
   type: branch
   description: All navigation actions
@@ -83,7 +83,7 @@
   max: 90
   unit: degrees
   description: Latitude of destination
-  
+
 - Navigation.DestinationSet.Longitude:
   type: Double
   function: senseactuator
@@ -91,7 +91,7 @@
   max: 180
   unit: degrees
   description: Longitude of destination
-  
+
 - Navigation.CurrentLocation:
   type: branch
   aggregate: true
@@ -104,7 +104,7 @@
   max: 90
   unit: degrees
   description: Current latitude of vehicle, as reported by GPS.
-  
+
 - Navigation.CurrentLocation.Longitude:
   type: Double
   function: sensor
@@ -112,7 +112,7 @@
   max: 180
   unit: degrees
   description: Current longitude of vehicle, as reported by GPS.
-  
+
 - Navigation.CurrentLocation.Heading:
   type: Double
   function: sensor
@@ -120,13 +120,13 @@
   max: 360
   unit: degrees
   description: Current magnetic compass heading, in degrees.
-  
+
 - Navigation.CurrentLocation.Accuracy:
   type: Double
   function: sensor
   unit: m
   description: Accuracy level of the latitude and longitude coordinates in meters.
-  
+
 - Navigation.CurrentLocation.Altitude:
   type: Double
   function: sensor
@@ -140,4 +140,56 @@
   max: 250
   unit: km/h
   description: Vehicle speed, as sensed by the GPS receiver.
-  
+
+
+- HMI:
+  type: branch
+  description: HMI related signals
+
+ - HMI.CurrentLanguage:
+  type: string
+  function: sensor
+  description: ISO 639-1 standard language code for the current HMI
+
+ - HMI.DateFormat:
+  type: string
+  function: senseactuator
+  enum: [ "YYYY MM DD", "DD MM YYYY", "MM DD YYYY", "YY MM DD", "DD MM YY", "MM DD YY"]
+  description: Date format used in the current HMI
+
+ - HMI.TimeFormat:
+  type: string
+  function: senseactuator
+  enum: [ "12HR", "24HR" ]
+  description: Time format used in the current HMI
+
+ - HMI.DistanceUnit:
+  type: string
+  function: senseactuator
+  enum: [ "mi", "km" ]
+  description: Distance unit used in the current HMI
+
+ - HMI.FuelEconomyUnits:
+  type: string
+  function: senseactuator
+  enum: [ "mpg_UK", "mpg_US", "mpl", "km/l", "l/100km" ]
+  description: Fuel economy unit used in the current HMI
+
+ - HMI.EVEconomyUnits:
+  type: string
+  function: senseactuator
+  enum: [ "mi/kWh", "km/kWh", "kWh/100mi", "kWh/100km", "Wh/mi", "Wh/km" ]
+  description: EV fuel economy unit used in the current HMI
+
+ - HMI.TemperatureUnit:
+  type: string
+  function: senseactuator
+  enum: [ "C", "F" ]
+  description: Temperature unit used in the current HMI
+
+ - HMI.DayNightMode:
+  type: string
+  function: senseactuator
+  enum: [ "Day", "Night" ]
+  description: Current display theme
+
