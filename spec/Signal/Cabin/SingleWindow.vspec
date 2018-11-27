@@ -8,11 +8,11 @@
 #
 # Definition of a Window
 #
-- Open:
+- IsOpen:
   type: Boolean
   description: Is door open or closed
 
-- Locked:
+- IsLocked:
   type: Boolean
   description: Is door locked or unlocked. True = Locked. False = Unlocked.
 
@@ -27,19 +27,8 @@
   type: Boolean
   description: Is door child lock engaged. True = Engaged. False = Disengaged.
 
-- CurtainPosition:
-  type: UInt8
-  min: 0
-  max: 100
-  unit: percent
-  description: Position of curtain. 0 = Fully retracted. 100 = Fully deployed.
 
-- WindowSwitch:
-  type: String
-  enum: [ "Inactive", "Down", "Up", "OneShotDown", "OneShotUp" ]
-  description: Window switch status.
+# Include the window controlling switch and attach it to the
+# window branch
 
-- CurtainSwitch:
-  type: String
-  enum: [ "Inactive", "Down", "Up", "OneShotDown", "OneShotUp" ]
-  description: Curtain button status.
+#include SingleSliderSwitch.vspec

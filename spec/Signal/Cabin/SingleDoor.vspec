@@ -28,20 +28,7 @@
   type: branch
   description: Door window status
 
-- Window.Position:
-  type: Uint8
-  min: 0
-  max: 100
-  unit: percent
-  description: Window position. 0 = Fully closed 100 = Fully opened.
-  sensor: Window Position Sensor
-
-
-# Include the window controlling switch and attach it to the
-# window branch
-
-#include SingleSliderSwitch.vspec Window
-
+#include SingleWindow.vspec Window
 
 #
 # Child lock active for door
@@ -63,4 +50,3 @@
 # and rear shade.
 
 #include SingleShade.vspec Shade
-
