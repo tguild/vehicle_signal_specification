@@ -1,0 +1,32 @@
+#
+# (C) 2018 Volvo Cars
+# (C) 2016 Jaguar Land Rover
+#
+# All files and artifacts in this repository are licensed under the
+# provisions of the license provided by the LICENSE file in this repository.
+#
+
+#
+# All exterior mirrors
+#
+
+- Tilt:
+  datatype: Int8
+  unit: percent
+  type: actuator
+  description: Mirror tilt as a percent. 0 = Center Position. 100 = Fully Upward Position. -100 = Fully Downward Position.
+
+- Pan:
+  datatype: Int8
+  type: actuator
+  unit: percent
+  description: Mirror pan as a percent. 0 = Center Position. 100 = Fully Left Position. -100 = Fully Right Position.
+
+- Heating:
+  type: branch
+  description: Mirror heater signals
+
+- Heating.Status:
+  datatype: Boolean
+  type: actuator
+  description: Mirror Heater on or off. True = Heater On. False = Heater Off.
