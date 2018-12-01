@@ -11,22 +11,22 @@
 #
 
 - IsGloveBoxOn:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Is glove box light on
 
 - IsTrunkOn:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Is trunk light light on
 
 - IsDomeOn:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Is central dome light light on
 
 - AmbientLight:
-  datatype: UInt8
+  datatype: uint8
   type: sensor
   unit: percent
   min: 0
@@ -34,7 +34,7 @@
   description: How much ambient light is detected in cabin. 0 = No ambient light. 100 = Full brightness
 
 - LightIntensity:
-  datatype: UInt8
+  datatype: uint8
   type: sensor
   unit: percent
   min: 0
@@ -53,12 +53,12 @@
   description: Left front lights
 
 - Row1.IsSharedOn:
-  datatype: Boolean
+  datatype: boolean
   type: sensor
   description: Is light shared across first row on
 
 - Row1.Left.IsPassengerOn:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Is passenger light on
 
@@ -67,7 +67,7 @@
   description: Right front lights
 
 - Row1.Right.IsPassengerOn:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Is passenger light on
 
@@ -82,12 +82,12 @@
   description: Left second row lights
 
 - Row2.IsSharedOn:
-  datatype: Boolean
+  datatype: boolean
   type: sensor
   description: Is light shared across second row on
 
 - Row2.Left.IsPassengerOn:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Is passenger light on
 
@@ -96,7 +96,7 @@
   description: Right second row lights
 
 - Row2.Right.IsPassengerOn:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Is passenger light on
 
@@ -112,12 +112,12 @@
   description: Left third row lights
 
 - Row3.IsSharedOn:
-  datatype: Boolean
+  datatype: boolean
   type: sensor
   description: Is light shared third across row on
 
 - Row3.Left.IsPassengerOn:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Is passenger light on
 
@@ -126,7 +126,7 @@
   description: Right third row lights
 
 - Row3.Right.IsPassengerOn:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Is passenger light on
 
@@ -142,12 +142,12 @@
   description: Left fourth row lights
 
 - Row4.IsSharedOn:
-  datatype: Boolean
+  datatype: boolean
   type: sensor
   description: Is light shared across fourth row on
 
 - Row4.Left.IsPassengerOn:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Is passenger light on
 
@@ -156,6 +156,6 @@
   description: Right fourth row lights
 
 - Row4.Right.IsPassengerOn:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Is passenger light on

@@ -11,7 +11,7 @@
 #
 
 - FanSpeed:
-  datatype: UInt8
+  datatype: uint8
   type: actuator
   min: 0
   max: 100
@@ -19,7 +19,7 @@
   description: Fan Speed, 0 = off. 100 = max
 
 - Temperature:
-  datatype: Int8
+  datatype: int8
   type: actuator
   min: -50
   max: 50

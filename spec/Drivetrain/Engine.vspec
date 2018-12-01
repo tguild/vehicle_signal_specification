@@ -17,13 +17,13 @@
 # Engine attributes
 #
 - Displacement:
-  datatype: Uint16
+  datatype: uint16
   type: attribute
   description: Displacement in cubic centimetres.
   unit: cm3
 
 - Configuration:
-  datatype: String
+  datatype: string
   type: attribute
   enum: [ "unknown", "straight", "V", "boxer", "W",
         "rotary", "radial", "square", "H", "U", "opposed", "X" ]
@@ -31,14 +31,14 @@
   default: "unknown"
 
 - MaxPower:
-  datatype:  Uint16
+  datatype:  uint16
   type: attribute
   default: 0
   unit: kw
   description: Peak power, in kilowatts, that engine can generate.
 
 - MaxTorque:
-  datatype:  Uint16
+  datatype:  uint16
   type: attribute
   default: 0
   unit: N.m
@@ -68,7 +68,7 @@
 # Engine rotations per minute
 #
 - Engine.Speed:
-  datatype: Uint16
+  datatype: uint16
   type: sensor
   unit: rpm
   min: 0
@@ -80,7 +80,7 @@
 # Engine coolant temperature
 #
 - Engine.ECT:
-  datatype: Int16
+  datatype: int16
   type: sensor
   unit: celsius
   min: -50
@@ -92,7 +92,7 @@
 # Engine Oil Temperature
 #
 - Engine.EOT:
-  datatype: Int16
+  datatype: int16
   type: sensor
   unit: celsius
   min: -50
@@ -104,7 +104,7 @@
 # Manifold Air Pressure
 #
 - Engine.MAP:
-  datatype: Int16
+  datatype: int16
   type: sensor
   unit: kpa
   min: 0
@@ -116,7 +116,7 @@
 # Mass Air Flow
 #
 - Engine.MAF:
-  datatype: Int16
+  datatype: int16
   type: sensor
   unit: g/s
   min: 0
@@ -127,7 +127,7 @@
 # Throttle Position
 #
 - Engine.TPS:
-  datatype: Int8
+  datatype: int8
   type: sensor
   unit: percent
   min: 0
@@ -139,7 +139,7 @@
 # Engine Oil Pressure
 #
 - Engine.EOP:
-  datatype: Int16
+  datatype: int16
   type: sensor
   unit: kpa
   min: 0
@@ -151,7 +151,7 @@
 # Current Power
 #
 - Engine.Power:
-  datatype: Int16
+  datatype: int16
   type: sensor
   unit: kW
   min: 0
@@ -162,7 +162,7 @@
 # Current Torque
 #
 - Engine.Torque:
-  datatype: Int16
+  datatype: int16
   type: sensor
   unit: N.m
   min: 0

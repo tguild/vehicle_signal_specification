@@ -15,7 +15,7 @@
 #include SingleSliderSwitch.vspec
 
 - Position:
-  datatype: UInt8
+  datatype: uint8
   type: actuator
   min: 0
   max: 100

@@ -8,7 +8,7 @@
 
 
 #
-# On-Board sensor (OBD) Signals
+# On-Board Diagnostic (OBD) Signals
 #
 # These signals are made available through the OBD-II connector
 # found in every vehicle manufactured in the US and sold in the US
@@ -28,7 +28,7 @@
   description: PID 01 - OBD status
 
 - Status.MIL:
-  datatype: Boolean
+  datatype: boolean
   type: sensor
   description: Malfunction Indicator Light (MIL) False = Off, True = On
 
@@ -551,7 +551,7 @@
   description: PID 41 - OBD status for the current drive cycle
 
 - DriveCycleStatus.MIL:
-  datatype: Boolean
+  datatype: boolean
   type: sensor
   description: Malfunction Indicator Light (MIL) - False = Off, True = On
 

@@ -10,12 +10,12 @@
 # Definition of a single door
 #
 - IsOpen:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Is door open or closed
 
 - IsLocked:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Is door locked or unlocked. True = Locked. False = Unlocked.
 
@@ -28,7 +28,7 @@
   description: Door window status
 
 - Window.Position:
-  datatype: Uint8
+  datatype: uint8
   type: sensor
   min: 0
   max: 100
@@ -47,7 +47,7 @@
 #
 
 - IsChildLockActive:
-  datatype: Boolean
+  datatype: boolean
   type: sensor
   description: Is door child lock engaged. True = Engaged. False = Disengaged.
 

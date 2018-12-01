@@ -11,17 +11,17 @@
 #
 
 - HasPassenger:
-  datatype: Boolean
+  datatype: boolean
   type: sensor
   description: Does the seat have a passenger in it.
 
 - IsBelted:
-  datatype: Boolean
+  datatype: boolean
   type: sensor
   description: Is the belt engaged.
 
 - Heating:
-  datatype: Int8
+  datatype: int8
   type: sensor
   min: -100
   max: 100
@@ -29,7 +29,7 @@
   description: Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat
 
 - Massage:
-  datatype: UInt8
+  datatype: uint8
   type: sensor
   min: 0
   max: 100
@@ -37,7 +37,7 @@
   description: Seat massage level. 0 = off. 100 = max massage.
 
 - Recline:
-  datatype: Int8
+  datatype: int8
   type: sensor
   min: -90
   max: 90
@@ -45,7 +45,7 @@
   description: Recline level. -90 = Max forward recline. 90 max backward recline
 
 - Position:
-  datatype: UInt16
+  datatype: uint16
   type: sensor
   min: 0
   max: 1000
@@ -57,7 +57,7 @@
   description: Cushion signals.
 
 - Cushion.Height:
-  datatype: UInt16
+  datatype: uint16
   type: sensor
   min: 0
   max: 500
@@ -65,7 +65,7 @@
   description: Height of the seat front. 0 = Lowermost. 500 = Uppermost.
 
 - Cushion.Length:
-  datatype: UInt16
+  datatype: uint16
   type: sensor
   min: 0
   max: 500
@@ -78,7 +78,7 @@
   description: Lumbar signals
 
 - Lumbar.Inflation:
-  datatype: UInt8
+  datatype: uint8
   type: sensor
   min: 0
   max: 255
@@ -86,7 +86,7 @@
 
 
 - Lumbar.Height:
-  datatype: UInt8
+  datatype: uint8
   type: sensor
   min: 0
   max: 255
@@ -97,7 +97,7 @@
   description: Side bolster settings
 
 - SideBolster.Inflation:
-  datatype: UInt8
+  datatype: uint8
   type: sensor
   min: 0
   max: 255
@@ -108,7 +108,7 @@
   description: Head restraint settings
 
 - HeadRestraint.Height:
-  datatype: UInt8
+  datatype: uint8
   type: sensor
   min: 0
   max: 255
@@ -120,7 +120,7 @@
   description: Airbag signals
 
 - Airbag.IsDeployed:
-  datatype: Boolean
+  datatype: boolean
   type: sensor
   description: Airbag deployment status. True = Airbag deployed. False = Airbag not deployed.
 
@@ -132,32 +132,32 @@
   description: Seat switch signals
 
 - Switch.Warmer:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Warmer switch for Seat heater
 
 - Switch.Cooler:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Cooler switch for Seat heater
 
 - Switch.Forward:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Seat forward switch engaged
 
 - Switch.Backward:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Seat forward switch engaged
 
 - Switch.Up:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Seat up switch engaged
 
 - Switch.Down:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Seat down switch engaged
 
@@ -166,12 +166,12 @@
   description: Head restraint switches
 
 - Switch.HeadRestraint.Up:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Head restraint up switch engaged
 
 - Switch.HeadRestraint.Down:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Head restraint down switch engaged
 
@@ -180,12 +180,12 @@
   description: Massage switches
 
 - Switch.Massage.Increase:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Increase massage level switch engaged
 
 - Switch.Massage.Decrease:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Decrease massage level switch engaged
 
@@ -194,12 +194,12 @@
   description: Recline switches
 
 - Switch.Recline.Backward:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Seatback recline backward switch engaged
 
 - Switch.Recline.Forward:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Seatback recline forward switch engaged
 
@@ -208,22 +208,22 @@
   description: Cushion switches
 
 - Switch.Cushion.Up:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Seat cushion up switch engaged
 
 - Switch.Cushion.Down:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Seat cushion down switch engaged
 
 - Switch.Cushion.Forward:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Seat cushion forward/lengthen switch engaged
 
 - Switch.Cushion.Backward:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Seat cushion backward/shorten switch engaged
 
@@ -232,22 +232,22 @@
   description: Lumbar switches
 
 - Switch.Lumbar.Up:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Lumbar up switch engaged
 
 - Switch.Lumbar.Down:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Lumbar down switch engaged
 
 - Switch.Lumbar.Inflate:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Lumbar inflation switch engaged
 
 - Switch.Lumbar.Deflate:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Lumbar deflation switch engaged
 
@@ -256,11 +256,11 @@
   description: Side bolster switches
 
 - Switch.SideBolster.Inflate:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Lumbar inflation switch engaged
 
 - Switch.SideBolster.Deflate:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Lumbar deflation switch engaged

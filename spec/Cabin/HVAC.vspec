@@ -71,22 +71,22 @@
 #include SingleHVACStation.vspec Row4.Right
 
 - IsRecirculationActive:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Is recirculation active.
 
 - IsFrontDefrosterActive:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Is front defroster active.
 
 - IsRearDefrosterActive:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Is rear defroster active.
 
 - IsAirConditioningActive:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Is Air conditioning active.
 

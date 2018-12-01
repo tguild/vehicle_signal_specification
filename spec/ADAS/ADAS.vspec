@@ -28,19 +28,19 @@
   description: Signals from Cruise Control system
 
 - CruiseControl.IsActive:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Indicates if cruise control system is enabled. True = Enabled. False = Disabled.
 
 
 - CruiseControl.SpeedSet:
-  datatype: Int32
+  datatype: int32
   type: actuator
   unit: km/h
   description: Set cruise control speed in kilometers per hour
 
 - CruiseControl.Error:
-  datatype: Boolean
+  datatype: boolean
   type: sensor
   description: Indicates if cruise control system incurred and error condition. True = Error. False = NoError.
 
@@ -52,17 +52,17 @@
   description: Signals from Land Departure Detection System
 
 - LaneDepartureDetection.IsActive:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Indicates if lane departure detection system is enabled. True = Enabled. False = Disabled.
 
 - LaneDepartureDetection.Warning:
-  datatype: Boolean
+  datatype: boolean
   type: sensor
   description: Indicates if lane departure detection registered a lane departure
 
 - LaneDepartureDetection.Error:
-  datatype: Boolean
+  datatype: boolean
   type: sensor
   description: Indicates if lane departure system incurred an error condition. True = Error. False = No Error.
 
@@ -88,25 +88,25 @@
   description: Distance signals form Obstacle Sensor System
 
 - ObstacleDetection.DistanceToObject.FrontLeft:
-  datatype: Uint16
+  datatype: uint16
   type: sensor
   unit: m
   description: Front left distance to object in meters
 
 - ObstacleDetection.DistanceToObject.FrontRight:
-  datatype: Uint16
+  datatype: uint16
   type: sensor
   unit: m
   description: Front right distance to object in meters
 
 - ObstacleDetection.DistanceToObject.RearLeft:
-  datatype: Uint16
+  datatype: uint16
   type: sensor
   unit: m
   description: Rear left distance to object in meters
 
 - ObstacleDetection.DistanceToObject.RearRight:
-  datatype: Uint16
+  datatype: uint16
   type: sensor
   unit: m
   description: Rear right distance to object in meters

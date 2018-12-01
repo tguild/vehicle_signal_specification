@@ -30,7 +30,7 @@
   description: Indicates that the battery level is low
 
 - ChargingInlet:
-  datatype: String
+  datatype: string
   type: attribute
   enum: [ "unknown", "Not_Fitted", "AC_Type_1", "AC_Type_2", "AC_GBT", "AC_DC_Type_1_Combo", "AC_DC_Type_2_Combo", "DC_GBT", "DC_Chademo" ]
   default: "unknown"

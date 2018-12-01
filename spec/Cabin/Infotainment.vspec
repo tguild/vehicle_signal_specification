@@ -61,7 +61,7 @@
   description: URI of suggested media that was selected
 
 - Media.Volume:
-  datatype: UInt8
+  datatype: uint8
   type: actuator
   min: 0
   max: 100
@@ -134,7 +134,7 @@
   description: Current elevation of the position in meters.
 
 - Navigation.CurrentLocation.Speed:
-  datatype: UInt16
+  datatype: uint16
   type: sensor
   min: 0
   max: 250

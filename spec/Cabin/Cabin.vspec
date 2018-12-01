@@ -57,7 +57,7 @@
 # Sunroof controlling switch.
 # We cannot use SingleSliderSwitch.vspec since we have TiltUp and TiltDown also
 - Sunroof.Switch:
-  datatype: String
+  datatype: string
   type: actuator
   enum: [ "Inactive", "Close", "Open", "OneShotClose", "OneShotOpen", "TiltUp", "TiltDown" ]
   description: Switch controlling sliding action such as window, sunroof, or shade.
@@ -77,7 +77,7 @@
   description: Rearview mirror
 
 - RearviewMirror.DimmingLevel:
-  datatype: UInt8
+  datatype: uint8
   type: actuator
   unit: percent
   description: Dimming level of rearview mirror. 0 = undimmed. 100 = fully dimmed
@@ -101,7 +101,7 @@
   description: All doors, including windows and switches
 
 - Door.Count:
-  datatype: Uint8
+  datatype: uint8
   type: attribute
   value: 0
   description: Number of doors in vehicle
@@ -202,44 +202,44 @@
 # Seat attributes.
 #
 - Seat.DriverPosition:
-  datatype: Uint8
+  datatype: uint8
   type: attribute
   value: 0
   description: The position of the driver seat in row 1. (1-5)
 
 - Seat.RowCount:
-  datatype: Uint8
-  type: actuator
+  datatype: uint8
+  type: attribute
   value: 0
   description: Number of seat rows in vehicle
 
 - Seat.Row1PosCount:
-  datatype: Uint8
+  datatype: uint8
   type: attribute
   value: 0
   description: Number of seats across row 1 (frontmost)
 
 - Seat.Row2PosCount:
-  datatype: Uint8
+  datatype: uint8
   type: attribute
   value: 0
   description: Number of seats across row 2
 
 - Seat.Row3PosCount:
-  datatype: Uint8
+  datatype: uint8
   type: attribute
   value: 0
   description: Number of seats across row 3
 
 
 - Seat.Row4PosCount:
-  datatype: Uint8
+  datatype: uint8
   type: attribute
   value: 0
   description: Number of seats across row 4
 
 - Seat.Row5PosCount:
-  datatype: Uint8
+  datatype: uint8
   type: attribute
   value: 0
   description: Number of seats across row 5
@@ -406,7 +406,7 @@
   description: Convertible roof
 
 - Convertible.Status:
-  datatype: String
+  datatype: string
   type: sensor
   enum: ["undefined", "closed", "open", "closing", "opening", "stalled"]
   description: Roof status on convertible vehicles
@@ -419,7 +419,7 @@
   description: Steering wheel configuration attributes
 
 - SteeringWheel.Position:
-  datatype: String
+  datatype: string
   type: attribute
   value: front_left
   enum: ["front_left", "front_right"]

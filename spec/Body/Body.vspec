@@ -11,12 +11,12 @@
 #
 
 - BodyType:
-  datatype: String
+  datatype: string
   type: attribute
   description: Body type code as defined by ISO 3779
 
 - RefuelPosition:
-  datatype: String
+  datatype: string
   type: attribute
   enum: ["front_left", "front_right", "middle_left", "middle_right", "rear_left", "rear_right"]
   description: Location of the fuel cap or charge port
@@ -29,7 +29,7 @@
   description: Hood status
 
 - Hood.IsOpen:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: hood open or closed. True = Open. False = Closed
 
@@ -41,12 +41,12 @@
   description: Trunk status
 
 - Trunk.IsOpen:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Trunk open or closed. True = Open. False = Closed
 
 - Trunk.IsLocked:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Is trunk locked or unlocked. True = Locked. False = Unlocked.
 
@@ -59,7 +59,7 @@
   description: Horn signals
 
 - Horn.IsActive:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Horn active or inactive. True = Active. False = Inactive.
 
@@ -71,8 +71,8 @@
   type: branch
   description: Rainsensor signals
 
-- Raindetection.Intensity:
-  datatype: Uint8
+- Raindetection.intensity:
+  datatype: uint8
   type: sensor
   unit: percent
   description: Rain intensity. 0 = Dry, No Rain. 100 = Covered.
@@ -97,7 +97,7 @@
   description: Front windshield wiper signals
 
 - Windshield.Front.Wiping.Status:
-  datatype: String
+  datatype: string
   type: actuator
   enum: ["off", "slow", "medium", "fast", "interval", "rainsensor"]
   description: Front wiper status
@@ -107,7 +107,7 @@
   description: Front windshield heater signals
 
 - Windshield.Front.Heating.Status:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Front windshield heater status. 0 - off, 1 - on
 
@@ -116,12 +116,12 @@
   description: Front windshield washer fluid signals
 
 - Windshield.Front.WasherFluid.LevelLow:
-  datatype: Boolean
+  datatype: boolean
   type: sensor
   description: Low level indication for washer fluid. True = Level Low. False = Level OK.
 
 - Windshield.Front.WasherFluid.Level:
-  datatype: Uint8
+  datatype: uint8
   unit: percent
   type: sensor
   description: Washer fluid level as a percent. 0 = Empty. 100 = Full.
@@ -138,7 +138,7 @@
   description: Rear windshield wiper signals
 
 - Windshield.Rear.Wiping.Status:
-  datatype: String
+  datatype: string
   type: actuator
   enum: ["off", "slow", "medium", "fast", "interval", "rainsensor"]
   description: Rear wiper status
@@ -148,7 +148,7 @@
   description: Rear windshield heater signals
 
 - Windshield.Rear.Heating.Status:
-  datatype: Boolean
+  datatype: boolean
   type: actuator
   description: Rear windshield heater status. 0 - off, 1 - on
 
@@ -157,12 +157,12 @@
   description: Rear windshield washer fluid signals
 
 - Windshield.Rear.WasherFluid.LevelLow:
-  datatype: Boolean
+  datatype: boolean
   type: sensor
   description: Low level indication for washer fluid. True = Level Low. False = Level OK.
 
 - Windshield.Rear.WasherFluid.Level:
-  datatype: Uint8
+  datatype: uint8
   unit: percent
   type: sensor
   description: Washer fluid level as a percent. 0 = Empty. 100 = Full.

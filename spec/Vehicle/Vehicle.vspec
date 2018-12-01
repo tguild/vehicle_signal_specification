@@ -40,7 +40,7 @@
   description: Vehicle model
 
 - VehicleIdentification.Year:
-  datatype: Uint16
+  datatype: uint16
   type: attribute
   description: Model year of the vehicle
 
@@ -118,25 +118,25 @@
 # Vehicle signals
 #
 - IgnitionOnTime:
-  datatype: Uint32
+  datatype: uint32
   type: sensor
   unit: s
   description: Accumulated ignition on time in seconds.
 
 - IgnitionOffTime:
-  datatype: Uint32
+  datatype: uint32
   type: sensor
   unit: s
   description: Accumulated ignition off time in seconds.
 
 - DriveTime:
-  datatype: Uint32
+  datatype: uint32
   type: sensor
   unit: s
   description: Accumulated drive time in seconds.
 
 - IdleTime:
-  datatype: Uint32
+  datatype: uint32
   type: sensor
   unit: s
   description: Accumulated idle time in seconds.
