@@ -3,7 +3,7 @@
 # This program is licensed under the terms and conditions of the
 # Mozilla Public License, version 2.0.  The full text of the
 # Mozilla Public License is at https://www.mozilla.org/MPL/2.0/
-2.0.0-alpha+002
+2.0.0-alpha+003
 Vehicle.Acceleration.Lateral 1207
 Vehicle.Acceleration.Longitudinal 1206
 Vehicle.Acceleration.Vertical 1208
@@ -925,7 +925,7 @@ Vehicle.Body.Windshield.Rear.Wiping.Status 3473
 Vehicle.Body.Windshield.Rear.Heating.Status 3474
 Vehicle.Body.Windshield.Rear.WasherFluid.LevelLow 3475
 Vehicle.Body.Windshield.Rear.WasherFluid.Level 3476
-Vehicle.Body.Raindetection.Intensity 3468
+Vehicle.Body.Raindetection.intensity 3468
 Vehicle.cargoVolume 1214
 Vehicle.IdleTime 1199
 Vehicle.ADAS.ObstacleDetection.DistanceToObject.RearLeft 4348

@@ -4,7 +4,7 @@
 // Mozilla Public License, version 2.0.  The full text of the
 // Mozilla Public License is at https://www.mozilla.org/MPL/2.0/
 
-const UTF8String VSS_VERSION = "2.0.0-alpha+002"
+const UTF8String VSS_VERSION = "2.0.0-alpha+003"
 
 struct SignalSpec {
     UInt32 id
@@ -6820,7 +6820,7 @@ const SignalSpec[] signal_spec = [
 ,
 {
     name: "Vehicle.Cabin.Seat.RowCount"
-    type: "actuator"
+    type: "attribute"
     description: "Number of seat rows in vehicle"
     id: 3630
 }
@@ -7248,7 +7248,7 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Body.Raindetection.Intensity"
+    name: "Vehicle.Body.Raindetection.intensity"
     type: "sensor"
     description: "Rain intensity. 0 = Dry, No Rain. 100 = Covered."
     id: 3468
