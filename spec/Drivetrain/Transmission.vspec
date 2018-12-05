@@ -14,7 +14,7 @@
 #
 
 - Type:
-  datatype: String
+  datatype: string
   type: attribute
   enum: [ "unknown", "sequential", "H", "automatic", "DSG", "CVT" ]
   value: "unknown"
@@ -22,13 +22,13 @@
 
 
 - GearCount:
-  datatype: Uint8
+  datatype: uint8
   type: attribute
   value: 0
   description: Number of forward gears in the transmission. -1 = CVT.
 
 - DriveType:
-  datatype: String
+  datatype: string
   type: attribute
   enum: [ "unknown", "forward wheel drive", "rear wheel drive", "all wheel drive" ]
   value: "unknown"
@@ -42,7 +42,7 @@
 # Current vehicle speed
 #
 - Speed:
-  datatype: Int32
+  datatype: int32
   type: sensor
   min: -250
   max: 250
@@ -64,7 +64,7 @@
 # Current gear
 #
 - Gear:
-  datatype: Int8
+  datatype: int8
   type: actuator
   min: -1
   max: 16
@@ -95,7 +95,7 @@
 # Gearbox temperature
 #
 - Temperature:
-  datatype: Int16
+  datatype: int16
   type: sensor
   min: -50
   max: 200
@@ -107,7 +107,7 @@
 # Clutch
 #
 - ClutchWear:
-  datatype: Uint8
+  datatype: uint8
   type: sensor
   unit: percent
   description: Clutch wear as a percent. 0 = no wear. 100 = worn.

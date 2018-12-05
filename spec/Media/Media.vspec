@@ -23,7 +23,7 @@
   child-properties: 4
   prop-name: ["id", "name", "uri", "items"]
   prop-description: ["collection id", "collection name", "object uri", "media collection items"]
-  prop-type: ["String", "String", "String", "rbranch"]
+  prop-type: ["string", "string", "string", "rbranch"]
   prop-format: ["uuid", "", "uri", ""]
   prop-unit: ["", "", "", ""]
   prop-value: ["", "", "", "private/media/items"]
@@ -50,7 +50,7 @@
   child-properties: 3
   prop-name: ["id", "name", "uri"]
   prop-description: ["item id", "item name", "object uri"]
-  prop-type: ["String", "String", "String"]
+  prop-type: ["string", "string", "string"]
   prop-format: ["uuid", "", "uri"]
   prop-unit: ["", "", ""]
   prop-value: ["", "", ""]
@@ -64,5 +64,3 @@
 #  id: 3902a278-ba17-44d6-9aef-f7ca67c04860
 #  name: lorem item1
 #  uri: media/items/3902a278-ba17-44d6-9aef-f7ca67c04860
-
-

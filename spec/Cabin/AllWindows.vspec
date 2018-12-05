@@ -10,17 +10,17 @@
 # Definition of a Window
 #
 - Open:
-  datatype: Boolean
+  datatype: boolean
   type: sensor
   description: Is door open or closed
 
 - Locked:
-  datatype: Boolean
+  datatype: boolean
   type: sensor
   description: Is door locked or unlocked. True = Locked. False = Unlocked.
 
 - Position:
-  datatype: Uint8
+  datatype: uint8
   type: sensor
   min: 0
   max: 100
@@ -28,12 +28,12 @@
   description: Window position. 0 = Fully closed 100 = Fully opened.
 
 - ChildLock:
-  datatype: Boolean
+  datatype: boolean
   type: sensor
   description: Is door child lock engaged. True = Engaged. False = Disengaged.
 
 - CurtainPosition:
-  datatype: UInt8
+  datatype: uint8
   type: sensor
   min: 0
   max: 100
@@ -41,13 +41,13 @@
   description: Position of curtain. 0 = Fully retracted. 100 = Fully deployed.
 
 - WindowSwitch:
-  datatype: String
+  datatype: string
   type: sensor
   enum: [ "Inactive", "Down", "Up", "OneShotDown", "OneShotUp" ]
   description: Window switch status.
 
 - CurtainSwitch:
-  datatype: String
+  datatype: string
   type: sensor
   enum: [ "Inactive", "Down", "Up", "OneShotDown", "OneShotUp" ]
   description: Curtain button status.

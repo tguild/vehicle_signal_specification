@@ -45,7 +45,7 @@
   description: Peak power, in newton meter, that the engine can generate.
 
 - FuelType:
-  datatype: String
+  datatype: string
   type: attribute
   enum: [ "unknown", "gasoline", "diesel", "E85", "CNG" ]
   default: "unknown"
