@@ -16,8 +16,6 @@
 #include <stdbool.h>
 #include "vssparserutilities.h"
 
-#define MAXFOUNDNODES 150
-
 int currentNode;
 int rootNode;
 char vspecfile[] = "../../vss_rel_1.0.cnative";
@@ -66,12 +64,9 @@ void showNodeData(int currentNode, int currentChild) {
         char* tmp = getUnit(currentNode);
         if (tmp != NULL)
             printf("Unit = %s\n", getUnit(currentNode));
-        tmp = getSensor(currentNode);
+        tmp = getFunction(currentNode);
         if (tmp != NULL)
-            printf("Sensor = %s\n", tmp);
-        tmp = getActuator(currentNode);
-        if (tmp != NULL)
-            printf("Actuator = %s\n", tmp);
+            printf("Function = %s\n", tmp);
         if (getType(currentNode) == ELEMENT) {
             // as all objectdefinitions start with objectType, this is ok. But only for reading the objectType
             uint32_t resourceHandle = getResource(currentNode); 
@@ -129,10 +124,10 @@ int main(void) {
                 scanf("%s", searchPath);
                 path_t responsePaths[MAXFOUNDNODES];
                 int foundNodes[MAXFOUNDNODES];
-                int foundResponses = VSSGetNodes(searchPath, rootNode, MAXFOUNDNODES, responsePaths, foundNodes);
+                int foundResponses = VSSSearchNodes(searchPath, rootNode, MAXFOUNDNODES, responsePaths, foundNodes);
                 printf("\nNumber of elements found=%d\n", foundResponses);
                 for (int i = 0 ; i < foundResponses ; i++) {
-                    printf("Found node name=%s\n", getName(foundNodes[i]));
+                    printf("Found node type=%s\n", getTypeName(getType(foundNodes[i])));
                     printf("Found path=%s\n", responsePaths[i]);
                 }
             }
