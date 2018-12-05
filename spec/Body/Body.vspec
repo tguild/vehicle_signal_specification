@@ -1,0 +1,202 @@
+#
+# (C) 2018 Volvo Cars
+# (C) 2016 Jaguar Land Rover
+#
+# All files and artifacts in this repository are licensed under the
+# provisions of the license provided by the LICENSE file in this repository.
+#
+
+#
+# All body signals and attributes.
+#
+
+- BodyType:
+  datatype: string
+  type: attribute
+  description: Body type code as defined by ISO 3779
+
+- RefuelPosition:
+  datatype: string
+  type: attribute
+  enum: ["front_left", "front_right", "middle_left", "middle_right", "rear_left", "rear_right"]
+  description: Location of the fuel cap or charge port
+
+#
+# Hood description
+#
+- Hood:
+  type: branch
+  description: Hood status
+
+- Hood.IsOpen:
+  datatype: boolean
+  type: actuator
+  description: hood open or closed. True = Open. False = Closed
+
+#
+# Trunk description
+#
+- Trunk:
+  type: branch
+  description: Trunk status
+
+- Trunk.IsOpen:
+  datatype: boolean
+  type: actuator
+  description: Trunk open or closed. True = Open. False = Closed
+
+- Trunk.IsLocked:
+  datatype: boolean
+  type: actuator
+  description: Is trunk locked or unlocked. True = Locked. False = Unlocked.
+
+
+#
+# Horn description
+#
+- Horn:
+  type: branch
+  description: Horn signals
+
+- Horn.IsActive:
+  datatype: boolean
+  type: actuator
+  description: Horn active or inactive. True = Active. False = Inactive.
+
+
+#
+# Raindetection description
+#
+- Raindetection:
+  type: branch
+  description: Rainsensor signals
+
+- Raindetection.intensity:
+  datatype: uint8
+  type: sensor
+  unit: percent
+  description: Rain intensity. 0 = Dry, No Rain. 100 = Covered.
+
+
+#
+# Windshields description
+#
+- Windshield:
+  type: branch
+  description: Windshield signals
+
+#
+# Front windshield
+#
+- Windshield.Front:
+  type: branch
+  description: Front windshield signals
+
+- Windshield.Front.Wiping:
+  type: branch
+  description: Front windshield wiper signals
+
+- Windshield.Front.Wiping.Status:
+  datatype: string
+  type: actuator
+  enum: ["off", "slow", "medium", "fast", "interval", "rainsensor"]
+  description: Front wiper status
+
+- Windshield.Front.Heating:
+  type: branch
+  description: Front windshield heater signals
+
+- Windshield.Front.Heating.Status:
+  datatype: boolean
+  type: actuator
+  description: Front windshield heater status. 0 - off, 1 - on
+
+- Windshield.Front.WasherFluid:
+  type: branch
+  description: Front windshield washer fluid signals
+
+- Windshield.Front.WasherFluid.LevelLow:
+  datatype: boolean
+  type: sensor
+  description: Low level indication for washer fluid. True = Level Low. False = Level OK.
+
+- Windshield.Front.WasherFluid.Level:
+  datatype: uint8
+  unit: percent
+  type: sensor
+  description: Washer fluid level as a percent. 0 = Empty. 100 = Full.
+
+#
+# Rear Windshield
+#
+- Windshield.Rear:
+  type: branch
+  description: Rear windshield signals
+
+- Windshield.Rear.Wiping:
+  type: branch
+  description: Rear windshield wiper signals
+
+- Windshield.Rear.Wiping.Status:
+  datatype: string
+  type: actuator
+  enum: ["off", "slow", "medium", "fast", "interval", "rainsensor"]
+  description: Rear wiper status
+
+- Windshield.Rear.Heating:
+  type: branch
+  description: Rear windshield heater signals
+
+- Windshield.Rear.Heating.Status:
+  datatype: boolean
+  type: actuator
+  description: Rear windshield heater status. 0 - off, 1 - on
+
+- Windshield.Rear.WasherFluid:
+  type: branch
+  description: Rear windshield washer fluid signals
+
+- Windshield.Rear.WasherFluid.LevelLow:
+  datatype: boolean
+  type: sensor
+  description: Low level indication for washer fluid. True = Level Low. False = Level OK.
+
+- Windshield.Rear.WasherFluid.Level:
+  datatype: uint8
+  unit: percent
+  type: sensor
+  description: Washer fluid level as a percent. 0 = Empty. 100 = Full.
+
+
+
+##
+#  Lights definition
+##
+- Lights:
+  type: branch
+  description: All lights
+
+# Include lights specification and attach it to the Lights branch
+#include ExteriorLights.vspec Lights
+
+
+##
+#  Mirrors definition
+##
+- Mirrors:
+  type: branch
+  description: All mirrors
+
+- Mirrors.Left:
+  type: branch
+  description: Left mirrors
+
+# Include mirrors specification and attach it to the Mirrors branch
+#include ExteriorMirrors.vspec Mirrors.Left
+
+- Mirrors.Right:
+  type: branch
+  description: Right mirrors
+
+# Include mirrors specification and attach it to the Mirrors branch
+#include ExteriorMirrors.vspec Mirrors.Right

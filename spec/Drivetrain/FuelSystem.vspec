@@ -1,0 +1,82 @@
+#
+# (C) 2018 Volvo Cars
+# (C) 2016 Jaguar Land Rover
+#
+# All files and artifacts in this repository are licensed under the
+# provisions of the license provided by the LICENSE file in this repository.
+#
+
+#
+# Fuel system for ICE / hybrids
+#
+
+- FuelType:
+  datatype: string
+  type: attribute
+  enum: [ "unknown", "gasoline", "diesel", "electric", "hybrid", "E85", "CNG", "LPG" ]
+  default: "unknown"
+  description: Defines the fuel type of the vehicle
+
+- HybridType:
+  datatype: string
+  type: attribute
+  enum: [ "unknown", "not_applicable", "stop_start", "belt_ISG", "CIMG", "PHEV" ]
+  default: "unknown"
+  description: Defines the hybrid type of the vehicle
+
+- TankCapacity:
+  datatype: uint16
+  type: attribute
+  value: 0
+  unit: l
+  description: Capacity of the fuel tank in liters
+
+- Level:
+  datatype: uint8
+  type: sensor
+  unit: percent
+  min: 0
+  max: 100
+  description: Level in fuel tank as percent of capacity. 0 = empty. 100 = full.
+
+- Range:
+  datatype: uint32
+  type: sensor
+  unit: m
+  description: Range in meters.
+
+- InstantConsumption:
+  datatype: Float
+  type: sensor
+  unit: l/100km
+  min: 0
+  description: Current consumption in liters per 100 km.
+
+- AverageConsumption:
+  datatype: Float
+  type: sensor
+  unit: l/100km
+  min: 0
+  description: Average consumption in liters per 100 km.
+
+- ConsumptionSinceStart:
+  datatype: Float
+  type: sensor
+  unit: l
+  description: Fuel amount consumed since start in liters.
+
+- TimeSinceStart:
+  datatype: uint32
+  type: sensor
+  unit: s
+  description: Time elapsed since start in seconds.
+
+- EngineStopStartEnabled:
+  datatype: boolean
+  type: sensor
+  description: Indicates whether eco start stop is currently enabled
+
+- LowFuelLevel:
+  datatype: boolean
+  type: sensor
+  description: Indicates that the fuel level is low (e.g. <50km range)
