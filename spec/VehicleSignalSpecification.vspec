@@ -1,4 +1,5 @@
 #
+# (C) 2018 Volvo Cars
 # (C) 2016 Jaguar Land Rover
 #
 # All files and artifacts in this repository are licensed under the
@@ -15,9 +16,20 @@
 # https://github.com/GENIVI/vehicle_signal_specification/tree/develop/tools
 #
 
-# Attribute declaration vs. Definition
-# Expandable / subclassable attributes.
+
 #
+# The vehicle branch for highlevel vehicle signals and attributes.
+#
+- Vehicle:
+  type: branch
+  description: Highlevel vehicle data.
+
+# Include the Vehicle/Vehicle.vspec file and attach all its signals under the
+# Vehicle branch created above.
+
+#include Vehicle/Vehicle.vspec Vehicle
+
+
 
 #
 # An uncontrolled private branch.
@@ -35,20 +47,154 @@
 # Put in accuracy as attribute for signal
 #
 
-- Private:
+- Vehicle.Private:
   type: branch
   description: Uncontrolled branch where non-public signals can be defined.
 
-#include Private/Private.vspec Private
+#include Private/Private.vspec Vehicle.Private
 
-- Attribute:
+- Vehicle.Media:
   type: branch
-  description: Attribute signals that do not change during the power cycle of a vehicle.
+  description: Media service data.
 
-#include Attribute/Attribute.vspec Attribute
+#include Media/Media.vspec Vehicle.Media
 
-- Signal:
+
+
+#
+# The engine branch used to host the signals and attributes in engine.vspec.
+#
+- Vehicle.Drivetrain:
   type: branch
-  description: All signals that can dynamically be updated by the vehicle
+  description: Drivetrain data for internal combustion engines, transmissions, electric motors, etc.
 
-#include Signal/Signal.vspec Signal
+#
+# Internal combustion engine signals and attributes.
+#
+- Vehicle.Drivetrain.InternalCombustionEngine:
+  type: branch
+  description: Engine-specific data, stopping at the bell housing.
+
+# Include the engine.vspec file and attach all its signals and attributes under the engine
+# branch created above.
+#
+#include Drivetrain/Engine.vspec Vehicle.Drivetrain.InternalCombustionEngine
+
+#
+# The transmission branch used to host the signals and attributes in transmission.vspec.
+#
+- Vehicle.Drivetrain.Transmission:
+  type: branch
+  description: Transmission-specific data, stopping at the drive shafts.
+
+# Include the transmission.vspec file and attach all its signals and attributes under the
+# transmission branch created above.
+#
+#include Drivetrain/Transmission.vspec Vehicle.Drivetrain.Transmission
+
+
+#
+# The electric motor branch used to host the signals and attributes in ElectricMotor.vspec.
+#
+- Vehicle.Drivetrain.ElectricMotor:
+  type: branch
+  description: Electric Motor specific data.
+
+# Include the electric motor vspec file and attach all its signals and attributes under the
+# electric motor branch created above.
+
+#include Drivetrain/ElectricMotor.vspec Vehicle.Drivetrain.ElectricMotor
+
+#
+# The battery management signals and attributes used to host the signals in BatteryManagement.vspec.
+#
+- Vehicle.Drivetrain.BatteryManagement:
+  type: branch
+  description: Battery Management data.
+
+# Include the battery management vspec file and attach all its signals and attributes under the
+# battery management branch created above.
+
+#include Drivetrain/BatteryManagement.vspec Vehicle.Drivetrain.BatteryManagement
+
+
+#
+# The fuels system signals and attributes used to host the signals in FuelSystem.vspec.
+#
+- Vehicle.Drivetrain.FuelSystem:
+  type: branch
+  description: Fuel system data.
+
+# Include the fuel system vspec file and attach all its signals and attributes under the
+# fuels system branch created above.
+
+#include Drivetrain/FuelSystem.vspec Vehicle.Drivetrain.FuelSystem
+
+#
+# The fuel cell signals and attributes used to host the signals in FuelCell.vspec.
+#
+- Vehicle.Drivetrain.FuelCell:
+  type: branch
+  description: Fuel Cell data.
+
+# Include the battery management vspec file and attach all its signals and attributes under the
+# battery management branch created above.
+
+#include Drivetrain/FuelCell.vspec Vehicle.Drivetrain.FuelCell
+
+#
+# The Body branch used to host the signals and attributes Body/Body.vspec.
+#
+- Vehicle.Body:
+  type: branch
+  description: All body components.
+
+#include Body/Body.vspec Vehicle.Body
+
+
+#
+# The Cabin branch and its included signals and attributes from Cabin/Cabin.vspec
+#
+- Vehicle.Cabin:
+  type: branch
+  description: All in-cabin components, including doors.
+
+
+# Include the Cabin/Cabin.vspec file and attach all its signals and attributes under the
+# Cabin branch created above.
+
+#include Cabin/Cabin.vspec Vehicle.Cabin
+
+
+#
+# Advanced Driver Assist Systems signals and attributes.
+#
+- Vehicle.ADAS:
+  type: branch
+  description: All Advanced Driver Assist Systems data.
+
+#include ADAS/ADAS.vspec Vehicle.ADAS
+
+
+#
+# Chassis signals and attributes.
+# Includes steering, suspension, wheels, brakes, etc
+#
+- Vehicle.Chassis:
+  type: branch
+  description: All data concerning steering, suspension, wheels, and brakes.
+
+#include Chassis/Chassis.vspec Vehicle.Chassis
+
+
+#
+# On-board Diagnostic (OBD) Branch
+#
+- Vehicle.OBD:
+  type: branch
+  description: OBD data.
+
+# Include the OBD/OBD.vspec file and attach all its data under the
+# OBD branch created above.
+
+#include OBD/OBD.vspec Vehicle.OBD

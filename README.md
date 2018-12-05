@@ -1,24 +1,24 @@
+**(C) 2018 Volvo Cars**<br>
 **(C) 2016 Jaguar Land Rover**<br>
 
 All files and artifacts in this repository are licensed under the
 provisions of the license provided by the LICENSE file in this repository.
 
 # VEHICLE SIGNAL SPECIFICATION
-This repository specifies a data model that can be used in automotive applications to communicate different kinds of data that are relevant in an automotive context. The data model is adapted to handle both the signal data that is related to the various sensors and actuators on vehicle buses, and the type of data that is more commonly associated with the infotainment system, such as media data. 
+This repository specifies a data model that can be used in automotive applications to communicate different kinds of data that are relevant in an automotive context. The data model is adapted to handle both the signal data that is related to the various sensors and actuators on vehicle buses, and the type of data that is more commonly associated with the infotainment system, such as media data.
 
-Further, the repository also specifies sets of data in different domains, such as the Car domain and the Media domain, that are expected to be of common interest for automotive applications. 
 
-A standardized vehicle data specification allows for an industry actor
+A standardized vehicle data specification allows an industry actor
 to use a common naming space for communication and,
 ultimately, abstracts underlying vehicle implementation details.
 
-The collection of vehicle data specifications is vendorindependent. 
+The representation of vehicle data specifications is vendor independent.
 Vendor-specific extensions can be specified in a dedicated and
 uncontrolled branch of the specification tree.
 
 The format of the directories and specification files is aimed
 at allowing easy, git-based management with branching, merging, and
-release. With this in mind, the vehicle data specification can be broken up
+release. With this in mind, the vehicle signal specification can be broken up
 into smaller files that can be edited and re-used while minimizing
 merge conflicts.
 
@@ -38,7 +38,7 @@ The release management process will be driven in the context of GENIVI
 and its Remote Vehicle Interaction expert group.
 
 # BROWSE JSON VEHICLE SIGNAL SPECIFICATION
-A variant of the vehicle data specification is checked in
+A variant of the vehicle signal specification is checked in
 as ```vss_$VERSION.json```, where ```$VERSION``` is the content of
 the ```VERSION``` file.
 
@@ -88,52 +88,64 @@ in Fig 2.
 
 
 ## <a name="branch-entry"/>BRANCH ENTRY
-A branch is an entity that can host other branches, signals, and attributes.
+A ```branch``` is an entity that can host other branches, signals, and attributes.
 A branch is identified as an entry with its signal type set to ```branch```.
 The only required field for a branch are ```type``` and ```description```.
 
 ## <a name="rbranch-entry"/>RBRANCH ENTRY
 A ```resource branch``` is an entity that can host only element nodes.
-A resorce branch is identified as an entry with its node type set to ```rbranch```. 
+A resorce branch is identified as an entry with its node type set to ```rbranch```.
 It can host zero or more element nodes, and it contains the format definition
-of its element nodes.
-Besides the required fields ```type``` and ```description```, are also the following.
+of its element nodes. Besides the required fields ```type``` and ```description```,
+are also the following.
 
-## <a name="rbranch-child-type"/>RBRANCH CHILDTYPE
-An rbranch child must be of the generic type ```element```, but it also has a uniquely specified 
-part that can be referred to by the child type.
+* **```child-type```**<br>
+An rbranch child must be of the generic type ```element```, but it also has a
+uniquely specified part that can be referred to by the child type.
 
-## <a name="rbranch-child-properties"/>RBRANCH CHILDPROPERTIES
-An rbranch child format is defined through a number of ```properties```, 
-each property is defined by the attributes: ```name```, ```description```, 
-```type```, ```format```, ```unit```, and ```value```.
+* **```child-properties```**<br>
+An rbranch child format is defined through a number of ```properties```,
+each property is defined by the attributes: ```name```, ```description```
+,```type```, ```format```, ```unit```, and ```value```.
 
-## <a name="rbranch-property-name"/>RBRANCH PROPNAME
-This is the key value used to refer to this property. An element must contain the 
-properties named ```id```, ```name```, and ```uri``` <inherited from VIWI?>.
+* **```prop-name```**
+This is the key value used to refer to this property. An element must contain
+the properties named ```id```, ```name```, and ```uri``` <inherited from VIWI?>.
 
-## <a name="rbranch-property-description"/>RBRANCH PROPDESCRIPTION
+* **```prop-description```**
 This is a description of the property.
 
-## <a name="rbranch-property-type"/>RBRANCH PROPTYPE
+* **```prop-type```**
 This is the type of the property.
 
-## <a name="rbranch-property-format"/>RBRANCH PROPFORMAT
+* **```prop-format```**
 This is the format of this property.
 
-## <a name="rbranch-property-unit"/>RBRANCH PROPUNIT
+* **```prop-unit```**
 This is the unit of this property.
 
-## <a name="rbranch-property-value"/>RBRANCH PROPVALUE
-If this property is a logical link to other elements, then the path to the rbranch 
-of these elements is given here. The ```id``` value of these elements are provided in a list.
+* **```prop-value```**
+If this property is a logical link to other elements, then the path to the
+rbranch of these elements is given here. The ```id``` value of these
+elements are provided in a list.
 
-## <a name="signal-entry"/>SIGNAL ENTRY
-A signal is a named entity, such as rpm, that can have a value, such as 3400,
-at any given time.
+## <a name="data-entry"/>DATA ENTRY
+Leaf nodes of the tree contain metadata describing the data associated to the node.
+This specification makes a distinction between signals - in the following undefined
+as ```sensor```, ```actuator``` and ```stream``` - and ```attributes```.
+The difference between a signal and an attribute is that the signal has
+a publisher (or producer) that continuously updates the signal value while an
+attribute has a set value, defined in the specification, that never changes.
+As summary, besides ```branch``` and ```rbranch``` type can be:
 
-### <a name="signal-type"/>SIGNAL TYPE
-Each signal specifies a type from the following set (from FrancaIDL):
+* **```attribute```**, which describes static read-only value.
+* **```sensor```**, which describes non-static read-only signal.
+* **```actuator```**, same as sensor plus the possibility of changing the value.
+* **```stream```**, data stream like video.
+
+### <a name="data-type"/>DATA TYPE
+Each data entry specifies a ```datatype``` from the following set
+(from FrancaIDL):
 
 Name       | Type                       | Min  | Max
 :----------|:---------------------------|:-----|:---
@@ -151,20 +163,18 @@ Double     | double precision floating point number | -1.7e -300 | 1.7e 300
 String     | character string           | n/a  | n/a
 ByteBuffer | buffer of bytes (aka BLOB) | n/a | n/a
 
-Please note that the special type ```branch``` denotes a branch, not a
-signal. See the [branch entry](#branch-entry) chapter for details.
+Datatypes are not specified for ```branch```or ```rbranch```
 
-
-### <a name="signal-range"/>SIGNAL RANGE [OPTIONAL]
+### <a name="data-range"/>DATA RANGE [OPTIONAL]
 A signal can optionally be specified with a minimum and maximum limit,
 defining the valid range that the signal can assume.
 
-### <a name="signal-enumeration"/>SIGNAL ENUMERATION [OPTIONAL]
+### <a name="data-enumeration"/>DATA ENUMERATION [OPTIONAL]
 A signal can optionally be specified with a set of allowed values that
 the signal can be assigned, effectively turning it into an enumerator.  The
 values are of the same type as the signal itself.
 
-### <a name="signal-unit-type"/>SIGNAL UNIT TYPE [OPTIONAL]
+### <a name="data-unit-type"/>DATA UNIT TYPE [OPTIONAL]
 A signal can optionally specify a unit of measurement from the following set.
 This list intends to be according to International Units (SI): [Specification](https://www.iso.org/standard/30669.html), [Wikipedia](https://en.wikipedia.org/wiki/International_System_of_Units)
 
@@ -212,45 +222,28 @@ V          | Electrical    | Potential difference in volt
 A          | Electrical    | Current in amperes
 ... | ... | ...
 
-### <a name="signal-sensor-actuator"/>SIGNAL SENSOR & ACTUATOR [OPTIONAL]
-A signal can optionally specify a sensor and/or actuator respectively producing or consuming the signal.
-They are independant from the technology used.
-
-## <a name="attribute-entry"/>ATTRIBUTE ENTRY
-An attribute is an entry, such as vehicle weight or fuel type, with a static
-value. The difference between a signal and an attribute is that the signal has
-a publisher (or producer) that continuously updates the signal value while an
-attribute has a set value, defined in the specification, that never changes.
-
-
-### <a name="attribute-type"/>ATTRIBUTE TYPE
-Each attribute specifies a type in the same way that a signal does.
-
-### <a name="attribute-type"/>ATTRIBUTE VALUE
-Each attribute specifies a static value of the correct type.
-
-### <a name="attribute-unit-type"/>ATTRIBUTE UNIT TYPE [OPTIONAL]
-An attribute can optionally specify a unit of measurement in the same way that
-a signal does.
+### <a name="data-value"/>DATA VALUE
+A data node specifying "function: attribute" must specify a static value of the correct type.
+Data nodes specifying and other function value must not specify a data value.
 
 ## <a name="element-entry"/>ELEMENT ENTRY
-An element node must only be a child of an rbranch node. 
+An element node must only be a child of an rbranch node.
 Default and mandatory fields are ```type```, and ```description```, other mandatory fields are specified by
 the property definitions in the rbranch parent.
 
-## SIGNAL NAMING CONVENTION
-Signals are named, left-to-right, from the root of the signal tree
-toward the signal itself. Each element in the name is delimited with
+## NODE ADDRESSING CONVENTION
+Tree nodes are addressed, left-to-right, from the root of the tree
+toward the node itself. Each element in the name is delimited with
 a period (".") .
 
-For example, the dimming status of the rearview mirror in the cabin is named:
+For example, the dimming status of the rearview mirror in the cabin is addressed:
 
-	
+
     Cabin.RearviewMirror.Dimmed
 
 
 If there are an array of elements, such as door rows 1-3, they will be
-named with an index branch:
+addressed with an index branch:
 
 ```
 Cabin.Door.Row1.Left.IsLocked
@@ -341,13 +334,14 @@ A description string to be included (when applicable) in the various
 specification files generated from this branch entry.
 
 
-## SIGNAL ENTRY
-A signal entry defines a single signal and its members. A signal
+## SENSOR/ACTUATOR DATA ENTRY
+A data entry defines a single signal and its members. A data
 entry example is given below:
 
 ```YAML
 - Drivetrain.Transmission.Speed:
-  type: Uint16
+  type: sensor
+  datatype: uint16
   unit: km/h
   min: 0
   max: 300
@@ -359,8 +353,13 @@ Defines the dot-notated signal name of the signal. Please note that
 all parental branches included in the name must be defined as well.
 
 * **```type```**<br>
+Defines the type of the node. This can be ```branch```, ```rbranch```
+,```sensor```, ```actuator```, ```stream``` or attribute.
+
+
+* **```datatype```**<br>
 The string value of the type specifies the scalar type of the signal
-value. See [signal type](#signal-type) chapter for a list of available types.
+value. See [data type](#data-type) chapter for a list of available types.
 
 * **```min``` [optional]**<br>
 The minimum value, within the interval of the given ```type```, that the
@@ -376,7 +375,7 @@ Cannot be specified if ```enum``` is specified for the same signal entry.
 
 * **```unit``` [optional]**<br>
 The unit of measurement that the signal has. See [Unit
-Type](#signal-unit-type) chapter for a list of available unit types.<br> This
+Type](#data-unit-type) chapter for a list of available unit types.<br> This
 cannot be specified if ```enum``` is specified as the signal type.
 
 * **```description```**<br>
@@ -389,14 +388,16 @@ The sensing appliance used to produce the signal.
 * **```actuator```[optional]**<br>
 The actuating appliance consuming the signal.
 
-## ENUMERATED SIGNAL ENTRY
-A signal can optionally be enumerated, allowing it to be assigned a value from a
-specified set of values. An example of an enumerated signal is given below:
+## ENUMERATED SENSOR/ACTUATOR DATA ENTRY
+A data entry can optionally be enumerated, allowing it to be assigned a
+value from a specified set of values. An example of an enumerated signal
+is given below:
 
 
 ```YAML
 - Chassis.Transmission.Gear:
-  type: Uint16,
+  type: sensor
+  datatype: uint16
   enum: [ -1, 1, 2, 3, 4, 5, 6, 7, 8 ]
   description: The selected gear. -1 is reverse.
 ```
@@ -405,7 +406,7 @@ An enumerated signal entry has no ```min```, ```max```, or ```unit```
 element.
 
 The ```enum``` element is an array of values, all of which must be specified
-in the enum list.  This signal can only be assigned one of the values
+in the emum list.  This signal can only be assigned one of the values
 specified in the enum list.
 The ```type``` specifier is the type of the individual elements of the enum
 list.
@@ -424,12 +425,13 @@ Below is an example of a complete attribute describing engine power
 
 ```YAML
 - MaxPower:
-  type:  Uint16
+  type: attribute
+  datatype:  uint16
   default: 0
   description: Peak power, in kilowatts, that engine can generate.
 ```
 
-## <a name="extending"/>EXTENDING AND OVERRIDING SIGNALS
+## <a name="extending"/>EXTENDING AND OVERRIDING DATA ENTRIES
 The core signal specification can be extended with additional signals through the
 use of private branches, as is shown in Fig 3.
 
@@ -539,9 +541,9 @@ The tools ```vspec2franca```, ```vspec2json``` and ```vspec2vsi``` can also auto
 To instruct any of the tools to create signal ID databases use the ```-i``` option:
 
     vspec2json -i <prefix>:<database_file>:<start_id> vspec_file json_file
-    
+
 The ```-i``` option can be specified any number of times to created different signal ID databases based on ```<prefix```. Signal IDs are positive integer values.
-    
+
 * **```<prefix>```**<br>
 Prefix that is matched against signal names. The longest match will be used to determine the signal ID database the signal is stored into. For example, two signal ID databases are specified with ```-i Attribute:vspec_attr.id:0 -i Attribute.Cabin:vspec_attr_cab.id:0```. A signal named ```Attribute.Chassis.Curbweight``` will be stored in ```vspec_attr.id``` while
 a signal named ```Attribute.Cabin.Seat.DriverPosition``` will be stored in the ```vspec_attr_cab.id``` database.

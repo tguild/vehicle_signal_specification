@@ -21,6 +21,9 @@ FILE* treeFp;
 int currentDepth;
 int maxTreeDepth;
 
+int stepsInPath;
+int stepOffset;
+
 void initTreeDepth() {
     currentDepth = 0;
     maxTreeDepth = 0;
@@ -185,24 +188,15 @@ if (node2->unitLen > 0)
             }
 for (int i = 0 ; i < node2->numOfEnumElements ; i++)
   printf("Enum[%d]=%s\n", i, (char*)node2->enumeration[i]);
-            fread(&(node2->sensorLen), sizeof(int), 1, treeFp);
-            node2->sensor = NULL;
-            if (node2->sensorLen > 0) {
-                node2->sensor = (char*) malloc(sizeof(char)*(node2->sensorLen+1));
-                fread(node2->sensor, sizeof(char)*node2->sensorLen, 1, treeFp);
-                node2->sensor[node2->sensorLen] = '\0';
+            fread(&(node2->functionLen), sizeof(int), 1, treeFp);
+            node2->function = NULL;
+            if (node2->functionLen > 0) {
+                node2->function = (char*) malloc(sizeof(char)*(node2->functionLen+1));
+                fread(node2->function, sizeof(char)*node2->functionLen, 1, treeFp);
+                node2->function[node2->functionLen] = '\0';
             }
-if (node2->sensorLen > 0)
-    printf("Sensor = %s\n", node2->sensor);
-            fread(&(node2->actuatorLen), sizeof(int), 1, treeFp);
-            node2->actuator = NULL;
-            if (node2->actuatorLen > 0) {
-                node2->actuator = (char*) malloc(sizeof(char)*(node2->actuatorLen+1));
-                fread(node2->actuator, sizeof(char)*node2->actuatorLen, 1, treeFp);
-                node2->actuator[node2->actuatorLen] = '\0';
-            }
-if (node2->actuatorLen > 0)
-    printf("Actuator = %s, Len=%d\n", node2->actuator, node2->actuatorLen);
+if (node2->functionLen > 0)
+    printf("Function = %s\n", node2->function);
             node = (node_t*)node2;
         }
         break;
@@ -282,7 +276,7 @@ printf("getNumOfPathSteps=%d\n", numofelements);
 
 void copySteps(char* newPath, char* oldPath, int stepNo) {
     char* ptr = strchr(oldPath, '.');
-    for (int i = 0 ; i < stepNo-1 ; i++) {
+    for (int i = 0 ; i < stepOffset+stepNo-1 ; i++) {
         if (ptr != NULL)
             ptr = strchr(ptr+1, '.');
     }
@@ -292,14 +286,18 @@ void copySteps(char* newPath, char* oldPath, int stepNo) {
     }
 }
 
+/**
+* !!! First call to stepToNextNode() must be preceeeded by a call to initStepToNextNode() !!!
+**/
 struct node_t* stepToNextNode(struct node_t* ptr, int stepNo, char* searchPath, int maxFound, int* foundResponses, path_t* responsePaths, int* foundNodePtrs) {
 printf("ptr->name=%s, stepNo=%d, responsePaths[%d]=%s\n",ptr->name, stepNo, *foundResponses, responsePaths[*foundResponses]);
     if (*foundResponses >= maxFound-1)
-        return NULL; // found buffers full
+        return NULL; // response buffers are full
     char pathNodeName[MAXNAMELEN];
     strncpy(pathNodeName, getNodeName(stepNo, searchPath), MAXNAMELEN);
-    if (stepNo == getNumOfPathSteps(searchPath)-1) { // at leave node, so save ptr and return success
+    if (stepNo == stepsInPath) { // at matching node, so save ptr and return success
         foundNodePtrs[*foundResponses] = (intptr_t)ptr;
+        (*foundResponses)++;
         return ptr;
     }
     strncpy(pathNodeName, getNodeName(stepNo+1, searchPath), MAXNAMELEN);  // get name of next step in path
@@ -324,8 +322,7 @@ printf("Wildcard:ptr->child[%d]->name=%s\n", i, ptr->child[i]->name);
             if (ptr2 == NULL) {
                 copySteps(responsePaths[*foundResponses], responsePaths[*foundResponses], stepNo+1);
             } else {
-                if (i < ptr->children && foundNodePtrs[*foundResponses] != 0) {
-                    (*foundResponses)++;
+                if (i < ptr->children && foundNodePtrs[*foundResponses-1] != 0) {
                     copySteps(responsePaths[*foundResponses], responsePaths[*foundResponses-1], stepNo+1);
                 } else
                     copySteps(responsePaths[*foundResponses], responsePaths[*foundResponses], stepNo+1);
@@ -336,11 +333,7 @@ printf("Wildcard:ptr->child[%d]->name=%s\n", i, ptr->child[i]->name);
     }
 }
 
-
-int VSSGetNodes(char* searchPath, int rootNode, int maxFound, path_t* responsePaths, int* foundNodeHandles) {
-    intptr_t ptr = (intptr_t)rootNode;
-    int stepNo = 0;
-    int foundResponses = 0;
+void initStepToNextNode(struct node_t* originalRoot, struct node_t* currentRoot, char* searchPath, int* foundNodeHandles, path_t* foundPaths, int maxFound) {
     /* 
      * This is a workaround to the fact that with X multiple wildcards, 
      * there are "(X-1)*numberofrealresults" bogus results added.
@@ -350,11 +343,115 @@ int VSSGetNodes(char* searchPath, int rootNode, int maxFound, path_t* responsePa
     for (int i = 0 ; i < maxFound ; i++)
         foundNodeHandles[i] = 0;
 
-    strcpy(responsePaths[0], ((struct node_t*)ptr)->name); // root node name needs to be written initially
-    stepToNextNode((struct node_t*)ptr, stepNo, searchPath, maxFound, &foundResponses, responsePaths, foundNodeHandles);
+    foundPaths[0][0] = '\0';
+    do {
+        path_t tmp;
+        int initialLen = strlen(foundPaths[0]);
+        strcpy(tmp, foundPaths[0]);
+        strcpy(foundPaths[0], currentRoot->name);
+        if (initialLen != 0)
+            strcat(foundPaths[0], ".");
+        strcat(foundPaths[0], tmp);
+        currentRoot = currentRoot->parent;
+    } while (currentRoot != NULL);
 
-    if (strchr(searchPath, '*') == NULL)
-        foundResponses++;
+    for (int i = 1 ; i < maxFound ; i++)
+        strcpy(foundPaths[i], foundPaths[0]);
+//        foundPaths[i][0] = '\0';
+
+    stepOffset = getNumOfPathSteps(foundPaths[0])-1;
+
+    stepsInPath = getNumOfPathSteps(searchPath)-1;
+}
+
+typedef struct trailingWildCardQue_t {
+    char path[MAXCHARSPATH];
+    struct node_t* rootNode;
+    int maxFoundLeft;
+    struct trailingWildCardQue_t* next;
+} trailingWildCardQue_t;
+
+trailingWildCardQue_t* trailingWildCardQue = NULL;
+int trailingWildCardQueLen = 0;
+
+void addToWildCardQue(char* path, struct node_t* rootPtr, int maxFoundLeft) {
+    trailingWildCardQue_t** lastInQue;
+
+    if (trailingWildCardQueLen == 0)
+        lastInQue = &trailingWildCardQue;
+    else {
+        trailingWildCardQue_t* tmp = trailingWildCardQue;
+        for (int i = 0 ;  i < trailingWildCardQueLen-1 ; i++)
+            tmp = tmp->next;
+        lastInQue = &(tmp->next);
+    }
+    *lastInQue = (trailingWildCardQue_t*)malloc(sizeof(trailingWildCardQue_t));
+    strcpy((*lastInQue)->path, path);
+    (*lastInQue)->rootNode = rootPtr;
+    (*lastInQue)->maxFoundLeft = maxFoundLeft;
+    (*lastInQue)->next = NULL;
+    trailingWildCardQueLen++;
+}
+
+void removeFromWildCardQue(char* path, struct node_t** rootPtr, int* maxFoundLeft) {
+    trailingWildCardQue_t* quePtr = trailingWildCardQue->next;
+
+    strcpy(path, trailingWildCardQue->path);
+    *rootPtr = trailingWildCardQue->rootNode;
+    *maxFoundLeft = trailingWildCardQue->maxFoundLeft;
+    free(trailingWildCardQue);
+    trailingWildCardQue = quePtr;
+    trailingWildCardQueLen--;
+}
+
+/**
+* Returns handle (and path) to all leaf nodes that are found under the node before the wildcard in the path.
+**/
+void trailingWildCardSearch(struct node_t* rootPtr, char* searchPath, int maxFound, int* foundResponses, path_t* responsePaths, int* foundNodePtrs) {
+    int matches = 0;
+    path_t matchingPaths[MAXFOUNDNODES];
+    int matchingNodeHandles[MAXFOUNDNODES];
+    char jobPath[MAXCHARSPATH];
+    struct node_t* jobRoot;
+    int jobMaxFound;
+    int maxFoundLeft = maxFound;
+
+    addToWildCardQue(searchPath, rootPtr, maxFoundLeft);
+    while (trailingWildCardQueLen > 0 && *foundResponses < maxFound) {
+        removeFromWildCardQue(jobPath, &jobRoot, &jobMaxFound);
+        matches = 0;
+        initStepToNextNode(rootPtr, jobRoot, jobPath, matchingNodeHandles, matchingPaths, maxFound);
+        stepToNextNode(jobRoot, 0, jobPath, jobMaxFound, &matches, matchingPaths, matchingNodeHandles);
+printf("After stepToNextNode(jobPath=%s, jobRoot->name=%s) in trailingWildCardSearch(): matches=%d\n", jobPath, jobRoot->name, matches);
+        maxFoundLeft -= matches;
+        for (int i = 0 ; i < matches ; i++) {
+            if (*foundResponses == maxFound)
+                break;
+            if (getType(matchingNodeHandles[i]) == BRANCH || getType(matchingNodeHandles[i]) == RBRANCH) {
+printf("Non-leaf node=%s\n", getName(matchingNodeHandles[i]));
+                strcpy(jobPath, getName(matchingNodeHandles[i]));
+                strcat(jobPath, ".*");
+                addToWildCardQue(jobPath, (struct node_t*)((intptr_t)matchingNodeHandles[i]), maxFoundLeft);
+            } else {
+printf("Leaf node=%s, matchingPaths[%d]=%s, *foundResponses=%d\n", getName(matchingNodeHandles[i]), i, matchingPaths[i], *foundResponses);
+                strncpy(responsePaths[*foundResponses], matchingPaths[i], MAXCHARSPATH-1);
+                foundNodePtrs[*foundResponses] = matchingNodeHandles[i];
+                (*foundResponses)++;
+            }
+        }
+    }
+}
+
+int VSSSearchNodes(char* searchPath, int rootNode, int maxFound, path_t* responsePaths, int* foundNodeHandles) {
+    intptr_t ptr = (intptr_t)rootNode;
+    int foundResponses = 0;
+
+    if (searchPath[strlen(searchPath)-1] != '*') {
+        initStepToNextNode((struct node_t*)ptr,(struct node_t*)ptr, searchPath, foundNodeHandles, responsePaths, maxFound);
+        stepToNextNode((struct node_t*)ptr, 0, searchPath, maxFound, &foundResponses, responsePaths, foundNodeHandles);
+    } else {
+        trailingWildCardSearch((struct node_t*)ptr, searchPath, maxFound, &foundResponses, responsePaths, foundNodeHandles);
+    }
 
     return foundResponses;
 }
@@ -429,13 +526,10 @@ void traverseAndWriteNode(struct node_t* node) {
             if (node->numOfEnumElements > 0) {
                 fwrite(node->enumeration, sizeof(enum_t)*node->numOfEnumElements, 1, treeFp);
             }
-            fwrite(&(node->sensorLen), sizeof(int), 1, treeFp);
-            if (node->sensorLen > 0)
-                fwrite(node->sensor, sizeof(char)*node->sensorLen, 1, treeFp);
-            fwrite(&(node->actuatorLen), sizeof(int), 1, treeFp);
-            if (node->actuatorLen > 0)
-                fwrite(node->actuator, sizeof(char)*node->actuatorLen, 1, treeFp);
-//printf("numOfEnumElements=%d, unitlen=%d, sensorLen=%d, actuatorLen=%d\n", node->numOfEnumElements, node->unitLen, node->sensorLen, node->actuatorLen);
+            fwrite(&(node->functionLen), sizeof(int), 1, treeFp);
+            if (node->functionLen > 0)
+                fwrite(node->function, sizeof(char)*node->functionLen, 1, treeFp);
+//printf("numOfEnumElements=%d, unitlen=%d, functionLen=%d\n", node->numOfEnumElements, node->unitLen, node->functionLen);
 for (int i = 0 ; i < node->numOfEnumElements ; i++)
   printf("Enum[%d]=%s\n", i, (char*)node->enumeration[i]);
         }
@@ -465,12 +559,14 @@ int getParent(int nodeHandle) {
     return (int)((intptr_t)((node_t*)((intptr_t)nodeHandle))->parent);
 }
 
-int getChild(int nodeHandle, int childNo) {
-    return (int)((intptr_t)((node_t*)((intptr_t)nodeHandle))->child[childNo]);
-}
-
 int getNumOfChildren(int nodeHandle) {
     return (int)((intptr_t)((node_t*)((intptr_t)nodeHandle))->children);
+}
+
+int getChild(int nodeHandle, int childNo) {
+    if (getNumOfChildren(nodeHandle) > childNo)
+        return (int)((intptr_t)((node_t*)((intptr_t)nodeHandle))->child[childNo]);
+    return 0;
 }
 
 nodeTypes_t getType(int nodeHandle) {
@@ -486,7 +582,10 @@ char* getDescr(int nodeHandle) {
 }
 
 int getNumOfEnumElements(int nodeHandle) {
-    return ((node_t*)((intptr_t)nodeHandle))->numOfEnumElements;
+    nodeTypes_t type = getType(nodeHandle);
+    if (type != BRANCH && type != RBRANCH && type != ELEMENT)
+        return ((node_t*)((intptr_t)nodeHandle))->numOfEnumElements;
+    return 0;
 }
 
 char* getEnumElement(int nodeHandle, int index) {
@@ -494,19 +593,23 @@ char* getEnumElement(int nodeHandle, int index) {
 }
 
 char* getUnit(int nodeHandle) {
-    return ((node_t*)((intptr_t)nodeHandle))->unit;
+    nodeTypes_t type = getType(nodeHandle);
+    if (type != BRANCH && type != RBRANCH && type != ELEMENT)
+        return ((node_t*)((intptr_t)nodeHandle))->unit;
+    return NULL;
 }
 
-char* getSensor(int nodeHandle) {
-    return ((node_t*)((intptr_t)nodeHandle))->sensor;
-}
-
-char* getActuator(int nodeHandle) {
-    return ((node_t*)((intptr_t)nodeHandle))->actuator;
+char* getFunction(int nodeHandle) {
+    nodeTypes_t type = getType(nodeHandle);
+    if (type != BRANCH && type != RBRANCH && type != ELEMENT)
+        return ((node_t*)((intptr_t)nodeHandle))->function;
+    return NULL;
 }
 
 int getResource(int nodeHandle) {
-    return (int)((intptr_t)((element_node_t*)((intptr_t)nodeHandle))->uniqueObject);
+    if (getType(nodeHandle) == ELEMENT)
+        return (int)((intptr_t)((element_node_t*)((intptr_t)nodeHandle))->uniqueObject);
+    return -1;
 }
 
 int getObjectType(int resourceHandle) {
@@ -514,10 +617,14 @@ int getObjectType(int resourceHandle) {
 }
 
 int getMediaCollectionNumOfItems(int resourceHandle) {
-    return ((mediaCollectionObject_t*)((intptr_t)resourceHandle))->numOfItems;
+    if (getObjectType(resourceHandle) == MEDIACOLLECTION)
+        return ((mediaCollectionObject_t*)((intptr_t)resourceHandle))->numOfItems;
+    return -1;
 }
 
 char* getMediaCollectionItemRef(int resourceHandle, int i) {
-    return ((mediaCollectionObject_t*)((intptr_t)resourceHandle))->items[i];
+    if (getObjectType(resourceHandle) == MEDIACOLLECTION)
+        return ((mediaCollectionObject_t*)((intptr_t)resourceHandle))->items[i];
+    return NULL;
 }
 

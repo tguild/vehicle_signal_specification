@@ -1,0 +1,266 @@
+#
+# (C) 2018 Volvo Cars
+# (C) 2016 Jaguar Land Rover
+#
+# All files and artifacts in this repository are licensed under the
+# provisions of the license provided by the LICENSE file in this repository.
+#
+
+#
+# Seat signals
+#
+
+- HasPassenger:
+  datatype: boolean
+  type: sensor
+  description: Does the seat have a passenger in it.
+
+- IsBelted:
+  datatype: boolean
+  type: sensor
+  description: Is the belt engaged.
+
+- Heating:
+  datatype: int8
+  type: sensor
+  min: -100
+  max: 100
+  unit: percent
+  description: Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat
+
+- Massage:
+  datatype: uint8
+  type: sensor
+  min: 0
+  max: 100
+  unit: percent
+  description: Seat massage level. 0 = off. 100 = max massage.
+
+- Recline:
+  datatype: int8
+  type: sensor
+  min: -90
+  max: 90
+  unit: degrees
+  description: Recline level. -90 = Max forward recline. 90 max backward recline
+
+- Position:
+  datatype: uint16
+  type: sensor
+  min: 0
+  max: 1000
+  unit: mm
+  description: Seat horizontal position. 0 = Frontmost. 1000 = Rearmost
+
+- Cushion:
+  type: branch
+  description: Cushion signals.
+
+- Cushion.Height:
+  datatype: uint16
+  type: sensor
+  min: 0
+  max: 500
+  unit: mm
+  description: Height of the seat front. 0 = Lowermost. 500 = Uppermost.
+
+- Cushion.Length:
+  datatype: uint16
+  type: sensor
+  min: 0
+  max: 500
+  unit: mm
+  description: Forward length of cushion (leg support). 0 = Rearmost. 500 = Forwardmost.
+
+
+- Lumbar:
+  type: branch
+  description: Lumbar signals
+
+- Lumbar.Inflation:
+  datatype: uint8
+  type: sensor
+  min: 0
+  max: 255
+  description: Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated.
+
+
+- Lumbar.Height:
+  datatype: uint8
+  type: sensor
+  min: 0
+  max: 255
+  description: Lumbar support position. 0 = Lowermost. 255 = Uppermost.
+
+- SideBolster:
+  type: branch
+  description: Side bolster settings
+
+- SideBolster.Inflation:
+  datatype: uint8
+  type: sensor
+  min: 0
+  max: 255
+  description: Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated.
+
+- HeadRestraint:
+  type: branch
+  description: Head restraint settings
+
+- HeadRestraint.Height:
+  datatype: uint8
+  type: sensor
+  min: 0
+  max: 255
+  unit: mm
+  description: Height of head restraint. 0 = Bottommost. 255 = Topmost.
+
+- Airbag:
+  type: branch
+  description: Airbag signals
+
+- Airbag.IsDeployed:
+  datatype: boolean
+  type: sensor
+  description: Airbag deployment status. True = Airbag deployed. False = Airbag not deployed.
+
+
+#--------------------------------------
+
+- Switch:
+  type: branch
+  description: Seat switch signals
+
+- Switch.Warmer:
+  datatype: boolean
+  type: actuator
+  description: Warmer switch for Seat heater
+
+- Switch.Cooler:
+  datatype: boolean
+  type: actuator
+  description: Cooler switch for Seat heater
+
+- Switch.Forward:
+  datatype: boolean
+  type: actuator
+  description: Seat forward switch engaged
+
+- Switch.Backward:
+  datatype: boolean
+  type: actuator
+  description: Seat forward switch engaged
+
+- Switch.Up:
+  datatype: boolean
+  type: actuator
+  description: Seat up switch engaged
+
+- Switch.Down:
+  datatype: boolean
+  type: actuator
+  description: Seat down switch engaged
+
+- Switch.HeadRestraint:
+  type: branch
+  description: Head restraint switches
+
+- Switch.HeadRestraint.Up:
+  datatype: boolean
+  type: actuator
+  description: Head restraint up switch engaged
+
+- Switch.HeadRestraint.Down:
+  datatype: boolean
+  type: actuator
+  description: Head restraint down switch engaged
+
+- Switch.Massage:
+  type: branch
+  description: Massage switches
+
+- Switch.Massage.Increase:
+  datatype: boolean
+  type: actuator
+  description: Increase massage level switch engaged
+
+- Switch.Massage.Decrease:
+  datatype: boolean
+  type: actuator
+  description: Decrease massage level switch engaged
+
+- Switch.Recline:
+  type: branch
+  description: Recline switches
+
+- Switch.Recline.Backward:
+  datatype: boolean
+  type: actuator
+  description: Seatback recline backward switch engaged
+
+- Switch.Recline.Forward:
+  datatype: boolean
+  type: actuator
+  description: Seatback recline forward switch engaged
+
+- Switch.Cushion:
+  type: branch
+  description: Cushion switches
+
+- Switch.Cushion.Up:
+  datatype: boolean
+  type: actuator
+  description: Seat cushion up switch engaged
+
+- Switch.Cushion.Down:
+  datatype: boolean
+  type: actuator
+  description: Seat cushion down switch engaged
+
+- Switch.Cushion.Forward:
+  datatype: boolean
+  type: actuator
+  description: Seat cushion forward/lengthen switch engaged
+
+- Switch.Cushion.Backward:
+  datatype: boolean
+  type: actuator
+  description: Seat cushion backward/shorten switch engaged
+
+- Switch.Lumbar:
+  type: branch
+  description: Lumbar switches
+
+- Switch.Lumbar.Up:
+  datatype: boolean
+  type: actuator
+  description: Lumbar up switch engaged
+
+- Switch.Lumbar.Down:
+  datatype: boolean
+  type: actuator
+  description: Lumbar down switch engaged
+
+- Switch.Lumbar.Inflate:
+  datatype: boolean
+  type: actuator
+  description: Lumbar inflation switch engaged
+
+- Switch.Lumbar.Deflate:
+  datatype: boolean
+  type: actuator
+  description: Lumbar deflation switch engaged
+
+- Switch.SideBolster:
+  type: branch
+  description: Side bolster switches
+
+- Switch.SideBolster.Inflate:
+  datatype: boolean
+  type: actuator
+  description: Lumbar inflation switch engaged
+
+- Switch.SideBolster.Deflate:
+  datatype: boolean
+  type: actuator
+  description: Lumbar deflation switch engaged

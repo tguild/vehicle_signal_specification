@@ -18,6 +18,7 @@ typedef char elementRef_t[ELEMENT_STRING_MAXLEN];
 
 #define MAXCHARSPATH 512
 typedef char path_t[MAXCHARSPATH];
+#define MAXFOUNDNODES 150
 
 int VSSReadTree(char* filePath);
 void VSSWriteTree(char* filePath, int rootHandle);
@@ -31,13 +32,12 @@ char* getDescr(int nodeHandle);
 int getNumOfEnumElements(int nodeHandle);
 char* getEnumElement(int nodeHandle, int index);
 char* getUnit(int nodeHandle);
-char* getSensor(int nodeHandle);
-char* getActuator(int nodeHandle);
+char* getFunction(int nodeHandle);
 int getResource(int nodeHandle);
 int getObjectType(int resourceHandle);
 int getMediaCollectionNumOfItems(int resourceHandle);
 char* getMediaCollectionItemRef(int resourceHandle, int i);
 
-int VSSGetNodes(char* searchPath, int rootNode, int maxFound, path_t* responsePaths, int* foundNodeHandles);
+int VSSSearchNodes(char* searchPath, int rootNode, int maxFound, path_t* responsePaths, int* foundNodeHandles);
 
 
