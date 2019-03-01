@@ -1,4 +1,4 @@
-Vehicle,"4524","branch","","","","","Highlevel vehicle data.","","",""
+Vehicle,"4960","branch","","","","","Highlevel vehicle data.","","",""
 Vehicle.Acceleration,"4526","branch","","","","","Spatial acceleration","","",""
 Vehicle.Acceleration.Lateral,"1207","sensor","int32","m/s2","","","Vehicle acceleration in Y (lateral acceleration).","","",""
 Vehicle.Acceleration.Longitudinal,"1206","sensor","int32","m/s2","","","Vehicle acceleration in X (longitudinal acceleration).","","",""
