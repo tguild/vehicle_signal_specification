@@ -1128,7 +1128,7 @@ Vehicle.TripMeterReading 1202
 Vehicle.VehicleIdentification.vehicleModelDate 1189
 Vehicle.VehicleIdentification.bodyType 1184
 Vehicle.VehicleIdentification.knownVehicleDamages 1195
-Vehicle.VehicleIdentification.VIN 1178
+Vehicle.VehicleIdentification.VIN 4960
 Vehicle.VehicleIdentification.Brand 1180
 Vehicle.VehicleIdentification.meetsEmissionStandard 1186
 Vehicle.VehicleIdentification.ACRISSCode 1183
@@ -1139,7 +1139,7 @@ Vehicle.VehicleIdentification.WMI 1179
 Vehicle.VehicleIdentification.dateVehicleFirstRegistered 1185
 Vehicle.VehicleIdentification.vehicleinteriorType 3423
 Vehicle.VehicleIdentification.Year 1182
-Vehicle.VehicleIdentification.vehicleinteriorColor 3422
+Vehicle.VehicleIdentification.vehicleinteriorColor 4961
 Vehicle.VehicleIdentification.Model 1181
 Vehicle.VehicleIdentification.productionDate 1187
 Vehicle.VehicleIdentification.vehicleSpecialUsage 1192
