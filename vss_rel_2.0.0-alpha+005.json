@@ -11151,7 +11151,7 @@
             "description": "17-character Vehicle Identification Number (VIN) as defined by ISO 3779", 
             "datatype": "string", 
             "type": "attribute", 
-            "id": 1178
+            "id": 4961
           }, 
           "Brand": {
             "description": "Vehicle brand or manufacturer", 
@@ -11216,7 +11216,7 @@
           "vehicleinteriorColor": {
             "datatype": "string", 
             "type": "attribute", 
-            "id": 3422, 
+            "id": 4962, 
             "description": "A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'."
           }, 
           "Model": {

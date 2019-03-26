@@ -9959,7 +9959,7 @@ const SignalSpec[] signal_spec = [
     type: "attribute"
     description: "17-character Vehicle Identification Number (VIN) as defined by ISO 3779"
     datatype: string
-    id: 1178
+    id: 4960
 }
 ,
 {
@@ -10047,7 +10047,7 @@ const SignalSpec[] signal_spec = [
     type: "attribute"
     description: "A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'."
     datatype: string
-    id: 3422
+    id: 4961
 }
 ,
 {

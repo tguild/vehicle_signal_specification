@@ -57,7 +57,6 @@ Attribute.Drivetrain.InternalCombustionEngine.MaxTorque: 4
 Attribute.Drivetrain.Transmission.DriveType: 8
 Attribute.Drivetrain.Transmission.GearCount: 7
 Attribute.Drivetrain.Transmission.Type: 6
-Attribute.Vehicle.VehicleIdentification.ACRISSCode: 1103
 Attribute.Vehicle.VehicleIdentification.Brand: 41
 Attribute.Vehicle.VehicleIdentification.Model: 42
 Attribute.Vehicle.VehicleIdentification.VIN: 39
@@ -3367,7 +3366,6 @@ VSS-Root.Vehicle.TripMeterReading: 2324
 VSS-Root.Vehicle.VehicleIdentification.ACRISSCode: 2305
 VSS-Root.Vehicle.VehicleIdentification.Brand: 2302
 VSS-Root.Vehicle.VehicleIdentification.Model: 2303
-VSS-Root.Vehicle.VehicleIdentification.VIN: 2300
 VSS-Root.Vehicle.VehicleIdentification.WMI: 2301
 VSS-Root.Vehicle.VehicleIdentification.Year: 2304
 VSS-Root.Vehicle.VehicleIdentification.bodyType: 2306
@@ -4942,7 +4940,7 @@ Vehicle.VehicleIdentification: 4525
 Vehicle.VehicleIdentification.ACRISSCode: 1183
 Vehicle.VehicleIdentification.Brand: 1180
 Vehicle.VehicleIdentification.Model: 1181
-Vehicle.VehicleIdentification.VIN: 1178
+Vehicle.VehicleIdentification.VIN: 4960
 Vehicle.VehicleIdentification.WMI: 1179
 Vehicle.VehicleIdentification.Year: 1182
 Vehicle.VehicleIdentification.bodyType: 1184
@@ -4957,7 +4955,7 @@ Vehicle.VehicleIdentification.vehicleInteriorType: 1194
 Vehicle.VehicleIdentification.vehicleModelDate: 1189
 Vehicle.VehicleIdentification.vehicleSeatingCapacity: 1191
 Vehicle.VehicleIdentification.vehicleSpecialUsage: 1192
-Vehicle.VehicleIdentification.vehicleinteriorColor: 3422
+Vehicle.VehicleIdentification.vehicleinteriorColor: 4961
 Vehicle.VehicleIdentification.vehicleinteriorType: 3423
 Vehicle.accelerationTime: 1213
 Vehicle.cargoVolume: 1214
