@@ -3383,7 +3383,7 @@ VSS-Root.Vehicle.VehicleIdentification.vehicleSpecialUsage: 2314
 VSS-Root.Vehicle.accelerationTime: 2335
 VSS-Root.Vehicle.cargoVolume: 2336
 VSS-Root.Vehicle.emissionsCO2: 2337
-Vehicle: 4960
+Vehicle: 4961
 Vehicle.ADAS: 4892
 Vehicle.ADAS.ABS: 4897
 Vehicle.ADAS.ABS.Error: 4369
