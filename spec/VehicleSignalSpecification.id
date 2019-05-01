@@ -4955,7 +4955,7 @@ Vehicle.VehicleIdentification.vehicleInteriorType: 1194
 Vehicle.VehicleIdentification.vehicleModelDate: 1189
 Vehicle.VehicleIdentification.vehicleSeatingCapacity: 1191
 Vehicle.VehicleIdentification.vehicleSpecialUsage: 1192
-Vehicle.VehicleIdentification.vehicleinteriorColor: 4961
+Vehicle.VehicleIdentification.vehicleinteriorColor: 4962
 Vehicle.VehicleIdentification.vehicleinteriorType: 3423
 Vehicle.accelerationTime: 1213
 Vehicle.cargoVolume: 1214
