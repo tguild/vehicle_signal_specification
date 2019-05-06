@@ -4799,6 +4799,8 @@ Vehicle.IgnitionOffTime: 1197
 Vehicle.IgnitionOnTime: 1196
 Vehicle.IsMoving: 1204
 Vehicle.Media: 4529
+Vehicle.Media.Collections: 4963
+Vehicle.Media.Items: 4964
 Vehicle.OBD: 4923
 Vehicle.OBD.AbsoluteLoad: 4498
 Vehicle.OBD.AcceleratorPositionD: 4504
