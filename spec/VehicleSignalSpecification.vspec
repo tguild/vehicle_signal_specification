@@ -16,13 +16,12 @@
 # https://github.com/GENIVI/vehicle_signal_specification/tree/develop/tools
 #
 
-
 #
 # The vehicle branch for highlevel vehicle signals and attributes.
 #
 - Vehicle:
   type: branch
-  description: Highlevel vehicle data.
+  description: High-level vehicle data.
 
 # Include the Vehicle/Vehicle.vspec file and attach all its signals under the
 # Vehicle branch created above.
