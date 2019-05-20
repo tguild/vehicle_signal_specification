@@ -43,25 +43,33 @@ void printTreeDepth() {
     printf("Max depth of VSS tree = %d\n", maxTreeDepth);
 }
 
-void readCommonPart(common_node_data_t* commonData, char** name, char** descr) {
+void readCommonPart(common_node_data_t* commonData, char** name, char**uuid, char** descr) {
     fread(commonData, sizeof(common_node_data_t), 1, treeFp);
     *name = (char*) malloc(sizeof(char)*(commonData->nameLen+1));
+    *uuid = (char*) malloc(sizeof(char)*(commonData->uuidLen+1));
     *descr = (char*) malloc(sizeof(char)*(commonData->descrLen+1));
     fread(*name, sizeof(char)*commonData->nameLen, 1, treeFp);
     (*name)[commonData->nameLen] = '\0';
 printf("Name = %s\n", *name);
+    fread(*uuid, sizeof(char)*commonData->uuidLen, 1, treeFp);
+    (*name)[commonData->uuidLen] = '\0';
+printf("UUID = %s\n", *uuid);
     fread(*descr, sizeof(char)*commonData->descrLen, 1, treeFp);
     *((*descr)+commonData->descrLen) = '\0';
 printf("Description = %s\n", *descr);
 printf("Children = %d\n", commonData->children);
 }
 
-void copyData(node_t* node, common_node_data_t* commonData, char* name, char* descr) {
+void copyData(node_t* node, common_node_data_t* commonData, char* name, char* uuid, char* descr) {
     node->nameLen = commonData->nameLen;
     node->name = (char*) malloc(sizeof(char)*(node->nameLen+1));
     strncpy(node->name, name, commonData->nameLen);
     node->name[commonData->nameLen] = '\0';
     node->type = commonData->type;
+    node->uuidLen = commonData->uuidLen;
+    node->uuid = (char*) malloc(sizeof(char)*(node->uuidLen+1));
+    strncpy(node->uuid, uuid, commonData->uuidLen);
+    node->uuid[commonData->uuidLen] = '\0';
     node->descrLen = commonData->descrLen;
     node->description = (char*) malloc(sizeof(char)*(node->descrLen+1));
     strncpy(node->description, descr, commonData->descrLen);
@@ -125,8 +133,9 @@ if (parentPtr != NULL)
     }
     updateTreeDepth(1);
     char* name;
+    char* uuid;
     char* descr;
-    readCommonPart(common_data, &name, &descr);
+    readCommonPart(common_data, &name, &uuid, &descr);
     node_t* node = NULL;
 printf("Type=%d\n",common_data->type);
     switch (common_data->type) {
@@ -134,7 +143,7 @@ printf("Type=%d\n",common_data->type);
         {
             rbranch_node_t* node2 = (rbranch_node_t*) malloc(sizeof(rbranch_node_t));
             node2->parent = parentPtr;
-            copyData((node_t*)node2, common_data, name, descr);
+            copyData((node_t*)node2, common_data, name, uuid, descr);
             if (common_data->children > 0)
                 node2->child = (element_node_t**) malloc(sizeof(element_node_t**)*common_data->children);
             fread(&(node2->childTypeLen), sizeof(int), 1, treeFp);
@@ -150,7 +159,7 @@ printf("Type=%d\n",common_data->type);
         {
             element_node_t* node2 = (element_node_t*) malloc(sizeof(element_node_t));
             node2->parent = parentPtr;
-            copyData((node_t*)node2, common_data, name, descr);
+            copyData((node_t*)node2, common_data, name, uuid, descr);
             objectTypes_t objectType;
             fread(&objectType, sizeof(int), 1, treeFp);
             int objectSize = getObjectSize(objectType);
@@ -167,7 +176,7 @@ printf("Type=%d\n",common_data->type);
         {
             node_t* node2 = (node_t*) malloc(sizeof(node_t));
             node2->parent = parentPtr;
-            copyData((node_t*)node2, common_data, name, descr);
+            copyData((node_t*)node2, common_data, name, uuid, descr);
             if (node2->children > 0)
                 node2->child = (node_t**) malloc(sizeof(node_t**)*node2->children);
             fread(&(node2->datatype), sizeof(int), 1, treeFp);
@@ -204,6 +213,7 @@ if (node2->functionLen > 0)
     } //switch
     free(common_data);
     free(name);
+    free(uuid);
     free(descr);
 printf("node->children = %d\n", node->children);
     int childNo = 0;
@@ -290,8 +300,8 @@ void copySteps(char* newPath, char* oldPath, int stepNo) {
 /**
 * !!! First call to stepToNextNode() must be preceeeded by a call to initStepToNextNode() !!!
 **/
-struct node_t* stepToNextNode(struct node_t* ptr, int stepNo, char* searchPath, int maxFound, int* foundResponses, path_t* responsePaths, long* foundNodePtrs) {
-printf("ptr->name=%s, stepNo=%d, responsePaths[%d]=%s\n",ptr->name, stepNo, *foundResponses, responsePaths[*foundResponses]);
+struct node_t* stepToNextNode(struct node_t* ptr, int stepNo, char* searchPath, int maxFound, int* foundResponses, searchData_t* searchData) {
+printf("ptr->name=%s, stepNo=%d, responsePaths[%d]=%s\n",ptr->name, stepNo, *foundResponses, (char*)(&(searchData[*foundResponses]))->responsePaths);
     if (*foundResponses >= maxFound-1)
         return NULL; // response buffers are full
     char pathNodeName[MAXNAMELEN];
@@ -299,7 +309,7 @@ printf("ptr->name=%s, stepNo=%d, responsePaths[%d]=%s\n",ptr->name, stepNo, *fou
     if (stepNo == stepsInPath) {
         if (strcmp(pathNodeName, ptr->name) == 0 || strcmp(pathNodeName, "*") == 0) {
             // at matching node, so save ptr and return success
-            foundNodePtrs[*foundResponses] = (intptr_t)ptr;
+            (&(searchData[*foundResponses]))->foundNodeHandles = (long)ptr;
             (*foundResponses)++;
             return ptr;
         }
@@ -309,10 +319,10 @@ printf("ptr->name=%s, stepNo=%d, responsePaths[%d]=%s\n",ptr->name, stepNo, *fou
         for (int i = 0 ; i < ptr->children ; i++) {
 printf("ptr->child[i]->name=%s\n", ptr->child[i]->name);
             if (strcmp(pathNodeName, ptr->child[i]->name) == 0) {
-                if (strlen(responsePaths[*foundResponses]) > 0) // always true?
-                    strcat(responsePaths[*foundResponses], ".");
-                strcat(responsePaths[*foundResponses], pathNodeName);
-                return stepToNextNode(ptr->child[i], stepNo+1, searchPath, maxFound, foundResponses, responsePaths,  foundNodePtrs);
+                if (strlen((char*)(&(searchData[*foundResponses]))->responsePaths) > 0) // always true?
+                    strcat((char*)(&(searchData[*foundResponses]))->responsePaths, ".");
+                strcat((char*)(&(searchData[*foundResponses]))->responsePaths, pathNodeName);
+                return stepToNextNode(ptr->child[i], stepNo+1, searchPath, maxFound, foundResponses, searchData);
             }
         }
         return NULL;
@@ -320,16 +330,16 @@ printf("ptr->child[i]->name=%s\n", ptr->child[i]->name);
         struct node_t* responsePtr = NULL;
         for (int i = 0 ; (i < ptr->children) && (*foundResponses < maxFound) ; i++) {
 printf("Wildcard:ptr->child[%d]->name=%s\n", i, ptr->child[i]->name);
-            strcat(responsePaths[*foundResponses], ".");
-            strcat(responsePaths[*foundResponses], ptr->child[i]->name);
-            struct node_t* ptr2 = stepToNextNode(ptr->child[i], stepNo+1, searchPath, maxFound, foundResponses, responsePaths,  foundNodePtrs);
+            strcat((&(searchData[*foundResponses]))->responsePaths, ".");
+            strcat((&(searchData[*foundResponses]))->responsePaths, ptr->child[i]->name);
+            struct node_t* ptr2 = stepToNextNode(ptr->child[i], stepNo+1, searchPath, maxFound, foundResponses, searchData);
             if (ptr2 == NULL) {
-                copySteps(responsePaths[*foundResponses], responsePaths[*foundResponses], stepNo+1);
+                copySteps((&(searchData[*foundResponses]))->responsePaths, (&(searchData[*foundResponses]))->responsePaths, stepNo+1);
             } else {
-                if (i < ptr->children && foundNodePtrs[*foundResponses-1] != 0) {
-                    copySteps(responsePaths[*foundResponses], responsePaths[*foundResponses-1], stepNo+1);
+                if (i < ptr->children && (&(searchData[*foundResponses-1]))->foundNodeHandles != 0) {
+                    copySteps((&(searchData[*foundResponses]))->responsePaths, (&(searchData[*foundResponses-1]))->responsePaths, stepNo+1);
                 } else
-                    copySteps(responsePaths[*foundResponses], responsePaths[*foundResponses], stepNo+1);
+                    copySteps((&(searchData[*foundResponses]))->responsePaths, (&(searchData[*foundResponses]))->responsePaths, stepNo+1);
                 responsePtr = ptr2;
             }
         }
@@ -337,7 +347,7 @@ printf("Wildcard:ptr->child[%d]->name=%s\n", i, ptr->child[i]->name);
     }
 }
 
-void initStepToNextNode(struct node_t* originalRoot, struct node_t* currentRoot, char* searchPath, long* foundNodeHandles, path_t* foundPaths, int maxFound) {
+void initStepToNextNode(struct node_t* originalRoot, struct node_t* currentRoot, char* searchPath, searchData_t* searchData, int maxFound) {
     /* 
      * This is a workaround to the fact that with X multiple wildcards, 
      * there are "(X-1)*numberofrealresults" bogus results added.
@@ -345,25 +355,24 @@ void initStepToNextNode(struct node_t* originalRoot, struct node_t* currentRoot,
      * See NULL check in wildcard code in stepToNextNode. 
      */
     for (int i = 0 ; i < maxFound ; i++)
-        foundNodeHandles[i] = 0;
+        (&(searchData[i]))->foundNodeHandles = 0;
 
-    foundPaths[0][0] = '\0';
+    (&(searchData[0]))->responsePaths[0] = '\0';
     do {
         path_t tmp;
-        int initialLen = strlen(foundPaths[0]);
-        strcpy(tmp, foundPaths[0]);
-        strcpy(foundPaths[0], currentRoot->name);
+        int initialLen = strlen((&(searchData[0]))->responsePaths);
+        strcpy(tmp, (&(searchData[0]))->responsePaths);
+        strcpy((&(searchData[0]))->responsePaths, currentRoot->name);
         if (initialLen != 0)
-            strcat(foundPaths[0], ".");
-        strcat(foundPaths[0], tmp);
+            strcat((&(searchData[0]))->responsePaths, ".");
+        strcat((&(searchData[0]))->responsePaths, tmp);
         currentRoot = currentRoot->parent;
     } while (currentRoot != NULL);
 
     for (int i = 1 ; i < maxFound ; i++)
-        strcpy(foundPaths[i], foundPaths[0]);
-//        foundPaths[i][0] = '\0';
+        strcpy((&(searchData[i]))->responsePaths, (&(searchData[0]))->responsePaths);
 
-    stepOffset = getNumOfPathSteps(foundPaths[0])-1;
+    stepOffset = getNumOfPathSteps((&(searchData[0]))->responsePaths)-1;
 
     stepsInPath = getNumOfPathSteps(searchPath)-1;
 }
@@ -411,10 +420,9 @@ void removeFromWildCardQue(char* path, struct node_t** rootPtr, int* maxFoundLef
 /**
 * Returns handle (and path) to all leaf nodes that are found under the node before the wildcard in the path.
 **/
-void trailingWildCardSearch(struct node_t* rootPtr, char* searchPath, int maxFound, int* foundResponses, path_t* responsePaths, long* foundNodePtrs) {
+void trailingWildCardSearch(struct node_t* rootPtr, char* searchPath, int maxFound, int* foundResponses, searchData_t* searchData) {
     int matches = 0;
-    path_t matchingPaths[MAXFOUNDNODES];
-    long matchingNodeHandles[MAXFOUNDNODES];
+    searchData_t matchingData[MAXFOUNDNODES];
     char jobPath[MAXCHARSPATH];
     struct node_t* jobRoot;
     int jobMaxFound;
@@ -424,37 +432,37 @@ void trailingWildCardSearch(struct node_t* rootPtr, char* searchPath, int maxFou
     while (trailingWildCardQueLen > 0 && *foundResponses < maxFound) {
         removeFromWildCardQue(jobPath, &jobRoot, &jobMaxFound);
         matches = 0;
-        initStepToNextNode(rootPtr, jobRoot, jobPath, matchingNodeHandles, matchingPaths, maxFound);
-        stepToNextNode(jobRoot, 0, jobPath, jobMaxFound, &matches, matchingPaths, matchingNodeHandles);
+        initStepToNextNode(rootPtr, jobRoot, jobPath, matchingData, maxFound);
+        stepToNextNode(jobRoot, 0, jobPath, jobMaxFound, &matches, matchingData);
 printf("After stepToNextNode(jobPath=%s, jobRoot->name=%s) in trailingWildCardSearch(): matches=%d\n", jobPath, jobRoot->name, matches);
         maxFoundLeft -= matches;
         for (int i = 0 ; i < matches ; i++) {
             if (*foundResponses == maxFound)
                 break;
-            if (getType(matchingNodeHandles[i]) == BRANCH || getType(matchingNodeHandles[i]) == RBRANCH) {
-printf("Non-leaf node=%s\n", getName(matchingNodeHandles[i]));
-                strcpy(jobPath, getName(matchingNodeHandles[i]));
+            if (getType((&(matchingData[i]))->foundNodeHandles) == BRANCH || getType((&(matchingData[i]))->foundNodeHandles) == RBRANCH) {
+printf("Non-leaf node=%s\n", getName((&(matchingData[i]))->foundNodeHandles));
+                strcpy(jobPath, getName((&(matchingData[i]))->foundNodeHandles));
                 strcat(jobPath, ".*");
-                addToWildCardQue(jobPath, (struct node_t*)((intptr_t)matchingNodeHandles[i]), maxFoundLeft);
+                addToWildCardQue(jobPath, (struct node_t*)((intptr_t)(&(matchingData[i]))->foundNodeHandles), maxFoundLeft);
             } else {
-printf("Leaf node=%s, matchingPaths[%d]=%s, *foundResponses=%d\n", getName(matchingNodeHandles[i]), i, matchingPaths[i], *foundResponses);
-                strncpy(responsePaths[*foundResponses], matchingPaths[i], MAXCHARSPATH-1);
-                foundNodePtrs[*foundResponses] = matchingNodeHandles[i];
+printf("Leaf node=%s, matchingPaths[%d]=%s, *foundResponses=%d\n", getName((&(matchingData[i]))->foundNodeHandles), i, (&(matchingData[i]))->responsePaths, *foundResponses);
+                strncpy((&(searchData[*foundResponses]))->responsePaths, (&(matchingData[i]))->responsePaths, MAXCHARSPATH-1);
+                (&(searchData[*foundResponses]))->foundNodeHandles = (&(matchingData[i]))->foundNodeHandles;
                 (*foundResponses)++;
             }
         }
     }
 }
 
-int VSSSearchNodes(char* searchPath, long rootNode, int maxFound, path_t* responsePaths, long* foundNodeHandles, bool wildcardAllDepths) {
+int VSSSearchNodes(char* searchPath, long rootNode, int maxFound, searchData_t* searchData, bool wildcardAllDepths) {
     intptr_t ptr = (intptr_t)rootNode;
     int foundResponses = 0;
 
     if ((searchPath[strlen(searchPath)-1] == '*') && (wildcardAllDepths)) {
-        trailingWildCardSearch((struct node_t*)ptr, searchPath, maxFound, &foundResponses, responsePaths, foundNodeHandles);
+        trailingWildCardSearch((struct node_t*)ptr, searchPath, maxFound, &foundResponses, searchData);
     } else {
-        initStepToNextNode((struct node_t*)ptr,(struct node_t*)ptr, searchPath, foundNodeHandles, responsePaths, maxFound);
-        stepToNextNode((struct node_t*)ptr, 0, searchPath, maxFound, &foundResponses, responsePaths, foundNodeHandles);
+        initStepToNextNode((struct node_t*)ptr,(struct node_t*)ptr, searchPath, searchData, maxFound);
+        stepToNextNode((struct node_t*)ptr, 0, searchPath, maxFound, &foundResponses, searchData);
     }
 
     return foundResponses;
@@ -464,11 +472,13 @@ void writeCommonPart(struct node_t* node) {
     common_node_data_t* commonData = (common_node_data_t*)malloc(sizeof(common_node_data_t));
     commonData->nameLen = node->nameLen;
     commonData->type = node->type;
+    commonData->uuidLen = node->uuidLen;
     commonData->descrLen = node->descrLen;
     commonData->children = node->children;
     fwrite(commonData, sizeof(common_node_data_t), 1, treeFp);
     free(commonData);
     fwrite(node->name, sizeof(char)*node->nameLen, 1, treeFp);
+    fwrite(node->uuid, sizeof(char)*node->uuidLen, 1, treeFp);
     fwrite(node->description, sizeof(char)*node->descrLen, 1, treeFp);
 }
 
@@ -587,6 +597,10 @@ nodeTypes_t getDatatype(long nodeHandle) {
 
 char* getName(long nodeHandle) {
     return ((node_t*)((intptr_t)nodeHandle))->name;
+}
+
+char* getUUID(long nodeHandle) {
+    return ((node_t*)((intptr_t)nodeHandle))->uuid;
 }
 
 char* getDescr(long nodeHandle) {
