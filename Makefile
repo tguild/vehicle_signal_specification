@@ -22,8 +22,10 @@ cnative:
 
 
 c:
-	./tools/vspec2c.py -i:spec/VehicleSignalSpecification.id -I ./spec ./spec/VehicleSignalSpecification.vspec vss_rel_$$(cat VERSION).h vss_rel_$$(cat VERSION)_macro.h
 	(cd ./tools/vspec2c/; make )
+
+c_install:
+	(cd ./tools/vspec2c/; make install)
 
 clean:
 	rm -f vss_rel_$$(cat VERSION).json vss_rel_$$(cat VERSION).fidl vss_rel_$$(cat VERSION).csv vss_rel_$$(cat VERSION).h
