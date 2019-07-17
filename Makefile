@@ -27,6 +27,6 @@ clean:
 	rm -f vss_rel_$$(cat VERSION).json vss_rel_$$(cat VERSION).fidl vss_rel_$$(cat VERSION).csv vss_rel_$$(cat VERSION).h
 	(cd ./tools/vspec2c/; make clean)
 
-install_tools:
+install:
 	(cd ./tools; python3 setup.py install)
 	(cd ./tools/vspec2c/; make install)
