@@ -6,6 +6,8 @@
 
 all: clean json franca csv c
 
+DESTDIR?=/usr/local
+
 json:
 	./tools/vspec2json.py -i:spec/VehicleSignalSpecification.id -I ./spec ./spec/VehicleSignalSpecification.vspec vss_rel_$$(cat VERSION).json
 
@@ -28,5 +30,7 @@ clean:
 	(cd ./tools/vspec2c/; make clean)
 
 install:
-	(cd ./tools; python3 setup.py install)
-	(cd ./tools/vspec2c/; make install)
+	(cd ./tools; python3 setup.py install --install-scripts=${DESTDIR}/bin)
+	$(MAKE) DESTDIR=${DESTDIR} -C tools/vspec2c install
+	install -d ${DESTDIR}/share/vss
+	(cd spec; cp -r * ${DESTDIR}/share/vss)
