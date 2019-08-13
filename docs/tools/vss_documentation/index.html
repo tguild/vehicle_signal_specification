@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="/vehicle_signal_specification/images/fav.png" type="image/x-icon" />
 
-    <title>Tools :: Vehicle Signal Specification</title>
+    <title>VSS Documentation :: Vehicle Signal Specification</title>
 
     
     <link href="/vehicle_signal_specification/css/nucleus.css?1565702635" rel="stylesheet">
@@ -39,7 +39,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/vehicle_signal_specification/tools/">
+  <body class="" data-url="/vehicle_signal_specification/tools/vss_documentation/">
     <nav id="sidebar" class="">
 
 
@@ -430,7 +430,7 @@
     
     <li data-nav-id="/vehicle_signal_specification/tools/" title="Tools" class="dd-item 
         parent
-        active
+        
         
         ">
       <a href="/vehicle_signal_specification/tools/">
@@ -491,7 +491,7 @@
  
   
     
-      <li data-nav-id="/vehicle_signal_specification/tools/vss_documentation/" title="VSS Documentation" class="dd-item ">
+      <li data-nav-id="/vehicle_signal_specification/tools/vss_documentation/" title="VSS Documentation" class="dd-item active">
         <a href="/vehicle_signal_specification/tools/vss_documentation/">
         VSS Documentation
         
@@ -568,7 +568,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/genivi/vehicle_signal_specification/edit/master/tools/documentation/content/tools/_index.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/genivi/vehicle_signal_specification/edit/master/tools/documentation/content/tools/vss_documentation.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -583,6 +583,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -593,7 +595,13 @@
             
           
           
-            <a href='/vehicle_signal_specification/'>Vehicle Signal Specification</a> > Tools
+            
+            
+          
+          
+            <a href='/vehicle_signal_specification/'>Vehicle Signal Specification</a> > <a href='/vehicle_signal_specification/tools/'>Tools</a> > VSS Documentation
+          
+         
           
          
           
@@ -602,6 +610,25 @@
                   </span>
                 </div>
                 
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#dependencies">Dependencies</a></li>
+<li><a href="#run-the-documentation-server-locally">Run the documentation server locally</a></li>
+<li><a href="#contribute">Contribute</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
               </div>
             </div>
             
@@ -609,9 +636,12 @@
         
         </div>
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>
+              
+              VSS Documentation
+            </h1>
           
 
         
@@ -619,34 +649,88 @@
 
 
 
-	
 
-<h1 id="tools">Tools</h1>
+<p>The VSS documentation is realized with GitHub Pages. It is generated from
+the markdown files in the <code>/documentation</code> directory of this repositories.
+The static webpage is generated into the <code>/docs</code> directory so that it can
+be deployed straight from the repository.</p>
 
-<p>A released specification can be used, together with tools in
-this repository, to automatically generate a number of different
-target specification formats, such as JSON, FrancaIDL, etc.</p>
+<h3 id="dependencies">Dependencies</h3>
 
-<p>Fig 1 shows the schematics of the top-level process.</p>
+<p>The static page is generated with:</p>
 
-<p><img src="/vehicle_signal_specification/images/multi_target.png" alt="Signal tree" /><br>
-<em>Fig 1. Generating documents from specification</em></p>
+<ul>
+<li><a href="https://gohugo.io/">HUGO</a></li>
+<li><a href="https://themes.gohugo.io/hugo-theme-learn/">Learn Theme</a></li>
+</ul>
 
-<p>The tools are available under the <code>tools</code> directory.</p>
+<p>Please follow the <a href="https://gohugo.io/documentation/">documentation</a> for
+installation and further questions around the framework.</p>
 
-<p>The release management process will be driven in the context of GENIVI
-and its Remote Vehicle Interaction expert group.</p>
+<h3 id="run-the-documentation-server-locally">Run the documentation server locally</h3>
 
+<p>Once hugo is installed please follow the following steps:</p>
 
+<ol>
+<li><p><strong>Check that HUGO is working:</strong></p>
 
+<pre><code>hugo version
+</code></pre>
+
+<p>The following outcome is expected:</p>
+
+<pre><code>Hugo Static Site Generator v0.xx.xx ...
+</code></pre></li>
+
+<li><p><strong>Clone the submodule containing the theme</strong> </br>
+Run the following git commands to init and fetch the submodules:</p>
+
+<pre><code>git submodule init
+git submodule update
+</code></pre>
+
+<p>Reference: <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">Git Documentation</a>.</p></li>
+
+<li><p><strong>Test locally on your server:</strong></p>
+
+<pre><code>hugo server -D
+</code></pre>
+
+<p>Optional <code>-D:</code> include draft pages as well. Afterwards, you can access the
+page under <a href="http://localhost:1313/vehicle_signal_specification">http://localhost:1313/vehicle_signal_specification</a>.</p></li>
+</ol>
+
+<h3 id="contribute">Contribute</h3>
+
+<p>Right now there is no pipeline in place to build the documentation. If you want
+to contribute, do the following:</p>
+
+<ol>
+<li><p><strong>Change documentation in <code>/documentation</code></strong></p></li>
+
+<li><p><strong>Delete the current <code>/docs</code>folder</strong></p>
+
+<pre><code>rm -r &lt;vss_repo&gt;/docs
+</code></pre></li>
+
+<li><p><strong>Build the documentation</strong></p>
+
+<pre><code>cd &lt;vss_repo&gt;/documentation
+hugo
+ls ../../docs
+</code></pre>
+
+<p>Now the <code>&lt;vss_repo&gt;/docs</code> folder should contain the documentation.</p></li>
+
+<li><p><strong>Create Pull Request for review</strong></p></li>
+</ol>
 
 
 <footer class=" footline" >
 	
 </footer>
 
-        
-            </div> 
+
         
         </div> 
         
@@ -988,6 +1072,7 @@ and its Remote Vehicle Interaction expert group.</p>
             
                 
                     
+                    
                 
                 
 
@@ -1011,7 +1096,7 @@ and its Remote Vehicle Interaction expert group.</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/vehicle_signal_specification/rule_set/private_branch/" title="Private Branch"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/vehicle_signal_specification/tools/usage/" title="Usage"> <i class="fa fa-chevron-left"></i></a>
 		
 		
 			<a class="nav nav-next" href="/vehicle_signal_specification/tools/requirements/" title="Requirements" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
@@ -1045,3 +1130,4 @@ and its Remote Vehicle Interaction expert group.</p>
 
   </body>
 </html>
+
