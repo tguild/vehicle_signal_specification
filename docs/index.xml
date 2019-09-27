@@ -85,7 +85,7 @@ Changes to files under the spec/ directory results in changes to the generated f
       <pubDate>Sun, 04 Aug 2019 12:36:12 +0200</pubDate>
       
       <guid>https://genivi.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/</guid>
-      <description>A signal can optionally specify a unit of measurement from the following set. This list intends to be according to International Units (SI): Specification, Wikipedia
+      <description>A signal can optionally specify a unit of measurement from the following set. This list composed with definition according to International Units (SI) and few automotive specific units: Specification, Wikipedia
    Unit type Domain Description     km/h Speed Kilometers per hour   m/s Speed Meters per second   celsius Temperature Degrees Celsius   mbar Pressure millibar   pa Pressure Pascal   kpa Pressure Kilo-Pascal   percent Relation Percent   ratio Relation Ratio   lat Position Decimal latitude   lon Position Decimal longitude   inch Distance Inch   mm Distance Millimeter   m Distance Meter   km Distance Kilometer   rpm Frequency Rotations per minute   Hz Frequency Frequency   W Power Watt   kW Power Kilowatt   kWh Power Kilowatt hours   ms Time Milliseconds   s Time Seconds   min Time Minutes   h Time Hours   g Weight Grams   kg Weight Kilograms   g/s Flow Grams per second   l/h Flow Liters per hour   m/s2 Acceleration Acceleration in meters per second squared   cm/s2 Acceleration Acceleration in centimeters per second squared   N Force Newton   Nm Force Torque   l Volume Liter   ml Volume Milliliter   degree Angle Angle in degrees   degrees/s Angular Speed Angular speed in degrees/s   l/100km Consumption Liters per 100 km   ml/100km Consumption Milliliters per 100 km   V Electrical Potential difference in volt   A Electrical Current in amperes   &amp;hellip; &amp;hellip; &amp;hellip;    </description>
     </item>
     
@@ -126,7 +126,7 @@ Run the documentation server locally Once hugo is installed please follow the fo
       <pubDate>Sun, 04 Aug 2019 12:37:03 +0200</pubDate>
       
       <guid>https://genivi.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/</guid>
-      <description>A data entry defines a single sensor and its members. A data entry example is given below:
+      <description>A data entry defines a single sensor/actuator and its members. A data entry example is given below:
 - Speed: type: sensor datatype: uint16 unit: km/h min: 0 max: 300 description: The vehicle speed, as measured by the drivetrain.   Drivetrain.Transmission.Speed
 Defines the dot-notated name of the data entry. Please note that all parental branches included in the name must be defined as well.
  type
