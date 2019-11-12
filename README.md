@@ -7,6 +7,6 @@ provisions of the license provided by the LICENSE file in this repository.
 
 # VEHICLE SIGNAL SPECIFICATION
 
-Please find the official documentation at: [Vehicle Signal Specification](http://genivi.github.io/vehicle_signal_specification/)
+Please find the official documentation at: [Vehicle Signal Specification](https://genivi.github.io/vehicle_signal_specification/)
 
 **Latest release:** 1.0
