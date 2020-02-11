@@ -12,6 +12,29 @@
 #
 
 #
+# VSS Versioning information
+#
+
+- VersionVSS:
+  type: branch
+  description: Supported Version of VSS
+
+- VersionVSS.Major:
+  datatype: uint8
+  type: attribute
+  description: Supported Version of VSS - Major version
+
+- VersionVSS.Minor:
+  datatype: uint8
+  type: attribute
+  description: Supported Version of VSS - Minor version
+
+- VersionVSS.Patch:
+  datatype: uint8
+  type: attribute
+  description: Supported Version of VSS - Patch version
+
+#
 # Vehicle identification attributes.
 #
 
