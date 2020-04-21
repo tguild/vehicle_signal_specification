@@ -1,0 +1,32 @@
+---
+git:
+  submodules: true
+
+language: python
+
+env:
+  global:
+    - HUGO_VER=0.69.0
+    - DOCS_DIR='./docs-gen'
+    - TOOLS_DIR='./vss-tools'
+
+install:
+  - curl -LO https://github.com/gohugoio/hugo/releases/download/v${HUGO_VER}/hugo_${HUGO_VER}_Linux-64bit.deb
+  - sudo dpkg -i hugo_${HUGO_VER}_Linux-64bit.deb
+  - pip install pyyaml
+  - cd ${TOOLS_DIR} && python setup.py -q install && cd ..
+
+script:
+  - make clean json deploy
+  - hugo -s ${DOCS_DIR}
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  name: vss-bot
+  email: vss-bot@users.noreply.github.com
+  target_branch: gh-pages
+  local_dir: docs
+  on:
+    branch: master

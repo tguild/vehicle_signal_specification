@@ -2,7 +2,7 @@ baseURL = "https://genivi.github.io/vehicle_signal_specification/"
 languageCode = "en-us"
 title = "Vehicle Signal Specification"
 theme = "learn"
-publishDir = "../../docs"
+publishDir = "../docs"
 [params]
   # Change default color scheme with a variant one. Can be "red", "blue", "green".
   themeVariant = "green"
@@ -20,3 +20,8 @@ weight = 10
 name = "<i class='fas fa-newspaper'></i> News"
 url = "/news"
 weight = 11
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-download'></i> Releases"
+url = "/releases"
+weight = 12
