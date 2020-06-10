@@ -151,13 +151,13 @@
 # Charging Inlet definition
 ##
 
-- ChargingInlet:
+- ChargingPort:
   type: branch
-  description: Collects Information about the charging inlet
+  description: Collects Information about the charging port
 
-- ChargingInlet.Type:
+- ChargingPort.Type:
   datatype: string
   type: attribute
   enum: [ "unknown", "Not_Fitted", "AC_Type_1", "AC_Type_2", "AC_GBT", "AC_DC_Type_1_Combo", "AC_DC_Type_2_Combo", "DC_GBT", "DC_Chademo" ]
   default: "unknown"
-  description: Indicates the primary charging inlet type fitted to the vehicle
+  description: Indicates the primary charging type fitted to the vehicle
