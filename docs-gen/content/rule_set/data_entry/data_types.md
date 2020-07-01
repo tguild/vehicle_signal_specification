@@ -3,8 +3,10 @@ title: "Data Types"
 date: 2019-08-04T11:11:48+02:00
 weight: 1
 ---
-Each [data entry](/data_entry/data_types) specifies a ```datatype``` from the following set
-(from FrancaIDL):
+
+Each [data entry](/vehicle_signal_specification/rule_set/data_entry) specifies a ```datatype``` from the following set (from FrancaIDL). Datatypes shall not be used in [branch entry](/vehicle_signal_specification/rule_set/branches)
+
+## Supported datatypes
 
 Name       | Type                       | Min  | Max
 :----------|:---------------------------|:-----|:---
@@ -22,4 +24,20 @@ Double     | double precision floating point number | -1.7e -300 | 1.7e 300
 String     | character string           | n/a  | n/a
 ByteBuffer | buffer of bytes (aka BLOB) | n/a | n/a
 
-Datatypes are not specified for ```branch```
+
+## Arrays
+
+Besides the datatypes described above, VSS supports as well the concept of
+`arrays`, as a *collection of elements based on the data entry
+definition*, wherein it's specified. Arrays with a fixed number of elements
+or variable in size are supported. The following syntax shall be used to declare an array:
+
+```YAML
+# undefined number of elements in an array
+datatype: UInt32[]
+# fixed number of elements in an array
+datatype: UInt32[100]
+```
+
+Examples for the usage of `arrays` are status information about battery cells or a list of DTCs, which are present in a
+vehicle.
