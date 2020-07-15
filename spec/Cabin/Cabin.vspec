@@ -191,17 +191,3 @@
   type: sensor
   enum: ["undefined", "closed", "open", "closing", "opening", "stalled"]
   description: Roof status on convertible vehicles
-
-#
-# Steering Wheel Configuration
-#
-- SteeringWheel:
-  type: branch
-  description: Steering wheel configuration attributes
-
-- SteeringWheel.Position:
-  datatype: string
-  type: attribute
-  value: front_left
-  enum: ["front_left", "front_right"]
-  description: Position of the steering wheel inside the cabin

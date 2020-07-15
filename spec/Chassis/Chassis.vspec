@@ -175,6 +175,12 @@
   unit: percent
   description: Steering wheel column extension from dashboard. 0 = Closest to dashboard. 100 = Furthest from dashboard.
 
+- SteeringWheel.Position:
+  datatype: string
+  type: attribute
+  value: front_left
+  enum: ["front_left", "front_right"]
+  description: Position of the steering wheel on the left or right side of the vehicle.
 
 #
 # Accelerator
