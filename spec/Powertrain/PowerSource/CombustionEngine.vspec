@@ -41,7 +41,7 @@
   datatype:  uint16
   type: attribute
   default: 0
-  unit: N.m
+  unit: Nm
   description: Peak power, in newton meter, that the engine can generate.
 
 - FuelType:
@@ -164,7 +164,7 @@
 - Engine.Torque:
   datatype: int16
   type: sensor
-  unit: N.m
+  unit: Nm
   min: 0
   max: 3000
   description: Current engine torque.

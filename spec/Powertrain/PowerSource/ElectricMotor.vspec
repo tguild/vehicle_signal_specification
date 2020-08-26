@@ -5,7 +5,7 @@
 # All files and artifacts in this repository are licensed under the
 # provisions of the license provided by the LICENSE file in this repository.
 #
- 
+
 #
 # EV Motor signals and attributes
 #
@@ -22,7 +22,7 @@
   datatype:  uint16
   type: attribute
   default: 0
-  unit: N.m
+  unit: Nm
   description: Peak power, in newton meter, that the motor(s) can generate.
 
 - MaxRegenPower:
@@ -36,7 +36,7 @@
   datatype:  uint16
   type: attribute
   default: 0
-  unit: N.m
+  unit: Nm
   description: Peak regen/brake torque, in newton meter, that the motor(s) can generate.
 
 
@@ -70,8 +70,8 @@
   min: -50
   max: 200
   description: Motor temperature.
-  
-  
+
+
 #
 # Motor coolant temperature (if applicable)
 #
@@ -101,9 +101,7 @@
 - Motor.Torque:
   datatype: int16
   type: sensor
-  unit: N.m
+  unit: Nm
   min: -5000
   max: 5000
   description: Current motor torque. Negative values indicate regen mode.
-
-
