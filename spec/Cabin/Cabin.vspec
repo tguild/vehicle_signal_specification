@@ -170,9 +170,9 @@
   value: 0
   description: Number of seat rows in vehicle
 
+
 - SeatPosCount:
-  instances: Row[1,4]
-  datatype: uint8
+  datatype: uint8[]
   type: attribute
   value: 0
   description: Number of seats across each row from the front to the rear
