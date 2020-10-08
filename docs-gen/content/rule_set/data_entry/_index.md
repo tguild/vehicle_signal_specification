@@ -13,9 +13,9 @@ a publisher (or producer) that continuously updates the signal value while an
 attribute has a set value, defined in the specification, that never changes.
 As summary, besides [```branch```](/rule_set/branches) type can be:
 
-* **```attribute```**, which describes static read-only value.
-* **```sensor```**, which describes non-static read-only signal.
-* **```actuator```**, which describes a non-static read-write signal.
+* **```attribute```**: attributes are not expected to change once they're set (e.g. vehicle identification number)
+* **```sensor```**: sensor values describe the current state of the vehicle and change over time, as the state of the vehicle changes (e.g. odometer).
+* **```actuator```**: actuating signals describe current state of the vehicle and change, when the state of the vehicle changes. Actuating on the value, leads to a change of the vehicle state itself (e.g. door lock). 
 * **```stream```**, data stream like video.
 
 Examples you'll find in the [sensor and actuator chapter](/vehicle_signal_specification/rule_set/data_entry/sensor_actuator).
