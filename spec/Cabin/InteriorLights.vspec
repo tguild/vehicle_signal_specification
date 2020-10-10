@@ -54,13 +54,13 @@
   type: sensor
   description: Is a shared light across a specific row on
 
-- Spotlight.IsPassengerOn:
+- Spotlight.IsLeftOn:
   datatype: boolean
   type: actuator
-  description: Is light on the passenger side switched on
+  description: Is light on the left side switched on
 
 
-- Spotlight.IsDriverOn:
+- Spotlight.IsRightOn:
   datatype: boolean
   type: actuator
-  description: Is light on the drivers side switched on
+  description: Is light on the right side switched on
