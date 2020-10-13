@@ -17,21 +17,21 @@
   datatype: string
   type: attribute
   enum: [ "unknown", "sequential", "H", "automatic", "DSG", "CVT" ]
-  value: "unknown"
+  default: "unknown"
   description: Transmission type.
 
 
 - GearCount:
   datatype: uint8
   type: attribute
-  value: 0
+  default: 0
   description: Number of forward gears in the transmission. -1 = CVT.
 
 - DriveType:
   datatype: string
   type: attribute
   enum: [ "unknown", "forward wheel drive", "rear wheel drive", "all wheel drive" ]
-  value: "unknown"
+  default: "unknown"
   description: Drive type.
 
 #

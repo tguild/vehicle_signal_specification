@@ -5,7 +5,7 @@ weight: 5
 ---
 
 An attribute is a signal with a default value, specified by
-its ```value``` member.
+its ```default``` member.
 
 The value set for an attribute by a vspec file can be read by a
 consumer without the need of having the value sent out by a

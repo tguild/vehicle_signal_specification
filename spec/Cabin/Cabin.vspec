@@ -132,7 +132,7 @@
 - DoorCount:
   datatype: uint8
   type: attribute
-  value: 0
+  default: 0
   description: Number of doors in vehicle
 
 
@@ -161,20 +161,20 @@
 - DriverPosition:
   datatype: uint8
   type: attribute
-  value: 0
+  default: 0
   description: The position of the driver seat in row 1. (1-5)
 
 - SeatRowCount:
   datatype: uint8
   type: attribute
-  value: 0
+  default: 0
   description: Number of seat rows in vehicle
 
 
 - SeatPosCount:
   datatype: uint8[]
   type: attribute
-  value: 0
+  default: 0
   description: Number of seats across each row from the front to the rear
 
 

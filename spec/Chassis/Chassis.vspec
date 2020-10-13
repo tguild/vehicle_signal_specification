@@ -16,56 +16,56 @@
 - CurbWeight:
   datatype: uint16
   type: attribute
-  value: 0
+  default: 0
   unit: kg
   description: Vehicle curb weight, in kg, including all liquids and full tank of fuel, but no cargo or passengers.
 
 - GrossWeight:
   datatype: uint16
   type: attribute
-  value: 0
+  default: 0
   unit: kg
   description: Curb weight of vehicle, including all liquids and full tank of fuel and full load of cargo and passengers.
 
 - TowWeight:
   datatype: uint16
   type: attribute
-  value: 0
+  default: 0
   unit: kg
   description: Maximum weight, in kilos, of trailer.
 
 - Length:
   datatype: uint16
   type: attribute
-  value: 0
+  default: 0
   unit: mm
   description: Overall vehicle length, in mm.
 
 - Height:
   datatype: uint16
   type: attribute
-  value: 0
+  default: 0
   unit: mm
   description: Overall vehicle height, in mm.
 
 - Width:
   datatype: uint16
   type: attribute
-  value: 0
+  default: 0
   unit: mm
   description: Overall vehicle width, in mm.
 
 - Wheelbase:
   datatype: uint16
   type: attribute
-  value: 0
+  default: 0
   unit: mm
   description: Overall wheel base, in mm.
 
 - Track:
   datatype: uint16
   type: attribute
-  value: 0
+  default: 0
   unit: mm
   description: Overall wheel tracking, in mm.
 
@@ -81,7 +81,7 @@
 - AxleCount:
   datatype: uint8
   type: attribute
-  value: 2
+  default: 2
   description: Number of axles on the vehicle
 
 
@@ -178,7 +178,7 @@
 - SteeringWheel.Position:
   datatype: string
   type: attribute
-  value: front_left
+  default: front_left
   enum: ["front_left", "front_right"]
   description: Position of the steering wheel on the left or right side of the vehicle.
 

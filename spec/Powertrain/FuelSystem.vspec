@@ -27,7 +27,7 @@
 - TankCapacity:
   datatype: uint16
   type: attribute
-  value: 0
+  default: 0
   unit: l
   description: Capacity of the fuel tank in liters
 
