@@ -21,7 +21,7 @@
   datatype: uint16
   type: attribute
   description: Displacement in cubic centimetres.
-  unit: cm3
+  unit: cm^3
 
 - StrokeLength:
   datatype: uint16
