@@ -19,8 +19,8 @@ install:
   - cd ..
 
 script:
-  # NOTE: c and csv not built -- fix later
-  - make clean json franca binary
+  # NOTE: c not built -- fix later
+  - make clean json franca binary csv deploy
   - hugo -s ${DOCS_DIR}
 
 deploy:
