@@ -295,7 +295,7 @@ const SignalSpec[] signal_spec = [
     description: "Vehicle acceleration in X (longitudinal acceleration)."
     datatype: int32
     uuid: 3d511fe7232b5841be311b37f322de5a
-    unit: m/s2
+    unit: m/s^2
 }
 ,
 {
@@ -304,7 +304,7 @@ const SignalSpec[] signal_spec = [
     description: "Vehicle acceleration in Y (lateral acceleration)."
     datatype: int32
     uuid: 7522c5d6b7665b16a099643b2700e93c
-    unit: m/s2
+    unit: m/s^2
 }
 ,
 {
@@ -313,7 +313,7 @@ const SignalSpec[] signal_spec = [
     description: "Vehicle acceleration in Z (vertical acceleration)."
     datatype: int32
     uuid: a4a8a7c4ac5b52deb0b3ee4ed8787c59
-    unit: m/s2
+    unit: m/s^2
 }
 ,
 {
@@ -396,7 +396,25 @@ const SignalSpec[] signal_spec = [
     description: "Displacement in cubic centimetres."
     datatype: uint16
     uuid: 94dbd928847150ab842c00fa5caaf272
-    unit: cm3
+    unit: cm^3
+}
+,
+{
+    name: "Vehicle.Powertrain.CombustionEngine.StrokeLength"
+    type: "attribute"
+    description: "Stroke length in centimetres."
+    datatype: uint16
+    uuid: 1bdfdab7904d51ed93e101b84ea54ddf
+    unit: cm
+}
+,
+{
+    name: "Vehicle.Powertrain.CombustionEngine.Bore"
+    type: "attribute"
+    description: "Bore in centimetres."
+    datatype: uint16
+    uuid: 1618fb16035b5464961570cc1afd934e
+    unit: cm
 }
 ,
 {
@@ -406,6 +424,57 @@ const SignalSpec[] signal_spec = [
     datatype: string
     uuid: 586be4567fe059ee9e6cf42901c2e773
     enum: ['unknown', 'straight', 'V', 'boxer', 'W', 'rotary', 'radial', 'square', 'H', 'U', 'opposed', 'X']
+}
+,
+{
+    name: "Vehicle.Powertrain.CombustionEngine.NumberOfCylinders"
+    type: "attribute"
+    description: "Number of cylinders."
+    datatype: uint16
+    uuid: b2cd342c218257e88d214cdb511df82b
+}
+,
+{
+    name: "Vehicle.Powertrain.CombustionEngine.NumberOfValvesPerCylinder"
+    type: "attribute"
+    description: "Number of valves per cylinder."
+    datatype: uint16
+    uuid: 44633204726e561ca21beff31f3fef80
+}
+,
+{
+    name: "Vehicle.Powertrain.CombustionEngine.CompressionRatio"
+    type: "attribute"
+    description: "Engine compression ratio."
+    datatype: string
+    uuid: ead42922511051a0a0a1b634781f3c09
+}
+,
+{
+    name: "Vehicle.Powertrain.CombustionEngine.OilLifeRemaining"
+    type: "attribute"
+    description: "Remaining engine oil life in seconds."
+    datatype: uint32
+    uuid: 94303734c68c5353a02625f652103918
+    unit: s
+}
+,
+{
+    name: "Vehicle.Powertrain.CombustionEngine.EngineOilCapacity"
+    type: "attribute"
+    description: "Engine oil capacity in liters."
+    datatype: uint16
+    uuid: 2ca7af6facb55a13885989faa9bc6ca7
+    unit: l
+}
+,
+{
+    name: "Vehicle.Powertrain.CombustionEngine.EngineCoolantCapacity"
+    type: "attribute"
+    description: "Engine coolant capacity in liters."
+    datatype: uint16
+    uuid: 90b5b64808ea5f4fa2798d96143b0d60
+    unit: l
 }
 ,
 {
@@ -424,6 +493,15 @@ const SignalSpec[] signal_spec = [
     datatype: uint16
     uuid: 471cd478c1e8597f8e97c85b4e4ebe26
     unit: Nm
+}
+,
+{
+    name: "Vehicle.Powertrain.CombustionEngine.AspirationType"
+    type: "attribute"
+    description: "Type of aspiration (natural, turbocharger, supercharger etc)."
+    datatype: string
+    uuid: 3ca6a8ff30275c20a9d8d6d6829574eb
+    enum: ['unknown', 'natural', 'supercharger', 'turbocharger']
 }
 ,
 {
@@ -476,7 +554,7 @@ const SignalSpec[] signal_spec = [
     uuid: 6269b87f545f5466a0c5ba13432810da
     min: 0
     max: 1000
-    unit: kpa
+    unit: kPa
 }
 ,
 {
@@ -509,7 +587,7 @@ const SignalSpec[] signal_spec = [
     uuid: 054dacf5e59a5688981834690c5d449e
     min: 0
     max: 1000
-    unit: kpa
+    unit: kPa
 }
 ,
 {
@@ -535,12 +613,30 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Powertrain.CombustionEngine.Engine.AmbientAirTemperature"
+    name: "Vehicle.Powertrain.CombustionEngine.DieselParticulateFilter.InletTemperature"
     type: "sensor"
-    description: "Ambient (Outside) air temperature"
+    description: "Inlet temperature of Diesel Particulate Filter."
     datatype: float
-    uuid: 782d7078b9b25975a2b05bae6752a3e2
+    uuid: 70e90d202d3054bd967e67dce95c8ef2
     unit: celsius
+}
+,
+{
+    name: "Vehicle.Powertrain.CombustionEngine.DieselParticulateFilter.OutletTemperature"
+    type: "sensor"
+    description: "Outlet temperature of Diesel Particulate Filter."
+    datatype: float
+    uuid: e2b7f9d97bec5c0d94ade71a5e2f6518
+    unit: celsius
+}
+,
+{
+    name: "Vehicle.Powertrain.CombustionEngine.DieselParticulateFilter.DeltaPressure"
+    type: "sensor"
+    description: "Delta Pressure of Diesel Particulate Filter."
+    datatype: float
+    uuid: a6f476775c60531b93acb835e0bc6ab6
+    unit: Pa
 }
 ,
 {
@@ -677,7 +773,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Powertrain.ElectricMotor.Motor.Rpm"
     type: "sensor"
     description: "Motor rotational speed measured as rotations per minute. Negative values indicate reverse driving mode."
-    datatype: Uint32
+    datatype: uint32
     uuid: 96259c99dc105266bbe7aba70e16f1ef
     min: -100000
     max: 100000
@@ -741,7 +837,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Powertrain.Battery.StateOfCharge.Current"
     type: "sensor"
     description: "Physical state of charge of the high voltage battery. This is not necessarily the state of charge being displayed to the customer."
-    datatype: Float
+    datatype: float
     uuid: e0628947864a5c14986b2ae1487f550f
     min: 0
     max: 100.0
@@ -752,7 +848,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Powertrain.Battery.StateOfCharge.Displayed"
     type: "sensor"
     description: "State of charge displayed to the customer."
-    datatype: Float
+    datatype: float
     uuid: 13190cf240665e4db38780ad39051784
     min: 0
     max: 100.0
@@ -763,7 +859,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Powertrain.Battery.StateOfCharge.Target"
     type: "actuator"
     description: "Target state of charge set (eg. by customer)."
-    datatype: UInt8
+    datatype: uint8
     uuid: 864039c9295a50f9b7087e3fa8c5ce28
     min: 0
     max: 100
@@ -828,7 +924,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Powertrain.Battery.Charging.ChargeLimit"
     type: "actuator"
     description: "Maximum charge level for battery, can potentially be set manually."
-    datatype: UInt8
+    datatype: uint8
     uuid: 6a44522726625d42b0fbdf3f36fb1c87
     min: 0
     max: 100
@@ -927,7 +1023,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Powertrain.Battery.Charging.TimeToComplete"
     type: "sensor"
     description: "The time needed to complete the current charging process to the set charge limit. 0 if charging is complete, negative number if no charging process is active."
-    datatype: UInt32
+    datatype: uint32
     uuid: 519e70bc8a985e1b984c472a1cd7d3cf
     unit: s
 }
@@ -936,7 +1032,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Powertrain.Battery.Charging.Timer.Time"
     type: "actuator"
     description: "Time value for next charging-related action (Unix timestamp, seconds)."
-    datatype: UInt32
+    datatype: uint32
     uuid: d9cb0f458c255c33830409a3e313f781
     unit: s
 }
@@ -1715,7 +1811,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Cabin.Infotainment.Navigation.DestinationSet.Latitude"
     type: "actuator"
     description: "Latitude of destination"
-    datatype: Double
+    datatype: double
     uuid: 3e33f3252934565d86de5409c761262b
     min: -90
     max: 90
@@ -1726,7 +1822,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Cabin.Infotainment.Navigation.DestinationSet.Longitude"
     type: "actuator"
     description: "Longitude of destination"
-    datatype: Double
+    datatype: double
     uuid: e9bd511146ca51639c8d42c0702e22ee
     min: -180
     max: 180
@@ -1737,7 +1833,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Cabin.Infotainment.Navigation.CurrentLocation.Latitude"
     type: "sensor"
     description: "Current latitude of vehicle, as reported by GPS."
-    datatype: Double
+    datatype: double
     uuid: dceb455713ac56a59e79c0fd25c01a08
     min: -90
     max: 90
@@ -1748,7 +1844,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Cabin.Infotainment.Navigation.CurrentLocation.Longitude"
     type: "sensor"
     description: "Current longitude of vehicle, as reported by GPS."
-    datatype: Double
+    datatype: double
     uuid: 1a9be9c36a9a5ddc945bfb1e8c1f4384
     min: -180
     max: 180
@@ -1759,7 +1855,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Cabin.Infotainment.Navigation.CurrentLocation.Heading"
     type: "sensor"
     description: "Current magnetic compass heading, in degrees."
-    datatype: Double
+    datatype: double
     uuid: 67cd26aaf82e5e9f8a127aabba993003
     min: 0
     max: 360
@@ -1770,7 +1866,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Cabin.Infotainment.Navigation.CurrentLocation.Accuracy"
     type: "sensor"
     description: "Accuracy level of the latitude and longitude coordinates in meters."
-    datatype: Double
+    datatype: double
     uuid: eb9218c66b1451fcac5cfcf39d36f5da
     unit: m
 }
@@ -1779,7 +1875,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Cabin.Infotainment.Navigation.CurrentLocation.Altitude"
     type: "sensor"
     description: "Current elevation of the position in meters."
-    datatype: Double
+    datatype: double
     uuid: 66e2f3fdf1f15b0a9925b674820f19fd
     unit: m
 }
@@ -1870,7 +1966,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Cabin.Sunroof.Position"
     type: "sensor"
     description: "Sunroof position. 0 = Fully closed 100 = Fully opened. -100 = Fully tilted"
-    datatype: Int8
+    datatype: int8
     uuid: ab598697f1c852eda4df9ed62a956d17
     min: -100
     max: 100
@@ -9545,7 +9641,7 @@ const SignalSpec[] signal_spec = [
     description: "Tire pressure in kilo-Pascal"
     datatype: uint8
     uuid: 9fa3f176fd975d28a68f70c7d72e370f
-    unit: kpa
+    unit: kPa
 }
 ,
 {
@@ -9604,7 +9700,7 @@ const SignalSpec[] signal_spec = [
     description: "Tire pressure in kilo-Pascal"
     datatype: uint8
     uuid: ea8038b63e6650ffb1a20539e915064a
-    unit: kpa
+    unit: kPa
 }
 ,
 {
@@ -9715,7 +9811,7 @@ const SignalSpec[] signal_spec = [
     description: "Tire pressure in kilo-Pascal"
     datatype: uint8
     uuid: ea414012c36e54fc84ec1d421f370ddd
-    unit: kpa
+    unit: kPa
 }
 ,
 {
@@ -9774,7 +9870,7 @@ const SignalSpec[] signal_spec = [
     description: "Tire pressure in kilo-Pascal"
     datatype: uint8
     uuid: 0cd3dd4be36c5fcda49d6360556ba7c8
-    unit: kpa
+    unit: kPa
 }
 ,
 {
@@ -9814,7 +9910,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Chassis.SteeringWheel.Angle"
     type: "sensor"
     description: "Steering wheel angle. Positive = degrees to the left. Negative = degrees to the right."
-    datatype: Int16
+    datatype: int16
     uuid: 92cd3b3d37585b2291806fe5127d9393
     unit: degrees
 }
@@ -10008,7 +10104,7 @@ const SignalSpec[] signal_spec = [
     datatype: float
     uuid: 34e6b0689f025d7b9bfa1fc49bb30c0f
     min: 0
-    unit: kpa
+    unit: kPa
 }
 ,
 {
@@ -10018,7 +10114,7 @@ const SignalSpec[] signal_spec = [
     datatype: float
     uuid: 335991b1b53f56f097fea7b05d4db83b
     min: 0
-    unit: kpa
+    unit: kPa
 }
 ,
 {
@@ -10197,7 +10293,7 @@ const SignalSpec[] signal_spec = [
     description: "PID 22 - Fuel rail pressure relative to vacuum"
     datatype: float
     uuid: b3b0adf44aa3572fa07e7434993e6458
-    unit: kpa
+    unit: kPa
 }
 ,
 {
@@ -10206,7 +10302,7 @@ const SignalSpec[] signal_spec = [
     description: "PID 23 - Fuel rail pressure direct inject"
     datatype: float
     uuid: 039cb7bf1a8356a98d09eaf4fc029fe9
-    unit: kpa
+    unit: kPa
 }
 ,
 {
@@ -10412,7 +10508,7 @@ const SignalSpec[] signal_spec = [
     description: "PID 32 - Evaporative purge (EVAP) system pressure"
     datatype: float
     uuid: 70b5dae2ffd0561eab73efed8ad2f0ad
-    unit: pa
+    unit: Pa
 }
 ,
 {
@@ -10421,7 +10517,7 @@ const SignalSpec[] signal_spec = [
     description: "PID 33 - Barometric pressure"
     datatype: float
     uuid: 1966bfff4d235767bfd9a21afb445ac7
-    unit: kpa
+    unit: kPa
 }
 ,
 {
@@ -10642,7 +10738,7 @@ const SignalSpec[] signal_spec = [
     description: "PID 53 - Absolute evaporative purge (EVAP) system pressure"
     datatype: float
     uuid: ef188a1e1a1356f7bc425081e3e00805
-    unit: kpa
+    unit: kPa
 }
 ,
 {
@@ -10651,7 +10747,7 @@ const SignalSpec[] signal_spec = [
     description: "PID 54 - Alternate evaporative purge (EVAP) system pressure"
     datatype: float
     uuid: 68eaba3c79975d61bc35b92cd3e5e8d0
-    unit: pa
+    unit: Pa
 }
 ,
 {
@@ -10696,7 +10792,7 @@ const SignalSpec[] signal_spec = [
     description: "PID 59 - Absolute fuel rail pressure"
     datatype: float
     uuid: 83c88b13d30153949eeca1b1180a9061
-    unit: kpa
+    unit: kPa
 }
 ,
 {
@@ -10799,7 +10895,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Driver.HeartRate"
     type: "sensor"
     description: "Heart rate of the driver."
-    datatype: UInt16
+    datatype: uint16
     uuid: d71516905f785c4da867a2f86e774d93
 }
 
