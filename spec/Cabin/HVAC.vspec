@@ -42,4 +42,4 @@
   datatype: float
   type: sensor
   unit: celsius
-  description: Ambient air temperature
+  description: Ambient air temperature inside the vehicle.
