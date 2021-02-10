@@ -304,56 +304,56 @@
 - CurrentOverallWeight:
   datatype: uint16
   type: sensor
-  value: 0
+  default: 0
   unit: kg
   description: Current overall Vehicle weight. Including passengers, cargo and other load inside the car.
 
 - CurbWeight:
   datatype: uint16
   type: attribute
-  value: 0
+  default: 0
   unit: kg
   description: Vehicle curb weight, including all liquids and full tank of fuel, but no cargo or passengers.
 
 - GrossWeight:
   datatype: uint16
   type: attribute
-  value: 0
+  default: 0
   unit: kg
   description: Curb weight of vehicle, including all liquids and full tank of fuel and full load of cargo and passengers.
 
 - MaxTowWeight:
   datatype: uint16
   type: attribute
-  value: 0
+  default: 0
   unit: kg
   description: Maximum weight of trailer.
 
 - MaxTowBallWeight:
   datatype: uint16
   type: attribute
-  value: 0
+  default: 0
   unit: kg
   description: Maximum vertical weight on the tow ball of a trailer.
 
 - Length:
   datatype: uint16
   type: attribute
-  value: 0
+  default: 0
   unit: mm
   description: Overall vehicle length.
 
 - Height:
   datatype: uint16
   type: attribute
-  value: 0
+  default: 0
   unit: mm
   description: Overall vehicle height.
 
 - Width:
   datatype: uint16
   type: attribute
-  value: 0
+  default: 0
   unit: mm
   description: Overall vehicle width.
 
