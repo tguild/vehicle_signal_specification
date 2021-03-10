@@ -89,7 +89,6 @@ if the meta-data of the moved node hasn't changed.
 ```
 Navigation.CurrentLocation:
   type: branch
-  aggregate: true
   description: The current latitude and longitude of the vehicle.
   deprecation: V2.1 moved to Vehicle.CurrentLocation
 ```  

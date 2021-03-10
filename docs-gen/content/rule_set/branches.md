@@ -12,7 +12,7 @@ A branch entry example is given below:
 ```YAML
 - Trunk:
   type: branch
-  aggregate: true
+  aggregate: false
   description: All signals related to the rear trunk
 ```
 
@@ -30,6 +30,10 @@ opposed to a signal entry). This is the default, in case ```type``` is omitted.
 * **```aggregate```** *[optional]*  
 Defines whether or not this branch is an aggregate.
 If not defined, this defaults to ```false```.
+An aggregate is a collection of signals that make sense to handle together in a system.
+A typical example could be GNSS location, where latitude and longitude make sense to read
+and write together. This is supposed to be deployment and tool specific,
+and for that reason no branches are aggregates by default in VSS.
 
 * **```description```**  
 A description string to be included (when applicable) in the various

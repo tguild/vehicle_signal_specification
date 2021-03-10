@@ -41,7 +41,6 @@
 #
 - Tire.Condition:
   type: Branch
-  aggregate: true
   description: All signals relating to the tire condition.
 
 - Tire.Condition.Tread:

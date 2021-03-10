@@ -21,7 +21,6 @@
 
 - Media.Played:
   type: branch
-  aggregate: true
   description: Collection of signals updated in concert when a new media is played
 
 - Media.Played.Source:
@@ -73,7 +72,6 @@
 
 - Navigation.DestinationSet:
   type: branch
-  aggregate: true
   description: A navigation has been selected.
 
 - Navigation.DestinationSet.Latitude:
@@ -94,7 +92,6 @@
 
 - Navigation.CurrentLocation:
   type: branch
-  aggregate: true
   description: The current latitude and longitude of the vehicle.
   deprecation: V2.1 moved to Vehicle.CurrentLocation
 
