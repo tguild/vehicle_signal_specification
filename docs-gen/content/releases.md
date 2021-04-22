@@ -8,6 +8,10 @@ weight: 2
 
 {{< directoryindex path="/static/releases/nightly" pathURL="/vehicle_signal_specification/releases/nightly/" >}}
 
+### Version 2.1
+
+{{< directoryindex path="/static/releases/v2.1" pathURL="/vehicle_signal_specification/releases/v2.1/" >}}
+
 
 ### Version 2.0
 
