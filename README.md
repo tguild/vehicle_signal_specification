@@ -22,6 +22,6 @@ git clone https://github.com/GENIVI/vehicle_signal_specification
 git submodule update --init
 ```
 
-**Latest release:** [2.0](https://github.com/GENIVI/vehicle_signal_specification/releases/tag/v2.0)
+**Latest release:** [2.1](https://github.com/GENIVI/vehicle_signal_specification/releases/tag/v2.1)
 
-Work towards version 2.1 is continuously ongoing in [master branch](https://github.com/GENIVI/vehicle_signal_specification/tree/master)
+Work towards version 2.2 is continuously ongoing in [master branch](https://github.com/GENIVI/vehicle_signal_specification/tree/master)
