@@ -7,7 +7,7 @@ publishDir = "../docs"
   # Change default color scheme with a variant one. Can be "red", "blue", "green".
   themeVariant = "green"
   disableInlineCopyToClipBoard = true
-  editURL = "https://github.com/genivi/vehicle_signal_specification/edit/master/tools/documentation/content/"
+  editURL = "https://github.com/genivi/vehicle_signal_specification/edit/master/docs-gen/content/"
 
 
 [[menu.shortcuts]]
