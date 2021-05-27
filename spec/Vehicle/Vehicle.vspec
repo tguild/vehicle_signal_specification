@@ -300,7 +300,6 @@
 - CurrentOverallWeight:
   datatype: uint16
   type: sensor
-  default: 0
   unit: kg
   description: Current overall Vehicle weight. Including passengers, cargo and other load inside the car.
 
