@@ -110,7 +110,7 @@
   type: sensor
   min: 0
   max: 255
-  description: Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated.
+  description: Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated.
 
 - HeadRestraint:
   type: branch
@@ -267,9 +267,9 @@
 - Switch.SideBolster.Inflate:
   datatype: boolean
   type: actuator
-  description: Lumbar inflation switch engaged
+  description: Side bolster inflation switch engaged
 
 - Switch.SideBolster.Deflate:
   datatype: boolean
   type: actuator
-  description: Lumbar deflation switch engaged
+  description: Side bolster deflation switch engaged
