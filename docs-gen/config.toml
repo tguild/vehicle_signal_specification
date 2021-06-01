@@ -8,6 +8,7 @@ publishDir = "../docs"
   themeVariant = "green"
   disableInlineCopyToClipBoard = true
   editURL = "https://github.com/genivi/vehicle_signal_specification/edit/master/docs-gen/content/"
+  disableLandingPageButton = true
 
 
 [[menu.shortcuts]]
