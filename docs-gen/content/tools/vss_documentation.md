@@ -5,9 +5,9 @@ weight: 3
 ---
 
 The VSS documentation is realized with GitHub Pages. It is generated from
-the markdown files in the ```/documentation``` directory of this repositories.
-The static webpage is generated into the ```/docs``` directory so that it can
-be deployed straight from the repository.
+the markdown files in the ```/docs-gen``` directory of this repository.
+The static webpage is generated automatically after every PR merged to master 
+and deployed into a branch called `gh-pages`.
 
 
 ### Dependencies
@@ -25,7 +25,7 @@ installation and further questions around the framework.
 
 Once hugo is installed please follow the following steps:
 
-1. **Check that HUGO is working:**
+#### Check that HUGO is working:
 ```
 hugo version
 ```
@@ -33,7 +33,8 @@ The following outcome is expected:
 ```
 Hugo Static Site Generator v0.xx.xx ...
 ```
-1. **Clone the submodule containing the theme** </br>
+#### Clone the submodule containing the theme
+
 Run the following git commands to init and fetch the submodules:
 ```
 git submodule init
@@ -41,9 +42,11 @@ git submodule update
 ```
 Reference: [Git Documentation](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
 
-1. **Test locally on your server:**
+#### Test locally on your server:
+
+Within the repository
 ```
-hugo server -D
+hugo server -D -s ./docs-gen
 ```
 Optional ```-D:``` include draft pages as well. Afterwards, you can access the
 page under http://localhost:1313/vehicle_signal_specification.
@@ -53,19 +56,8 @@ page under http://localhost:1313/vehicle_signal_specification.
 Right now there is no pipeline in place to build the documentation. If you want
 to contribute, do the following:
 
-1. **Change documentation in ```/documentation```**
+1. **Change documentation in ```/docs-gen```**
 
-1. **Delete the current ```/docs```folder**
-```
-rm -r <vss_repo>/docs
-```
-
-1. **Build the documentation**
-```
-cd <vss_repo>/tools/documentation
-hugo
-ls ../../docs
-```
-Now the ```<vss_repo>/docs``` folder should contain the documentation.
+1. **Test your changes locally, as described above**
 
 1. **Create Pull Request for review**
