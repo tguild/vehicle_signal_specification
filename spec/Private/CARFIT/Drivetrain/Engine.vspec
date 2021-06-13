@@ -14,15 +14,15 @@
 #
 # Drive Shaft
 #
-- DriveShaft:
+DriveShaft:
   type: branch
   description: BallJoint signals
 
-- DriveShaft.Condition:
+DriveShaft.Condition:
   type: boolean
   description: Drive shaft condition.  True = good condition.  False = bad condition
 
-- DriveShaft.Angle:
+DriveShaft.Angle:
   type: uint8
   uint: degrees
   description: Drive shaft angle in degrees.  This impacts trucks.

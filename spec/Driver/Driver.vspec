@@ -11,30 +11,30 @@
 
 #include Cabin/Occupant.vspec
 
-- DistractionLevel:
+DistractionLevel:
   datatype: float
   type: sensor
   unit: percent
   description: Distraction level of the driver will be the level how much the driver is distracted, by multiple factors. E.g. Driving situation, acustical or optical signales inside the cockpit, phone calls
 
-- EyesOnRoad:
+EyesOnRoad:
   datatype: boolean
   type: sensor
   description: Has driver the eyes on road or not?
 
-- AttentiveProbability:
+AttentiveProbability:
   datatype: float
   type: sensor
   unit: percent
   description: Probability of attentiveness of the driver.
 
-- FatigueLevel:
+FatigueLevel:
   datatype: float
   type: sensor
   unit: percent
   description: Fatigueness level of driver. Evaluated by multiple factors like trip time, behaviour of steering, eye status.
 
-- HeartRate:
+HeartRate:
   datatype: uint16
   type: sensor
   description: Heart rate of the driver.

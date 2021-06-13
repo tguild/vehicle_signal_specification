@@ -8,17 +8,17 @@
 # Highlevel CARFIT vehicle signals.
 #
 
-- StopAndGoTime:
+StopAndGoTime:
   type: uint32
   unit: s
   description: Accumulated time spent under 10kph.
 
-- SurfaceStreetTime:
+SurfaceStreetTime:
   type: uint32
   unit: s
   description: Accumulated time spent under and including 70kph.
 
-- HighwayTime:
+HighwayTime:
   type: uint32
   unit: s
   description: Accumulated time spent over 70kph.

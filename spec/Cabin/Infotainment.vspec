@@ -9,72 +9,72 @@
 #
 # In-Vehicle Infotainment Signals
 #
-- Media:
+Media:
   type: branch
   description: All Media actions
 
-- Media.Action:
+Media.Action:
   datatype: string
   type: actuator
   enum: [ "unknown", "Stop", "Play", "FastForward", "FastBackward", "SkipForward",  "SkipBackward" ]
   description: Tells if the media was
 
-- Media.Played:
+Media.Played:
   type: branch
   description: Collection of signals updated in concert when a new media is played
 
-- Media.Played.Source:
+Media.Played.Source:
   datatype: string
   type: actuator
   enum: [ "unknown", "SiriusXM", "AM", "FM", "DAB", "TV",  "CD", "DVD", "AUX", "USB", "Disk", "Bluetooth", "Internet", "Voice", "Beep" ]
   description: Media selected for playback
 
-- Media.Played.Artist:
+Media.Played.Artist:
   datatype: string
   type: sensor
   description: Name of artist being played
 
-- Media.Played.Album:
+Media.Played.Album:
   datatype: string
   type: sensor
   description: Name of album being played
 
-- Media.Played.Track:
+Media.Played.Track:
   datatype: string
   type: sensor
   description: Name of track being played
 
-- Media.Played.URI:
+Media.Played.URI:
   datatype: string
   type: sensor
   description: User Resource associated with the media
 
-- Media.DeclinedURI:
+Media.DeclinedURI:
   datatype: string
   type: sensor
   description: URI of suggested media that was declined
 
-- Media.SelectedURI:
+Media.SelectedURI:
   datatype: string
   type: actuator
   description: URI of suggested media that was selected
 
-- Media.Volume:
+Media.Volume:
   datatype: uint8
   type: actuator
   min: 0
   max: 100
   description: Current Media Volume
 
-- Navigation:
+Navigation:
   type: branch
   description: All navigation actions
 
-- Navigation.DestinationSet:
+Navigation.DestinationSet:
   type: branch
   description: A navigation has been selected.
 
-- Navigation.DestinationSet.Latitude:
+Navigation.DestinationSet.Latitude:
   datatype: double
   type: actuator
   min: -90
@@ -82,7 +82,7 @@
   unit: degrees
   description: Latitude of destination
 
-- Navigation.DestinationSet.Longitude:
+Navigation.DestinationSet.Longitude:
   datatype: double
   type: actuator
   min: -180
@@ -90,12 +90,12 @@
   unit: degrees
   description: Longitude of destination
 
-- Navigation.CurrentLocation:
+Navigation.CurrentLocation:
   type: branch
   description: The current latitude and longitude of the vehicle.
   deprecation: V2.1 moved to Vehicle.CurrentLocation
 
-- Navigation.CurrentLocation.Latitude:
+Navigation.CurrentLocation.Latitude:
   datatype: double
   type: sensor
   min: -90
@@ -104,7 +104,7 @@
   description: Current latitude of vehicle, as reported by GPS.
   deprecation: V2.1 moved to Vehicle.CurrentLocation.Latitude
 
-- Navigation.CurrentLocation.Longitude:
+Navigation.CurrentLocation.Longitude:
   datatype: double
   type: sensor
   min: -180
@@ -113,7 +113,7 @@
   description: Current longitude of vehicle, as reported by GPS.
   deprecation: V2.1 moved to Vehicle.CurrentLocation.Longitude
 
-- Navigation.CurrentLocation.Heading:
+Navigation.CurrentLocation.Heading:
   datatype: double
   type: sensor
   min: 0
@@ -122,21 +122,21 @@
   description: Current magnetic compass heading, in degrees.
   deprecation: V2.1 moved to Vehicle.CurrentLocation.Heading
 
-- Navigation.CurrentLocation.Accuracy:
+Navigation.CurrentLocation.Accuracy:
   datatype: double
   type: sensor
   unit: m
   description: Accuracy level of the latitude and longitude coordinates in meters.
   deprecation: V2.1 moved to Vehicle.CurrentLocation.Accuracy
 
-- Navigation.CurrentLocation.Altitude:
+Navigation.CurrentLocation.Altitude:
   datatype: double
   type: sensor
   unit: m
   description: Current elevation of the position in meters.
   deprecation: V2.1 moved to Vehicle.CurrentLocation.Altitude
 
-- Navigation.CurrentLocation.Speed:
+Navigation.CurrentLocation.Speed:
   datatype: uint16
   type: sensor
   min: 0
@@ -145,52 +145,52 @@
   description: Vehicle speed, as sensed by the GPS receiver.
   deprecation: V2.1 removed because doubled with Vehicle.Speed
 
-- HMI:
+HMI:
   type: branch
   description: HMI related signals
 
-- HMI.CurrentLanguage:
+HMI.CurrentLanguage:
   datatype: string
   type: sensor
   description: ISO 639-1 standard language code for the current HMI
 
-- HMI.DateFormat:
+HMI.DateFormat:
   datatype: string
   type: actuator
   enum: [ "YYYY MM DD", "DD MM YYYY", "MM DD YYYY", "YY MM DD", "DD MM YY", "MM DD YY"]
   description: Date format used in the current HMI
 
-- HMI.TimeFormat:
+HMI.TimeFormat:
   datatype: string
   type: actuator
   enum: [ "12HR", "24HR" ]
   description: Time format used in the current HMI
 
-- HMI.DistanceUnit:
+HMI.DistanceUnit:
   datatype: string
   type: actuator
   enum: [ "mi", "km" ]
   description: Distance unit used in the current HMI
 
-- HMI.FuelEconomyUnits:
+HMI.FuelEconomyUnits:
   datatype: string
   type: actuator
   enum: [ "mpg_UK", "mpg_US", "mpl", "km/l", "l/100km" ]
   description: Fuel economy unit used in the current HMI
 
-- HMI.EVEconomyUnits:
+HMI.EVEconomyUnits:
   datatype: string
   type: actuator
   enum: [ "mi/kWh", "km/kWh", "kWh/100mi", "kWh/100km", "Wh/mi", "Wh/km" ]
   description: EV fuel economy unit used in the current HMI
 
-- HMI.TemperatureUnit:
+HMI.TemperatureUnit:
   datatype: string
   type: actuator
   enum: [ "C", "F" ]
   description: Temperature unit used in the current HMI
 
-- HMI.DayNightMode:
+HMI.DayNightMode:
   datatype: string
   type: actuator
   enum: [ "Day", "Night" ]

@@ -32,707 +32,707 @@
 #          In VSS the signal contains the actual value, i.e. +4.5 degrees is sent as +4.5.
 #
 
-- PidsA:
+PidsA:
   datatype: uint32
   type: sensor
   description: PID 00 - Bit array of the supported pids 01 to 20
 
-- Status:
+Status:
   type: branch
   description: PID 01 - OBD status
 
-- Status.MIL:
+Status.MIL:
   datatype: boolean
   type: sensor
   description: Malfunction Indicator Light (MIL) False = Off, True = On
 
-- Status.DTCCount:
+Status.DTCCount:
   datatype: uint8
   type: sensor
   description: Number of sensor Trouble Codes (DTC)
 
-- Status.IgnitionType:
+Status.IgnitionType:
   datatype: string
   type: sensor
   enum: [ "spark", "compression" ]
   description: Type of the ignition for ICE - spark = spark plug ignition, compression = self-igniting (Diesel engines)
 
-- DTCList:
+DTCList:
   datatype: string[]
   type: sensor
   description: List of currently active DTCs formatted according OBD II (SAE-J2012DA_201812) standard ([P|C|B|U]XXXXX )
 
-- FreezeDTC:
+FreezeDTC:
   datatype: string
   type: sensor
   description: PID 02 - DTC that triggered the freeze frame
 
-- FuelStatus:
+FuelStatus:
   datatype: string
   type: sensor
   description: PID 03 - Fuel status
 
-- EngineLoad:
+EngineLoad:
   datatype: float
   type: sensor
   unit: percent
   description: PID 04 - Engine load in percent - 0 = no load, 100 = full load
 
-- CoolantTemperature:
+CoolantTemperature:
   datatype: float
   type: sensor
   unit: celsius
   description: PID 05 - Coolant temperature
 
-- ShortTermFuelTrim1:
+ShortTermFuelTrim1:
   datatype: float
   type: sensor
   unit: percent
   description: PID 06 - Short Term (immediate) Fuel Trim - Bank 1 - negative percent leaner, positive percent richer
 
-- LongTermFuelTrim1:
+LongTermFuelTrim1:
   datatype: float
   type: sensor
   unit: percent
   description: PID 07 - Long Term (learned) Fuel Trim - Bank 1 - negative percent leaner, positive percent richer
 
-- ShortTermFuelTrim2:
+ShortTermFuelTrim2:
   datatype: float
   type: sensor
   unit: percent
   description: PID 08 - Short Term (immediate) Fuel Trim - Bank 2 - negative percent leaner, positive percent richer
 
-- LongTermFuelTrim2:
+LongTermFuelTrim2:
   datatype: float
   type: sensor
   unit: percent
   description: PID 09 - Long Term (learned) Fuel Trim - Bank 2 - negative percent leaner, positive percent richer
 
-- FuelPressure:
+FuelPressure:
   datatype: float
   type: sensor
   unit: kPa
   description: PID 0A - Fuel pressure
 
-- MAP:
+MAP:
   datatype: float
   type: sensor
   unit: kPa
   description: PID 0B - Intake manifold pressure
 
-- EngineSpeed:
+EngineSpeed:
   datatype: float
   type: sensor
   unit: rpm
   description: PID 0C - Engine speed measured as rotations per minute
 
-- Speed:
+Speed:
   datatype: float
   type: sensor
   unit: km/h
   description: PID 0D - Vehicle speed
 
-- TimingAdvance:
+TimingAdvance:
   datatype: float
   type: sensor
   unit: degrees
   description: PID 0E - Time advance
 
-- IntakeTemp:
+IntakeTemp:
   datatype: float
   type: sensor
   unit: celsius
   description: PID 0F - Intake temperature
 
-- MAF:
+MAF:
   datatype: float
   type: sensor
   unit: g/s
   description: PID 10 - Grams of air drawn into engine per second
 
-- ThrottlePosition:
+ThrottlePosition:
   datatype: float
   type: sensor
   unit: percent
   description: PID 11 - Throttle position - 0 = closed throttle, 100 = open throttle
 
-- AirStatus:
+AirStatus:
   datatype: string
   type: sensor
   description: PID 12 - Secondary air status
 
-- O2:
+O2:
   type: branch
   description: PID 13 - Presence of oxygen sensors for the banks
 
-- O2.Bank1:
+O2.Bank1:
   type: branch
   description: Oxygen sensors on bank 1, at most 4 sensors per bank
 
-- O2.Bank1.Sensor1:
+O2.Bank1.Sensor1:
   type: branch
   description: Oxygen sensor
 
-- O2.Bank1.Sensor1.Voltage:
+O2.Bank1.Sensor1.Voltage:
   datatype: float
   type: sensor
   unit: V
   description: PID 14 - Sensor voltage
 
-- O2.Bank1.Sensor2:
+O2.Bank1.Sensor2:
   type: branch
   description: Oxygen sensor
 
-- O2.Bank1.Sensor2.Voltage:
+O2.Bank1.Sensor2.Voltage:
   datatype: float
   type: sensor
   unit: V
   description: PID 15 - Sensor voltage
 
-- O2.Bank1.Sensor3:
+O2.Bank1.Sensor3:
   type: branch
   description: Oxygen sensor
 
-- O2.Bank1.Sensor3.Voltage:
+O2.Bank1.Sensor3.Voltage:
   datatype: float
   type: sensor
   unit: V
   description: PID 16 - Sensor voltage
 
-- O2.Bank1.Sensor4:
+O2.Bank1.Sensor4:
   type: branch
   description: Oxygen sensor
 
-- O2.Bank1.Sensor4.Voltage:
+O2.Bank1.Sensor4.Voltage:
   datatype: float
   type: sensor
   unit: V
   description: PID 17 - Sensor voltage
 
-- O2.Bank2:
+O2.Bank2:
   type: branch
   description: Oxygen sensors on bank 2, at most 4 sensors per bank
 
-- O2.Bank2.Sensor1:
+O2.Bank2.Sensor1:
   type: branch
   description: Oxygen sensor
 
-- O2.Bank2.Sensor1.Voltage:
+O2.Bank2.Sensor1.Voltage:
   datatype: float
   type: sensor
   unit: V
   description: PID 18 - Sensor voltage
 
-- O2.Bank2.Sensor2:
+O2.Bank2.Sensor2:
   type: branch
   description: Oxygen sensor
 
-- O2.Bank2.Sensor2.Voltage:
+O2.Bank2.Sensor2.Voltage:
   datatype: float
   type: sensor
   unit: V
   description: PID 19 - Sensor voltage
 
-- O2.Bank2.Sensor3:
+O2.Bank2.Sensor3:
   type: branch
   description: Oxygen sensor
 
-- O2.Bank2.Sensor3.Voltage:
+O2.Bank2.Sensor3.Voltage:
   datatype: float
   type: sensor
   unit: V
   description: PID 1A - Sensor voltage
 
-- O2.Bank2.Sensor4:
+O2.Bank2.Sensor4:
   type: branch
   description: Oxygen sensor
 
-- O2.Bank2.Sensor4.Voltage:
+O2.Bank2.Sensor4.Voltage:
   datatype: float
   type: sensor
   unit: V
   description: PID 1B - Sensor voltage
 
-- O2Alt:
+O2Alt:
   type: branch
   description: PID 1D - Presence of alternate oxygen sensors for the banks
 
-- O2Alt.Bank1:
+O2Alt.Bank1:
   type: branch
   description: Alternate oxygen sensors on bank 1, at most 4 sensors per bank
 
-- O2Alt.Bank1.Sensor1:
+O2Alt.Bank1.Sensor1:
   type: branch
   description: Alternate oxygen sensor
 
-- O2Alt.Bank1.Sensor2:
+O2Alt.Bank1.Sensor2:
   type: branch
   description: Alternate oxygen sensor
 
-- O2Alt.Bank1.Sensor3:
+O2Alt.Bank1.Sensor3:
   type: branch
   description: Alternate oxygen sensor
 
-- O2Alt.Bank1.Sensor4:
+O2Alt.Bank1.Sensor4:
   type: branch
   description: Alternate oxygen sensor
 
-- O2Alt.Bank2:
+O2Alt.Bank2:
   type: branch
   description: Alternate oxygen sensors on bank 2, at most 4 sensors per bank
 
-- O2Alt.Bank2.Sensor1:
+O2Alt.Bank2.Sensor1:
   type: branch
   description: Alternate oxygen sensor
 
-- O2Alt.Bank2.Sensor2:
+O2Alt.Bank2.Sensor2:
   type: branch
   description: Alternate oxygen sensor
 
-- O2Alt.Bank2.Sensor3:
+O2Alt.Bank2.Sensor3:
   type: branch
   description: Alternate oxygen sensor
 
-- O2Alt.Bank2.Sensor4:
+O2Alt.Bank2.Sensor4:
   type: branch
   description: Alternate oxygen sensor
 
-- AuxInputStatus:
+AuxInputStatus:
   datatype: boolean
   type: sensor
   description: PID 1E - Auxiliary input status (power take off)
 
-- RunTime:
+RunTime:
   datatype: float
   type: sensor
   unit: s
   description: PID 1F - Engine run time
 
-- PidsB:
+PidsB:
   datatype: uint32
   type: sensor
   description: PID 20 - Bit array of the supported pids 21 to 40
 
-- DistanceWithMIL:
+DistanceWithMIL:
   datatype: float
   type: sensor
   unit: km
   description: PID 21 - Distance traveled with MIL on
 
-- FuelRailPressureVac:
+FuelRailPressureVac:
   datatype: float
   type: sensor
   unit: kPa
   description: PID 22 - Fuel rail pressure relative to vacuum
 
-- FuelRailPressureDirect:
+FuelRailPressureDirect:
   datatype: float
   type: sensor
   unit: kPa
   description: PID 23 - Fuel rail pressure direct inject
 
-- O2WR:
+O2WR:
   type: branch
   description: Wide range/band oxygen sensors
 
-- O2WR.Sensor1:
+O2WR.Sensor1:
   type: branch
   description: Wide range/band oxygen sensor 1
 
-- O2WR.Sensor1.Voltage:
+O2WR.Sensor1.Voltage:
   datatype: float
   type: sensor
   unit: V
   description: PID 24 - Lambda voltage for wide range/band oxygen sensor 1
 
-- O2WR.Sensor1.Current:
+O2WR.Sensor1.Current:
   datatype: float
   type: sensor
   unit: A
   description: PID 34 - Lambda current for wide range/band oxygen sensor 1
 
-- O2WR.Sensor2:
+O2WR.Sensor2:
   type: branch
   description: Wide range/band oxygen sensor 2
 
-- O2WR.Sensor2.Voltage:
+O2WR.Sensor2.Voltage:
   datatype: float
   type: sensor
   unit: V
   description: PID 25 - Lambda voltage for wide range/band oxygen sensor 2
 
-- O2WR.Sensor2.Current:
+O2WR.Sensor2.Current:
   datatype: float
   type: sensor
   unit: A
   description: PID 35 - Lambda current for wide range/band oxygen sensor 2
 
-- O2WR.Sensor3:
+O2WR.Sensor3:
   type: branch
   description: Wide range/band oxygen sensor 3
 
-- O2WR.Sensor3.Voltage:
+O2WR.Sensor3.Voltage:
   datatype: float
   type: sensor
   unit: V
   description: PID 26 - Lambda voltage for wide range/band oxygen sensor 3
 
-- O2WR.Sensor3.Current:
+O2WR.Sensor3.Current:
   datatype: float
   type: sensor
   unit: A
   description: PID 36 - Lambda current for wide range/band oxygen sensor 4
 
-- O2WR.Sensor4:
+O2WR.Sensor4:
   type: branch
   description: Wide range/band oxygen sensor 4
 
-- O2WR.Sensor4.Voltage:
+O2WR.Sensor4.Voltage:
   datatype: float
   type: sensor
   unit: V
   description: PID 27 - Lambda voltage for wide range/band oxygen sensor 4
 
-- O2WR.Sensor4.Current:
+O2WR.Sensor4.Current:
   datatype: float
   type: sensor
   unit: A
   description: PID 37 - Lambda current for wide range/band oxygen sensor 4
 
-- O2WR.Sensor5:
+O2WR.Sensor5:
   type: branch
   description: Wide range/band oxygen sensor 5
 
-- O2WR.Sensor5.Voltage:
+O2WR.Sensor5.Voltage:
   datatype: float
   type: sensor
   unit: V
   description: PID 28 - Lambda voltage for wide range/band oxygen sensor 5
 
-- O2WR.Sensor5.Current:
+O2WR.Sensor5.Current:
   datatype: float
   type: sensor
   unit: A
   description: PID 38 - Lambda current for wide range/band oxygen sensor 5
 
-- O2WR.Sensor6:
+O2WR.Sensor6:
   type: branch
   description: Wide range/band oxygen sensor 6
 
-- O2WR.Sensor6.Voltage:
+O2WR.Sensor6.Voltage:
   datatype: float
   type: sensor
   unit: V
   description: PID 29 - Lambda voltage for wide range/band oxygen sensor 6
 
-- O2WR.Sensor6.Current:
+O2WR.Sensor6.Current:
   datatype: float
   type: sensor
   unit: A
   description: PID 39 - Lambda current for wide range/band oxygen sensor 6
 
-- O2WR.Sensor7:
+O2WR.Sensor7:
   type: branch
   description: Wide range/band oxygen sensor 7
 
-- O2WR.Sensor7.Voltage:
+O2WR.Sensor7.Voltage:
   datatype: float
   type: sensor
   unit: V
   description: PID 2A - Lambda voltage for wide range/band oxygen sensor 7
 
-- O2WR.Sensor7.Current:
+O2WR.Sensor7.Current:
   datatype: float
   type: sensor
   unit: A
   description: PID 3A - Lambda current for wide range/band oxygen sensor 7
 
-- O2WR.Sensor8:
+O2WR.Sensor8:
   type: branch
   description: Wide range/band oxygen sensor 8
 
-- O2WR.Sensor8.Voltage:
+O2WR.Sensor8.Voltage:
   datatype: float
   type: sensor
   unit: V
   description: PID 2B - Lambda voltage for wide range/band oxygen sensor 8
 
-- O2WR.Sensor8.Current:
+O2WR.Sensor8.Current:
   datatype: float
   type: sensor
   unit: A
   description: PID 3B - Lambda current for wide range/band oxygen sensor 8
 
-- CommandedEGR:
+CommandedEGR:
   datatype: float
   type: sensor
   unit: percent
   description: PID 2C - Commanded exhaust gas recirculation (EGR)
 
-- EGRError:
+EGRError:
   datatype: float
   type: sensor
   unit: percent
   description: PID 2D - Exhaust gas recirculation (EGR) error
 
-- CommandedEVAP:
+CommandedEVAP:
   datatype: float
   type: sensor
   unit: percent
   description: PID 2E - Commanded evaporative purge (EVAP) valve
 
-- FuelLevel:
+FuelLevel:
   datatype: float
   type: sensor
   unit: percent
   description: PID 2F - Fuel level in the fuel tank
 
-- WarmupsSinceDTCClear:
+WarmupsSinceDTCClear:
   datatype: uint8
   type: sensor
   description: PID 30 - Number of warm-ups since codes cleared
 
-- DistanceSinceDTCClear:
+DistanceSinceDTCClear:
   datatype: float
   type: sensor
   unit: km
   description: PID 31 - Distance traveled since codes cleared
 
-- EVAPVaporPressure:
+EVAPVaporPressure:
   datatype: float
   type: sensor
   unit: Pa
   description: PID 32 - Evaporative purge (EVAP) system pressure
 
-- BarometricPressure:
+BarometricPressure:
   datatype: float
   type: sensor
   unit: kPa
   description: PID 33 - Barometric pressure
 
-- Catalyst:
+Catalyst:
   type: branch
   description: Catalyst signals
 
-- Catalyst.Bank1:
+Catalyst.Bank1:
   type: branch
   description: Catalyst bank 1 signals
 
-- Catalyst.Bank1.Temperature1:
+Catalyst.Bank1.Temperature1:
   datatype: float
   type: sensor
   unit: celsius
   description: PID 3C - Catalyst temperature from bank 1, sensor 1
 
-- Catalyst.Bank1.Temperature2:
+Catalyst.Bank1.Temperature2:
   datatype: float
   type: sensor
   unit: celsius
   description: PID 3E - Catalyst temperature from bank 1, sensor 2
 
-- Catalyst.Bank2:
+Catalyst.Bank2:
   type: branch
   description: Catalyst bank 2 signals
 
-- Catalyst.Bank2.Temperature1:
+Catalyst.Bank2.Temperature1:
   datatype: float
   type: sensor
   unit: celsius
   description: PID 3D - Catalyst temperature from bank 2, sensor 1
 
-- Catalyst.Bank2.Temperature2:
+Catalyst.Bank2.Temperature2:
   datatype: float
   type: sensor
   unit: celsius
   description: PID 3F - Catalyst temperature from bank 2, sensor 2
 
-- PidsC:
+PidsC:
   datatype: uint32
   type: sensor
   description: PID 40 - Bit array of the supported pids 41 to 60
 
-- DriveCycleStatus:
+DriveCycleStatus:
   type: branch
   description: PID 41 - OBD status for the current drive cycle
 
-- DriveCycleStatus.MIL:
+DriveCycleStatus.MIL:
   datatype: boolean
   type: sensor
   description: Malfunction Indicator Light (MIL) - False = Off, True = On
 
-- DriveCycleStatus.DTCCount:
+DriveCycleStatus.DTCCount:
   datatype: uint8
   type: sensor
   description: Number of sensor Trouble Codes (DTC)
 
-- DriveCycleStatus.IgnitionType:
+DriveCycleStatus.IgnitionType:
   datatype: string
   type: sensor
   enum: [ "spark", "compression" ]
   description: Type of the ignition for ICE - spark = spark plug ignition, compression = self-igniting (Diesel engines)
 
-- ControlModuleVoltage:
+ControlModuleVoltage:
   datatype: float
   type: sensor
   unit: V
   description: PID 42 - Control module voltage
 
-- AbsoluteLoad:
+AbsoluteLoad:
   datatype: float
   type: sensor
   unit: percent
   description: PID 43 - Absolute load value
 
-- CommandedEquivalenceRatio:
+CommandedEquivalenceRatio:
   datatype: float
   type: sensor
   unit: ratio
   description: PID 44 - Commanded equivalence ratio
 
-- RelativeThrottlePosition:
+RelativeThrottlePosition:
   datatype: float
   type: sensor
   unit: percent
   description: PID 45 - Relative throttle position
 
-- AmbientAirTemperature:
+AmbientAirTemperature:
   datatype: float
   type: sensor
   unit: celsius
   description: PID 46 - Ambient air temperature
 
-- ThrottlePositionB:
+ThrottlePositionB:
   datatype: float
   type: sensor
   unit: percent
   description: PID 47 - Absolute throttle position B
 
-- ThrottlePositionC:
+ThrottlePositionC:
   datatype: float
   type: sensor
   unit: percent
   description: PID 48 - Absolute throttle position C
 
-- AcceleratorPositionD:
+AcceleratorPositionD:
   datatype: float
   type: sensor
   unit: percent
   description: PID 49 - Accelerator pedal position D
 
-- AcceleratorPositionE:
+AcceleratorPositionE:
   datatype: float
   type: sensor
   unit: percent
   description: PID 4A - Accelerator pedal position E
 
-- AcceleratorPositionF:
+AcceleratorPositionF:
   datatype: float
   type: sensor
   unit: percent
   description: PID 4B - Accelerator pedal position F
 
-- ThrottleActuator:
+ThrottleActuator:
   datatype: float
   type: sensor
   unit: percent
   description: PID 4C - Commanded throttle actuator
 
-- RunTimeMIL:
+RunTimeMIL:
   datatype: float
   type: sensor
   unit: min
   description: PID 4D - Run time with MIL on
 
-- TimeSinceDTCCleared:
+TimeSinceDTCCleared:
   datatype: float
   type: sensor
   unit: min
   description: PID 4E - Time since trouble codes cleared
 
-- MaxMAF:
+MaxMAF:
   datatype: float
   type: sensor
   unit: g/s
   description: PID 50 - Maximum flow for mass air flow sensor
 
-- FuelType:
+FuelType:
   datatype: string
   type: sensor
   description: PID 51 - Fuel type
 
-- EthanolPercent:
+EthanolPercent:
   datatype: float
   type: sensor
   unit: percent
   description: PID 52 - Percentage of ethanol in the fuel
 
-- EVAPVaporPressureAbsolute:
+EVAPVaporPressureAbsolute:
   datatype: float
   type: sensor
   unit: kPa
   description: PID 53 - Absolute evaporative purge (EVAP) system pressure
 
-- EVAPVaporPressureAlternate:
+EVAPVaporPressureAlternate:
   datatype: float
   type: sensor
   unit: Pa
   description: PID 54 - Alternate evaporative purge (EVAP) system pressure
 
-- ShortTermO2Trim1:
+ShortTermO2Trim1:
   datatype: float
   type: sensor
   unit: percent
   description: PID 55 - Short term secondary O2 trim - Bank 1
 
-- LongTermO2Trim1:
+LongTermO2Trim1:
   datatype: float
   type: sensor
   unit: percent
   description: PID 56 - Long term secondary O2 trim - Bank 1
 
-- ShortTermO2Trim2:
+ShortTermO2Trim2:
   datatype: float
   type: sensor
   unit: percent
   description: PID 57 - Short term secondary O2 trim - Bank 2
 
-- LongTermO2Trim2:
+LongTermO2Trim2:
   datatype: float
   type: sensor
   unit: percent
   description: PID 58 - Long term secondary O2 trim - Bank 2
 
-- FuelRailPressureAbsolute:
+FuelRailPressureAbsolute:
   datatype: float
   type: sensor
   unit: kPa
   description: PID 59 - Absolute fuel rail pressure
 
-- RelativeAcceleratorPosition:
+RelativeAcceleratorPosition:
   datatype: float
   type: sensor
   unit: percent
   description: PID 5A - Relative accelerator pedal position
 
-- HybridBatteryRemaining:
+HybridBatteryRemaining:
   datatype: float
   type: sensor
   unit: percent
   description: PID 5B - Remaining life of hybrid battery
 
-- OilTemperature:
+OilTemperature:
   datatype: float
   type: sensor
   unit: celsius
   description: PID 5C - Engine oil temperature
 
-- FuelInjectionTiming:
+FuelInjectionTiming:
   datatype: float
   type: sensor
   unit: degrees
   description: PID 5D - Fuel injection timing
 
-- FuelRate:
+FuelRate:
   datatype: float
   type: sensor
   unit: l/h

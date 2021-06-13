@@ -10,23 +10,23 @@
 # All exterior mirrors
 #
 
-- Tilt:
+Tilt:
   datatype: int8
   unit: percent
   type: actuator
   description: Mirror tilt as a percent. 0 = Center Position. 100 = Fully Upward Position. -100 = Fully Downward Position.
 
-- Pan:
+Pan:
   datatype: int8
   type: actuator
   unit: percent
   description: Mirror pan as a percent. 0 = Center Position. 100 = Fully Left Position. -100 = Fully Right Position.
 
-- Heating:
+Heating:
   type: branch
   description: Mirror heater signals
 
-- Heating.Status:
+Heating.Status:
   datatype: boolean
   type: actuator
   description: Mirror Heater on or off. True = Heater On. False = Heater Off.

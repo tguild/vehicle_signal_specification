@@ -9,12 +9,12 @@
 # Based on OAuth 2.0. Subject is the UserID inside the claim of the Issuer Domain.
 #
 
-- Subject:
+Subject:
   datatype: string
   type: sensor
   description: Subject for the authentification of the occupant. E.g. UserID 7331677
   
-- Issuer:
+Issuer:
   datatype: string
   type: sensor
   description: Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com

@@ -20,7 +20,7 @@
 #
 # The vehicle branch for highlevel vehicle signals and attributes.
 #
-- Vehicle:
+Vehicle:
   type: branch
   description: High-level vehicle data.
 
@@ -47,13 +47,13 @@
 # Put in accuracy as attribute for signal
 #
 
-- Vehicle.Private:
+Vehicle.Private:
   type: branch
   description: Uncontrolled branch where non-public signals can be defined.
 
 #include Private/Private.vspec Vehicle.Private
 
-- Vehicle.Media:
+Vehicle.Media:
   type: branch
   description: Media service data.
 
@@ -64,7 +64,7 @@
 #
 # The power train branch used to host the signals and attributes.
 #
-- Vehicle.Powertrain:
+Vehicle.Powertrain:
   type: branch
   description: Powertrain data for battery management, etc.
 #include Powertrain/Powertrain.vspec Vehicle.Powertrain
@@ -73,7 +73,7 @@
 #
 # Internal combustion engine signals and attributes.
 #
-- Vehicle.Powertrain.CombustionEngine:
+Vehicle.Powertrain.CombustionEngine:
   type: branch
   description: Engine-specific data, stopping at the bell housing.
 
@@ -84,7 +84,7 @@
 #
 # The transmission branch used to host the signals and attributes in transmission.vspec.
 #
-- Vehicle.Powertrain.Transmission:
+Vehicle.Powertrain.Transmission:
   type: branch
   description: Transmission-specific data, stopping at the drive shafts.
 
@@ -96,7 +96,7 @@
 #
 # The electric motor branch used to host the signals and attributes in ElectricMotor.vspec.
 #
-- Vehicle.Powertrain.ElectricMotor:
+Vehicle.Powertrain.ElectricMotor:
   type: branch
   description: Electric Motor specific data.
 
@@ -108,7 +108,7 @@
 #
 # The battery signals and attributes used to host the signals in Battery.vspec.
 #
-- Vehicle.Powertrain.Battery:
+Vehicle.Powertrain.Battery:
   type: branch
   description: Battery Management data.
 
@@ -120,7 +120,7 @@
 #
 # The fuels system signals and attributes used to host the signals in FuelSystem.vspec.
 #
-- Vehicle.Powertrain.FuelSystem:
+Vehicle.Powertrain.FuelSystem:
   type: branch
   description: Fuel system data.
 
@@ -132,7 +132,7 @@
 #
 # The fuel cell signals and attributes used to host the signals in FuelCell.vspec.
 #
-- Vehicle.Powertrain.FuelCell:
+Vehicle.Powertrain.FuelCell:
   type: branch
   description: Fuel Cell data.
 
@@ -144,7 +144,7 @@
 #
 # The Body branch used to host the signals and attributes Body/Body.vspec.
 #
-- Vehicle.Body:
+Vehicle.Body:
   type: branch
   description: All body components.
 
@@ -154,7 +154,7 @@
 #
 # The Cabin branch and its included signals and attributes from Cabin/Cabin.vspec
 #
-- Vehicle.Cabin:
+Vehicle.Cabin:
   type: branch
   description: All in-cabin components, including doors.
 
@@ -168,7 +168,7 @@
 #
 # Advanced Driver Assist Systems signals and attributes.
 #
-- Vehicle.ADAS:
+Vehicle.ADAS:
   type: branch
   description: All Advanced Driver Assist Systems data.
 
@@ -179,7 +179,7 @@
 # Chassis signals and attributes.
 # Includes steering, suspension, wheels, brakes, etc
 #
-- Vehicle.Chassis:
+Vehicle.Chassis:
   type: branch
   description: All data concerning steering, suspension, wheels, and brakes.
 
@@ -189,7 +189,7 @@
 #
 # On-board Diagnostic (OBD) Branch
 #
-- Vehicle.OBD:
+Vehicle.OBD:
   type: branch
   description: OBD data.
 
@@ -201,7 +201,7 @@
 #
 # Driver
 #
-- Vehicle.Driver:
+Vehicle.Driver:
   type: branch
   description: Driver data.
 
@@ -213,7 +213,7 @@
 #
 # Service information
 #
-- Vehicle.Service:
+Vehicle.Service:
   type: branch
   description: Service data.
 

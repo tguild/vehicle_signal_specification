@@ -13,7 +13,7 @@
 ##
 # Rear window shade signals
 ##
-- RearShade:
+RearShade:
   type: branch
   description: Rear window shade.
 
@@ -23,7 +23,7 @@
 ##
 # HVAC signals
 ##
-- HVAC:
+HVAC:
   type: branch
   description: Climate control
 #include HVAC.vspec HVAC
@@ -31,7 +31,7 @@
 ##
 # Infotainment
 ##
-- Infotainment:
+Infotainment:
   type: branch
   description: Infotainment system
 
@@ -41,11 +41,11 @@
 ##
 # Sunroof status
 ##
-- Sunroof:
+Sunroof:
   type: branch
   description: Sun roof status.
 
-- Sunroof.Position:
+Sunroof.Position:
   datatype: int8
   type: sensor
   min: -100
@@ -55,13 +55,13 @@
 #
 # Sunroof controlling switch.
 # We cannot use SingleSliderSwitch.vspec since we have TiltUp and TiltDown also
-- Sunroof.Switch:
+Sunroof.Switch:
   datatype: string
   type: actuator
   enum: [ "Inactive", "Close", "Open", "OneShotClose", "OneShotOpen", "TiltUp", "TiltDown" ]
   description: Switch controlling sliding action such as window, sunroof, or shade.
 
-- Sunroof.Shade:
+Sunroof.Shade:
   type: branch
   description: Sun roof shade status
 
@@ -71,11 +71,11 @@
 #
 # Rearview mirror signals
 #
-- RearviewMirror:
+RearviewMirror:
   type: branch
   description: Rearview mirror
 
-- RearviewMirror.DimmingLevel:
+RearviewMirror.DimmingLevel:
   datatype: uint8
   type: actuator
   unit: percent
@@ -85,7 +85,7 @@
 ##
 # Interior lights signals and sensors
 ##
-- Lights:
+Lights:
   type: branch
   description: Interior lights signals and sensors
 
@@ -95,7 +95,7 @@
 ##
 # Door signals and attributes
 ##
-- Door:
+Door:
   type: branch
   instances:
     - Row[1,4]
@@ -103,7 +103,7 @@
   description: All doors, including windows and switches
 #include SingleDoor.vspec Door
 
-- DoorCount:
+DoorCount:
   datatype: uint8
   type: attribute
   default: 0
@@ -121,7 +121,7 @@
 # Pos5 is rightmost.
 ##
 
-- Seat:
+Seat:
   type: branch
   instances:
     - Row[1,4]
@@ -132,20 +132,20 @@
 #
 # Seat attributes.
 #
-- DriverPosition:
+DriverPosition:
   datatype: uint8
   type: attribute
   default: 0
   description: The position of the driver seat in row 1. (1-5)
 
-- SeatRowCount:
+SeatRowCount:
   datatype: uint8
   type: attribute
   default: 0
   description: Number of seat rows in vehicle
 
 
-- SeatPosCount:
+SeatPosCount:
   datatype: uint8[]
   type: attribute
   default: 0
@@ -156,11 +156,11 @@
 ##
 # Convertible roof status
 ##
-- Convertible:
+Convertible:
   type: branch
   description: Convertible roof
 
-- Convertible.Status:
+Convertible.Status:
   datatype: string
   type: sensor
   enum: ["undefined", "closed", "open", "closing", "opening", "stalled"]

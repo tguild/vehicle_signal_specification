@@ -14,7 +14,7 @@
 # Include a slider control switch for the blind
 #include SingleSliderSwitch.vspec
 
-- Position:
+Position:
   datatype: uint8
   type: actuator
   min: 0

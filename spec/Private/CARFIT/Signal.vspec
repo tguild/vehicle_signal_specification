@@ -7,7 +7,7 @@
 #
 # The vehicle branch for high-level vehicle signals.
 #
-- Vehicle:
+Vehicle:
   type: branch
   description: High level vehicle data.
 
@@ -19,7 +19,7 @@
 #
 # The engine branch used to host the signals in engine.vspec.
 #
-- Drivetrain:
+Drivetrain:
   type: branch
   description: Drivetrain data for internal combustion engines, transmissions, electric motors, etc.
 
@@ -28,7 +28,7 @@
 # Chassis signals.
 # Includes steering, suspension, wheels, brakes, etc
 #
-- Chassis:
+Chassis:
   type: branch
   description: All signals concerning steering, suspension, wheels, and brakes.
 

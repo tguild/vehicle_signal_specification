@@ -7,31 +7,31 @@
 #
 # Brake
 #
-- Brake.PadWorn:
+Brake.PadWorn:
   type: Boolean
   description: Brake pad wear status. True = Worn. False = Not Worn.
 
-- Brake.RotorWear:
+Brake.RotorWear:
   type: uint16
   description: Brake rotor wear as a percent.  0 = No Wear.  100 = Replace.
 
-- Brake.RotorThin:
+Brake.RotorThin:
   type: Boolean
   description: Brake rotor wear status. True = Thin. False = Not Thin.
 
-- Brake.RotorDamage:
+Brake.RotorDamage:
   type: Boolean
   description: Brake rotor damage status. True = Damaged. False = Not Damaged.
 
-- Brake.Runout:
+Brake.Runout:
   type: Boolean
   description: Unbalance brake thickness.  True = Runout present.  False = No runout
 
-- Brake.Calipers:
+Brake.Calipers:
   type: Boolean
   description: Brake caliper damage.  True = damaged.  False = no damage
 
-- Brake.Drum:
+Brake.Drum:
   type: Boolean
   description: Brake drum damage.  True = damaged.  False = no damage
 
@@ -39,47 +39,47 @@
 #
 # Tire
 #
-- Tire.Condition:
+Tire.Condition:
   type: Branch
   description: All signals relating to the tire condition.
 
-- Tire.Condition.Tread:
+Tire.Condition.Tread:
   type: String,
   enum: [ good, flat spot, low, uneven, separated, other damage ]
   description: The condition of the tread
 
-- Tire.Condition.Sidewall:
+Tire.Condition.Sidewall:
   type: Boolean
   description: Tire sidewall condition .  True = Tire sidewall is good.  False = Tire sidewall is bad.
 
-- Tire.Condition.Bead:
+Tire.Condition.Bead:
   type: Boolean
   description: Tire bead condition .  True = Tire bead is good.  False = Tire bead is bad.
 
-- Tire.Condition.Internal:
+Tire.Condition.Internal:
   type: Boolean
   description: Tire internal condition .  True = Tire internal condition is good.  False = Tire internal condition is bad.
 
 #
 # Wheel
 #
-- Wheel:
+Wheel:
   type: branch
   description: Wheel signals (not including the tire)
 
-- Wheel.Balance:
+Wheel.Balance:
   type: Boolean
   description: Wheel Balance Status.  True = Good wheel balance.  False = Bad wheel balance.
 
-- Wheel.Condition:
+Wheel.Condition:
   type: String,
   enum: [ good, dents, cracks, flat spot, other damage ]
   description: The condition of the tread
 
-- Wheel.Bearing:
+Wheel.Bearing:
   type: Boolean
   description: Wheel Bearing Status.  True = Good wheel bearings.  False = bad wheel bearings.
 
-- Wheel.Torque:
+Wheel.Torque:
   type: Boolean
   description: Wheel torque status.  True = Wheel correctly torqued.  False = Wheel not torqued correctly.

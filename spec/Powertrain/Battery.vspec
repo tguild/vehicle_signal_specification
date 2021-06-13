@@ -11,17 +11,17 @@
 # Signals, attributes and actuators around the electric powertrain.
 #
 
-- Temperature:
+Temperature:
   datatype: float
   type: sensor
   unit: celsius
   description: Temperature of the battery pack
 
-- StateOfCharge:
+StateOfCharge:
   type: branch
   description: Information on the state of charge of the vehicle's high voltage battery.
 
-- StateOfCharge.Current:
+StateOfCharge.Current:
   type: sensor
   unit: percent
   datatype: float
@@ -29,7 +29,7 @@
   max: 100.00
   description: Physical state of charge of the high voltage battery. This is not necessarily the state of charge being displayed to the customer.
 
-- StateOfCharge.Displayed:
+StateOfCharge.Displayed:
   type: sensor
   datatype: float
   unit: percent
@@ -37,7 +37,7 @@
   max: 100.00
   description: State of charge displayed to the customer.
 
-- StateOfCharge.Target:
+StateOfCharge.Target:
   type: actuator
   datatype: uint8
   min: 0
@@ -45,53 +45,53 @@
   unit: percent
   description: Target state of charge set (eg. by customer).
 
-- GrossCapacity:
+GrossCapacity:
   datatype: uint16
   type: attribute
   unit: kWh
   description: Gross capacity of the battery
 
-- NetCapacity:
+NetCapacity:
   datatype: uint16
   type: attribute
   unit: kWh
   description: Net capacity of the battery
 
-- NominalVoltage:
+NominalVoltage:
   datatype: uint16
   type: attribute
   unit: V
   description: Nominal Voltage of the battery
 
-- ReferentVoltage:
+ReferentVoltage:
   datatype: uint16
   type: attribute
   unit: V
   description: Referent Voltage of the battery
 
-- AccumulatedChargedEnergy:
+AccumulatedChargedEnergy:
   datatype: float
   type: sensor
   unit: kWh
   description: The accumulated energy delivered to the battery during charging over lifetime.
 
-- AccumulatedConsumedEnergy:
+AccumulatedConsumedEnergy:
   datatype: float
   type: sensor
   unit: kWh
   description: The accumulated energy leaving HV battery for propulsion and auxiliary loads over lifetime.
 
-- Range:
+Range:
   datatype: uint32
   type: sensor
   unit: m
   description: Remaining range in meters using only battery.
 
-- Charging:
+Charging:
   type: branch
   description: Properties related to battery charging
   
-- Charging.ChargeLimit:
+Charging.ChargeLimit:
   datatype: uint8
   type: actuator
   min: 0
@@ -99,83 +99,83 @@
   unit: percent
   description: Maximum charge level for battery, can potentially be set manually.
 
-- Charging.MaximumChargingCurrent:
+Charging.MaximumChargingCurrent:
   datatype: float
   type: sensor
   unit: A
   description: Maximum charging current that can be accepted by the system.
 
-- Charging.ChargePortFlap:
+Charging.ChargePortFlap:
   datatype: string
   type: actuator
   enum: [ 'open', 'closed' ]
   description: Signal indicating if charge port cover is open or closed, can potentially be controlled manually.
 
-- Charging.ChargePlugStatus:
+Charging.ChargePlugStatus:
   datatype: boolean
   type: sensor
   description: Signal indicating if charge plug is connected or not.
 
-- Charging.ChargePlugType:
+Charging.ChargePlugType:
   datatype: string
   type: attribute
   default: ccs
   enum: [ 'type 1', 'type 2', 'ccs', 'chademo' ]
   description: Type of charge plug available on the vehicle (CSS includes Type2).
 
-- Charging.Mode:
+Charging.Mode:
   datatype: string
   type: actuator
   enum: [ 'manual', 'timer', 'grid' ]
   description: Control of the charge process - manually initiated (plug-in event, companion app, etc), timer-based or grid-controlled (eg ISO 15118).
 
-- Charging.Status:
+Charging.Status:
   datatype: boolean
   type: sensor
   description: State of charging process.
 
-- Charging.StartStopCharging:
+Charging.StartStopCharging:
   datatype: string
   type: actuator
   enum: [ 'start', 'stop' ]
   description: Start or stop the charging process.
 
-- Charging.ChargeCurrent:
+Charging.ChargeCurrent:
   datatype: float
   type: sensor
   unit: A
   description: Current charging current.
 
-- Charging.ChargeVoltage:
+Charging.ChargeVoltage:
   datatype: float
   type: sensor
   unit: V
   description: Current charging voltage.
 
-- Charging.ChargeRate:
+Charging.ChargeRate:
   datatype: float
   type: sensor
   unit: km/h
   description: Current charging rate, as in kilometers of range added per hour.
 
-- Charging.TimeToComplete:
+Charging.TimeToComplete:
   datatype: uint32
   type: sensor
   unit: s
   description: The time needed to complete the current charging process to the set charge limit. 0 if charging is complete, negative number if no charging process is active.
 
 
-- Charging.Timer:
+Charging.Timer:
   type: branch
   description: Properties related to timing of battery charging sessions.
 
-- Charging.Timer.Time:
+Charging.Timer.Time:
   datatype: uint32
   type: actuator
   unit: s
   description: Time value for next charging-related action (Unix timestamp, seconds).
 
-- Charging.Timer.Mode:
+Charging.Timer.Mode:
   datatype: string
   type: actuator
   enum: [ 'starttime', 'endtime', 'depaturetime' ]

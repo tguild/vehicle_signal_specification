@@ -13,7 +13,7 @@
 #
 # Vehicle Weight and Dimension attributes
 #
-- CurbWeight:
+CurbWeight:
   datatype: uint16
   type: attribute
   default: 0
@@ -21,7 +21,7 @@
   description: Vehicle curb weight, in kg, including all liquids and full tank of fuel, but no cargo or passengers.
   deprecation: V2.1 moved to Vehicle.CurbWeight
 
-- GrossWeight:
+GrossWeight:
   datatype: uint16
   type: attribute
   default: 0
@@ -29,7 +29,7 @@
   description: Curb weight of vehicle, including all liquids and full tank of fuel and full load of cargo and passengers.
   deprecation: V2.1 moved to Vehicle.GrossWeight
 
-- TowWeight:
+TowWeight:
   datatype: uint16
   type: attribute
   default: 0
@@ -37,7 +37,7 @@
   description: Maximum weight, in kilos, of trailer.
   deprecation: V2.1 moved to Vehicle.TowWeight
 
-- Length:
+Length:
   datatype: uint16
   type: attribute
   default: 0
@@ -45,7 +45,7 @@
   description: Overall vehicle length, in mm.
   deprecation: V2.1 moved to Vehicle.Length
 
-- Height:
+Height:
   datatype: uint16
   type: attribute
   default: 0
@@ -53,7 +53,7 @@
   description: Overall vehicle height, in mm.
   deprecation: V2.1 moved to Vehicle.Height
 
-- Width:
+Width:
   datatype: uint16
   type: attribute
   default: 0
@@ -61,14 +61,14 @@
   description: Overall vehicle width, in mm.
   deprecation: V2.1 moved to Vehicle.Width
 
-- Wheelbase:
+Wheelbase:
   datatype: uint16
   type: attribute
   default: 0
   unit: mm
   description: Overall wheel base, in mm.
 
-- Track:
+Track:
   datatype: uint16
   type: attribute
   default: 0
@@ -78,13 +78,13 @@
 #
 # Axle definition
 #
-- Axle:
+Axle:
   instances:
     - Row[1,2]
   type: branch
   description: Axle signals
 
-- AxleCount:
+AxleCount:
   datatype: uint8
   type: attribute
   default: 2
@@ -94,18 +94,18 @@
 #
 # Axle attributes
 #
-- Axle.WheelCount:
+Axle.WheelCount:
   datatype: uint8
   type: attribute
   description: Number of wheels on the axle
 
-- Axle.WheelDiameter:
+Axle.WheelDiameter:
   datatype: float
   type: attribute
   unit: inch
   description: Diameter of wheels (rims without tires), in inches, as per ETRTO / TRA standard.
 
-- Axle.WheelWidth:
+Axle.WheelWidth:
   datatype: float
   type: attribute
   unit: inch
@@ -121,19 +121,19 @@
 # for convenience, and it is possible for a vehicle to present both attributes as they can be calculated from each other.
 # Axle.TireDiameter = Axle.WheelDiameter + ((2 * Axle.TireWidth * Axle.TireAspectRatio) /(100*25.4))
 
-- Axle.TireDiameter:
+Axle.TireDiameter:
   datatype: float
   type: attribute
   unit: inch
   description: Outer diameter of tires, in inches, as per ETRTO / TRA standard.
 
-- Axle.TireWidth:
+Axle.TireWidth:
   datatype: uint16
   type: attribute
   unit: mm
   description: Nominal section width of tires, in mm, as per ETRTO / TRA standard.
 
-- Axle.TireAspectRatio:
+Axle.TireAspectRatio:
   datatype: uint8
   type: attribute
   unit: percent
@@ -142,7 +142,7 @@
 #
 # Wheels on Axles
 #
-- Axle.Wheel:
+Axle.Wheel:
   instances: ["Left","Right"]
   type: branch
   description: Wheel signals for axle
@@ -152,11 +152,11 @@
 #
 # Parking Brake
 #
-- ParkingBrake:
+ParkingBrake:
   type: branch
   description: Parking brake signals
 
-- ParkingBrake.IsEngaged:
+ParkingBrake.IsEngaged:
   datatype: boolean
   type: actuator
   description: Parking brake status. True = Parking Brake is Engaged. False = Parking Brake is not Engaged.
@@ -165,17 +165,17 @@
 #
 # Steering Wheel
 #
-- SteeringWheel:
+SteeringWheel:
   type: branch
   description: Steering wheel signals
 
-- SteeringWheel.Angle:
+SteeringWheel.Angle:
   datatype: int16
   type: sensor
   unit: degrees
   description: Steering wheel angle. Positive = degrees to the left. Negative = degrees to the right.
 
-- SteeringWheel.Tilt:
+SteeringWheel.Tilt:
   datatype: uint8
   type: actuator
   min: 0
@@ -183,7 +183,7 @@
   unit: percent
   description: Steering wheel column tilt. 0 = Lowest position. 100 = Highest position.
 
-- SteeringWheel.Extension:
+SteeringWheel.Extension:
   datatype: uint8
   type: actuator
   min: 0
@@ -191,7 +191,7 @@
   unit: percent
   description: Steering wheel column extension from dashboard. 0 = Closest to dashboard. 100 = Furthest from dashboard.
 
-- SteeringWheel.Position:
+SteeringWheel.Position:
   datatype: string
   type: attribute
   default: front_left
@@ -201,11 +201,11 @@
 #
 # Accelerator
 #
-- Accelerator:
+Accelerator:
   type: branch
   description: Accelerator signals
 
-- Accelerator.PedalPosition:
+Accelerator.PedalPosition:
   datatype: uint8
   type: sensor
   min: 0
@@ -217,11 +217,11 @@
 #
 # Brake
 #
-- Brake:
+Brake:
   type: branch
   description: Brake system signals
 
-- Brake.PedalPosition:
+Brake.PedalPosition:
   datatype: uint8
   type: sensor
   min: 0
@@ -233,12 +233,12 @@
 #
 # Trailer
 #
-- Trailer:
+Trailer:
   type: branch
   description: Trailer signals
   deprecation: V2.1 moved to Vehicle.Trailer
 
-- Trailer.Connected:
+Trailer.Connected:
   datatype: boolean
   type: sensor
   description: Signal indicating if trailer is connected or not.

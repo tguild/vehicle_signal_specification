@@ -7,7 +7,7 @@
 #
 # Steering Wheel
 #
-- SteeringWheelBias.Angle:
+SteeringWheelBias.Angle:
   type: int16
   unit: degrees
   description: Steering wheel bias angle (offset). Positive = degrees to the left. Negative = degrees to the right.
@@ -16,25 +16,25 @@
 #
 # Alignment
 #
-- Alignment:
+Alignment:
   type: branch
   description: Wheel alignment signals
 
-- Alignment.IsAligned:
+Alignment.IsAligned:
   type: Boolean
   description: Alignment status. True = Is aligned. False = Is out of alignment.
 
-- Alignment.Caster:
+Alignment.Caster:
   type: uint8
   unit: degrees
   description: Caster in degrees.  Positive = right caster, Negative = left caster
 
-- Alignment.Camber:
+Alignment.Camber:
   type: uint8
   unit: degrees
   description: Camber in degrees.  Positive = right camber, Negative = left camber
 
-- Alignment.Toe:
+Alignment.Toe:
   type: uint8
   unit: degrees
   description: Toe in degrees.  Positive = right toe, Negative = left toe
@@ -43,41 +43,41 @@
 # Suspension signals
 #
 
-- Suspension:
+Suspension:
   type: branch
   description: Suspension signals
 
-- Suspension.Shock:
+Suspension.Shock:
   type: boolean
   description: Shock condition.  True = good condition.  False = bad condition
 
-- Suspension.Strut:
+Suspension.Strut:
   type: boolean
   description: Strut condition.  True = good condition.  False = bad condition
 
-- Suspension.Linkage:
+Suspension.Linkage:
   type: boolean
   description: Linkage condition.  True = good condition.  False = bad condition
 
-- Suspension.Spring:
+Suspension.Spring:
   type: boolean
   description: Spring condition.  True = good condition.  False = bad condition
 
 #
 # Axle signals
 #
-- Axle.Shaft:
+Axle.Shaft:
   type: boolean
   description: Axle shaft condition.  True = good condition.  False = bad condition
 
 #
 # U-joint signals
 #
-- UJoint:
+UJoint:
   type: branch
   description: UJoint signals
 
-- UJoint.Condition:
+UJoint.Condition:
   type: boolean
   description: U-Joint condition.  True = good condition.  False = bad condition
 
@@ -85,19 +85,19 @@
 #
 # CV joint signals
 #
-- CVJoint:
+CVJoint:
   type: branch
   description: CVJoint signals
 
-- CVJoint.Condition:
+CVJoint.Condition:
   type: boolean
   description: CV joint condition.  True = good condition.  False = bad condition
 
-- CVJoint.Boot:
+CVJoint.Boot:
   type: boolean
   description: CV joint boot condition.  True = good condition.  False = bad condition
 
-- CVJoint.Bushing:
+CVJoint.Bushing:
   type: boolean
   description: CV joint bushing condition.  True = good condition.  False = bad condition
 
@@ -105,25 +105,25 @@
 #
 # Ball joint signals
 #
-- BallJoint:
+BallJoint:
   type: branch
   description: BallJoint signals
 
-- BallJoint.Condition:
+BallJoint.Condition:
   type: boolean
   description: Ball joint condition.  True = good condition.  False = bad condition
 
 #
 # Steering System
 #
-- Steering:
+Steering:
   type: branch
   description: Steering system signals
 
-- Steering.Condition:
+Steering.Condition:
   type: boolean
   description: Steering system condition.  True = good condition.  False = bad condition
 
-- Steering.Rack:
+Steering.Rack:
   type: boolean
   description: Steering rack condition.  True = good condition.  False = bad condition

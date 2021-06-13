@@ -10,22 +10,22 @@
 # All interior lights and sensors
 #
 
-- IsGloveBoxOn:
+IsGloveBoxOn:
   datatype: boolean
   type: actuator
   description: Is glove box light on
 
-- IsTrunkOn:
+IsTrunkOn:
   datatype: boolean
   type: actuator
   description: Is trunk light light on
 
-- IsDomeOn:
+IsDomeOn:
   datatype: boolean
   type: actuator
   description: Is central dome light light on
 
-- AmbientLight:
+AmbientLight:
   datatype: uint8
   type: sensor
   unit: percent
@@ -33,7 +33,7 @@
   max: 100
   description: How much ambient light is detected in cabin. 0 = No ambient light. 100 = Full brightness
 
-- LightIntensity:
+LightIntensity:
   datatype: uint8
   type: sensor
   unit: percent
@@ -44,23 +44,23 @@
 #
 # First / front row lights
 #
-- Spotlight:
+Spotlight:
   type: branch
   instances: Row[1,4]
   description: Spotlight for a specific area in the vehicle.
 
-- Spotlight.IsSharedOn:
+Spotlight.IsSharedOn:
   datatype: boolean
   type: sensor
   description: Is a shared light across a specific row on
 
-- Spotlight.IsLeftOn:
+Spotlight.IsLeftOn:
   datatype: boolean
   type: actuator
   description: Is light on the left side switched on
 
 
-- Spotlight.IsRightOn:
+Spotlight.IsRightOn:
   datatype: boolean
   type: actuator
   description: Is light on the right side switched on

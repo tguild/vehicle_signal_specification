@@ -10,27 +10,27 @@
 # Fuel system for ICE / hybrids
 #
 
-- FuelType:
+FuelType:
   datatype: string
   type: attribute
   enum: [ "unknown", "gasoline", "diesel", "electric", "hybrid", "E85", "CNG", "LPG" ]
   default: "unknown"
   description: Defines the fuel type of the vehicle
 
-- HybridType:
+HybridType:
   datatype: string
   type: attribute
   enum: [ "unknown", "not_applicable", "stop_start", "belt_ISG", "CIMG", "PHEV" ]
   default: "unknown"
   description: Defines the hybrid type of the vehicle
 
-- TankCapacity:
+TankCapacity:
   datatype: float
   type: attribute
   unit: l
   description: Capacity of the fuel tank in liters
 
-- Level:
+Level:
   datatype: uint8
   type: sensor
   unit: percent
@@ -38,20 +38,20 @@
   max: 100
   description: Level in fuel tank as percent of capacity. 0 = empty. 100 = full.
 
-- Range:
+Range:
   datatype: uint32
   type: sensor
   unit: m
   description: Remaining range in meters using only liquid fuel.
 
-- InstantConsumption:
+InstantConsumption:
   datatype: float
   type: sensor
   unit: l/100km
   min: 0
   description: Current consumption in liters per 100 km.
 
-- AverageConsumption:
+AverageConsumption:
   datatype: float
   type: sensor
   unit: l/100km
@@ -61,24 +61,24 @@
 # It may e.g. be average consumption since start of current trip,
 # since a user-initiated reset or during the lifetime of the vehicle.
 
-- ConsumptionSinceStart:
+ConsumptionSinceStart:
   datatype: float
   type: sensor
   unit: l
   description: Fuel amount in liters consumed since start of current trip.
 
-- TimeSinceStart:
+TimeSinceStart:
   datatype: uint32
   type: sensor
   unit: s
   description: Time in seconds elapsed since start of current trip.
 
-- EngineStopStartEnabled:
+EngineStopStartEnabled:
   datatype: boolean
   type: sensor
   description: Indicates whether eco start stop is currently enabled
 
-- LowFuelLevel:
+LowFuelLevel:
   datatype: boolean
   type: sensor
   description: Indicates that the fuel level is low (e.g. <50km range)

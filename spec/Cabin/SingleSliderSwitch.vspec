@@ -10,7 +10,7 @@
 # Generic switch to control sliding actions such as sunroof, window,
 # blind, etc.
 #
-- Switch:
+Switch:
   datatype: string
   type: actuator
   enum: [ "Inactive", "Close", "Open", "OneShotClose", "OneShotOpen" ]

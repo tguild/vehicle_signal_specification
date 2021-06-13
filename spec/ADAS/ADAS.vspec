@@ -23,23 +23,23 @@
 #  TerrainMode
 #
 
-- CruiseControl:
+CruiseControl:
   type: branch
   description: Signals from Cruise Control system
 
-- CruiseControl.IsActive:
+CruiseControl.IsActive:
   datatype: boolean
   type: actuator
   description: Indicates if cruise control system is enabled. True = Enabled. False = Disabled.
 
 
-- CruiseControl.SpeedSet:
+CruiseControl.SpeedSet:
   datatype: float
   type: actuator
   unit: km/h
   description: Set cruise control speed in kilometers per hour
 
-- CruiseControl.Error:
+CruiseControl.Error:
   datatype: boolean
   type: sensor
   description: Indicates if cruise control system incurred and error condition. True = Error. False = NoError.
@@ -47,21 +47,21 @@
 #
 # Lane Departure Detection System
 #
-- LaneDepartureDetection:
+LaneDepartureDetection:
   type: branch
   description: Signals from Land Departure Detection System
 
-- LaneDepartureDetection.IsActive:
+LaneDepartureDetection.IsActive:
   datatype: boolean
   type: actuator
   description: Indicates if lane departure detection system is enabled. True = Enabled. False = Disabled.
 
-- LaneDepartureDetection.Warning:
+LaneDepartureDetection.Warning:
   datatype: boolean
   type: sensor
   description: Indicates if lane departure detection registered a lane departure
 
-- LaneDepartureDetection.Error:
+LaneDepartureDetection.Error:
   datatype: boolean
   type: sensor
   description: Indicates if lane departure system incurred an error condition. True = Error. False = No Error.
@@ -69,16 +69,16 @@
 #
 # Obstacle Sensor System
 #
-- ObstacleDetection:
+ObstacleDetection:
   type: branch
   description: Signals form Obstacle Sensor System
 
-- ObstacleDetection.IsActive:
+ObstacleDetection.IsActive:
   datatype: boolean
   type: actuator
   description: Indicates if obstacle sensor system is enabled. True = Enabled. False = Disabled.
 
-- ObstacleDetection.Error:
+ObstacleDetection.Error:
   datatype: boolean
   type: sensor
   description: Indicates if obstacle sensor system incurred an error condition. True = Error. False = No Error.
@@ -88,22 +88,22 @@
 #
 # Antilock Braking System
 #
-- ABS:
+ABS:
   type: branch
   description: Antilock Braking System signals
 
-- ABS.IsActive:
+ABS.IsActive:
   datatype: boolean
   type: actuator
   description: Indicates if ABS is enabled. True = Enabled. False = Disabled.
 
 
-- ABS.Error:
+ABS.Error:
   datatype: boolean
   type: sensor
   description: Indicates if ABS incurred an error condition. True = Error. False = No Error.
 
-- ABS.IsEngaged:
+ABS.IsEngaged:
   datatype: boolean
   type: sensor
   description: Indicates if ABS is currently regulating brake pressure. True = Engaged. False = Not Engaged.
@@ -112,21 +112,21 @@
 #
 # Traction Control System
 #
-- TCS:
+TCS:
   type: branch
   description: Traction Control System signals
 
-- TCS.IsActive:
+TCS.IsActive:
   datatype: boolean
   type: actuator
   description: Indicates if TCS is enabled. True = Enabled. False = Disabled.
 
-- TCS.Error:
+TCS.Error:
   datatype: boolean
   type: sensor
   description: Indicates if TCS incurred an error condition. True = Error. False = No Error.
 
-- TCS.IsEngaged:
+TCS.IsEngaged:
   datatype: boolean
   type: sensor
   description: Indicates if TCS is currently regulating traction. True = Engaged. False = Not Engaged.
@@ -135,21 +135,21 @@
 #
 # Electronic Stability Control System
 #
-- ESC:
+ESC:
   type: branch
   description: Electronic Stability Control System signals
 
-- ESC.IsActive:
+ESC.IsActive:
   datatype: boolean
   type: actuator
   description: Indicates if ECS is enabled. True = Enabled. False = Disabled.
 
-- ESC.Error:
+ESC.Error:
   datatype: boolean
   type: sensor
   description: Indicates if ESC incurred an error condition. True = Error. False = No Error.
 
-- ESC.IsEngaged:
+ESC.IsEngaged:
   datatype: boolean
   type: sensor
   description: Indicates if ESC is currently regulating vehicle stability. True = Engaged. False = Not Engaged.

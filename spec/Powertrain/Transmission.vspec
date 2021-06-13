@@ -13,7 +13,7 @@
 # root.vspec file, contains all transmission-originated signals and attributes
 #
 
-- Type:
+Type:
   datatype: string
   type: attribute
   enum: [ "unknown", "sequential", "H", "automatic", "DSG", "CVT" ]
@@ -21,13 +21,13 @@
   description: Transmission type.
 
 
-- GearCount:
+GearCount:
   datatype: uint8
   type: attribute
   default: 0
   description: Number of forward gears in the transmission. -1 = CVT.
 
-- DriveType:
+DriveType:
   datatype: string
   type: attribute
   enum: [ "unknown", "forward wheel drive", "rear wheel drive", "all wheel drive" ]
@@ -41,7 +41,7 @@
 #
 # Current vehicle speed
 #
-- Speed:
+Speed:
   datatype: int32
   type: sensor
   min: -250
@@ -60,7 +60,7 @@
 # If the transmission is moved from one vehicle to another the signal shall also include
 # distance travelled in previous vehicles.
 #
-- TravelledDistance:
+TravelledDistance:
   datatype: float
   type: sensor
   unit: km
@@ -70,7 +70,7 @@
 #
 # Current gear
 #
-- Gear:
+Gear:
   datatype: int8
   type: actuator
   min: -1
@@ -81,7 +81,7 @@
 #
 # Current mode
 #
-- PerformanceMode:
+PerformanceMode:
   datatype: string
   type: actuator
   enum: [ "normal", "sport", "economy", "snow", "rain" ]
@@ -91,7 +91,7 @@
 #
 # Current gearchange mode
 #
-- GearChangeMode:
+GearChangeMode:
   datatype: string
   type: actuator
   enum: [ "manual", "automatic" ]
@@ -101,7 +101,7 @@
 #
 # Gearbox temperature
 #
-- Temperature:
+Temperature:
   datatype: int16
   type: sensor
   min: -50
@@ -113,7 +113,7 @@
 #
 # Clutch
 #
-- ClutchWear:
+ClutchWear:
   datatype: uint8
   type: sensor
   unit: percent

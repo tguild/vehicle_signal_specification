@@ -11,28 +11,28 @@
 #
 
 
-- MaxPower:
+MaxPower:
   datatype:  uint16
   type: attribute
   default: 0
   unit: kW
   description: Peak power, in kilowatts, that motor(s) can generate.
 
-- MaxTorque:
+MaxTorque:
   datatype:  uint16
   type: attribute
   default: 0
   unit: Nm
   description: Peak power, in newton meter, that the motor(s) can generate.
 
-- MaxRegenPower:
+MaxRegenPower:
   datatype:  uint16
   type: attribute
   default: 0
   unit: kW
   description: Peak regen/brake power, in kilowatts, that motor(s) can generate.
 
-- MaxRegenTorque:
+MaxRegenTorque:
   datatype:  uint16
   type: attribute
   default: 0
@@ -43,7 +43,7 @@
 #
 # Motor
 #
-- Motor:
+Motor:
   type: branch
   description: motor signals
 
@@ -51,7 +51,7 @@
 #
 # Motor rotations per minute
 #
-- Motor.Rpm:
+Motor.Rpm:
   datatype: uint32
   type: sensor
   unit: rpm
@@ -63,7 +63,7 @@
 #
 # Motor temperature
 #
-- Motor.Temperature:
+Motor.Temperature:
   datatype: int16
   type: sensor
   unit: celsius
@@ -75,7 +75,7 @@
 #
 # Motor coolant temperature (if applicable)
 #
-- Motor.CoolantTemperature:
+Motor.CoolantTemperature:
   datatype: int16
   type: sensor
   unit: celsius
@@ -87,7 +87,7 @@
 #
 # Current Power
 #
-- Motor.Power:
+Motor.Power:
   datatype: int16
   type: sensor
   unit: kW
@@ -98,7 +98,7 @@
 #
 # Current Torque
 #
-- Motor.Torque:
+Motor.Torque:
   datatype: int16
   type: sensor
   unit: Nm

@@ -10,12 +10,12 @@
 # Seat signals
 #
 
-- HasPassenger:
+HasPassenger:
   datatype: boolean
   type: sensor
   description: Does the seat have a passenger in it.
 
-- Occupant:
+Occupant:
   type: branch
   description: Occupant data.
 
@@ -24,12 +24,12 @@
 
 #include Occupant.vspec Occupant
 
-- IsBelted:
+IsBelted:
   datatype: boolean
   type: sensor
   description: Is the belt engaged.
 
-- Heating:
+Heating:
   datatype: int8
   type: sensor
   min: -100
@@ -37,7 +37,7 @@
   unit: percent
   description: Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat
 
-- Massage:
+Massage:
   datatype: uint8
   type: sensor
   min: 0
@@ -45,7 +45,7 @@
   unit: percent
   description: Seat massage level. 0 = off. 100 = max massage.
 
-- Recline:
+Recline:
   datatype: int8
   type: sensor
   min: -90
@@ -53,7 +53,7 @@
   unit: degrees
   description: Recline level. -90 = Max forward recline. 90 max backward recline
 
-- Position:
+Position:
   datatype: uint16
   type: sensor
   min: 0
@@ -61,11 +61,11 @@
   unit: mm
   description: Seat horizontal position. 0 = Frontmost. 1000 = Rearmost
 
-- Cushion:
+Cushion:
   type: branch
   description: Cushion signals.
 
-- Cushion.Height:
+Cushion.Height:
   datatype: uint16
   type: sensor
   min: 0
@@ -73,7 +73,7 @@
   unit: mm
   description: Height of the seat front. 0 = Lowermost. 500 = Uppermost.
 
-- Cushion.Length:
+Cushion.Length:
   datatype: uint16
   type: sensor
   min: 0
@@ -82,11 +82,11 @@
   description: Forward length of cushion (leg support). 0 = Rearmost. 500 = Forwardmost.
 
 
-- Lumbar:
+Lumbar:
   type: branch
   description: Lumbar signals
 
-- Lumbar.Inflation:
+Lumbar.Inflation:
   datatype: uint8
   type: sensor
   min: 0
@@ -94,29 +94,29 @@
   description: Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated.
 
 
-- Lumbar.Height:
+Lumbar.Height:
   datatype: uint8
   type: sensor
   min: 0
   max: 255
   description: Lumbar support position. 0 = Lowermost. 255 = Uppermost.
 
-- SideBolster:
+SideBolster:
   type: branch
   description: Side bolster settings
 
-- SideBolster.Inflation:
+SideBolster.Inflation:
   datatype: uint8
   type: sensor
   min: 0
   max: 255
   description: Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated.
 
-- HeadRestraint:
+HeadRestraint:
   type: branch
   description: Head restraint settings
 
-- HeadRestraint.Height:
+HeadRestraint.Height:
   datatype: uint8
   type: sensor
   min: 0
@@ -124,11 +124,11 @@
   unit: mm
   description: Height of head restraint. 0 = Bottommost. 255 = Topmost.
 
-- Airbag:
+Airbag:
   type: branch
   description: Airbag signals
 
-- Airbag.IsDeployed:
+Airbag.IsDeployed:
   datatype: boolean
   type: sensor
   description: Airbag deployment status. True = Airbag deployed. False = Airbag not deployed.
@@ -136,140 +136,140 @@
 
 #--------------------------------------
 
-- Switch:
+Switch:
   type: branch
   description: Seat switch signals
 
-- Switch.Warmer:
+Switch.Warmer:
   datatype: boolean
   type: actuator
   description: Warmer switch for Seat heater
 
-- Switch.Cooler:
+Switch.Cooler:
   datatype: boolean
   type: actuator
   description: Cooler switch for Seat heater
 
-- Switch.Forward:
+Switch.Forward:
   datatype: boolean
   type: actuator
   description: Seat forward switch engaged
 
-- Switch.Backward:
+Switch.Backward:
   datatype: boolean
   type: actuator
   description: Seat forward switch engaged
 
-- Switch.Up:
+Switch.Up:
   datatype: boolean
   type: actuator
   description: Seat up switch engaged
 
-- Switch.Down:
+Switch.Down:
   datatype: boolean
   type: actuator
   description: Seat down switch engaged
 
-- Switch.HeadRestraint:
+Switch.HeadRestraint:
   type: branch
   description: Head restraint switches
 
-- Switch.HeadRestraint.Up:
+Switch.HeadRestraint.Up:
   datatype: boolean
   type: actuator
   description: Head restraint up switch engaged
 
-- Switch.HeadRestraint.Down:
+Switch.HeadRestraint.Down:
   datatype: boolean
   type: actuator
   description: Head restraint down switch engaged
 
-- Switch.Massage:
+Switch.Massage:
   type: branch
   description: Massage switches
 
-- Switch.Massage.Increase:
+Switch.Massage.Increase:
   datatype: boolean
   type: actuator
   description: Increase massage level switch engaged
 
-- Switch.Massage.Decrease:
+Switch.Massage.Decrease:
   datatype: boolean
   type: actuator
   description: Decrease massage level switch engaged
 
-- Switch.Recline:
+Switch.Recline:
   type: branch
   description: Recline switches
 
-- Switch.Recline.Backward:
+Switch.Recline.Backward:
   datatype: boolean
   type: actuator
   description: Seatback recline backward switch engaged
 
-- Switch.Recline.Forward:
+Switch.Recline.Forward:
   datatype: boolean
   type: actuator
   description: Seatback recline forward switch engaged
 
-- Switch.Cushion:
+Switch.Cushion:
   type: branch
   description: Cushion switches
 
-- Switch.Cushion.Up:
+Switch.Cushion.Up:
   datatype: boolean
   type: actuator
   description: Seat cushion up switch engaged
 
-- Switch.Cushion.Down:
+Switch.Cushion.Down:
   datatype: boolean
   type: actuator
   description: Seat cushion down switch engaged
 
-- Switch.Cushion.Forward:
+Switch.Cushion.Forward:
   datatype: boolean
   type: actuator
   description: Seat cushion forward/lengthen switch engaged
 
-- Switch.Cushion.Backward:
+Switch.Cushion.Backward:
   datatype: boolean
   type: actuator
   description: Seat cushion backward/shorten switch engaged
 
-- Switch.Lumbar:
+Switch.Lumbar:
   type: branch
   description: Lumbar switches
 
-- Switch.Lumbar.Up:
+Switch.Lumbar.Up:
   datatype: boolean
   type: actuator
   description: Lumbar up switch engaged
 
-- Switch.Lumbar.Down:
+Switch.Lumbar.Down:
   datatype: boolean
   type: actuator
   description: Lumbar down switch engaged
 
-- Switch.Lumbar.Inflate:
+Switch.Lumbar.Inflate:
   datatype: boolean
   type: actuator
   description: Lumbar inflation switch engaged
 
-- Switch.Lumbar.Deflate:
+Switch.Lumbar.Deflate:
   datatype: boolean
   type: actuator
   description: Lumbar deflation switch engaged
 
-- Switch.SideBolster:
+Switch.SideBolster:
   type: branch
   description: Side bolster switches
 
-- Switch.SideBolster.Inflate:
+Switch.SideBolster.Inflate:
   datatype: boolean
   type: actuator
   description: Side bolster inflation switch engaged
 
-- Switch.SideBolster.Deflate:
+Switch.SideBolster.Deflate:
   datatype: boolean
   type: actuator
   description: Side bolster deflation switch engaged

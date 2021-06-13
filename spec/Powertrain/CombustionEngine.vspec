@@ -17,25 +17,25 @@
 #
 # Engine attributes
 #
-- Displacement:
+Displacement:
   datatype: uint16
   type: attribute
   description: Displacement in cubic centimetres.
   unit: cm^3
 
-- StrokeLength:
+StrokeLength:
   datatype: float
   type: attribute
   description: Stroke length in millimetres.
   unit: mm
 
-- Bore:
+Bore:
   datatype: float
   type: attribute
   description: Bore in millimetres.
   unit: mm
 
-- Configuration:
+Configuration:
   datatype: string
   type: attribute
   enum: [ "unknown", "straight", "V", "boxer", "W",
@@ -43,22 +43,22 @@
   description: Engine configuration.
   default: "unknown"
 
-- NumberOfCylinders:
+NumberOfCylinders:
   datatype: uint16
   type: attribute
   description: Number of cylinders.
 
-- NumberOfValvesPerCylinder:
+NumberOfValvesPerCylinder:
   datatype: uint16
   type: attribute
   description: Number of valves per cylinder.
 
-- CompressionRatio:
+CompressionRatio:
   datatype: string
   type: attribute
   description: Engine compression ratio.
 
-- EngineOilLevel:
+EngineOilLevel:
   datatype: string
   type: attribute
   enum: [ 
@@ -72,46 +72,46 @@
 
 # In addition to this a signal a vehicle can report remaining time to service (including e.g. oil change)
 # by Vehicle.Service.TimeToService
-- OilLifeRemaining:
+OilLifeRemaining:
   datatype: int32
   type: sensor
   description: Remaining engine oil life in seconds. Negative values can be used to indicate that lifetime has been exceeded.
   unit: s
 
-- EngineOilCapacity:
+EngineOilCapacity:
   datatype: float
   type: attribute
   description: Engine oil capacity in liters.
   unit: l
 
-- EngineCoolantCapacity:
+EngineCoolantCapacity:
   datatype: float
   type: attribute
   description: Engine coolant capacity in liters.
   unit: l
 
-- MaxPower:
+MaxPower:
   datatype:  uint16
   type: attribute
   default: 0
   unit: kW
   description: Peak power, in kilowatts, that engine can generate.
 
-- MaxTorque:
+MaxTorque:
   datatype:  uint16
   type: attribute
   default: 0
   unit: Nm
   description: Peak power, in newton meter, that the engine can generate.
 
-- AspirationType:
+AspirationType:
   datatype: string
   type: attribute
   enum: [ "unknown", "natural", "supercharger", "turbocharger" ]
   default: "unknown"
   description: Type of aspiration (natural, turbocharger, supercharger etc).
 
-- FuelType:
+FuelType:
   datatype: string
   type: attribute
   enum: [ "unknown", "gasoline", "diesel", "E85", "CNG" ]
@@ -127,7 +127,7 @@
 #
 # Engine
 #
-- Engine:
+Engine:
   type: branch
   description: Engine signals
 
@@ -135,7 +135,7 @@
 #
 # Engine rotations per minute
 #
-- Engine.Speed:
+Engine.Speed:
   datatype: uint16
   type: sensor
   unit: rpm
@@ -147,7 +147,7 @@
 #
 # Engine coolant temperature
 #
-- Engine.ECT:
+Engine.ECT:
   datatype: int16
   type: sensor
   unit: celsius
@@ -159,7 +159,7 @@
 #
 # Engine Oil Temperature
 #
-- Engine.EOT:
+Engine.EOT:
   datatype: int16
   type: sensor
   unit: celsius
@@ -171,7 +171,7 @@
 #
 # Manifold Air Pressure
 #
-- Engine.MAP:
+Engine.MAP:
   datatype: int16
   type: sensor
   unit: kPa
@@ -183,7 +183,7 @@
 #
 # Mass Air Flow
 #
-- Engine.MAF:
+Engine.MAF:
   datatype: int16
   type: sensor
   unit: g/s
@@ -194,7 +194,7 @@
 #
 # Throttle Position
 #
-- Engine.TPS:
+Engine.TPS:
   datatype: int8
   type: sensor
   unit: percent
@@ -206,7 +206,7 @@
 #
 # Engine Oil Pressure
 #
-- Engine.EOP:
+Engine.EOP:
   datatype: int16
   type: sensor
   unit: kPa
@@ -218,7 +218,7 @@
 #
 # Current Power
 #
-- Engine.Power:
+Engine.Power:
   datatype: int16
   type: sensor
   unit: kW
@@ -229,7 +229,7 @@
 #
 # Current Torque
 #
-- Engine.Torque:
+Engine.Torque:
   datatype: int16
   type: sensor
   unit: Nm
@@ -242,14 +242,14 @@
 #
 # Diesel Particulate Filter
 #
-- DieselParticulateFilter:
+DieselParticulateFilter:
   type: branch
   description: Diesel Particulate Filter signals
 
 #
 # Current inlet Temperature of Diesel Particulate Filter
 #
-- DieselParticulateFilter.InletTemperature:
+DieselParticulateFilter.InletTemperature:
   datatype: float
   type: sensor
   unit: celsius
@@ -258,7 +258,7 @@
 #
 # Current outlet Temperature of Diesel Particulate Filter
 #
-- DieselParticulateFilter.OutletTemperature:
+DieselParticulateFilter.OutletTemperature:
   datatype: float
   type: sensor
   unit: celsius
@@ -267,7 +267,7 @@
 #
 # Current delta pressure of Diesel Particulate Filter
 #
-- DieselParticulateFilter.DeltaPressure:
+DieselParticulateFilter.DeltaPressure:
   datatype: float
   type: sensor
   unit: Pa

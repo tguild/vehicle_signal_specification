@@ -3,13 +3,13 @@
 #
 
 
-- AccumulatedBrakingEnergy:
+AccumulatedBrakingEnergy:
   datatype: float
   type: sensor
   unit: kWh
   description: The accumulated energy from regenerative braking over lifetime.
 
-- Range:
+Range:
   datatype: uint32
   type: sensor
   unit: m

@@ -10,57 +10,57 @@
 # All exterior lights
 #
 
-- IsHighBeamOn:
+IsHighBeamOn:
   datatype: boolean
   type: actuator
   description: Is high beam on
 
-- IsLowBeamOn:
+IsLowBeamOn:
   datatype: boolean
   type: actuator
   description: Is low beam on
 
-- IsRunningOn:
+IsRunningOn:
   datatype: boolean
   type: actuator
   description: Are running lights on
 
-- IsBackupOn:
+IsBackupOn:
   datatype: boolean
   type: actuator
   description: Is backup (reverse) light on
 
-- IsParkingOn:
+IsParkingOn:
   datatype: boolean
   type: actuator
   description: Is parking light on
 
-- IsBrakeOn:
+IsBrakeOn:
   datatype: boolean
   type: actuator
   description: Is brake light on
 
-- IsRearFogOn:
+IsRearFogOn:
   datatype: boolean
   type: actuator
   description: Is rear fog light on
 
-- IsFrontFogOn:
+IsFrontFogOn:
   datatype: boolean
   type: actuator
   description: Is front fog light on
 
-- IsHazardOn:
+IsHazardOn:
   datatype: boolean
   type: actuator
   description: Are hazards on
 
-- IsLeftIndicatorOn:
+IsLeftIndicatorOn:
   datatype: boolean
   type: actuator
   description: Is left indicator flashing
 
-- IsRightIndicatorOn:
+IsRightIndicatorOn:
   datatype: boolean
   type: actuator
   description: Is right indicator flashing
