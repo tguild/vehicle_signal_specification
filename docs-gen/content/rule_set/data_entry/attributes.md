@@ -15,7 +15,7 @@ can be specified when the vspec file is installed.
 Below is an example of a complete attribute describing engine power
 
 ```YAML
-- MaxPower:
+MaxPower:
   type: attribute
   datatype:  uint16
   default: 0

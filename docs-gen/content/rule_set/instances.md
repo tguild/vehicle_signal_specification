@@ -40,7 +40,7 @@ The example from above in the specification:
 
 ```YAML
 # Cabin.vspec
-- Door:
+Door:
   type: branch
   instances:
     - Row[1,4]
@@ -54,7 +54,7 @@ The example from above in the specification:
 #
 # Definition of a single door
 #
-- IsOpen:
+IsOpen:
   datatype: boolean
   type: actuator
   description: Is door open or closed
@@ -97,7 +97,7 @@ can be overridden by redefining the Door branch as shown in the example below.
 ```YAML
 #Redefinition changing number of rows from 4 to 2
 #The redefinition must appear "after" the original definition
-- Vehicle.Cabin.Door:
+Vehicle.Cabin.Door:
   type: branch
   instances:
     - Row[1,2]
@@ -118,25 +118,25 @@ it is not even certain that all vehicles have two windshields. this sections giv
 to use VSS for a vehicle if the VSS specification does not offer an exact match of the capabilities of the vehicle.
 
 ```YAML
-- Windshield:
+Windshield:
   type: branch
   instances: ["Front", "Rear"]
   description: Windshield signals
 
-- Windshield.Heating:
+Windshield.Heating:
   type: branch
   description: Windshield heater signals
 
-- Windshield.Heating.Status:
+Windshield.Heating.Status:
   datatype: boolean
   type: actuator
   description: Windshield heater status. 0 - off, 1 - on
 
-- Windshield.WasherFluid:
+Windshield.WasherFluid:
   type: branch
   description: Windshield washer fluid signals
 
-- Windshield.WasherFluid.LevelLow:
+Windshield.WasherFluid.LevelLow:
   datatype: boolean
   type: sensor
   description: Low level indication for washer fluid. True = Level Low. False = Level OK.
@@ -151,7 +151,7 @@ of the following methods are recommended:
 then append a redefinition at the end of the VSS:
 
 ```YAML
-- Vehicle.Body.Windshield:
+Vehicle.Body.Windshield:
   type: branch
   instances: ["Front"]
   description: Windshield signals

@@ -11,7 +11,7 @@ is given below:
 
 
 ```YAML
-- Chassis.Transmission.Gear:
+Chassis.Transmission.Gear:
   type: sensor
   datatype: uint16
   enum: [ -1, 1, 2, 3, 4, 5, 6, 7, 8 ]

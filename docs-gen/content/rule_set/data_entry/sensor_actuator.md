@@ -7,7 +7,7 @@ A data entry defines a single sensor/actuator and its members. A data
 entry example is given below:
 
 ```YAML
-- Speed:
+Speed:
   type: sensor
   description: The vehicle speed, as measured by the drivetrain.
   datatype: uint16

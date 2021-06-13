@@ -55,16 +55,16 @@ A camera can be a good example of it. The Data Entry for the camera
 and the corresponding video stream could look like:
 
 ```YAML
-- Camera:
+Camera:
   type: branch
   description: Information about the camera and how to connect to the video stream
 
-- Camera.IsActive:
+Camera.IsActive:
   type: actuator
   datatype: boolean
   description: If the camera is active, the client is able to retrieve the video stream
 
-- Camera.URI:
+Camera.URI:
   type: sensor
   datatype: string
   description: URI for retrieving the video stream, with information on how to access the stream (e.g. protocol,  data format, encoding, etc.)
