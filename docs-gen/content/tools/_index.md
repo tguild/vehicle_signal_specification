@@ -8,7 +8,7 @@ chapter: true
 
 A released specification can be used, together with tools in
 this repository, to automatically generate a number of different
-target specification formats, such as JSON, FrancaIDL, etc.
+target specification formats, such as JSON, Franca IDL, etc.
 
 Fig 1 shows the schematics of the top-level process.
 
