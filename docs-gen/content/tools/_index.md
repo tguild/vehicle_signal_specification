@@ -19,4 +19,4 @@ Fig 1 shows the schematics of the top-level process.
 The tools are available under the ```vss-tools``` directory.
 
 The release management process will be driven in the context of GENIVI
-and its Remote Vehicle Interaction expert group.
+and its connected vehicle projects.
