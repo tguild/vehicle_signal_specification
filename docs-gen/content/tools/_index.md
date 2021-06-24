@@ -16,7 +16,7 @@ Fig 1 shows the schematics of the top-level process.
 *Fig 1. Generating documents from specification*
 
 
-The tools are available under the ```tools``` directory.
+The tools are available under the ```vss-tools``` directory.
 
 The release management process will be driven in the context of GENIVI
 and its Remote Vehicle Interaction expert group.
