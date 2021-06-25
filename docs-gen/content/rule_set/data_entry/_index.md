@@ -11,7 +11,7 @@ In order to help application developers, who are using the specification, it mak
 The difference between a signal and an attribute is that the signal has
 a publisher (or producer) that continuously updates the signal value while an
 attribute has a set value, defined in the specification, that never changes.
-As summary, besides [```branch```](/rule_set/branches) type can be:
+As summary, besides [```branch```](/vehicle_signal_specification/rule_set/branches) type can be:
 
 * **```attribute```**: attributes are not expected to change once they're set (e.g. vehicle identification number)
 * **```sensor```**: sensor values describe the current state of the vehicle and change over time, as the state of the vehicle changes (e.g. odometer).
