@@ -76,6 +76,25 @@ Gear:
   min: -1
   max: 16
   description: Current gear. 0=Neutral. -1=Reverse
+  deprecation: V2.2 replaced by CurrentGear and SelectedGear
+
+
+#
+# Current gear
+#
+CurrentGear:
+  datatype: int8
+  type: sensor
+  description: The current gear. 0=Neutral, 1/2/..=Forward, -1/..=Reverse
+
+
+#
+# Selected gear
+#
+SelectedGear:
+  datatype: int8
+  type: actuator
+  description: The selected gear. 0=Neutral, 1/2/..=Forward, -1/..=Reverse, 126=Park, 127=Drive
 
 
 #
