@@ -185,6 +185,15 @@ TripMeterReading:
   unit: km
   description: Current trip meter reading.
 
+IsBrokenDown:
+  datatype: boolean
+  type: sensor
+  description: Vehicle breakdown or any similar event causing vehicle to stop on the road,
+               that might pose a risk to other road users.
+               True = Vehicle broken down on the road, due to e.g. engine problems, flat tire, out of gas, brake problems.
+               False = Vehicle not broken down.
+  comment: Actual criteria and method used to decide if a vehicle is broken down is implementation specific.
+
 IsMoving:
   datatype: boolean
   type: sensor
