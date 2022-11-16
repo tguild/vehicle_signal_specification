@@ -72,6 +72,7 @@ Media.Volume:
   type: actuator
   min: 0
   max: 100
+  unit: percent  
   description: Current Media Volume
 
 Navigation:
@@ -103,6 +104,14 @@ Navigation.Mute:
   type: actuator
   allowed: ['MUTED', 'ALERT_ONLY', 'UNMUTED']
   description: Navigation mute state that was selected.  
+
+Navigation.Volume:
+  datatype: uint8
+  type: actuator
+  min: 0
+  max: 100
+  unit: percent    
+  description: Current navigation volume
 
 HMI:
   type: branch
