@@ -169,3 +169,26 @@ HMI.DayNightMode:
   type: actuator
   allowed: ['DAY', 'NIGHT']
   description: Current display theme
+  
+SmartphoneProjection:
+  type: branch
+  description: All smartphone projection actions.
+  
+SmartphoneProjection.Active:
+  datatype: string
+  type: actuator
+  allowed: [ 'NONE', 'ACTIVE',  'INACTIVE' ]
+  description: Projection activation info.
+  comment: NONE indicates that projection is not supported.
+  
+SmartphoneProjection.Source:
+  datatype: string
+  type: actuator
+  allowed: ['USB', 'BLUETOOTH', 'WIFI']
+  description: Connectivity source selected for projection.
+
+SmartphoneProjection.SupportedMode:
+  datatype: string[]
+  type: attribute
+  allowed: [ 'ANDROID_AUTO', 'APPLE_CARPLAY', 'MIRROR_LINK', 'OTHER' ]
+  description: Supportable list for projection.
