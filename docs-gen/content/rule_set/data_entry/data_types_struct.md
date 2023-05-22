@@ -43,7 +43,7 @@ Structs shall be used in VSS standard catalog only when considered to give a sig
 
 ## Structs vs. Aggregate
 
-VSS supports a keyword `aggregate` that can be used on [branches](https://covesa.github.io/vehicle_signal_specification/rule_set/branches/)
+VSS supports a keyword `aggregate` that can be used on [branches](/vehicle_signal_specification/rule_set/branches/)
 to indicate that the branch preferably shall be read and written in atomic operations.
 The keyword is however currently not used in the standard catalog, and it is not known if any implementation exists that actually consider it.
 There have been criticism that `aggregate` changes the semantic meaning of branches and signals, i.e. that a signal is no longer handed as an independent object.
@@ -74,7 +74,8 @@ It is however expected that they are read and written by atomic operations.
 This means that the data storage shall be "locked" while the items of the struct are read, preventing changes to happen while reading/writing the items.
 
 Structs shall be defined in a separate tree. This means that signal definitions and types cannot exist in the same files.
-Tooling must thus accept one (or more) parameters for specifying type definition(s)
+Tooling must thus accept one (or more) parameters for specifying type definition(s).
+The tree must have a branch as root, i.e. it is not possible to have a struct as root.
 
 The top level types file(s) (e.g. `vss_types.vspec`) can refer to other type files similar to the
 [top VSS file](https://github.com/COVESA/vehicle_signal_specification/blob/master/spec/VehicleSignalSpecification.vspec).
@@ -280,7 +281,7 @@ then a signal (or item) using the struct type is also considered to have a defau
 
 ## Allowed Values
 
-VSS supports [specification of allowed values](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/allowed/).
+VSS supports [specification of allowed values](/vehicle_signal_specification/rule_set/data_entry/allowed/).
 
 Using `allowed` for `type: property` is allowed (if `allowed` is supported for the used datatype).
 Using `allowed` for signals and items of struct type or array of struct type is not allowed.
