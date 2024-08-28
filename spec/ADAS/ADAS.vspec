@@ -86,7 +86,7 @@ CruiseControl.IsError:
   type: sensor
   description: Indicates if cruise control system incurred an error condition. True = Error. False = No Error.
 
-CruiseControl.AdaptiveIsActive:
+CruiseControl.isAdaptiveActive:
   datatype: boolean
   type: actuator
   description: Indicates if adaptive cruise control system is active (i.e. actively controls speed).
