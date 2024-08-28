@@ -143,13 +143,13 @@ ObstacleDetection.IsError:
   type: sensor
   description: Indicates if obstacle sensor system incurred an error condition. True = Error. False = No Error.
 
-ObstacleDetection:ForwardDistance:
+ObstacleDetection.ForwardDistance:
   datatype: float
   type: sensor
   unit: m
   description: Distance in meters to forward detected object
 
-ObstacleDetection:ForwardTimeGap:
+ObstacleDetection.ForwardTimeGap:
   datatype: int32
   type: sensor
   unit: ms
